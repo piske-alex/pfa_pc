@@ -2,6 +2,9 @@
  * UI functions
  */
 
+const aesjs = require("aes-js");
+const Web3 = require("web3");
+
 function decrypt(text, key) {
   var encryptedBytes = aesjs.utils.hex.toBytes(text);
 

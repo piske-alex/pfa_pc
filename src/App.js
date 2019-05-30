@@ -143,7 +143,7 @@ export default function Dashboard() {
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
   return (
-    <React.Fragment className={classes.root}>
+    <React.Fragment>
       <CssBaseline />
       <AppBar
         position="absolute"
