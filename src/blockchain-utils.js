@@ -2,10 +2,11 @@
  * UI functions
  */
 
-const aesjs = require("aes-js");
-const Web3 = require("web3");
+import aesjs from "aes-js";
 
-function decrypt(text, key) {
+import Web3 from "web3";
+
+export function decrypt(text, key) {
   var encryptedBytes = aesjs.utils.hex.toBytes(text);
 
   // 解密時要建立另一個 Counter 實體
@@ -17,7 +18,7 @@ function decrypt(text, key) {
   return aesjs.utils.utf8.fromBytes(decryptedBytes);
 }
 
-function newAccount(accountName, paraphrase) {
+export function newAccount(accountName, paraphrase) {
   //string,string(length<16)
   let acctobj = web3js.eth.accounts.create();
   //padding
@@ -26,14 +27,14 @@ function newAccount(accountName, paraphrase) {
   return acctobj;
 }
 
-function readAccount(accountName, paraphrase) {
+export function readAccount(accountName, paraphrase) {
   let encryptedacctstring = localStorage.getItem(accountName);
   let key = String("000000000000000000000000" + paraphrase).slice(-24);
   let dec = decrypt(encryptedacctstring, key);
   return JSON.parse(dec);
 }
 
-function sendEther(acctobj, toa, valuea) {
+export function sendEther(acctobj, toa, valuea) {
   //object,string,string
   acctobj
     .signTransaction(
@@ -49,7 +50,7 @@ function sendEther(acctobj, toa, valuea) {
     .then(sendTransaction);
 }
 
-async function sendToken(contractaddress, acctobj, _to, amount) {
+export async function sendToken(contractaddress, acctobj, _to, amount) {
   let _from = acctobj.address;
   var count = await web3js.eth.getTransactionCount(_from);
   let contract = new web3js.eth.Contract(minABI, contractaddress);
@@ -62,7 +63,7 @@ async function sendToken(contractaddress, acctobj, _to, amount) {
     to: contractaddress,
     value: "0x0",
     data: contract.methods
-      .transfer(_to, web3js.utils.toBN(data.amount * 1e18).toString())
+      .transfer(_to, web3js.utils.toBN(amount * 1e18).toString()) // michaellee8: changed from data.amount to amount
       .encodeABI()
     //"chainId": 0x01
   };
@@ -77,7 +78,7 @@ async function sendToken(contractaddress, acctobj, _to, amount) {
     .then(sendTransaction);
 }
 
-function etherBalance(acctobj) {
+export function etherBalance(acctobj) {
   //object
   let _from = acctobj.address;
   web3js.eth.getBalance(_from, "latest", function(error, success) {
@@ -87,17 +88,17 @@ function etherBalance(acctobj) {
   });
 }
 
-function tokenBalance(acctobj, contractaddress) {
+export function tokenBalance(acctobj, contractaddress) {
   //object
   let _from = acctobj.address;
   let contract = new web3js.eth.Contract(minABI, contractaddress);
 }
 
-function readAccountList() {
+export function readAccountList() {
   //TODO: list accounts from localstorage
 }
 
-function readHistory() {
+export function readHistory() {
   //TODO: implement history server
 }
 
@@ -109,7 +110,7 @@ let web3js;
 function ret(arg) {
   return arg;
 }
-function initweb3() {
+export function initweb3() {
   /* Fallback to local node or remote node
        by default local HTTP-RPC server exposes port 8545.
        you can use web3js Node Urls also
@@ -130,7 +131,7 @@ String.prototype.getBytes = function() {
 
 window.addEventListener("load", initweb3);
 
-function encrypt(text, key) {
+export function encrypt(text, key) {
   //strings
   key = key.getBytes();
   var textBytes = aesjs.utils.utf8.toBytes(text);
@@ -145,7 +146,7 @@ function encrypt(text, key) {
   return encryptedHex;
 }
 
-function sendTransaction(rawTX) {
+export function sendTransaction(rawTX) {
   //private, not intended for UI use
   web3js.eth.sendSignedTransaction(rawTX).on("receipt", console.log); //or define some functions
 }
