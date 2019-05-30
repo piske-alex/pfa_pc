@@ -8,14 +8,14 @@ import Button from "@material-ui/core/Button";
 
 const lang = "ch";
 
-export default function CreateAccountPage({ onAccountCreate }) {
+export default function LoginAccountPage({ onAccountLogin }) {
   const [username, setUsername] = React.useState("");
   const onUsernameChange = onChangeGenerator(setUsername);
   const [password, setPassword] = React.useState("");
   const onPasswordChange = onChangeGenerator(setPassword);
   const [passwordAgain, setPasswordAgain] = React.useState("");
   const onPasswordAgainChange = onChangeGenerator(setPasswordAgain);
-  const onSumbit = () => onAccountCreate(username, password);
+  const onSumbit = () => onAccountLogin(username, password);
 
   return (
     <VerticalCenter gridStyle={{ minHeight: "80vh" }}>
@@ -48,35 +48,12 @@ export default function CreateAccountPage({ onAccountCreate }) {
               }
             />
           </Grid>
-          <Grid item>
-            <TextField
-              variant={"standard"}
-              label={trans.passwordAgain[lang]}
-              value={passwordAgain}
-              onChange={onPasswordAgainChange}
-              type={"password"}
-              helperText={
-                password === passwordAgain
-                  ? undefined
-                  : trans.passwordAgainNotMatchWarning[lang]
-              }
-            />
-          </Grid>
-          <Grid item>
-            <Typography variant={"body2"}>
-              {trans.accountCreationWarning1[lang]}
-            </Typography>
-          </Grid>
-          <Grid item>
-            <Typography variant={"body2"}>
-              {trans.accountCreationWarning2[lang]}
-            </Typography>
-          </Grid>
+
           <Grid item>
             <Button
               variant="contained"
               color="primary"
-              onClick={onAccountCreate}
+              onClick={onAccountLogin}
             >
               {trans.register[lang]}
             </Button>

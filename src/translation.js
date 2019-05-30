@@ -26,5 +26,11 @@ export default {
   },
   accountNotCreatedInfo: {
     ch: "不能新增帳戶，請檢查是否有同名帳戶。請考慮使用其他帳戶名稱。"
+  },
+  register: {
+    ch: "註冊"
+  },
+  login: {
+    ch: "登入"
   }
 };

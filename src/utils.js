@@ -8,7 +8,7 @@ export function VerticalCenter(props) {
       direction={"column"}
       alignItems={"center"}
       justify={"center"}
-      spacing={props.spacing ? props.spacing : 2}
+      spacing={props.spacing ? props.spacing : 0}
       style={props.gridStyle ? props.gridStyle : {}}
     >
       <Grid item>{props.children}</Grid>
@@ -22,7 +22,7 @@ export function HorizontalCenter(props) {
       direction={"row"}
       alignItems={"center"}
       justify={"center"}
-      spacing={props.spacing ? props.spacing : 2}
+      spacing={props.spacing ? props.spacing : 0}
       style={props.gridStyle ? props.gridStyle : {}}
     >
       <Grid item>{props.children}</Grid>

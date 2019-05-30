@@ -18,12 +18,19 @@ export function decrypt(text, key) {
   return aesjs.utils.utf8.fromBytes(decryptedBytes);
 }
 
+export function convertToPureAccountObject({ address, privateKey }) {
+  return { address, privateKey };
+}
+
 export function newAccount(accountName, paraphrase) {
   //string,string(length<16)
   let acctobj = web3js.eth.accounts.create();
   //padding
   let key = String("000000000000000000000000" + paraphrase).slice(-24);
-  localStorage.setItem(accountName, encrypt(JSON.stringify(acctobj), key));
+  localStorage.setItem(
+    accountName,
+    encrypt(JSON.stringify(convertToPureAccountObject(acctobj)), key)
+  );
   return acctobj;
 }
 
@@ -31,7 +38,7 @@ export function readAccount(accountName, paraphrase) {
   let encryptedacctstring = localStorage.getItem(accountName);
   let key = String("000000000000000000000000" + paraphrase).slice(-24);
   let dec = decrypt(encryptedacctstring, key);
-  return JSON.parse(dec);
+  return web3js.eth.accounts.privateKeyToAccount(JSON.parse(dec).privateKey);
 }
 
 export function sendEther(acctobj, toa, valuea) {
@@ -129,7 +136,7 @@ String.prototype.getBytes = function() {
 };
 // You should initialize web3 instance after window load event has fired to avoid any race condition.
 
-window.addEventListener("load", initweb3);
+// window.addEventListener("load", initweb3);
 
 export function encrypt(text, key) {
   //strings

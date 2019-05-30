@@ -5,6 +5,9 @@ import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import "./blockchain-utils";
+import { initweb3 } from "./blockchain-utils";
+
+initweb3();
 
 ReactDOM.render(
   <Router>
