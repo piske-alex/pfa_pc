@@ -67,8 +67,12 @@ export async function sendEther(acctobj, toa, valuea) {
        function(error, success) {
          if (!error) {
            //something for UI
-           sendTransaction(success,function(receipt){
-             //TODO: post
+           sendTransaction(success.rawTransaction,function(receipt){
+             let hash = success.transactionHash;
+             let type = 'out';
+             let address = acctobj.address;
+             let counterpartyaddress = toa;
+             let currency = 'PFA';
            })
          } else {
            //something for UI
@@ -83,7 +87,7 @@ export async function sendToken(contractaddress, acctobj, _to, amount) {
   var count = await web3js.eth.getTransactionCount(_from);
   let contract = new web3js.eth.Contract(minABI, contractaddress);
 
-  var rawTransaction = {
+  var rawTX = {
     from: _from,
     nonce: "0x" + count.toString(16),
     gasPrice: "0x0",
@@ -95,10 +99,10 @@ export async function sendToken(contractaddress, acctobj, _to, amount) {
       .encodeABI(),
     chainId: '48170'
   };
-  await web3.eth.accounts.signTransaction(rawTransaction, acctobj.privateKey, function(error, success) {
+  await web3.eth.accounts.signTransaction(rawTX, acctobj.privateKey, function(error, success) {
       if (!error) {
         //something for UI
-          sendTransaction(success,function(receipt){
+          sendTransaction(success.rawTransaction,function(receipt){
             //TODO: post
         })
       } else {
