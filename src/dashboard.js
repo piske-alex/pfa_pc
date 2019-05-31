@@ -7,16 +7,11 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import List from "@material-ui/core/List";
 import Typography from "@material-ui/core/Typography";
-import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
-import Badge from "@material-ui/core/Badge";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
-import Paper from "@material-ui/core/Paper";
-import Link from "@material-ui/core/Link";
 import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
-import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreIcon from "@material-ui/icons/MoreHoriz";
 import { ClickAwayListener, Snackbar } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
@@ -37,6 +32,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 import LogoutIcon from "@material-ui/icons/ExitToApp";
+import { getLogoUrl } from "./utils";
 
 const lang = "ch";
 
@@ -139,6 +135,7 @@ function Dashboard({
   handleLogout,
   handleChangeAccount,
 }) {
+  const logoUrl = getLogoUrl();
   if (isEmpty(account)) {
     history.push("/login-account");
   }
@@ -298,7 +295,7 @@ function Dashboard({
               justify="center"
             >
               <Grid item>
-                <Avatar style={{ width: 60, height: 60 }} src="logo.jpg" />
+                <Avatar style={{ width: 60, height: 60 }} src={logoUrl} />
               </Grid>
             </Grid>
           </Grid>
@@ -344,7 +341,7 @@ function Dashboard({
                   button
                 >
                   <ListItemAvatar>
-                    <Avatar src="logo.jpg" />
+                    <Avatar src={logoUrl} />
                   </ListItemAvatar>
                   <ListItemText primary={name} />
                 </ListItem>
@@ -367,7 +364,7 @@ function Dashboard({
                 justify="center"
               >
                 <Grid item>
-                  <Avatar style={{ width: 60, height: 60 }} src="logo.jpg" />
+                  <Avatar style={{ width: 60, height: 60 }} src={logoUrl} />
                 </Grid>
               </Grid>
             </Grid>
