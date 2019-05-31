@@ -1,6 +1,10 @@
 import React from "react";
 import { Grid } from "@material-ui/core";
 
+export function isEmpty(obj) {
+  return Object.keys(obj).length === 0;
+}
+
 export function VerticalCenter(props) {
   return (
     <Grid
@@ -28,8 +32,4 @@ export function HorizontalCenter(props) {
       <Grid item>{props.children}</Grid>
     </Grid>
   );
-}
-
-export function onChangeGenerator(fun) {
-  return event => fun(event.target.value);
 }

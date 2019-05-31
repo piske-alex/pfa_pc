@@ -1,6 +1,6 @@
 import React from "react";
-import { Grid, Container } from "@material-ui/core";
-import { HorizontalCenter, VerticalCenter, onChangeGenerator } from "./utils";
+import { Grid } from "@material-ui/core";
+import { HorizontalCenter, VerticalCenter } from "./utils";
 import trans from "./translation";
 import TextField from "@material-ui/core/TextField";
 import Typography from "@material-ui/core/Typography";
@@ -10,12 +10,20 @@ const lang = "ch";
 
 export default function CreateAccountPage({ onAccountCreate }) {
   const [username, setUsername] = React.useState("");
-  const onUsernameChange = onChangeGenerator(setUsername);
+  const onUsernameChange = event => {
+    setUsername(event.target.value);
+  };
   const [password, setPassword] = React.useState("");
-  const onPasswordChange = onChangeGenerator(setPassword);
+  const onPasswordChange = event => {
+    setPassword(event.target.value);
+  };
   const [passwordAgain, setPasswordAgain] = React.useState("");
-  const onPasswordAgainChange = onChangeGenerator(setPasswordAgain);
-  const onSumbit = () => onAccountCreate(username, password);
+  const onPasswordAgainChange = event => {
+    setPasswordAgain(event.target.value);
+  };
+  const onSumbit = () => {
+    onAccountCreate(username, password);
+  };
 
   return (
     <VerticalCenter gridStyle={{ minHeight: "80vh" }}>
@@ -32,6 +40,7 @@ export default function CreateAccountPage({ onAccountCreate }) {
                   ? undefined
                   : trans.usernameEmptyWarning[lang]
               }
+              inputProps={{ autoComplete: "new-password" }}
             />
           </Grid>
           <Grid item>
@@ -46,6 +55,7 @@ export default function CreateAccountPage({ onAccountCreate }) {
                   ? undefined
                   : trans.passwordLengthWarning[lang]
               }
+              inputProps={{ autoComplete: "new-password" }}
             />
           </Grid>
           <Grid item>
@@ -60,6 +70,7 @@ export default function CreateAccountPage({ onAccountCreate }) {
                   ? undefined
                   : trans.passwordAgainNotMatchWarning[lang]
               }
+              inputProps={{ autoComplete: "new-password" }}
             />
           </Grid>
           <Grid item>
@@ -73,11 +84,7 @@ export default function CreateAccountPage({ onAccountCreate }) {
             </Typography>
           </Grid>
           <Grid item>
-            <Button
-              variant="contained"
-              color="primary"
-              onClick={onAccountCreate}
-            >
+            <Button variant="contained" color="primary" onClick={onSumbit}>
               {trans.register[lang]}
             </Button>
           </Grid>

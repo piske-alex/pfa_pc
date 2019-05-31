@@ -18,7 +18,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreIcon from "@material-ui/icons/MoreHoriz";
-import { ClickAwayListener } from "@material-ui/core";
+import { ClickAwayListener, Snackbar } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
@@ -26,6 +26,17 @@ import Avatar from "@material-ui/core/Avatar";
 import ListItemText from "@material-ui/core/ListItemText";
 import Modal from "@material-ui/core/Modal";
 import t from "./translation";
+import { withRouter } from "react-router-dom";
+import { isEmpty } from "./utils";
+import { readAccountList, sendEther, web3js } from "./blockchain-utils";
+import QRCode from "qrcode.react";
+import TextField from "@material-ui/core/TextField";
+import CloseIcon from "@material-ui/icons/Close";
+import Select from "@material-ui/core/Select";
+import MenuItem from "@material-ui/core/MenuItem";
+import FormControl from "@material-ui/core/FormControl";
+import InputLabel from "@material-ui/core/InputLabel";
+import LogoutIcon from "@material-ui/icons/ExitToApp";
 
 const lang = "ch";
 
@@ -33,41 +44,41 @@ const drawerWidth = 300;
 
 const useStyles = makeStyles(theme => ({
   root: {
-    display: "flex"
+    display: "flex",
   },
   toolbar: {
-    paddingRight: 24 // keep right padding when drawer closed
+    paddingRight: 24, // keep right padding when drawer closed
   },
   toolbarIcon: {
     display: "flex",
     alignItems: "center",
     justifyContent: "flex-end",
     padding: "0 8px",
-    ...theme.mixins.toolbar
+    ...theme.mixins.toolbar,
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
     transition: theme.transitions.create(["width", "margin"], {
       easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen
-    })
+      duration: theme.transitions.duration.leavingScreen,
+    }),
   },
   appBarShift: {
     marginLeft: drawerWidth,
     width: `calc(100% - ${drawerWidth}px)`,
     transition: theme.transitions.create(["width", "margin"], {
       easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen
-    })
+      duration: theme.transitions.duration.enteringScreen,
+    }),
   },
   menuButton: {
-    marginRight: 36
+    marginRight: 36,
   },
   menuButtonHidden: {
-    display: "none"
+    display: "none",
   },
   title: {
-    flexGrow: 1
+    flexGrow: 1,
   },
   drawerPaper: {
     position: "relative",
@@ -75,45 +86,66 @@ const useStyles = makeStyles(theme => ({
     width: drawerWidth,
     transition: theme.transitions.create("width", {
       easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen
-    })
+      duration: theme.transitions.duration.enteringScreen,
+    }),
   },
   drawerPaperClose: {
     overflowX: "hidden",
     transition: theme.transitions.create("width", {
       easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen
+      duration: theme.transitions.duration.leavingScreen,
     }),
     width: theme.spacing(7),
     [theme.breakpoints.up("sm")]: {
-      width: theme.spacing(9)
-    }
+      width: theme.spacing(9),
+    },
   },
   appBarSpacer: theme.mixins.toolbar,
   content: {
     flexGrow: 1,
     height: "100vh",
-    overflow: "auto"
+    overflow: "auto",
   },
   container: {
     paddingTop: theme.spacing(4),
-    paddingBottom: theme.spacing(4)
+    paddingBottom: theme.spacing(4),
   },
   paper: {
     padding: theme.spacing(2),
     display: "flex",
     overflow: "auto",
-    flexDirection: "column"
+    flexDirection: "column",
   },
   fixedHeight: {
-    height: 240
-  }
+    height: 240,
+  },
+  modalPaper: {
+    position: "absolute",
+    width: 360,
+    height: 500,
+    top: "calc(50% - 500px / 2)",
+    left: "calc(50% - 360px / 2)",
+    backgroundColor: theme.palette.background.paper,
+    boxShadow: theme.shadows[5],
+    padding: theme.spacing(4),
+    outline: "none",
+  },
 }));
 
-export default function Dashboard() {
-  const accName = "Account1";
-  const accAddr = "0x23809948348398947982";
+function Dashboard({
+  account,
+  history,
+  currentUsername,
+  handleLogout,
+  handleChangeAccount,
+}) {
+  if (isEmpty(account)) {
+    history.push("/login-account");
+  }
+  const accName = currentUsername;
+  const accAddr = account.address;
   const classes = useStyles();
+
   const [drawerOpen, setDrawerOpen] = React.useState(false);
   const handleDrawerOpen = () => {
     setDrawerOpen(true);
@@ -121,6 +153,7 @@ export default function Dashboard() {
   const handleDrawerClose = () => {
     setDrawerOpen(false);
   };
+
   const [modalOpen, setModalOpen] = React.useState(false);
   const handleModalOpen = () => {
     setModalOpen(true);
@@ -128,7 +161,76 @@ export default function Dashboard() {
   const handleModalClose = () => {
     setModalOpen(false);
   };
+
+  const [sendModalOpen, setSendModalOpen] = React.useState(false);
+  const handleSendModalOpen = () => {
+    setSendModalOpen(true);
+  };
+  const handleSendModalClose = () => {
+    setSendModalOpen(false);
+  };
+
+  const [sendToAddress, setSendToAddress] = React.useState("");
+  const handleSendToAddressChange = event => {
+    setSendToAddress(event.target.value);
+  };
+
+  const [sendAmount, setSendAmount] = React.useState("");
+  const handleSendAmountChange = event => {
+    setSendAmount(event.target.value);
+  };
+
+  const [accountNames, setAccountNames] = React.useState([]);
+
+  React.useEffect(() => setAccountNames(readAccountList()), []);
+
+  const [
+    transactionFinishedSnackbarOpen,
+    setTransactionFinishedSnackbarOpen,
+  ] = React.useState(false);
+  const [
+    transactionFailedSnackbarOpen,
+    setTransactionFailedSnackbarOpen,
+  ] = React.useState(false);
+
+  const handleTransactionFinishedSnackbarClose = () => {
+    setTransactionFinishedSnackbarOpen(false);
+  };
+  const handleTransactionFailedSnackbarClose = () => {
+    setTransactionFailedSnackbarOpen(false);
+  };
+
+  const [transactionCount, setTransactionCount] = React.useState(0);
+
+  const [ftaBalance, setFtaBalance] = React.useState("");
+
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+
+  React.useEffect(() => {
+    const fetchBalance = async () => {
+      try {
+        const weiBal = await web3js.eth.getBalance(account.address, "latest");
+        setFtaBalance(`${web3js.utils.fromWei(weiBal)} FTA`);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchBalance();
+  });
+
+  const handleSendFTA = () => {
+    const sendFTA = async () => {
+      try {
+        await sendEther(account, sendToAddress, sendAmount);
+        setTransactionFinishedSnackbarOpen(true);
+        handleSendModalClose();
+      } catch (err) {
+        console.log(err);
+        setTransactionFailedSnackbarOpen(true);
+      }
+    };
+    sendFTA();
+  };
 
   return (
     <React.Fragment>
@@ -136,7 +238,7 @@ export default function Dashboard() {
       <AppBar
         position="absolute"
         className={clsx(
-          classes.appBar /*, drawerOpen && classes.appBarShift */
+          classes.appBar /*, drawerOpen && classes.appBarShift */,
         )}
       >
         <Toolbar className={classes.toolbar}>
@@ -147,7 +249,7 @@ export default function Dashboard() {
             onClick={handleDrawerOpen}
             className={clsx(
               classes.menuButton,
-              drawerOpen && classes.menuButtonHidden
+              drawerOpen && classes.menuButtonHidden,
             )}
           >
             <MenuIcon />
@@ -161,7 +263,10 @@ export default function Dashboard() {
           >
             {accName}
           </Typography>
-          <IconButton color="inherit" onClick={handleModalOpen}>
+          <IconButton color={"inherit"} onClick={handleLogout} edge={"end"}>
+            <LogoutIcon />
+          </IconButton>
+          <IconButton color="inherit" onClick={handleModalOpen} edge={"end"}>
             <MoreIcon />
           </IconButton>
         </Toolbar>
@@ -172,8 +277,8 @@ export default function Dashboard() {
         classes={{
           paper: clsx(
             classes.drawerPaper,
-            !drawerOpen && classes.drawerPaperClose
-          )
+            !drawerOpen && classes.drawerPaperClose,
+          ),
         }}
         open={drawerOpen}
         onBackdropClick={handleDrawerClose}
@@ -226,32 +331,24 @@ export default function Dashboard() {
                   className={classes.margin}
                   onClick={handleModalOpen}
                 >
-                  Details
+                  {t.details[lang]}
                 </Button>
               </Grid>
             </Grid>
           </Grid>
           <Grid item>
-            <Grid
-              container
-              spacing={0}
-              direction="row"
-              alignItems="center"
-              justify="center"
-            >
-              <Grid item>
-                <Typography variant="caption">{accAddr}</Typography>
-              </Grid>
-            </Grid>
-          </Grid>
-          <Grid item>
             <List>
-              <ListItem>
-                <ListItemAvatar>
-                  <Avatar src="logo.jpg" />
-                </ListItemAvatar>
-                <ListItemText primary="0 FTA" secondary="$0.00USD" />
-              </ListItem>
+              {accountNames.map(name => (
+                <ListItem
+                  onClick={() => handleChangeAccount(name.slice(5))}
+                  button
+                >
+                  <ListItemAvatar>
+                    <Avatar src="logo.jpg" />
+                  </ListItemAvatar>
+                  <ListItemText primary={name} />
+                </ListItem>
+              ))}
             </List>
           </Grid>
         </Grid>
@@ -283,39 +380,47 @@ export default function Dashboard() {
                 justify="center"
               >
                 <Grid item>
-                  <Typography variant={"h4"}>0 FTA</Typography>
+                  <Typography variant={"h4"}>{ftaBalance}</Typography>
                 </Grid>
               </Grid>
             </Grid>
+            {/*<Grid item>*/}
+            {/*  <Grid*/}
+            {/*    container*/}
+            {/*    spacing={0}*/}
+            {/*    direction="row"*/}
+            {/*    alignItems="center"*/}
+            {/*    justify="center"*/}
+            {/*  >*/}
+            {/*    <Grid item>*/}
+            {/*      <Typography variant={"subtitle1"}>$0.00USD</Typography>*/}
+            {/*    </Grid>*/}
+            {/*  </Grid>*/}
+            {/*</Grid>*/}
             <Grid item>
               <Grid
                 container
-                spacing={0}
                 direction="row"
                 alignItems="center"
                 justify="center"
               >
                 <Grid item>
-                  <Typography variant={"subtitle1"}>$0.00USD</Typography>
-                </Grid>
-              </Grid>
-            </Grid>
-            <Grid item>
-              <Grid
-                container
-                direction="row"
-                alignItems="center"
-                justify="center"
-              >
-                <Grid item>
-                  <Button variant="contained" color="primary">
-                    Deposit
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    onClick={() => window.open("http://h51.lvshandian.com")}
+                  >
+                    {t.buy[lang]}
                   </Button>
                 </Grid>
                 <Grid item xs={1} />
                 <Grid item>
-                  <Button variant="contained" color="primary">
-                    Send
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    onClick={setSendModalOpen}
+                  >
+                    {t.send[lang]}
                   </Button>
                 </Grid>
               </Grid>
@@ -324,8 +429,106 @@ export default function Dashboard() {
         </Container>
       </main>
       <Modal open={modalOpen} onBackdropClick={handleModalClose}>
-        <div />
+        <div className={classes.modalPaper}>
+          <div className={classes.toolbarIcon}>
+            <IconButton onClick={handleModalClose}>
+              <CloseIcon />
+            </IconButton>
+          </div>
+          <Grid
+            container
+            direction={"column"}
+            alignItems={"center"}
+            justify={"space-evenly"}
+            spacing={5}
+          >
+            <Grid item>
+              <Typography variant={"h5"}>{currentUsername}</Typography>
+            </Grid>
+            <Grid item>
+              <QRCode value={`fta:${account.address}`} renderAs={"svg"} />
+            </Grid>
+            <Grid item>
+              <TextField
+                variant={"outlined"}
+                value={account.address}
+                disabled
+              />
+            </Grid>
+          </Grid>
+        </div>
       </Modal>
+      <Modal open={sendModalOpen} onBackdropClick={handleSendModalClose}>
+        <div className={classes.modalPaper}>
+          <div className={classes.toolbarIcon}>
+            <IconButton onClick={handleSendModalClose}>
+              <CloseIcon />
+            </IconButton>
+          </div>
+          <Grid
+            container
+            direction={"column"}
+            alignItems={"flex-start"}
+            justify={"space-evenly"}
+            spacing={2}
+          >
+            <Grid item>
+              <TextField
+                label={t.from[lang]}
+                value={`${currentUsername} ${account.address}`}
+                disabled
+              />
+            </Grid>
+            <Grid item>
+              <TextField
+                label={t.to[lang]}
+                value={sendToAddress}
+                onChange={handleSendToAddressChange}
+              />
+            </Grid>
+            <Grid item>
+              <FormControl>
+                <InputLabel>{t.asset[lang]}</InputLabel>
+                <Select value={"fta"}>
+                  <MenuItem value="fta">FTA</MenuItem>
+                </Select>
+              </FormControl>
+            </Grid>
+            <Grid item>
+              <TextField
+                label={t.amount[lang]}
+                value={sendAmount}
+                onChange={handleSendAmountChange}
+              />
+            </Grid>
+            <Grid item>
+              <FormControl>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={handleSendFTA}
+                >
+                  {t.send[lang]}
+                </Button>
+              </FormControl>
+            </Grid>
+          </Grid>
+        </div>
+      </Modal>
+      <Snackbar
+        open={transactionFinishedSnackbarOpen}
+        autoHideDuration={6000}
+        onClose={handleTransactionFinishedSnackbarClose}
+        message={t.transactionFinishedInfo[lang]}
+      />
+      <Snackbar
+        open={transactionFailedSnackbarOpen}
+        autoHideDuration={6000}
+        onClose={handleTransactionFailedSnackbarClose}
+        message={t.transactionFailedWarning[lang]}
+      />
     </React.Fragment>
   );
 }
+
+export default withRouter(Dashboard);
