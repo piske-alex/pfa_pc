@@ -23,36 +23,40 @@ export function convertToPureAccountObject({ address, privateKey }) {
 }
 
 export function newAccount(accountName, paraphrase) {
+  if (localStorage.getItem(accountName)) {
+    // Registered, throw error
+    throw new Error("ValueError: account name is already used.");
+  }
   //string,string(length<16)
   let acctobj = web3js.eth.accounts.create();
   //padding
-  let key = String("000000000000000000000000" + paraphrase).slice(-24);
+  let key = ("000000000000000000000000" + paraphrase).slice(-24);
   localStorage.setItem(
-    accountName,
-    encrypt(JSON.stringify(convertToPureAccountObject(acctobj)), key)
+    `user-${accountName}`,
+    encrypt(JSON.stringify(convertToPureAccountObject(acctobj)), key),
   );
   return acctobj;
 }
 
 export function readAccount(accountName, paraphrase) {
-  let encryptedacctstring = localStorage.getItem(accountName);
-  let key = String("000000000000000000000000" + paraphrase).slice(-24);
+  let encryptedacctstring = localStorage.getItem(`user-${accountName}`);
+  let key = ("000000000000000000000000" + paraphrase).slice(-24);
   let dec = decrypt(encryptedacctstring, key);
   return web3js.eth.accounts.privateKeyToAccount(JSON.parse(dec).privateKey);
 }
 
-export function sendEther(acctobj, toa, valuea) {
+export async function sendEther(acctobj, toa, valuea) {
   //object,string,string
-  acctobj
+  await acctobj
     .signTransaction(
       { to: toa, value: valuea, gas: 2000000, gasPrice: "0x0" },
-      function(error, success) {
-        if (!error) {
-          //something for UI
-        } else {
-          //something for UI
-        }
-      }
+      // function(error, success) {
+      //   if (!error) {
+      //     //something for UI
+      //   } else {
+      //     //something for UI
+      //   }
+      // },
     )
     .then(sendTransaction);
 }
@@ -71,10 +75,10 @@ export async function sendToken(contractaddress, acctobj, _to, amount) {
     value: "0x0",
     data: contract.methods
       .transfer(_to, web3js.utils.toBN(amount * 1e18).toString()) // michaellee8: changed from data.amount to amount
-      .encodeABI()
+      .encodeABI(),
     //"chainId": 0x01
   };
-  acctobj
+  await acctobj
     .signTransaction(rawTransaction, function(error, success) {
       if (!error) {
         //something for UI
@@ -83,6 +87,7 @@ export async function sendToken(contractaddress, acctobj, _to, amount) {
       }
     })
     .then(sendTransaction);
+  return;
 }
 
 export function etherBalance(acctobj) {
@@ -102,7 +107,27 @@ export function tokenBalance(acctobj, contractaddress) {
 }
 
 export function readAccountList() {
-  //TODO: list accounts from localstorage
+  const accountNames = Array.apply(0, new Array(localStorage.length))
+    .map(function(o, i) {
+      return localStorage.key(i);
+    })
+    .filter(name => name.slice(0, 5) === "user-");
+  return accountNames;
+}
+
+export function exportAccounts() {
+  let obj = {};
+  readAccountList().forEach(key => {
+    obj[key] = localStorage.getItem(key);
+  });
+  return btoa(JSON.stringify(obj));
+}
+
+export function importAccounts(data) {
+  let obj = JSON.parse(atob(data));
+  Object.keys(obj).forEach(key => {
+    localStorage.setItem(key, obj[key]);
+  });
 }
 
 export function readHistory() {
@@ -123,7 +148,7 @@ export function initweb3() {
        you can use web3js Node Urls also
        'https://ropsten.web3js.io/<API KEy>'*/
   web3js = new Web3(
-    new Web3.providers.HttpProvider("http://178.128.103.141:22000")
+    new Web3.providers.HttpProvider("https://quorum.mex.gold/"),
   );
 }
 
@@ -165,20 +190,22 @@ let minABI = [
     inputs: [
       {
         name: "_to",
-        type: "address"
+        type: "address",
       },
       {
         name: "_value",
-        type: "uint256"
-      }
+        type: "uint256",
+      },
     ],
     name: "transfer",
     outputs: [
       {
         name: "",
-        type: "bool"
-      }
+        type: "bool",
+      },
     ],
-    type: "function"
-  }
+    type: "function",
+  },
 ];
+
+export { web3js };
