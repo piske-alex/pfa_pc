@@ -42,6 +42,9 @@ export default {
   send: {
     ch: "傳送",
   },
+  receive: {
+    ch: "接收",
+  },
   details: {
     ch: "詳細資料",
   },
@@ -62,5 +65,33 @@ export default {
   },
   transactionFailedWarning: {
     ch: "交易未能傳送，請檢查輸入資料。",
+  },
+  exportInstructionInfo1: {
+    ch:
+      "先將以下方格的帳戶資料複製至另一裝置，然後將資料貼上至新裝置中的方格中，並按確定，即可完成帳戶轉移。",
+  },
+  exportInstructionInfo2: {
+    ch: "注意，一旦貼上在新裝置上完成帳戶轉移，在新裝置的原有帳戶可能被移除。",
+  },
+  copyHere: {
+    ch: "這裡複製",
+  },
+  pasteHere: {
+    ch: "這裡貼上",
+  },
+  import: {
+    ch: "匯入",
+  },
+  back: {
+    ch: "返回",
+  },
+  importSuccessInfo: {
+    ch: "匯入成功。",
+  },
+  importFailedWarning: {
+    ch: "匯入失敗，請待匯入成功後才刪除原有裝置資料。",
+  },
+  accountImportExport: {
+    ch: "帳戶匯入／匯出",
   },
 };

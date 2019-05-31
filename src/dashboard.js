@@ -23,7 +23,12 @@ import Modal from "@material-ui/core/Modal";
 import t from "./translation";
 import { withRouter } from "react-router-dom";
 import { isEmpty } from "./utils";
-import { readAccountList, sendEther, web3js } from "./blockchain-utils";
+import {
+  getHistory,
+  readAccountList,
+  sendEther,
+  web3js,
+} from "./blockchain-utils";
 import QRCode from "qrcode.react";
 import TextField from "@material-ui/core/TextField";
 import CloseIcon from "@material-ui/icons/Close";
@@ -33,8 +38,14 @@ import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 import LogoutIcon from "@material-ui/icons/ExitToApp";
 import { getLogoUrl } from "./utils";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ReceiveIcon from "@material-ui/icons/CallReceived";
+import SendIcon from "@material-ui/icons/CallMade";
+import Moment from "react-moment";
 
 const lang = "ch";
+
+const accountInfoRefreshTime = 20;
 
 const drawerWidth = 300;
 
@@ -201,6 +212,8 @@ function Dashboard({
 
   const [ftaBalance, setFtaBalance] = React.useState("");
 
+  const [accHistory, setAccHistory] = React.useState([]);
+
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
   React.useEffect(() => {
@@ -213,9 +226,28 @@ function Dashboard({
       }
     };
     fetchBalance();
-  });
+  }, [
+    transactionCount,
+    Math.floor(new Date().getTime() / (accountInfoRefreshTime * 1000)),
+  ]);
+
+  React.useEffect(() => {
+    const fetchAccHistory = async () => {
+      try {
+        const h = await getHistory(account.address);
+        setAccHistory(h);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchAccHistory();
+  }, [
+    transactionCount,
+    Math.floor(new Date().getTime() / (accountInfoRefreshTime * 1000)),
+  ]);
 
   const handleSendFTA = () => {
+    setTransactionCount(transactionCount + 1);
     const sendFTA = async () => {
       try {
         await sendEther(account, sendToAddress, sendAmount);
@@ -421,6 +453,41 @@ function Dashboard({
                   </Button>
                 </Grid>
               </Grid>
+            </Grid>
+            <Grid item>
+              <List>
+                {accHistory.map(entry => (
+                  <ListItem alignItems="flex-start">
+                    {entry.type === "in" ? (
+                      <ListItemIcon>
+                        <ReceiveIcon />
+                      </ListItemIcon>
+                    ) : null}
+                    {entry.type === "out" ? (
+                      <ListItemIcon>
+                        <SendIcon />
+                      </ListItemIcon>
+                    ) : null}
+                    <ListItemText
+                      primary={`${
+                        entry.type === "in"
+                          ? t.receive[lang]
+                          : entry.type === "out"
+                          ? t.send
+                          : entry.type
+                      } ${entry.absvalue} ${entry.currency}`}
+                      secondary={
+                        <React.Fragment>
+                          <Typography variant={"body2"}>
+                            {entry.counterparty}
+                          </Typography>
+                          <Moment fromNow>{entry.time}</Moment>
+                        </React.Fragment>
+                      }
+                    />
+                  </ListItem>
+                ))}
+              </List>
             </Grid>
           </Grid>
         </Container>

@@ -79,6 +79,16 @@ export default function LoginAccountPage({ onAccountLogin, prefillUsername }) {
               {trans.register[lang]}
             </Button>
           </Grid>
+          <Grid item>
+            <Button
+              variant="contained"
+              color="primary"
+              component={Link}
+              to={"/account-manager"}
+            >
+              {trans.accountImportExport[lang]}
+            </Button>
+          </Grid>
         </Grid>
       </HorizontalCenter>
     </VerticalCenter>

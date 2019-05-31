@@ -115,6 +115,21 @@ export function readAccountList() {
   return accountNames;
 }
 
+export function exportAccounts() {
+  let obj = {};
+  readAccountList().forEach(key => {
+    obj[key] = localStorage.getItem(key);
+  });
+  return btoa(JSON.stringify(obj));
+}
+
+export function importAccounts(data) {
+  let obj = JSON.parse(atob(data));
+  Object.keys(obj).forEach(key => {
+    localStorage.setItem(key, obj[key]);
+  });
+}
+
 export function readHistory() {
   //TODO: implement history server
 }
@@ -192,5 +207,16 @@ let minABI = [
     type: "function",
   },
 ];
+
+export async function getHistory(addr) {
+  const res = await fetch(
+    `https://history.quorum.mex.gold/transactionlist/${addr}`,
+  );
+  let history = await res.json();
+  history.sort(function(h1, h2) {
+    return new Date(h2).getTime() - new Date(h1).getTime();
+  });
+  return history;
+}
 
 export { web3js };

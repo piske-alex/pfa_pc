@@ -7,6 +7,7 @@ import trans from "./translation";
 import { newAccount, readAccount } from "./blockchain-utils";
 import { withRouter, Switch } from "react-router-dom";
 import LoginAccountPage from "./loginAccountPage";
+import AccountManagerPanel from "./accountManagerPanel";
 
 const lang = "ch";
 
@@ -89,6 +90,7 @@ function App(props) {
             />
           )}
         />
+        <Route path={"/account-manager"} component={AccountManagerPanel} />
         <Route
           render={() => (
             <LoginAccountPage
