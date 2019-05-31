@@ -6,6 +6,8 @@ import aesjs from "aes-js";
 
 import Web3 from "web3";
 
+import { privateToAddress, toBuffer} from 'ethereumjs-util'
+
 export function decrypt(text, key) {
   var encryptedBytes = aesjs.utils.hex.toBytes(text);
 
@@ -22,13 +24,25 @@ export function convertToPureAccountObject({ address, privateKey }) {
   return { address, privateKey };
 }
 
-export function newAccount(accountName, paraphrase) {
+export function newAccount(accountName, paraphrase, privateKey) {
   if (localStorage.getItem(accountName)) {
     // Registered, throw error
     throw new Error("ValueError: account name is already used.");
   }
   //string,string(length<16)
-  let acctobj = web3js.eth.accounts.create();
+  let acctobj;
+  if(typeof privateKey === "string"){
+    try{
+      let address = privateToAddress(toBuffer(privateKey));
+      acctobj = {address,privateKey};
+    }catch (e) {
+      throw new Error('RangeError: Wrong Private Key Format');
+    }
+    
+  }else{
+    acctobj = web3js.eth.accounts.create();
+  }
+
   //padding
   let key = ("000000000000000000000000" + paraphrase).slice(-24);
   localStorage.setItem(
@@ -50,15 +64,18 @@ export async function sendEther(acctobj, toa, valuea) {
   await acctobj
     .signTransaction(
       { to: toa, value: valuea, gas: 2000000, gasPrice: "0x0" },
-      // function(error, success) {
-      //   if (!error) {
-      //     //something for UI
-      //   } else {
-      //     //something for UI
-      //   }
-      // },
+       function(error, success) {
+         if (!error) {
+           //something for UI
+           sendTransaction(success,function(receipt){
+             //TODO: post
+           })
+         } else {
+           //something for UI
+         }
+       },
     )
-    .then(sendTransaction);
+
 }
 
 export async function sendToken(contractaddress, acctobj, _to, amount) {
@@ -78,15 +95,17 @@ export async function sendToken(contractaddress, acctobj, _to, amount) {
       .encodeABI(),
     //"chainId": 0x01
   };
-  await acctobj
-    .signTransaction(rawTransaction, function(error, success) {
+  await web3.eth.accounts.signTransaction(rawTransaction, acctobj.privateKey, function(error, success) {
       if (!error) {
         //something for UI
+          sendTransaction(success,function(receipt){
+            //TODO: post
+        })
       } else {
         //something for UI
       }
     })
-    .then(sendTransaction);
+
   return;
 }
 
@@ -104,6 +123,11 @@ export function tokenBalance(acctobj, contractaddress) {
   //object
   let _from = acctobj.address;
   let contract = new web3js.eth.Contract(minABI, contractaddress);
+  contract.methods.balanceOf(_from).call(function(err, result) {
+    if(!err){
+      return result;
+    }
+  })
 }
 
 export function readAccountList() {
@@ -178,9 +202,9 @@ export function encrypt(text, key) {
   return encryptedHex;
 }
 
-export function sendTransaction(rawTX) {
+export function sendTransaction(rawTX,callback) {
   //private, not intended for UI use
-  web3js.eth.sendSignedTransaction(rawTX).on("receipt", console.log); //or define some functions
+  web3js.eth.sendSignedTransaction(rawTX).on("receipt", callback); //or define some functions
 }
 
 let minABI = [
