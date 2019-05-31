@@ -63,7 +63,7 @@ export async function sendEther(acctobj, toa, valuea) {
   //object,string,string
   await acctobj
     .signTransaction(
-      { to: toa, value: valuea, gas: 2000000, gasPrice: "0x0" },
+      { to: toa, chainId:'48170', value: valuea, gas: 2000000, gasPrice: "0x0" },
        function(error, success) {
          if (!error) {
            //something for UI
@@ -93,7 +93,7 @@ export async function sendToken(contractaddress, acctobj, _to, amount) {
     data: contract.methods
       .transfer(_to, web3js.utils.toBN(amount * 1e18).toString()) // michaellee8: changed from data.amount to amount
       .encodeABI(),
-    //"chainId": 0x01
+    chainId: '48170'
   };
   await web3.eth.accounts.signTransaction(rawTransaction, acctobj.privateKey, function(error, success) {
       if (!error) {
@@ -104,9 +104,9 @@ export async function sendToken(contractaddress, acctobj, _to, amount) {
       } else {
         //something for UI
       }
-    })
+    });
 
-  return;
+
 }
 
 export function etherBalance(acctobj) {
