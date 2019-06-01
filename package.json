@@ -24,7 +24,8 @@
     "eject": "react-scripts eject",
     "postbuild": "cp ./_redirects ./build/",
     "transfer-to-cordova": "rm -r ./cordova/www/ && cp -r ./build/ ./cordova/www/",
-    "transfer-to-chrome-ext": "rm -r ./chrome-extension/www/ && cp -r ./build/ ./chrome-extension/www/"
+    "transfer-to-chrome-ext": "rm -r ./chrome-extension/www/ && cp -r ./build/ ./chrome-extension/www/",
+    "pack-chrome-ext": "zip -r chrome-extension.zip chrome-extension/"
   },
   "eslintConfig": {
     "extends": "react-app"

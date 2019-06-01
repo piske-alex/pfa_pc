@@ -17,7 +17,7 @@
        under the License.
  */
 
-package com.fta.mobileapp;
+package com.pfa.mobileapp;
 
 import android.os.Bundle;
 import org.apache.cordova.*;

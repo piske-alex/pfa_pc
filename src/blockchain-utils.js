@@ -147,7 +147,7 @@ export async function tokenBalance(acctobj, contractaddress) {
   try {
     let _from = acctobj.address;
     let contract = new web3js.eth.Contract(minABI, contractaddress);
-    const balance = await contract.methods.balanceOf(_from);
+    const balance = await contract.methods.balanceOf(_from).call();
     return balance;
   } catch (err) {
     console.log(err);
@@ -252,6 +252,25 @@ let minABI = [
         type: "bool",
       },
     ],
+    type: "function",
+  },
+  {
+    constant: true,
+    inputs: [
+      {
+        name: "_owner",
+        type: "address",
+      },
+    ],
+    name: "balanceOf",
+    outputs: [
+      {
+        name: "balance",
+        type: "uint256",
+      },
+    ],
+    payable: false,
+    stateMutability: "view",
     type: "function",
   },
 ];
