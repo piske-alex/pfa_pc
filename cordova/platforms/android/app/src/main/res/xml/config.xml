@@ -4,12 +4,12 @@
         <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
         <param name="onload" value="true" />
     </feature>
-    <name>FTA</name>
+    <name>PFA</name>
     <description>
         A mobile app for the PFA cryptocurrency.
     </description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
-        Apache Cordova Team
+    <author>
+        PFA Team
     </author>
     <content src="index.html" />
     <access origin="*" />
