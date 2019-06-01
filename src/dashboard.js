@@ -268,6 +268,7 @@ function Dashboard({
         }
         setTransactionFinishedSnackbarOpen(true);
         handleSendModalClose();
+        setTransactionCount(transactionCount + 3);
       } catch (err) {
         console.log(err);
         setTransactionFailedSnackbarOpen(true);
@@ -482,7 +483,7 @@ function Dashboard({
                 </Grid>
               </Grid>
             </Grid>
-            <Grid item>
+            <Grid item style={{ maxHeight: "40vh", overflow: "auto" }}>
               <List>
                 {accHistory.map(entry => (
                   <ListItem alignItems="flex-start">
@@ -501,13 +502,13 @@ function Dashboard({
                         entry.type === "in"
                           ? t.receive[lang]
                           : entry.type === "out"
-                          ? t.send
+                          ? t.send[lang]
                           : entry.type
                       } ${entry.absvalue} ${entry.currency}`}
                       secondary={
                         <React.Fragment>
                           <Typography variant={"body2"}>
-                            {entry.counterparty}
+                            {`${entry.counterparty.slice(0, 20)}...`}
                           </Typography>
                           <Moment fromNow>{entry.time}</Moment>
                         </React.Fragment>
@@ -595,6 +596,7 @@ function Dashboard({
             <Grid item>
               <TextField
                 label={t.amount[lang]}
+                helperText={t.transactionDelayInfo[lang]}
                 value={sendAmount}
                 onChange={handleSendAmountChange}
               />

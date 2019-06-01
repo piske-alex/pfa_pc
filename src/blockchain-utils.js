@@ -57,8 +57,10 @@ export async function sendEther(acctobj, toa, valuea) {
     // gas: 21000,
     gas: 2000000,
     gasPrice: "0x0",
-    chainId: "48170",
+    // chainId: "48170",
+    chainId: "0x0",
   });
+
   //object,string,string
 
   const receipt = await sendTransaction(signedTransaction);
@@ -98,13 +100,13 @@ export async function sendToken(contractaddress, acctobj, _to, amount) {
     data: contract.methods
       .transfer(_to, web3js.utils.toBN(amount * 1e18).toString()) // michaellee8: changed from data.amount to amount
       .encodeABI(),
-    chainId: "48170",
+    // chainId: "48170",
 
-    //"chainId": 0x01
+    chainId: "0x0",
   };
   const signedTransaction = await acctobj.signTransaction(rawTransaction);
 
-  const receipt = await sendTransaction(signedTransaction);
+  const transactionHash = await sendTransaction(signedTransaction);
 
   sendHistory(
     acctobj.address,
@@ -226,9 +228,23 @@ export function encrypt(text, key) {
   return encryptedHex;
 }
 
-export async function sendTransaction(rawTX) {
+// export async function sendTransaction(rawTX) {
+//   //private, not intended for UI use
+//   console.log(await web3js.eth.sendSignedTransaction(rawTX.rawTransaction)); //or define some functions
+// }
+
+export function sendTransaction(rawTX) {
   //private, not intended for UI use
-  console.log(await web3js.eth.sendSignedTransaction(rawTX.rawTransaction)); //or define some functions
+  return new Promise((resolve, reject) =>
+    web3js.eth
+      .sendSignedTransaction(rawTX.rawTransaction)
+      .on("transactionHash", function(hash) {
+        resolve(hash);
+      })
+      .on("error", function(err) {
+        reject(err);
+      }),
+  );
 }
 
 let minABI = [
@@ -281,7 +297,7 @@ export async function getHistory(addr) {
   );
   let history = await res.json();
   history.sort(function(h1, h2) {
-    return new Date(h2).getTime() - new Date(h1).getTime();
+    return new Date(h2.time).getTime() - new Date(h1.time).getTime();
   });
   return history;
 }

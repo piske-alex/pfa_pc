@@ -97,4 +97,7 @@ export default {
   optionalExistingPrivateKey: {
     ch: "現有私鑰（選填）",
   },
+  transactionDelayInfo: {
+    ch: "注意，網絡可能需要一定時間處理交易，請稍等。",
+  },
 };
