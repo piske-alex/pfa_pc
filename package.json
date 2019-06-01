@@ -5,6 +5,7 @@
   "dependencies": {
     "@material-ui/core": "^4.0.1",
     "@material-ui/icons": "^4.0.1",
+    "@ungap/url-search-params": "^0.1.2",
     "aes-js": "^3.1.2",
     "moment": "^2.24.0",
     "prettier": "^1.17.1",

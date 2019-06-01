@@ -24,10 +24,14 @@ import t from "./translation";
 import { withRouter } from "react-router-dom";
 import { isEmpty } from "./utils";
 import {
+  etherBalance,
   getHistory,
   readAccountList,
   sendEther,
   web3js,
+  ihadAddress,
+  tokenBalance,
+  sendToken,
 } from "./blockchain-utils";
 import QRCode from "qrcode.react";
 import TextField from "@material-ui/core/TextField";
@@ -210,17 +214,21 @@ function Dashboard({
 
   const [transactionCount, setTransactionCount] = React.useState(0);
 
-  const [ftaBalance, setFtaBalance] = React.useState("");
+  const [pfaBalance, setPfaBalance] = React.useState("");
+
+  const [ihadBalance, setIhadBalance] = React.useState("");
 
   const [accHistory, setAccHistory] = React.useState([]);
+
+  const [sendCurrency, setSendCurrency] = React.useState("pfa");
 
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
   React.useEffect(() => {
     const fetchBalance = async () => {
       try {
-        const weiBal = await web3js.eth.getBalance(account.address, "latest");
-        setFtaBalance(`${web3js.utils.fromWei(weiBal)} FTA`);
+        setPfaBalance(`${await etherBalance(account)} PFA`);
+        setIhadBalance(`${await tokenBalance(account, ihadAddress)} IHAD`);
       } catch (err) {
         console.log(err);
       }
@@ -246,11 +254,17 @@ function Dashboard({
     Math.floor(new Date().getTime() / (accountInfoRefreshTime * 1000)),
   ]);
 
-  const handleSendFTA = () => {
+  const handleSendAsset = () => {
     setTransactionCount(transactionCount + 1);
-    const sendFTA = async () => {
+    const sendAsset = async () => {
       try {
-        await sendEther(account, sendToAddress, sendAmount);
+        if (sendCurrency === "pfa") {
+          await sendEther(account, sendToAddress, sendAmount);
+        } else if (sendCurrency === "ihad") {
+          await sendToken(ihadAddress, account, sendToAddress, sendAmount);
+        } else {
+          throw new Error("ValueError: No currency type selected");
+        }
         setTransactionFinishedSnackbarOpen(true);
         handleSendModalClose();
       } catch (err) {
@@ -258,7 +272,7 @@ function Dashboard({
         setTransactionFailedSnackbarOpen(true);
       }
     };
-    sendFTA();
+    sendAsset();
   };
 
   return (
@@ -409,7 +423,20 @@ function Dashboard({
                 justify="center"
               >
                 <Grid item>
-                  <Typography variant={"h4"}>{ftaBalance}</Typography>
+                  <Typography variant={"h4"}>{pfaBalance}</Typography>
+                </Grid>
+              </Grid>
+            </Grid>
+            <Grid item>
+              <Grid
+                container
+                spacing={0}
+                direction="row"
+                alignItems="center"
+                justify="center"
+              >
+                <Grid item>
+                  <Typography variant={"h4"}>{ihadBalance}</Typography>
                 </Grid>
               </Grid>
             </Grid>
@@ -510,7 +537,7 @@ function Dashboard({
               <Typography variant={"h5"}>{currentUsername}</Typography>
             </Grid>
             <Grid item>
-              <QRCode value={`fta:${account.address}`} renderAs={"svg"} />
+              <QRCode value={`pfa:${account.address}`} renderAs={"svg"} />
             </Grid>
             <Grid item>
               <TextField
@@ -553,8 +580,14 @@ function Dashboard({
             <Grid item>
               <FormControl>
                 <InputLabel>{t.asset[lang]}</InputLabel>
-                <Select value={"fta"}>
-                  <MenuItem value="fta">FTA</MenuItem>
+                <Select
+                  value={sendCurrency}
+                  onChange={event => {
+                    setSendCurrency(event.target.value);
+                  }}
+                >
+                  <MenuItem value="pfa">PFA</MenuItem>
+                  <MenuItem value="ihad">IHAD</MenuItem>
                 </Select>
               </FormControl>
             </Grid>
@@ -570,7 +603,7 @@ function Dashboard({
                 <Button
                   variant="contained"
                   color="primary"
-                  onClick={handleSendFTA}
+                  onClick={handleSendAsset}
                 >
                   {t.send[lang]}
                 </Button>

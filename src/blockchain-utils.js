@@ -3,7 +3,7 @@
  */
 
 import aesjs from "aes-js";
-
+import URLSearchParams from "@ungap/url-search-params";
 import Web3 from "web3";
 
 export function decrypt(text, key) {
@@ -22,13 +22,17 @@ export function convertToPureAccountObject({ address, privateKey }) {
   return { address, privateKey };
 }
 
-export function newAccount(accountName, paraphrase) {
+export function newAccount(accountName, paraphrase, privateKey) {
   if (localStorage.getItem(accountName)) {
     // Registered, throw error
     throw new Error("ValueError: account name is already used.");
   }
   //string,string(length<16)
-  let acctobj = web3js.eth.accounts.create();
+  let acctobj =
+    typeof privateKey === "string"
+      ? web3js.eth.accounts.privateKeyToAccount(privateKey)
+      : web3js.eth.accounts.create();
+
   //padding
   let key = ("000000000000000000000000" + paraphrase).slice(-24);
   localStorage.setItem(
@@ -46,20 +50,38 @@ export function readAccount(accountName, paraphrase) {
 }
 
 export async function sendEther(acctobj, toa, valuea) {
+  const amtInWei = web3js.utils.toWei(valuea);
+  const signedTransaction = await acctobj.signTransaction({
+    to: toa,
+    value: amtInWei,
+    // gas: 21000,
+    gas: 2000000,
+    gasPrice: "0x0",
+    chainId: "48170",
+  });
   //object,string,string
-  await acctobj
-    .signTransaction(
-      { to: toa, value: valuea, gas: 2000000, gasPrice: "0x0" },
-      // function(error, success) {
-      //   if (!error) {
-      //     //something for UI
-      //   } else {
-      //     //something for UI
-      //   }
-      // },
-    )
-    .then(sendTransaction);
+
+  const receipt = await sendTransaction(signedTransaction);
+
+  sendHistory(
+    acctobj.address,
+    "out",
+    valuea,
+    signedTransaction.transactionHash,
+    toa,
+    "PFA",
+  );
+  sendHistory(
+    toa,
+    "in",
+    valuea,
+    signedTransaction.transactionHash,
+    acctobj.address,
+    "PFA",
+  );
 }
+
+export const ihadAddress = "0x33259094d0341c908d1d589b0677a714e58a9183";
 
 export async function sendToken(contractaddress, acctobj, _to, amount) {
   let _from = acctobj.address;
@@ -76,34 +98,60 @@ export async function sendToken(contractaddress, acctobj, _to, amount) {
     data: contract.methods
       .transfer(_to, web3js.utils.toBN(amount * 1e18).toString()) // michaellee8: changed from data.amount to amount
       .encodeABI(),
+    chainId: "48170",
+
     //"chainId": 0x01
   };
-  await acctobj
-    .signTransaction(rawTransaction, function(error, success) {
-      if (!error) {
-        //something for UI
-      } else {
-        //something for UI
-      }
-    })
-    .then(sendTransaction);
+  const signedTransaction = await acctobj.signTransaction(rawTransaction);
+
+  const receipt = await sendTransaction(signedTransaction);
+
+  sendHistory(
+    acctobj.address,
+    "out",
+    amount,
+    signedTransaction.transactionHash,
+    _to,
+    contractaddress === ihadAddress
+      ? "IHAD"
+      : `Smart Contract at ${contractaddress}`,
+  );
+  sendHistory(
+    _to,
+    "in",
+    amount,
+    signedTransaction.transactionHash,
+    acctobj.address,
+    contractaddress === ihadAddress
+      ? "IHAD"
+      : `Smart Contract at ${contractaddress}`,
+  );
   return;
 }
 
-export function etherBalance(acctobj) {
+export async function etherBalance(acctobj) {
   //object
-  let _from = acctobj.address;
-  web3js.eth.getBalance(_from, "latest", function(error, success) {
-    if (!error) {
-      return success;
-    }
-  });
+
+  try {
+    let _from = acctobj.address;
+    const weiBal = await web3js.eth.getBalance(_from, "latest");
+    return web3js.utils.fromWei(weiBal);
+  } catch (err) {
+    console.log(err);
+  }
 }
 
-export function tokenBalance(acctobj, contractaddress) {
+export async function tokenBalance(acctobj, contractaddress) {
   //object
-  let _from = acctobj.address;
-  let contract = new web3js.eth.Contract(minABI, contractaddress);
+
+  try {
+    let _from = acctobj.address;
+    let contract = new web3js.eth.Contract(minABI, contractaddress);
+    const balance = await contract.methods.balanceOf(_from);
+    return balance;
+  } catch (err) {
+    console.log(err);
+  }
 }
 
 export function readAccountList() {
@@ -178,9 +226,9 @@ export function encrypt(text, key) {
   return encryptedHex;
 }
 
-export function sendTransaction(rawTX) {
+export async function sendTransaction(rawTX) {
   //private, not intended for UI use
-  web3js.eth.sendSignedTransaction(rawTX).on("receipt", console.log); //or define some functions
+  console.log(await web3js.eth.sendSignedTransaction(rawTX.rawTransaction)); //or define some functions
 }
 
 let minABI = [
@@ -217,6 +265,31 @@ export async function getHistory(addr) {
     return new Date(h2).getTime() - new Date(h1).getTime();
   });
   return history;
+}
+
+export async function sendHistory(
+  address,
+  type,
+  absvalue,
+  hash,
+  counterpartyaddress,
+  currency,
+) {
+  try {
+    let params = new URLSearchParams();
+    params.set("address", address);
+    params.set("type", type);
+    params.set("absvalue", absvalue);
+    params.set("hash", hash);
+    params.set("counterpartyaddress", counterpartyaddress);
+    params.set("currency", currency);
+    await fetch(`https://history.quorum.mex.gold/transaction`, {
+      method: "POST",
+      body: params,
+    });
+  } catch (err) {
+    console.log(err);
+  }
 }
 
 export { web3js };
