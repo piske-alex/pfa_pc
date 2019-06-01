@@ -228,7 +228,8 @@ function Dashboard({
     const fetchBalance = async () => {
       try {
         setPfaBalance(`${await etherBalance(account)} PFA`);
-        setIhadBalance(`${await tokenBalance(account, ihadAddress)} IHAD`);
+        const tkBal = await tokenBalance(account, ihadAddress);
+        setIhadBalance(tkBal ? `${tkBal} IHAD` : "");
       } catch (err) {
         console.log(err);
       }
