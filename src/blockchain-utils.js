@@ -29,7 +29,7 @@ export function newAccount(accountName, paraphrase, privateKey) {
   }
   //string,string(length<16)
   let acctobj =
-    typeof privateKey === "string"
+    typeof privateKey === "string" && privateKey !== ""
       ? web3js.eth.accounts.privateKeyToAccount(privateKey)
       : web3js.eth.accounts.create();
 

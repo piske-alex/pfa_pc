@@ -49,9 +49,9 @@ function App(props) {
     setCannotLoginSnackbarOpen(false);
   };
 
-  const onAccountCreate = (username, password) => {
+  const onAccountCreate = (username, password, pvKey) => {
     try {
-      newAccount(username, password);
+      newAccount(username, password, pvKey);
       setAccountCreatedSnackbarOpen(true);
       props.history.push("/login-account");
     } catch (err) {

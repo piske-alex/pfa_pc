@@ -21,8 +21,14 @@ export default function CreateAccountPage({ onAccountCreate }) {
   const onPasswordAgainChange = event => {
     setPasswordAgain(event.target.value);
   };
+
+  const [existingPvKey, setExistingPvKey] = React.useState("");
+  const onExistingPvKeyChange = event => {
+    setExistingPvKey(event.target.value);
+  };
+
   const onSumbit = () => {
-    onAccountCreate(username, password);
+    onAccountCreate(username, password, existingPvKey);
   };
 
   return (
@@ -70,6 +76,16 @@ export default function CreateAccountPage({ onAccountCreate }) {
                   ? undefined
                   : trans.passwordAgainNotMatchWarning[lang]
               }
+              inputProps={{ autoComplete: "new-password" }}
+            />
+          </Grid>
+          <Grid item>
+            <TextField
+              variant={"standard"}
+              label={trans.optionalExistingPrivateKey[lang]}
+              value={existingPvKey}
+              onChange={onExistingPvKeyChange}
+              type={"password"}
               inputProps={{ autoComplete: "new-password" }}
             />
           </Grid>

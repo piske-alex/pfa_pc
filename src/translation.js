@@ -94,4 +94,7 @@ export default {
   accountImportExport: {
     ch: "帳戶匯入／匯出",
   },
+  optionalExistingPrivateKey: {
+    ch: "現有私鑰（選填）",
+  },
 };
