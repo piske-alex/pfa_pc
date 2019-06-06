@@ -46,6 +46,9 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ReceiveIcon from "@material-ui/icons/CallReceived";
 import SendIcon from "@material-ui/icons/CallMade";
 import Moment from "react-moment";
+import { usdtProvider } from "./data";
+import MaterialLink from "@material-ui/core/Link";
+import Divider from "@material-ui/core/Divider";
 
 const lang = "ch";
 
@@ -64,7 +67,7 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "flex-end",
-    padding: "0 8px",
+    padding: "0 2px",
     ...theme.mixins.toolbar,
   },
   appBar: {
@@ -138,7 +141,7 @@ const useStyles = makeStyles(theme => ({
     left: "calc(50% - 360px / 2)",
     backgroundColor: theme.palette.background.paper,
     boxShadow: theme.shadows[5],
-    padding: theme.spacing(4),
+    padding: theme.spacing(1),
     outline: "none",
   },
 }));
@@ -180,6 +183,14 @@ function Dashboard({
   };
   const handleSendModalClose = () => {
     setSendModalOpen(false);
+  };
+
+  const [buyModalOpen, setBuyModalOpen] = React.useState(false);
+  const handleBuyModalOpen = () => {
+    setBuyModalOpen(true);
+  };
+  const handleBuyModalClose = () => {
+    setBuyModalOpen(false);
   };
 
   const [sendToAddress, setSendToAddress] = React.useState("");
@@ -311,9 +322,9 @@ function Dashboard({
           <IconButton color={"inherit"} onClick={handleLogout} edge={"end"}>
             <LogoutIcon />
           </IconButton>
-          <IconButton color="inherit" onClick={handleModalOpen} edge={"end"}>
-            <MoreIcon />
-          </IconButton>
+          {/*<IconButton color="inherit" onClick={handleModalOpen} edge={"end"}>*/}
+          {/*  <MoreIcon />*/}
+          {/*</IconButton>*/}
         </Toolbar>
       </AppBar>
 
@@ -333,7 +344,7 @@ function Dashboard({
             <ChevronLeftIcon />
           </IconButton>
         </div>
-        <Grid container spacing={0} direction="column">
+        <Grid container spacing={2} direction="column">
           <Grid item>
             <Grid
               container
@@ -370,11 +381,12 @@ function Dashboard({
             >
               <Grid item>
                 <Button
-                  variant="outlined"
+                  variant="contained"
                   size="small"
-                  color="primary"
+                  color="secondary"
                   className={classes.margin}
                   onClick={handleModalOpen}
+                  style={{ width: "150px" }}
                 >
                   {t.details[lang]}
                 </Button>
@@ -383,17 +395,35 @@ function Dashboard({
           </Grid>
           <Grid item>
             <List>
-              {accountNames.map(name => (
-                <ListItem
-                  onClick={() => handleChangeAccount(name.slice(5))}
-                  button
-                >
-                  <ListItemAvatar>
-                    <Avatar src={logoUrl} />
-                  </ListItemAvatar>
-                  <ListItemText primary={name} />
-                </ListItem>
-              ))}
+              {/*{accountNames.map(name => (*/}
+              {/*  <ListItem*/}
+              {/*    onClick={() => handleChangeAccount(name.slice(5))}*/}
+              {/*    button*/}
+              {/*  >*/}
+              {/*    <ListItemAvatar>*/}
+              {/*      <Avatar src={logoUrl} />*/}
+              {/*    </ListItemAvatar>*/}
+              {/*    <ListItemText primary={name} />*/}
+              {/*  </ListItem>*/}
+              {/*))}*/}
+              <ListItem>
+                <ListItemAvatar>
+                  <Avatar src={logoUrl} />
+                </ListItemAvatar>
+                <ListItemText
+                  primary={<Typography variant={"h5"}>{pfaBalance}</Typography>}
+                />
+              </ListItem>
+              <ListItem>
+                <ListItemAvatar>
+                  <Avatar src={logoUrl} />
+                </ListItemAvatar>
+                <ListItemText
+                  primary={
+                    <Typography variant={"h5"}>{ihadBalance}</Typography>
+                  }
+                />
+              </ListItem>
             </List>
           </Grid>
         </Grid>
@@ -442,19 +472,6 @@ function Dashboard({
                 </Grid>
               </Grid>
             </Grid>
-            {/*<Grid item>*/}
-            {/*  <Grid*/}
-            {/*    container*/}
-            {/*    spacing={0}*/}
-            {/*    direction="row"*/}
-            {/*    alignItems="center"*/}
-            {/*    justify="center"*/}
-            {/*  >*/}
-            {/*    <Grid item>*/}
-            {/*      <Typography variant={"subtitle1"}>$0.00USD</Typography>*/}
-            {/*    </Grid>*/}
-            {/*  </Grid>*/}
-            {/*</Grid>*/}
             <Grid item>
               <Grid
                 container
@@ -466,9 +483,10 @@ function Dashboard({
                   <Button
                     variant="contained"
                     color="primary"
-                    onClick={() => window.open("http://h51.lvshandian.com")}
+                    onClick={handleBuyModalOpen}
+                    style={{ width: "150px" }}
                   >
-                    {t.buy[lang]}
+                    {`${t.buy[lang]} USDT`}
                   </Button>
                 </Grid>
                 <Grid item xs={1} />
@@ -477,6 +495,7 @@ function Dashboard({
                     variant="contained"
                     color="primary"
                     onClick={setSendModalOpen}
+                    style={{ width: "150px" }}
                   >
                     {t.send[lang]}
                   </Button>
@@ -484,39 +503,49 @@ function Dashboard({
               </Grid>
             </Grid>
             <Grid item style={{ maxHeight: "40vh", overflow: "auto" }}>
-              <List>
-                {accHistory.map(entry => (
-                  <ListItem alignItems="flex-start">
-                    {entry.type === "in" ? (
-                      <ListItemIcon>
-                        <ReceiveIcon />
-                      </ListItemIcon>
-                    ) : null}
-                    {entry.type === "out" ? (
-                      <ListItemIcon>
-                        <SendIcon />
-                      </ListItemIcon>
-                    ) : null}
-                    <ListItemText
-                      primary={`${
-                        entry.type === "in"
-                          ? t.receive[lang]
-                          : entry.type === "out"
-                          ? t.send[lang]
-                          : entry.type
-                      } ${entry.absvalue} ${entry.currency}`}
-                      secondary={
-                        <React.Fragment>
-                          <Typography variant={"body2"}>
-                            {`${entry.counterparty.slice(0, 20)}...`}
-                          </Typography>
-                          <Moment fromNow>{entry.time}</Moment>
-                        </React.Fragment>
-                      }
-                    />
-                  </ListItem>
-                ))}
-              </List>
+              <Typography variant={"body2"} style={{ marginBottom: "5px" }}>
+                {t.transactionRecord[lang]}
+              </Typography>
+              <Divider />
+              {accHistory.length === 0 ? (
+                <Typography variant={"body2"}>
+                  {t.noTransactionInfo[lang]}
+                </Typography>
+              ) : (
+                <List>
+                  {accHistory.map(entry => (
+                    <ListItem alignItems="flex-start">
+                      {entry.type === "in" ? (
+                        <ListItemIcon>
+                          <ReceiveIcon />
+                        </ListItemIcon>
+                      ) : null}
+                      {entry.type === "out" ? (
+                        <ListItemIcon>
+                          <SendIcon />
+                        </ListItemIcon>
+                      ) : null}
+                      <ListItemText
+                        primary={`${
+                          entry.type === "in"
+                            ? t.receive[lang]
+                            : entry.type === "out"
+                            ? t.send[lang]
+                            : entry.type
+                        } ${entry.absvalue} ${entry.currency}`}
+                        secondary={
+                          <React.Fragment>
+                            <Typography variant={"body2"}>
+                              {`${entry.counterparty.slice(0, 20)}...`}
+                            </Typography>
+                            <Moment fromNow>{entry.time}</Moment>
+                          </React.Fragment>
+                        }
+                      />
+                    </ListItem>
+                  ))}
+                </List>
+              )}
             </Grid>
           </Grid>
         </Container>
@@ -564,12 +593,14 @@ function Dashboard({
             alignItems={"flex-start"}
             justify={"space-evenly"}
             spacing={2}
+            style={{ marginLeft: "10px", marginRight: "10px" }}
           >
             <Grid item>
               <TextField
                 label={t.from[lang]}
                 value={`${currentUsername} ${account.address}`}
                 disabled
+                style={{ width: "280px" }}
               />
             </Grid>
             <Grid item>
@@ -577,10 +608,11 @@ function Dashboard({
                 label={t.to[lang]}
                 value={sendToAddress}
                 onChange={handleSendToAddressChange}
+                style={{ width: "280px" }}
               />
             </Grid>
             <Grid item>
-              <FormControl>
+              <FormControl style={{ width: "280px" }}>
                 <InputLabel>{t.asset[lang]}</InputLabel>
                 <Select
                   value={sendCurrency}
@@ -599,10 +631,11 @@ function Dashboard({
                 helperText={t.transactionDelayInfo[lang]}
                 value={sendAmount}
                 onChange={handleSendAmountChange}
+                style={{ width: "280px" }}
               />
             </Grid>
             <Grid item>
-              <FormControl>
+              <FormControl style={{ width: "280px" }}>
                 <Button
                   variant="contained"
                   color="primary"
@@ -611,6 +644,61 @@ function Dashboard({
                   {t.send[lang]}
                 </Button>
               </FormControl>
+            </Grid>
+          </Grid>
+        </div>
+      </Modal>
+      <Modal open={buyModalOpen} onBackdropClick={handleBuyModalClose}>
+        <div className={classes.modalPaper}>
+          <Grid container direction={"column"}>
+            <Grid item>
+              <div className={classes.toolbarIcon}>
+                <Typography variant={"h5"} style={{ marginRight: "150px" }}>{`${
+                  t.buy[lang]
+                } USDT`}</Typography>
+                <IconButton onClick={handleBuyModalClose}>
+                  <CloseIcon />
+                </IconButton>
+              </div>
+            </Grid>
+            <Grid item>
+              <List style={{ overflow: "auto", height: "400px" }}>
+                {usdtProvider.map(p => (
+                  <ListItem
+                    component={MaterialLink}
+                    key={p.url}
+                    href={p.url}
+                    target="_blank"
+                    style={{
+                      border: "1px solid white",
+                      textDecoration: "none",
+                      marginTop: "5px",
+                      marginBottom: "5px",
+                      borderRadius: "5px",
+                    }}
+                  >
+                    <ListItemAvatar>
+                      <Avatar
+                        src={p.logoUrl}
+                        style={{
+                          backgroundColor: "white",
+                        }}
+                        imgProps={{
+                          style: {
+                            transform: `scale(${p.logoScale}, ${p.logoScale})`,
+                            height: "auto",
+                          },
+                        }}
+                      />
+                    </ListItemAvatar>
+                    <ListItemText
+                      primary={p.name[lang]}
+                      primaryTypographyProps={{ color: "textPrimary" }}
+                      secondary={p.description[lang]}
+                    />
+                  </ListItem>
+                ))}
+              </List>
             </Grid>
           </Grid>
         </div>

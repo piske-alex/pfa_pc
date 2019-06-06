@@ -8,8 +8,32 @@ import { newAccount, readAccount } from "./blockchain-utils";
 import { withRouter, Switch } from "react-router-dom";
 import LoginAccountPage from "./loginAccountPage";
 import AccountManagerPanel from "./accountManagerPanel";
+import createMuiTheme from "@material-ui/core/styles/createMuiTheme";
+import { ThemeProvider } from "@material-ui/styles";
 
 const lang = "ch";
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: "#0d47a1",
+    },
+    secondary: {
+      main: "#0288d1",
+    },
+    type: "dark",
+  },
+  overrides: {
+    MuiFormLabel: {
+      root: {
+        "&$focused": {
+          // increase the specificity for the pseudo class
+          color: "white",
+        },
+      },
+    },
+  },
+});
 
 function App(props) {
   const [
@@ -73,52 +97,56 @@ function App(props) {
   };
 
   return (
-    <React.Fragment>
-      <Switch>
-        <Route
-          path={"/create-account"}
-          render={() => <CreateAccountPage onAccountCreate={onAccountCreate} />}
+    <ThemeProvider theme={theme}>
+      <React.Fragment>
+        <Switch>
+          <Route
+            path={"/create-account"}
+            render={() => (
+              <CreateAccountPage onAccountCreate={onAccountCreate} />
+            )}
+          />
+          <Route
+            path={"/app"}
+            render={() => (
+              <Dashboard
+                account={account}
+                currentUsername={currentUsername}
+                handleLogout={handleLogout}
+                handleChangeAccount={handleChangeAccount}
+              />
+            )}
+          />
+          <Route path={"/account-manager"} component={AccountManagerPanel} />
+          <Route
+            render={() => (
+              <LoginAccountPage
+                onAccountLogin={onAccountLogin}
+                prefillUsername={prefillUsername}
+              />
+            )}
+          />
+        </Switch>
+        <Snackbar
+          open={accountCreatedSnackbarOpen}
+          autoHideDuration={6000}
+          onClose={handleAccountCreatedSnackbarClose}
+          message={trans.accountCreatedInfo[lang]}
         />
-        <Route
-          path={"/app"}
-          render={() => (
-            <Dashboard
-              account={account}
-              currentUsername={currentUsername}
-              handleLogout={handleLogout}
-              handleChangeAccount={handleChangeAccount}
-            />
-          )}
+        <Snackbar
+          open={accountNotCreatedSnackbarOpen}
+          autoHideDuration={6000}
+          onClose={handleAccountNotCreatedSnackbarClose}
+          message={trans.accountNotCreatedInfo[lang]}
         />
-        <Route path={"/account-manager"} component={AccountManagerPanel} />
-        <Route
-          render={() => (
-            <LoginAccountPage
-              onAccountLogin={onAccountLogin}
-              prefillUsername={prefillUsername}
-            />
-          )}
+        <Snackbar
+          open={cannotLoginSnackbarOpen}
+          autoHideDuration={6000}
+          onClose={handleCannotLoginSnackbarClose}
+          message={trans.cannotLoginWarning[lang]}
         />
-      </Switch>
-      <Snackbar
-        open={accountCreatedSnackbarOpen}
-        autoHideDuration={6000}
-        onClose={handleAccountCreatedSnackbarClose}
-        message={trans.accountCreatedInfo[lang]}
-      />
-      <Snackbar
-        open={accountNotCreatedSnackbarOpen}
-        autoHideDuration={6000}
-        onClose={handleAccountNotCreatedSnackbarClose}
-        message={trans.accountNotCreatedInfo[lang]}
-      />
-      <Snackbar
-        open={cannotLoginSnackbarOpen}
-        autoHideDuration={6000}
-        onClose={handleCannotLoginSnackbarClose}
-        message={trans.cannotLoginWarning[lang]}
-      />
-    </React.Fragment>
+      </React.Fragment>
+    </ThemeProvider>
   );
 }
 

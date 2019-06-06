@@ -1,6 +1,6 @@
 import React from "react";
 import { Grid } from "@material-ui/core";
-import { HorizontalCenter, VerticalCenter } from "./utils";
+import { getLogoUrl, HorizontalCenter, VerticalCenter } from "./utils";
 import trans from "./translation";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
@@ -10,10 +10,13 @@ import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
+import Avatar from "@material-ui/core/Avatar";
 
 const lang = "ch";
 
 export default function LoginAccountPage({ onAccountLogin, prefillUsername }) {
+  const logoUrl = getLogoUrl();
+
   const [username, setUsername] = React.useState(
     prefillUsername ? prefillUsername : "",
   );
@@ -38,7 +41,10 @@ export default function LoginAccountPage({ onAccountLogin, prefillUsername }) {
       <HorizontalCenter>
         <Grid container alignItems={"center"} direction={"column"} spacing={2}>
           <Grid item>
-            <FormControl style={{ width: 200 }}>
+            <img style={{ width: 60, height: 60 }} src={logoUrl} />
+          </Grid>
+          <Grid item>
+            <FormControl style={{ width: 300 }}>
               <InputLabel>{trans.username[lang]}</InputLabel>
               <Select value={username} onChange={onUsernameChange}>
                 {accountNames.map(name => (
@@ -49,7 +55,7 @@ export default function LoginAccountPage({ onAccountLogin, prefillUsername }) {
           </Grid>
           <Grid item>
             <TextField
-              style={{ width: 200 }}
+              style={{ width: 300 }}
               variant={"standard"}
               label={trans.password[lang]}
               value={password}
@@ -65,20 +71,31 @@ export default function LoginAccountPage({ onAccountLogin, prefillUsername }) {
           </Grid>
 
           <Grid item>
-            <Button variant="contained" color="primary" onClick={onSumbit}>
-              {trans.login[lang]}
-            </Button>
+            <Grid container alignItems={"center"} direction={"row"} spacing={2}>
+              <Grid item>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={onSumbit}
+                  style={{ width: "150px" }}
+                >
+                  {trans.login[lang]}
+                </Button>
+              </Grid>
+              <Grid item>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  component={Link}
+                  to={"/create-account"}
+                  style={{ width: "150px" }}
+                >
+                  {trans.register[lang]}
+                </Button>
+              </Grid>
+            </Grid>
           </Grid>
-          <Grid item>
-            <Button
-              variant="contained"
-              color="primary"
-              component={Link}
-              to={"/create-account"}
-            >
-              {trans.register[lang]}
-            </Button>
-          </Grid>
+
           <Grid item>
             <Button
               variant="contained"

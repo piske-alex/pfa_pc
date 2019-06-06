@@ -100,4 +100,10 @@ export default {
   transactionDelayInfo: {
     ch: "注意，網絡可能需要一定時間處理交易，請稍等。",
   },
+  transactionRecord: {
+    ch: "交易記錄",
+  },
+  noTransactionInfo: {
+    ch: "暫時未有記錄",
+  },
 };
