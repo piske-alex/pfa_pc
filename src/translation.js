@@ -106,4 +106,7 @@ export default {
   noTransactionInfo: {
     ch: "暫時未有記錄",
   },
+  convert: {
+    ch: "轉換",
+  },
 };

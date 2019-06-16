@@ -22,7 +22,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import Modal from "@material-ui/core/Modal";
 import t from "./translation";
 import { withRouter } from "react-router-dom";
-import { isEmpty } from "./utils";
+import { HorizontalCenter, isEmpty } from "./utils";
 import {
   etherBalance,
   getHistory,
@@ -234,6 +234,10 @@ function Dashboard({
   const [sendCurrency, setSendCurrency] = React.useState("pfa");
 
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+
+  const [currencyDropdownValue, setCurrencyDropdownValue] = React.useState(
+    "pfa",
+  );
 
   React.useEffect(() => {
     const fetchBalance = async () => {
@@ -447,31 +451,28 @@ function Dashboard({
               </Grid>
             </Grid>
             <Grid item>
-              <Grid
-                container
-                spacing={0}
-                direction="row"
-                alignItems="center"
-                justify="center"
-              >
-                <Grid item>
-                  <Typography variant={"h4"}>{pfaBalance}</Typography>
-                </Grid>
-              </Grid>
+              <HorizontalCenter>
+                <Select
+                  value={currencyDropdownValue}
+                  onChange={e => setCurrencyDropdownValue(e.target.value)}
+                  style={{ width: "300px" }}
+                  // MenuProps={{ style: { borderStyle: "none" } }}
+                  disableUnderline={true}
+                >
+                  <MenuItem value={"pfa"}>
+                    <Typography variant={"h4"} align={"center"}>
+                      {pfaBalance}
+                    </Typography>
+                  </MenuItem>
+                  <MenuItem value={"ihad"}>
+                    <Typography variant={"h4"} align={"center"}>
+                      {ihadBalance}
+                    </Typography>
+                  </MenuItem>
+                </Select>
+              </HorizontalCenter>
             </Grid>
-            <Grid item>
-              <Grid
-                container
-                spacing={0}
-                direction="row"
-                alignItems="center"
-                justify="center"
-              >
-                <Grid item>
-                  <Typography variant={"h4"}>{ihadBalance}</Typography>
-                </Grid>
-              </Grid>
-            </Grid>
+            <Grid item style={{ height: "10px" }} />
             <Grid item>
               <Grid
                 container
@@ -513,37 +514,42 @@ function Dashboard({
                 </Typography>
               ) : (
                 <List>
-                  {accHistory.map(entry => (
-                    <ListItem alignItems="flex-start">
-                      {entry.type === "in" ? (
-                        <ListItemIcon>
-                          <ReceiveIcon />
-                        </ListItemIcon>
-                      ) : null}
-                      {entry.type === "out" ? (
-                        <ListItemIcon>
-                          <SendIcon />
-                        </ListItemIcon>
-                      ) : null}
-                      <ListItemText
-                        primary={`${
-                          entry.type === "in"
-                            ? t.receive[lang]
-                            : entry.type === "out"
-                            ? t.send[lang]
-                            : entry.type
-                        } ${entry.absvalue} ${entry.currency}`}
-                        secondary={
-                          <React.Fragment>
-                            <Typography variant={"body2"}>
-                              {`${entry.counterparty.slice(0, 20)}...`}
-                            </Typography>
-                            <Moment fromNow>{entry.time}</Moment>
-                          </React.Fragment>
-                        }
-                      />
-                    </ListItem>
-                  ))}
+                  {accHistory
+                    .filter(
+                      entry =>
+                        entry.currency.toLowerCase() === currencyDropdownValue,
+                    )
+                    .map(entry => (
+                      <ListItem alignItems="flex-start">
+                        {entry.type === "in" ? (
+                          <ListItemIcon>
+                            <ReceiveIcon />
+                          </ListItemIcon>
+                        ) : null}
+                        {entry.type === "out" ? (
+                          <ListItemIcon>
+                            <SendIcon />
+                          </ListItemIcon>
+                        ) : null}
+                        <ListItemText
+                          primary={`${
+                            entry.type === "in"
+                              ? t.receive[lang]
+                              : entry.type === "out"
+                              ? t.send[lang]
+                              : entry.type
+                          } ${entry.absvalue} ${entry.currency}`}
+                          secondary={
+                            <React.Fragment>
+                              <Typography variant={"body2"}>
+                                {`${entry.counterparty.slice(0, 20)}...`}
+                              </Typography>
+                              <Moment fromNow>{entry.time}</Moment>
+                            </React.Fragment>
+                          }
+                        />
+                      </ListItem>
+                    ))}
                 </List>
               )}
             </Grid>
