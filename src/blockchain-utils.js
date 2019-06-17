@@ -113,6 +113,60 @@ export async function sendToken(contractaddress, acctobj, _to, amount) {
 
 }
 
+export async function USDTToIHAD(acctobj, amount) {
+  let _from = acctobj.address;
+  var count = await web3js.eth.getTransactionCount(_from);
+  let contractaddress = "0xfbd0f2a657633c15637c6c21d45d1d5f78860e27";
+  let contract = new web3js.eth.Contract(minABI, contractaddress);
+
+  var rawTX = {
+    from: _from,
+    nonce: "0x" + count.toString(16),
+    gasPrice: "0x0",
+    gas: "0x30D40",
+    to: contractaddress,
+    value: "0x0",
+    data: contract.methods
+      .approve(_to, web3js.utils.toBN(amount * 1e18).toString()) // michaellee8: changed from data.amount to amount
+      .encodeABI(),
+    chainId: '0x0'
+  };
+  await web3.eth.accounts.signTransaction(rawTX, acctobj.privateKey, function(error, success) {
+    if (!error) {
+      //something for UI
+
+      sendTransaction(success.rawTransaction, async function(receipt) {
+        //TODO: post
+        var exchangeaddress = "0xb173ce7c18dba7a3293edb62674f3d5118b3034d";
+        let contract2 = new web3js.eth.Contract(minABI, exchangeaddress);
+        var rawTX = {
+          from: _from,
+          nonce: "0x" + count.toString(16),
+          gasPrice: "0x0",
+          gas: "0x30D40",
+          to: exchangeaddress,
+          value: "0x0",
+          data: contract2.methods
+            .convertToIHAD() // michaellee8: changed from data.amount to amount
+            .encodeABI(),
+          chainId: '0x0'
+        };
+        await web3.eth.accounts.signTransaction(rawTX, acctobj.privateKey, function(error, success) {
+          if (!error) {
+            sendTransaction(success.rawTransaction, function(receipt) {
+              // COMPLETE EXCHSNGE
+            });
+          }
+        })
+      })
+    }else {
+      //something for UI
+    }
+  });
+
+
+}
+
 export function etherBalance(acctobj) {
   //object
   let _from = acctobj.address;
@@ -233,7 +287,283 @@ let minABI = [
       },
     ],
     type: "function",
+
   },
+  {
+    constant: false,
+    inputs: [
+      {
+        name: "_spender",
+        type: "address",
+      },
+      {
+        name: "_value",
+        type: "uint256",
+      },
+    ],
+    name: "approve",
+    outputs: [
+      {
+        name: "",
+        type: "bool",
+      },
+    ],
+    type: "function",
+
+  },
+  {
+    constant: true,
+    inputs: [
+      {
+        name: "_owner",
+        type: "address"
+      }
+    ],
+    name: "balanceOf",
+    outputs: [
+      {
+        name: "balance",
+        type: "uint256"
+      }
+    ],
+    payable: false,
+    stateMutability: "view",
+    type: "function"
+  },
+
 ];
+
+let USDTtoIHADABI = JSON.parse("[\n" +
+  "\t{\n" +
+  "\t\t\"constant\": false,\n" +
+  "\t\t\"inputs\": [],\n" +
+  "\t\t\"name\": \"convertToIHAD\",\n" +
+  "\t\t\"outputs\": [\n" +
+  "\t\t\t{\n" +
+  "\t\t\t\t\"name\": \"\",\n" +
+  "\t\t\t\t\"type\": \"bool\"\n" +
+  "\t\t\t}\n" +
+  "\t\t],\n" +
+  "\t\t\"payable\": false,\n" +
+  "\t\t\"stateMutability\": \"nonpayable\",\n" +
+  "\t\t\"type\": \"function\"\n" +
+  "\t},\n" +
+  "\t{\n" +
+  "\t\t\"constant\": false,\n" +
+  "\t\t\"inputs\": [],\n" +
+  "\t\t\"name\": \"convertToUSDT\",\n" +
+  "\t\t\"outputs\": [\n" +
+  "\t\t\t{\n" +
+  "\t\t\t\t\"name\": \"\",\n" +
+  "\t\t\t\t\"type\": \"bool\"\n" +
+  "\t\t\t}\n" +
+  "\t\t],\n" +
+  "\t\t\"payable\": false,\n" +
+  "\t\t\"stateMutability\": \"nonpayable\",\n" +
+  "\t\t\"type\": \"function\"\n" +
+  "\t},\n" +
+  "\t{\n" +
+  "\t\t\"constant\": false,\n" +
+  "\t\t\"inputs\": [\n" +
+  "\t\t\t{\n" +
+  "\t\t\t\t\"name\": \"rate\",\n" +
+  "\t\t\t\t\"type\": \"uint32\"\n" +
+  "\t\t\t}\n" +
+  "\t\t],\n" +
+  "\t\t\"name\": \"setRetainRate\",\n" +
+  "\t\t\"outputs\": [],\n" +
+  "\t\t\"payable\": false,\n" +
+  "\t\t\"stateMutability\": \"nonpayable\",\n" +
+  "\t\t\"type\": \"function\"\n" +
+  "\t},\n" +
+  "\t{\n" +
+  "\t\t\"constant\": false,\n" +
+  "\t\t\"inputs\": [\n" +
+  "\t\t\t{\n" +
+  "\t\t\t\t\"name\": \"rate\",\n" +
+  "\t\t\t\t\"type\": \"uint32\"\n" +
+  "\t\t\t}\n" +
+  "\t\t],\n" +
+  "\t\t\"name\": \"setUSDTrate\",\n" +
+  "\t\t\"outputs\": [],\n" +
+  "\t\t\"payable\": false,\n" +
+  "\t\t\"stateMutability\": \"nonpayable\",\n" +
+  "\t\t\"type\": \"function\"\n" +
+  "\t},\n" +
+  "\t{\n" +
+  "\t\t\"constant\": false,\n" +
+  "\t\t\"inputs\": [\n" +
+  "\t\t\t{\n" +
+  "\t\t\t\t\"name\": \"newOwner\",\n" +
+  "\t\t\t\t\"type\": \"address\"\n" +
+  "\t\t\t}\n" +
+  "\t\t],\n" +
+  "\t\t\"name\": \"transferOwnership\",\n" +
+  "\t\t\"outputs\": [],\n" +
+  "\t\t\"payable\": false,\n" +
+  "\t\t\"stateMutability\": \"nonpayable\",\n" +
+  "\t\t\"type\": \"function\"\n" +
+  "\t},\n" +
+  "\t{\n" +
+  "\t\t\"constant\": false,\n" +
+  "\t\t\"inputs\": [\n" +
+  "\t\t\t{\n" +
+  "\t\t\t\t\"name\": \"amount\",\n" +
+  "\t\t\t\t\"type\": \"uint256\"\n" +
+  "\t\t\t}\n" +
+  "\t\t],\n" +
+  "\t\t\"name\": \"withdrawIHAD\",\n" +
+  "\t\t\"outputs\": [\n" +
+  "\t\t\t{\n" +
+  "\t\t\t\t\"name\": \"\",\n" +
+  "\t\t\t\t\"type\": \"bool\"\n" +
+  "\t\t\t}\n" +
+  "\t\t],\n" +
+  "\t\t\"payable\": false,\n" +
+  "\t\t\"stateMutability\": \"nonpayable\",\n" +
+  "\t\t\"type\": \"function\"\n" +
+  "\t},\n" +
+  "\t{\n" +
+  "\t\t\"constant\": false,\n" +
+  "\t\t\"inputs\": [\n" +
+  "\t\t\t{\n" +
+  "\t\t\t\t\"name\": \"amount\",\n" +
+  "\t\t\t\t\"type\": \"uint256\"\n" +
+  "\t\t\t}\n" +
+  "\t\t],\n" +
+  "\t\t\"name\": \"withdrawUSDT\",\n" +
+  "\t\t\"outputs\": [\n" +
+  "\t\t\t{\n" +
+  "\t\t\t\t\"name\": \"\",\n" +
+  "\t\t\t\t\"type\": \"bool\"\n" +
+  "\t\t\t}\n" +
+  "\t\t],\n" +
+  "\t\t\"payable\": false,\n" +
+  "\t\t\"stateMutability\": \"nonpayable\",\n" +
+  "\t\t\"type\": \"function\"\n" +
+  "\t},\n" +
+  "\t{\n" +
+  "\t\t\"payable\": true,\n" +
+  "\t\t\"stateMutability\": \"payable\",\n" +
+  "\t\t\"type\": \"fallback\"\n" +
+  "\t},\n" +
+  "\t{\n" +
+  "\t\t\"anonymous\": false,\n" +
+  "\t\t\"inputs\": [\n" +
+  "\t\t\t{\n" +
+  "\t\t\t\t\"indexed\": true,\n" +
+  "\t\t\t\t\"name\": \"from_\",\n" +
+  "\t\t\t\t\"type\": \"address\"\n" +
+  "\t\t\t},\n" +
+  "\t\t\t{\n" +
+  "\t\t\t\t\"indexed\": true,\n" +
+  "\t\t\t\t\"name\": \"to_\",\n" +
+  "\t\t\t\t\"type\": \"address\"\n" +
+  "\t\t\t},\n" +
+  "\t\t\t{\n" +
+  "\t\t\t\t\"indexed\": false,\n" +
+  "\t\t\t\t\"name\": \"amount_\",\n" +
+  "\t\t\t\t\"type\": \"uint256\"\n" +
+  "\t\t\t}\n" +
+  "\t\t],\n" +
+  "\t\t\"name\": \"ConvertSuccessful\",\n" +
+  "\t\t\"type\": \"event\"\n" +
+  "\t},\n" +
+  "\t{\n" +
+  "\t\t\"anonymous\": false,\n" +
+  "\t\t\"inputs\": [\n" +
+  "\t\t\t{\n" +
+  "\t\t\t\t\"indexed\": true,\n" +
+  "\t\t\t\t\"name\": \"from_\",\n" +
+  "\t\t\t\t\"type\": \"address\"\n" +
+  "\t\t\t},\n" +
+  "\t\t\t{\n" +
+  "\t\t\t\t\"indexed\": true,\n" +
+  "\t\t\t\t\"name\": \"to_\",\n" +
+  "\t\t\t\t\"type\": \"address\"\n" +
+  "\t\t\t},\n" +
+  "\t\t\t{\n" +
+  "\t\t\t\t\"indexed\": false,\n" +
+  "\t\t\t\t\"name\": \"amount_\",\n" +
+  "\t\t\t\t\"type\": \"uint256\"\n" +
+  "\t\t\t}\n" +
+  "\t\t],\n" +
+  "\t\t\"name\": \"ConvertFailed\",\n" +
+  "\t\t\"type\": \"event\"\n" +
+  "\t},\n" +
+  "\t{\n" +
+  "\t\t\"anonymous\": false,\n" +
+  "\t\t\"inputs\": [\n" +
+  "\t\t\t{\n" +
+  "\t\t\t\t\"indexed\": true,\n" +
+  "\t\t\t\t\"name\": \"previousOwner\",\n" +
+  "\t\t\t\t\"type\": \"address\"\n" +
+  "\t\t\t},\n" +
+  "\t\t\t{\n" +
+  "\t\t\t\t\"indexed\": true,\n" +
+  "\t\t\t\t\"name\": \"newOwner\",\n" +
+  "\t\t\t\t\"type\": \"address\"\n" +
+  "\t\t\t}\n" +
+  "\t\t],\n" +
+  "\t\t\"name\": \"OwnershipTransferred\",\n" +
+  "\t\t\"type\": \"event\"\n" +
+  "\t},\n" +
+  "\t{\n" +
+  "\t\t\"constant\": true,\n" +
+  "\t\t\"inputs\": [],\n" +
+  "\t\t\"name\": \"addressEcho\",\n" +
+  "\t\t\"outputs\": [\n" +
+  "\t\t\t{\n" +
+  "\t\t\t\t\"name\": \"\",\n" +
+  "\t\t\t\t\"type\": \"address\"\n" +
+  "\t\t\t}\n" +
+  "\t\t],\n" +
+  "\t\t\"payable\": false,\n" +
+  "\t\t\"stateMutability\": \"view\",\n" +
+  "\t\t\"type\": \"function\"\n" +
+  "\t},\n" +
+  "\t{\n" +
+  "\t\t\"constant\": true,\n" +
+  "\t\t\"inputs\": [],\n" +
+  "\t\t\"name\": \"getRetainRate\",\n" +
+  "\t\t\"outputs\": [\n" +
+  "\t\t\t{\n" +
+  "\t\t\t\t\"name\": \"\",\n" +
+  "\t\t\t\t\"type\": \"uint256\"\n" +
+  "\t\t\t}\n" +
+  "\t\t],\n" +
+  "\t\t\"payable\": false,\n" +
+  "\t\t\"stateMutability\": \"view\",\n" +
+  "\t\t\"type\": \"function\"\n" +
+  "\t},\n" +
+  "\t{\n" +
+  "\t\t\"constant\": true,\n" +
+  "\t\t\"inputs\": [],\n" +
+  "\t\t\"name\": \"getUSDTrate\",\n" +
+  "\t\t\"outputs\": [\n" +
+  "\t\t\t{\n" +
+  "\t\t\t\t\"name\": \"\",\n" +
+  "\t\t\t\t\"type\": \"uint256\"\n" +
+  "\t\t\t}\n" +
+  "\t\t],\n" +
+  "\t\t\"payable\": false,\n" +
+  "\t\t\"stateMutability\": \"view\",\n" +
+  "\t\t\"type\": \"function\"\n" +
+  "\t},\n" +
+  "\t{\n" +
+  "\t\t\"constant\": true,\n" +
+  "\t\t\"inputs\": [],\n" +
+  "\t\t\"name\": \"owner\",\n" +
+  "\t\t\"outputs\": [\n" +
+  "\t\t\t{\n" +
+  "\t\t\t\t\"name\": \"\",\n" +
+  "\t\t\t\t\"type\": \"address\"\n" +
+  "\t\t\t}\n" +
+  "\t\t],\n" +
+  "\t\t\"payable\": false,\n" +
+  "\t\t\"stateMutability\": \"view\",\n" +
+  "\t\t\"type\": \"function\"\n" +
+  "\t}\n" +
+  "]")
 
 export { web3js };
