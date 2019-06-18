@@ -67,7 +67,7 @@ cmake-build-*/
 # Mongo Explorer plugin
 .idea/**/mongoSettings.xml
 
-./idea/tmp/*
+.idea/tmp
 
 # File-based project format
 *.iws
@@ -421,5 +421,7 @@ DerivedData/
 !default.mode2v3
 *.perspectivev3
 !default.perspectivev3
+
+
 
 # End of https://www.gitignore.io/api/node,intellij,reactnative

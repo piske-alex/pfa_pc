@@ -3,7 +3,7 @@
  */
 
 import aesjs from "aes-js";
-
+import URLSearchParams from "@ungap/url-search-params";
 import Web3 from "web3";
 
 import { privateToAddress, toBuffer} from 'ethereumjs-util'
@@ -30,15 +30,21 @@ export function newAccount(accountName, paraphrase, privateKey) {
     throw new Error("ValueError: account name is already used.");
   }
   //string,string(length<16)
+  //let acctobj =
+    //typeof privateKey === "string" && privateKey !== ""
+      //? web3js.eth.accounts.privateKeyToAccount(privateKey)
+      //: web3js.eth.accounts.create();
+
   let acctobj;
-  if(typeof privateKey === "string"){
+  if(typeof privateKey === "string" && privateKey!==""){
     try{
+      privateKey = "0x"+privateKey
       let address = privateToAddress(toBuffer(privateKey));
       acctobj = {address,privateKey};
     }catch (e) {
       throw new Error('RangeError: Wrong Private Key Format');
     }
-    
+
   }else{
     acctobj = web3js.eth.accounts.create();
   }
@@ -56,38 +62,52 @@ export function readAccount(accountName, paraphrase) {
   let encryptedacctstring = localStorage.getItem(`user-${accountName}`);
   let key = ("000000000000000000000000" + paraphrase).slice(-24);
   let dec = decrypt(encryptedacctstring, key);
-  return web3js.eth.accounts.privateKeyToAccount(JSON.parse(dec).privateKey);
+  return convertToPureAccountObject(web3js.eth.accounts.privateKeyToAccount(JSON.parse(dec).privateKey));
 }
 
 export async function sendEther(acctobj, toa, valuea) {
-  //object,string,string
-  await acctobj
-    .signTransaction(
-      { to: toa, chainId:'48170', value: valuea, gas: 2000000, gasPrice: "0x0" },
-       function(error, success) {
-         if (!error) {
-           //something for UI
-           sendTransaction(success.rawTransaction,function(receipt){
-             let hash = success.transactionHash;
-             let type = 'out';
-             let address = acctobj.address;
-             let counterpartyaddress = toa;
-             let currency = 'PFA';
-           })
-         } else {
-           //something for UI
-         }
-       },
-    )
+  const amtInWei = web3js.utils.toWei(valuea);
+  const signedTransaction = await web3js.eth.accounts.signTransaction({
+    to: toa,
+    value: amtInWei,
+    // gas: 21000,
+    gas: 2000000,
+    gasPrice: "0x0",
+    // chainId: "48170",
+    chainId: "0x0",
+  },acctobj.privateKey);
 
+  //object,string,string
+
+  const receipt = await sendTransaction(signedTransaction);
+
+
+  sendHistory(
+    acctobj.address,
+    "out",
+    valuea,
+    signedTransaction.transactionHash,
+    toa,
+    "PFA",
+  );
+  sendHistory(
+    toa,
+    "in",
+    valuea,
+    signedTransaction.transactionHash,
+    acctobj.address,
+    "PFA",
+  );
 }
+
+export const ihadAddress = "0x33259094d0341c908d1d589b0677a714e58a9183";
 
 export async function sendToken(contractaddress, acctobj, _to, amount) {
   let _from = acctobj.address;
   var count = await web3js.eth.getTransactionCount(_from);
   let contract = new web3js.eth.Contract(minABI, contractaddress);
 
-  var rawTX = {
+  var rawTransaction = {
     from: _from,
     nonce: "0x" + count.toString(16),
     gasPrice: "0x0",
@@ -97,9 +117,36 @@ export async function sendToken(contractaddress, acctobj, _to, amount) {
     data: contract.methods
       .transfer(_to, web3js.utils.toBN(amount * 1e18).toString()) // michaellee8: changed from data.amount to amount
       .encodeABI(),
-    chainId: '48170'
+    // chainId: "48170",
+
+    chainId: "0x0",
   };
-  await web3.eth.accounts.signTransaction(rawTX, acctobj.privateKey, function(error, success) {
+  const signedTransaction = await web3js.eth.accounts.signTransaction(rawTransaction,acctobj.privateKey);
+
+  const transactionHash = await sendTransaction(signedTransaction);
+
+  sendHistory(
+    acctobj.address,
+    "out",
+    amount,
+    signedTransaction.transactionHash,
+    _to,
+    contractaddress === ihadAddress
+      ? "IHAD"
+      : `Smart Contract at ${contractaddress}`,
+  );
+  sendHistory(
+    _to,
+    "in",
+    amount,
+    signedTransaction.transactionHash,
+    acctobj.address,
+    contractaddress === ihadAddress
+      ? "IHAD"
+      : `Smart Contract at ${contractaddress}`,
+  );
+  return;
+ /* await web3.eth.accounts.signTransaction(rawTX, acctobj.privateKey, function(error, success) {
       if (!error) {
         //something for UI
           sendTransaction(success.rawTransaction,function(receipt){
@@ -108,17 +155,17 @@ export async function sendToken(contractaddress, acctobj, _to, amount) {
       } else {
         //something for UI
       }
-    });
+    });*/
 
 
 }
-
+export const USDTaddress = "0xfbd0f2a657633c15637c6c21d45d1d5f78860e27";
 export async function USDTToIHAD(acctobj, amount) {
   let _from = acctobj.address;
   var count = await web3js.eth.getTransactionCount(_from);
-  let contractaddress = "0xfbd0f2a657633c15637c6c21d45d1d5f78860e27";
+  let contractaddress = USDTaddress;
   let contract = new web3js.eth.Contract(minABI, contractaddress);
-
+  var exchangeaddress = "0x0ff1ca56cefb80c5630cee794d68f9d9cd71875a";
   var rawTX = {
     from: _from,
     nonce: "0x" + count.toString(16),
@@ -127,65 +174,78 @@ export async function USDTToIHAD(acctobj, amount) {
     to: contractaddress,
     value: "0x0",
     data: contract.methods
-      .approve(_to, web3js.utils.toBN(amount * 1e18).toString()) // michaellee8: changed from data.amount to amount
+      .approve(exchangeaddress, web3js.utils.toBN(amount * 1e18).toString()) // michaellee8: changed from data.amount to amount
       .encodeABI(),
     chainId: '0x0'
   };
-  await web3.eth.accounts.signTransaction(rawTX, acctobj.privateKey, function(error, success) {
-    if (!error) {
+  const st1 = await web3js.eth.accounts.signTransaction(rawTX, acctobj.privateKey)
       //something for UI
 
-      sendTransaction(success.rawTransaction, async function(receipt) {
-        //TODO: post
-        var exchangeaddress = "0xb173ce7c18dba7a3293edb62674f3d5118b3034d";
-        let contract2 = new web3js.eth.Contract(minABI, exchangeaddress);
-        var rawTX = {
-          from: _from,
-          nonce: "0x" + count.toString(16),
-          gasPrice: "0x0",
-          gas: "0x30D40",
-          to: exchangeaddress,
-          value: "0x0",
-          data: contract2.methods
-            .convertToIHAD() // michaellee8: changed from data.amount to amount
-            .encodeABI(),
-          chainId: '0x0'
-        };
-        await web3.eth.accounts.signTransaction(rawTX, acctobj.privateKey, function(error, success) {
-          if (!error) {
-            sendTransaction(success.rawTransaction, function(receipt) {
-              // COMPLETE EXCHSNGE
-            });
-          }
-        })
-      })
-    }else {
-      //something for UI
-    }
-  });
+  await sendTransaction(st1)
+
+
+  let contract2 = new web3js.eth.Contract(USDTtoIHADABI, exchangeaddress);
+  var rawTX2 = {
+        from: _from,
+        nonce: "0x" + (count+1).toString(16),
+        gasPrice: "0x0",
+        gas: "0x30D40",
+        to: exchangeaddress,
+        value: "0x0",
+        data: contract2.methods
+          .convertToIHAD() // michaellee8: changed from data.amount to amount
+          .encodeABI(),
+        chainId: '0x0'
+  };
+  var st2 = await web3js.eth.accounts.signTransaction(rawTX2, acctobj.privateKey)
+
+  await sendTransaction(st2)
+          // COMPLETE EXCHSNGE
+          sendHistory(
+            acctobj.address,
+            "out",
+            amount,
+            st2.transactionHash,
+            exchangeaddress,
+            "USDT")
+          sendHistory(
+            acctobj.address,
+            "in",
+            amount * 6,
+            st2.transactionHash,
+            exchangeaddress,
+            "HAD")
+
+
+
+
 
 
 }
 
-export function etherBalance(acctobj) {
+export async function etherBalance(acctobj) {
   //object
-  let _from = acctobj.address;
-  web3js.eth.getBalance(_from, "latest", function(error, success) {
-    if (!error) {
-      return success;
-    }
-  });
+
+  try {
+    let _from = acctobj.address;
+    const weiBal = await web3js.eth.getBalance(_from, "latest");
+    return web3js.utils.fromWei(weiBal);
+  } catch (err) {
+    console.log(err);
+  }
 }
 
-export function tokenBalance(acctobj, contractaddress) {
+export async function tokenBalance(acctobj, contractaddress) {
   //object
-  let _from = acctobj.address;
-  let contract = new web3js.eth.Contract(minABI, contractaddress);
-  contract.methods.balanceOf(_from).call(function(err, result) {
-    if(!err){
-      return result;
-    }
-  })
+
+  try {
+    let _from = acctobj.address;
+    let contract = new web3js.eth.Contract(minABI, contractaddress);
+    const balance = await contract.methods.balanceOf(_from).call();
+    return balance/1000000000000000000;
+  } catch (err) {
+    console.log(err);
+  }
 }
 
 export function readAccountList() {
@@ -260,9 +320,23 @@ export function encrypt(text, key) {
   return encryptedHex;
 }
 
-export function sendTransaction(rawTX,callback) {
+// export async function sendTransaction(rawTX) {
+//   //private, not intended for UI use
+//   console.log(await web3js.eth.sendSignedTransaction(rawTX.rawTransaction)); //or define some functions
+// }
+
+export function sendTransaction(rawTX) {
   //private, not intended for UI use
-  web3js.eth.sendSignedTransaction(rawTX).on("receipt", callback); //or define some functions
+  return new Promise((resolve, reject) =>
+    web3js.eth
+      .sendSignedTransaction(rawTX.rawTransaction)
+      .on("transactionHash", function(hash) {
+        resolve(hash);
+      })
+      .on("error", function(err) {
+        reject(err);
+      }),
+  );
 }
 
 let minABI = [
@@ -287,7 +361,25 @@ let minABI = [
       },
     ],
     type: "function",
-
+  },
+  {
+    constant: true,
+    inputs: [
+      {
+        name: "_owner",
+        type: "address",
+      },
+    ],
+    name: "balanceOf",
+    outputs: [
+      {
+        name: "balance",
+        type: "uint256",
+      },
+    ],
+    payable: false,
+    stateMutability: "view",
+    type: "function",
   },
   {
     constant: false,
@@ -311,259 +403,276 @@ let minABI = [
     type: "function",
 
   },
-  {
-    constant: true,
-    inputs: [
-      {
-        name: "_owner",
-        type: "address"
-      }
-    ],
-    name: "balanceOf",
-    outputs: [
-      {
-        name: "balance",
-        type: "uint256"
-      }
-    ],
-    payable: false,
-    stateMutability: "view",
-    type: "function"
-  },
-
 ];
 
-let USDTtoIHADABI = JSON.parse("[\n" +
-  "\t{\n" +
-  "\t\t\"constant\": false,\n" +
-  "\t\t\"inputs\": [],\n" +
-  "\t\t\"name\": \"convertToIHAD\",\n" +
-  "\t\t\"outputs\": [\n" +
-  "\t\t\t{\n" +
-  "\t\t\t\t\"name\": \"\",\n" +
-  "\t\t\t\t\"type\": \"bool\"\n" +
-  "\t\t\t}\n" +
-  "\t\t],\n" +
-  "\t\t\"payable\": false,\n" +
-  "\t\t\"stateMutability\": \"nonpayable\",\n" +
-  "\t\t\"type\": \"function\"\n" +
-  "\t},\n" +
-  "\t{\n" +
-  "\t\t\"constant\": false,\n" +
-  "\t\t\"inputs\": [],\n" +
-  "\t\t\"name\": \"convertToUSDT\",\n" +
-  "\t\t\"outputs\": [\n" +
-  "\t\t\t{\n" +
-  "\t\t\t\t\"name\": \"\",\n" +
-  "\t\t\t\t\"type\": \"bool\"\n" +
-  "\t\t\t}\n" +
-  "\t\t],\n" +
-  "\t\t\"payable\": false,\n" +
-  "\t\t\"stateMutability\": \"nonpayable\",\n" +
-  "\t\t\"type\": \"function\"\n" +
-  "\t},\n" +
-  "\t{\n" +
-  "\t\t\"constant\": false,\n" +
-  "\t\t\"inputs\": [\n" +
-  "\t\t\t{\n" +
-  "\t\t\t\t\"name\": \"rate\",\n" +
-  "\t\t\t\t\"type\": \"uint32\"\n" +
-  "\t\t\t}\n" +
-  "\t\t],\n" +
-  "\t\t\"name\": \"setRetainRate\",\n" +
-  "\t\t\"outputs\": [],\n" +
-  "\t\t\"payable\": false,\n" +
-  "\t\t\"stateMutability\": \"nonpayable\",\n" +
-  "\t\t\"type\": \"function\"\n" +
-  "\t},\n" +
-  "\t{\n" +
-  "\t\t\"constant\": false,\n" +
-  "\t\t\"inputs\": [\n" +
-  "\t\t\t{\n" +
-  "\t\t\t\t\"name\": \"rate\",\n" +
-  "\t\t\t\t\"type\": \"uint32\"\n" +
-  "\t\t\t}\n" +
-  "\t\t],\n" +
-  "\t\t\"name\": \"setUSDTrate\",\n" +
-  "\t\t\"outputs\": [],\n" +
-  "\t\t\"payable\": false,\n" +
-  "\t\t\"stateMutability\": \"nonpayable\",\n" +
-  "\t\t\"type\": \"function\"\n" +
-  "\t},\n" +
-  "\t{\n" +
-  "\t\t\"constant\": false,\n" +
-  "\t\t\"inputs\": [\n" +
-  "\t\t\t{\n" +
-  "\t\t\t\t\"name\": \"newOwner\",\n" +
-  "\t\t\t\t\"type\": \"address\"\n" +
-  "\t\t\t}\n" +
-  "\t\t],\n" +
-  "\t\t\"name\": \"transferOwnership\",\n" +
-  "\t\t\"outputs\": [],\n" +
-  "\t\t\"payable\": false,\n" +
-  "\t\t\"stateMutability\": \"nonpayable\",\n" +
-  "\t\t\"type\": \"function\"\n" +
-  "\t},\n" +
-  "\t{\n" +
-  "\t\t\"constant\": false,\n" +
-  "\t\t\"inputs\": [\n" +
-  "\t\t\t{\n" +
-  "\t\t\t\t\"name\": \"amount\",\n" +
-  "\t\t\t\t\"type\": \"uint256\"\n" +
-  "\t\t\t}\n" +
-  "\t\t],\n" +
-  "\t\t\"name\": \"withdrawIHAD\",\n" +
-  "\t\t\"outputs\": [\n" +
-  "\t\t\t{\n" +
-  "\t\t\t\t\"name\": \"\",\n" +
-  "\t\t\t\t\"type\": \"bool\"\n" +
-  "\t\t\t}\n" +
-  "\t\t],\n" +
-  "\t\t\"payable\": false,\n" +
-  "\t\t\"stateMutability\": \"nonpayable\",\n" +
-  "\t\t\"type\": \"function\"\n" +
-  "\t},\n" +
-  "\t{\n" +
-  "\t\t\"constant\": false,\n" +
-  "\t\t\"inputs\": [\n" +
-  "\t\t\t{\n" +
-  "\t\t\t\t\"name\": \"amount\",\n" +
-  "\t\t\t\t\"type\": \"uint256\"\n" +
-  "\t\t\t}\n" +
-  "\t\t],\n" +
-  "\t\t\"name\": \"withdrawUSDT\",\n" +
-  "\t\t\"outputs\": [\n" +
-  "\t\t\t{\n" +
-  "\t\t\t\t\"name\": \"\",\n" +
-  "\t\t\t\t\"type\": \"bool\"\n" +
-  "\t\t\t}\n" +
-  "\t\t],\n" +
-  "\t\t\"payable\": false,\n" +
-  "\t\t\"stateMutability\": \"nonpayable\",\n" +
-  "\t\t\"type\": \"function\"\n" +
-  "\t},\n" +
-  "\t{\n" +
-  "\t\t\"payable\": true,\n" +
-  "\t\t\"stateMutability\": \"payable\",\n" +
-  "\t\t\"type\": \"fallback\"\n" +
-  "\t},\n" +
-  "\t{\n" +
-  "\t\t\"anonymous\": false,\n" +
-  "\t\t\"inputs\": [\n" +
-  "\t\t\t{\n" +
-  "\t\t\t\t\"indexed\": true,\n" +
-  "\t\t\t\t\"name\": \"from_\",\n" +
-  "\t\t\t\t\"type\": \"address\"\n" +
-  "\t\t\t},\n" +
-  "\t\t\t{\n" +
-  "\t\t\t\t\"indexed\": true,\n" +
-  "\t\t\t\t\"name\": \"to_\",\n" +
-  "\t\t\t\t\"type\": \"address\"\n" +
-  "\t\t\t},\n" +
-  "\t\t\t{\n" +
-  "\t\t\t\t\"indexed\": false,\n" +
-  "\t\t\t\t\"name\": \"amount_\",\n" +
-  "\t\t\t\t\"type\": \"uint256\"\n" +
-  "\t\t\t}\n" +
-  "\t\t],\n" +
-  "\t\t\"name\": \"ConvertSuccessful\",\n" +
-  "\t\t\"type\": \"event\"\n" +
-  "\t},\n" +
-  "\t{\n" +
-  "\t\t\"anonymous\": false,\n" +
-  "\t\t\"inputs\": [\n" +
-  "\t\t\t{\n" +
-  "\t\t\t\t\"indexed\": true,\n" +
-  "\t\t\t\t\"name\": \"from_\",\n" +
-  "\t\t\t\t\"type\": \"address\"\n" +
-  "\t\t\t},\n" +
-  "\t\t\t{\n" +
-  "\t\t\t\t\"indexed\": true,\n" +
-  "\t\t\t\t\"name\": \"to_\",\n" +
-  "\t\t\t\t\"type\": \"address\"\n" +
-  "\t\t\t},\n" +
-  "\t\t\t{\n" +
-  "\t\t\t\t\"indexed\": false,\n" +
-  "\t\t\t\t\"name\": \"amount_\",\n" +
-  "\t\t\t\t\"type\": \"uint256\"\n" +
-  "\t\t\t}\n" +
-  "\t\t],\n" +
-  "\t\t\"name\": \"ConvertFailed\",\n" +
-  "\t\t\"type\": \"event\"\n" +
-  "\t},\n" +
-  "\t{\n" +
-  "\t\t\"anonymous\": false,\n" +
-  "\t\t\"inputs\": [\n" +
-  "\t\t\t{\n" +
-  "\t\t\t\t\"indexed\": true,\n" +
-  "\t\t\t\t\"name\": \"previousOwner\",\n" +
-  "\t\t\t\t\"type\": \"address\"\n" +
-  "\t\t\t},\n" +
-  "\t\t\t{\n" +
-  "\t\t\t\t\"indexed\": true,\n" +
-  "\t\t\t\t\"name\": \"newOwner\",\n" +
-  "\t\t\t\t\"type\": \"address\"\n" +
-  "\t\t\t}\n" +
-  "\t\t],\n" +
-  "\t\t\"name\": \"OwnershipTransferred\",\n" +
-  "\t\t\"type\": \"event\"\n" +
-  "\t},\n" +
-  "\t{\n" +
-  "\t\t\"constant\": true,\n" +
-  "\t\t\"inputs\": [],\n" +
-  "\t\t\"name\": \"addressEcho\",\n" +
-  "\t\t\"outputs\": [\n" +
-  "\t\t\t{\n" +
-  "\t\t\t\t\"name\": \"\",\n" +
-  "\t\t\t\t\"type\": \"address\"\n" +
-  "\t\t\t}\n" +
-  "\t\t],\n" +
-  "\t\t\"payable\": false,\n" +
-  "\t\t\"stateMutability\": \"view\",\n" +
-  "\t\t\"type\": \"function\"\n" +
-  "\t},\n" +
-  "\t{\n" +
-  "\t\t\"constant\": true,\n" +
-  "\t\t\"inputs\": [],\n" +
-  "\t\t\"name\": \"getRetainRate\",\n" +
-  "\t\t\"outputs\": [\n" +
-  "\t\t\t{\n" +
-  "\t\t\t\t\"name\": \"\",\n" +
-  "\t\t\t\t\"type\": \"uint256\"\n" +
-  "\t\t\t}\n" +
-  "\t\t],\n" +
-  "\t\t\"payable\": false,\n" +
-  "\t\t\"stateMutability\": \"view\",\n" +
-  "\t\t\"type\": \"function\"\n" +
-  "\t},\n" +
-  "\t{\n" +
-  "\t\t\"constant\": true,\n" +
-  "\t\t\"inputs\": [],\n" +
-  "\t\t\"name\": \"getUSDTrate\",\n" +
-  "\t\t\"outputs\": [\n" +
-  "\t\t\t{\n" +
-  "\t\t\t\t\"name\": \"\",\n" +
-  "\t\t\t\t\"type\": \"uint256\"\n" +
-  "\t\t\t}\n" +
-  "\t\t],\n" +
-  "\t\t\"payable\": false,\n" +
-  "\t\t\"stateMutability\": \"view\",\n" +
-  "\t\t\"type\": \"function\"\n" +
-  "\t},\n" +
-  "\t{\n" +
-  "\t\t\"constant\": true,\n" +
-  "\t\t\"inputs\": [],\n" +
-  "\t\t\"name\": \"owner\",\n" +
-  "\t\t\"outputs\": [\n" +
-  "\t\t\t{\n" +
-  "\t\t\t\t\"name\": \"\",\n" +
-  "\t\t\t\t\"type\": \"address\"\n" +
-  "\t\t\t}\n" +
-  "\t\t],\n" +
-  "\t\t\"payable\": false,\n" +
-  "\t\t\"stateMutability\": \"view\",\n" +
-  "\t\t\"type\": \"function\"\n" +
-  "\t}\n" +
-  "]")
+export async function getHistory(addr) {
+  const res = await fetch(
+    `https://history.quorum.mex.gold/transactionlist/${addr}`,
+  );
+  let history = await res.json();
+  history.sort(function(h1, h2) {
+    return new Date(h2.time).getTime() - new Date(h1.time).getTime();
+  });
+  return history;
+}
+
+export async function sendHistory(
+  address,
+  type,
+  absvalue,
+  hash,
+  counterpartyaddress,
+  currency,
+) {
+  try {
+    let params = new URLSearchParams();
+    params.set("address", address);
+    params.set("type", type);
+    params.set("absvalue", absvalue);
+    params.set("hash", hash);
+    params.set("counterpartyaddress", counterpartyaddress);
+    params.set("currency", currency);
+    await fetch(`https://history.quorum.mex.gold/transaction`, {
+      method: "POST",
+      body: params,
+    });
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+
+let USDTtoIHADABI = [
+  {
+    "constant": false,
+    "inputs": [],
+    "name": "convertToIHAD",
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [],
+    "name": "convertToUSDT",
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "rate",
+        "type": "uint32"
+      }
+    ],
+    "name": "setRetainRate",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "rate",
+        "type": "uint32"
+      }
+    ],
+    "name": "setUSDTrate",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "newOwner",
+        "type": "address"
+      }
+    ],
+    "name": "transferOwnership",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "withdrawIHAD",
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "withdrawUSDT",
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "payable": true,
+    "stateMutability": "payable",
+    "type": "fallback"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "name": "from_",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "name": "to_",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "name": "amount_",
+        "type": "uint256"
+      }
+    ],
+    "name": "ConvertSuccessful",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "name": "from_",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "name": "to_",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "name": "amount_",
+        "type": "uint256"
+      }
+    ],
+    "name": "ConvertFailed",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "name": "previousOwner",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "name": "newOwner",
+        "type": "address"
+      }
+    ],
+    "name": "OwnershipTransferred",
+    "type": "event"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "addressEcho",
+    "outputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "getRetainRate",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "getUSDTrate",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "owner",
+    "outputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  }
+]
 
 export { web3js };

@@ -3,7 +3,10 @@
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/.idea/tmp/chrome-user-dir" />
       <excludeFolder url="file://$MODULE_DIR$/build" />
+      <excludeFolder url="file://$MODULE_DIR$/chrome-extension" />
+      <excludeFolder url="file://$MODULE_DIR$/cordova" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
   </component>

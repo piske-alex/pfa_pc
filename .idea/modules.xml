@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/chrome-extension/chrome-extension.iml" filepath="$PROJECT_DIR$/chrome-extension/chrome-extension.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cordova/cordova.iml" filepath="$PROJECT_DIR$/cordova/cordova.iml" />
       <module fileurl="file://$PROJECT_DIR$/pfa-react.iml" filepath="$PROJECT_DIR$/pfa-react.iml" />
     </modules>
   </component>

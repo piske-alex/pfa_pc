@@ -1,41 +1,61 @@
 import React from "react";
-import { Grid, Container } from "@material-ui/core";
-import { HorizontalCenter, VerticalCenter, onChangeGenerator } from "./utils";
+import { Grid } from "@material-ui/core";
+import { getLogoUrl, HorizontalCenter, VerticalCenter } from "./utils";
 import trans from "./translation";
 import TextField from "@material-ui/core/TextField";
-import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
+import { Link } from "react-router-dom";
+import { readAccountList } from "./blockchain-utils";
+import Select from "@material-ui/core/Select";
+import MenuItem from "@material-ui/core/MenuItem";
+import FormControl from "@material-ui/core/FormControl";
+import InputLabel from "@material-ui/core/InputLabel";
+import Avatar from "@material-ui/core/Avatar";
 
 const lang = "ch";
 
-export default function LoginAccountPage({ onAccountLogin }) {
-  const [username, setUsername] = React.useState("");
-  const onUsernameChange = onChangeGenerator(setUsername);
+export default function LoginAccountPage({ onAccountLogin, prefillUsername }) {
+  const logoUrl = getLogoUrl();
+
+  const [username, setUsername] = React.useState(
+    prefillUsername ? prefillUsername : "",
+  );
+  const onUsernameChange = event => {
+    setUsername(event.target.value);
+  };
   const [password, setPassword] = React.useState("");
-  const onPasswordChange = onChangeGenerator(setPassword);
-  const [passwordAgain, setPasswordAgain] = React.useState("");
-  const onPasswordAgainChange = onChangeGenerator(setPasswordAgain);
-  const onSumbit = () => onAccountLogin(username, password);
+  const onPasswordChange = event => {
+    setPassword(event.target.value);
+  };
+
+  const onSumbit = () => {
+    onAccountLogin(username, password);
+  };
+
+  const [accountNames, setAccountNames] = React.useState([]);
+
+  React.useEffect(() => setAccountNames(readAccountList()), []);
 
   return (
     <VerticalCenter gridStyle={{ minHeight: "80vh" }}>
       <HorizontalCenter>
         <Grid container alignItems={"center"} direction={"column"} spacing={2}>
           <Grid item>
-            <TextField
-              variant={"standard"}
-              label={trans.username[lang]}
-              value={username}
-              onChange={onUsernameChange}
-              helperText={
-                username.length > 0
-                  ? undefined
-                  : trans.usernameEmptyWarning[lang]
-              }
-            />
+            <img style={{ width: 60, height: 60 }} src={logoUrl} />
+          </Grid>
+          <Grid item>
+            <FormControl style={{ width: 300 }}>
+              <InputLabel>{trans.username[lang]}</InputLabel>
+              <Select value={username} onChange={onUsernameChange}>
+                {accountNames.map(name => (
+                  <MenuItem value={name.slice(5)}>{name.slice(5)}</MenuItem>
+                ))}
+              </Select>
+            </FormControl>
           </Grid>
           <Grid item>
             <TextField
+              style={{ width: 300 }}
               variant={"standard"}
               label={trans.password[lang]}
               value={password}
@@ -46,16 +66,44 @@ export default function LoginAccountPage({ onAccountLogin }) {
                   ? undefined
                   : trans.passwordLengthWarning[lang]
               }
+              inputProps={{ autoComplete: "new-password" }}
             />
+          </Grid>
+
+          <Grid item>
+            <Grid container alignItems={"center"} direction={"row"} spacing={2}>
+              <Grid item>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={onSumbit}
+                  style={{ width: "150px" }}
+                >
+                  {trans.login[lang]}
+                </Button>
+              </Grid>
+              <Grid item>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  component={Link}
+                  to={"/create-account"}
+                  style={{ width: "150px" }}
+                >
+                  {trans.register[lang]}
+                </Button>
+              </Grid>
+            </Grid>
           </Grid>
 
           <Grid item>
             <Button
               variant="contained"
               color="primary"
-              onClick={onAccountLogin}
+              component={Link}
+              to={"/account-manager"}
             >
-              {trans.register[lang]}
+              {trans.accountImportExport[lang]}
             </Button>
           </Grid>
         </Grid>
