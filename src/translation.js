@@ -48,6 +48,9 @@ export default {
   details: {
     ch: "詳細資料",
   },
+  privateKey: {
+    ch: "密鑰",
+  },
   from: {
     ch: "由",
   },

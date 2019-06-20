@@ -51,6 +51,8 @@ import MaterialLink from "@material-ui/core/Link";
 import Divider from "@material-ui/core/Divider";
 import useCookies from "react-cookie/cjs/useCookies";
 import { ArrowUpwardSharp } from "@material-ui/icons";
+import Switch from "@material-ui/core/Switch";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
 
 const lang = "ch";
 
@@ -176,6 +178,8 @@ function Dashboard({
   const handleDrawerClose = () => {
     setDrawerOpen(false);
   };
+
+  const [seePrivateKey, setSeePrivateKey] = React.useState(false);
 
   const [modalOpen, setModalOpen] = React.useState(false);
   const handleModalOpen = () => {
@@ -613,7 +617,31 @@ function Dashboard({
                 value={account.address}
                 disabled
               />
+
+
+
             </Grid>
+            <Grid item>
+              <FormControlLabel
+                control={
+                  <Switch checked={seePrivateKey} onChange={e=>setSeePrivateKey(e.target.checked)}  />
+                }
+                label="顯示密鑰"
+              />
+            </Grid>
+            <Grid item>
+              <TextField
+
+                label={t.privateKey[lang]}
+                className={classes.textField}
+                value={account.privateKey}
+                style={{visibility: seePrivateKey ? 'visible' : 'hidden' }}
+                disabled
+                variant="outlined"
+              />
+
+            </Grid>
+
           </Grid>
         </div>
       </Modal>
