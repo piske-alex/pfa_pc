@@ -272,8 +272,9 @@ function Dashboard({
         setPfaBalance(`${await etherBalance(account)} PFA`);
         const tkBal = await tokenBalance(account, ihadAddress);
         const USDTBal = await tokenBalance(account, USDTaddress);
-        setIhadBalance(tkBal ? `${tkBal} HAD` : "");
-        setUSDTBalance(USDTBal ? `${USDTBal} USDT` : "");
+        console.log(tkBal + "sdfs")
+        setIhadBalance(tkBal != null ? `${tkBal} HAD` : "");
+        setUSDTBalance(USDTBal != null  ? `${USDTBal} USDT` : "");
       } catch (err) {
         console.log(err);
       }
