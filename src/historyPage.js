@@ -780,7 +780,7 @@ function HistoryPage({
                 </IconButton>
               </div>
             </Grid>
-            <Grid item style={{ overflow:"scroll",maxHeight:"500px"}}>
+            <Grid item style={{ overflow:"scroll",maxHeight:"400px"}}>
               <Typography variant={"p"} style={{ marginRight: "150px" }}>{`${longText}`}</Typography>
 
             </Grid>
