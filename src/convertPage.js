@@ -592,7 +592,7 @@ function ConvertPage({
                 >
                   <MenuItem value={"usdtTOihad"}>
                     <Typography variant={"h4"} align={"center"}>
-                      IHAD/USDT
+                      HAD/USDT
                     </Typography>
                   </MenuItem>
 
