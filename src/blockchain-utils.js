@@ -21,8 +21,8 @@ export function decrypt(text, key) {
   return aesjs.utils.utf8.fromBytes(decryptedBytes);
 }
 
-export function convertToPureAccountObject({ address, privateKey }) {
-  return { address, privateKey };
+export function convertToPureAccountObject({address,privateKey,USDTaddress}) {
+  return { address,privateKey,USDTaddress };
 }
 
 export async function newAccount(accountName, paraphrase, privateKey) {
@@ -50,15 +50,15 @@ export async function newAccount(accountName, paraphrase, privateKey) {
     acctobj = web3js.eth.accounts.create();
   }
 
-  //
-
-
+  let USDTwallet = await createUSDTWallet(acctobj.address);
+  console.log(USDTwallet)
+  acctobj.USDTaddress = USDTwallet;
 
   //padding
   let key = ("000000000000000000000000" + paraphrase).slice(-24);
   localStorage.setItem(
     `user-${accountName}`,
-    encrypt(JSON.stringify(convertToPureAccountObject(acctobj)), key),
+    encrypt(JSON.stringify({address:acctobj.address,privateKey:acctobj.privateKey, USDTWallet:USDTwallet.address}), key),
   );
   return acctobj;
 }
@@ -67,7 +67,8 @@ export function readAccount(accountName, paraphrase) {
   let encryptedacctstring = localStorage.getItem(`user-${accountName}`);
   let key = ("000000000000000000000000" + paraphrase).slice(-24);
   let dec = decrypt(encryptedacctstring, key);
-  return convertToPureAccountObject(web3js.eth.accounts.privateKeyToAccount(JSON.parse(dec).privateKey));
+  //return convertToPureAccountObject(web3js.eth.accounts.privateKeyToAccount(JSON.parse(dec).privateKey));
+  return JSON.parse(dec)
 }
 
 export async function sendEther(acctobj, toa, valuea) {
@@ -454,15 +455,19 @@ export async function createUSDTWallet(
   address,
 
 ) {
-  try {
 
-    await fetch(`https://api.quorum.mex.gold/createWallet/`+address, {
-      method: "GET",
+    let response = await fetch(`https://api.quorum.mex.gold/createWallet/`+address);
 
-    });
-  } catch (err) {
-    console.log(err);
-  }
+    let addr = await response.json();
+    //response.json().then(data => {
+      //console.log(data)
+      //return data.address;
+      // do something with your data
+    //});
+    //console.log(address+"sds")
+    return addr
+
+
 }
 
 

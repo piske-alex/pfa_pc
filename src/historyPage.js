@@ -174,6 +174,15 @@ function HistoryPage({
   const handleDrawerClose = () => {
     setDrawerOpen(false);
   };
+  const [tosModalOpen, settosModalOpen] = React.useState(false);
+  const handletosModalOpen = (x,y) => {
+    setLongText(x);
+    setModalTitle(y)
+    settosModalOpen(true);
+  };
+  const handletosModalClose = () => {
+    settosModalOpen(false);
+  };
 
   const [modalOpen, setModalOpen] = React.useState(false);
   const handleModalOpen = () => {
@@ -187,7 +196,9 @@ function HistoryPage({
   const handleSendModalOpen = () => {
     setSendModalOpen(true);
   };
-  const handleSendModalClose = () => {
+
+  const [longText, setLongText] = React.useState("undefinede");
+  const [modalTitle, setModalTitle] = React.useState("undefinede");const handleSendModalClose = () => {
     setSendModalOpen(false);
   };
 
@@ -468,6 +479,64 @@ function HistoryPage({
                   }
                 />
               </ListItem>
+              <ListItem
+                onClick =  {()=> handletosModalOpen(t.aboutusfull[lang],t.aboutus[lang])}
+                button>
+                {/*<ListItemAvatar>
+                  <Avatar src={logoUrl} />
+                </ListItemAvatar>*/}
+                <ListItemText
+                  primary={
+                    <Typography variant={"subtitle2"} >{t.aboutus[lang]}</Typography>
+                  }
+                />
+              </ListItem>
+              <ListItem
+                onClick = {()=> history.push("/history-page")}
+                button
+
+              >
+                {/*<ListItemAvatar>
+                  <Avatar src={logoUrl} />
+                </ListItemAvatar>*/}
+
+                <ListItemText
+                  primary={
+                    <Typography variant={"subtitle2"} >{t.usemethod[lang]}</Typography>
+                  }
+                />
+              </ListItem>
+              <ListItem
+                onClick = {()=> handletosModalOpen(t.privacyfull[lang],t.privacy[lang])}
+                button
+
+              >
+                {/*<ListItemAvatar>
+                  <Avatar src={logoUrl} />
+                </ListItemAvatar>*/}
+
+                <ListItemText
+                  primary={
+                    <Typography variant={"subtitle2"} >{t.privacy[lang]}</Typography>
+                  }
+                />
+              </ListItem>
+              <ListItem
+                onClick = {()=> handletosModalOpen(t.tosfull[lang],t.tos[lang])}
+                button
+
+              >
+                {/*<ListItemAvatar>
+                  <Avatar src={logoUrl} />
+                </ListItemAvatar>*/}
+
+                <ListItemText
+                  primary={
+                    <Typography variant={"subtitle2"} >{t.tos[lang]}</Typography>
+                  }
+                />
+              </ListItem>
+
             </List>
           </Grid>
         </Grid>
@@ -694,6 +763,26 @@ function HistoryPage({
                   </ListItem>
                 ))}
               </List>
+            </Grid>
+          </Grid>
+        </div>
+      </Modal>
+      <Modal open={tosModalOpen} onBackdropClick={handletosModalClose}>
+        <div className={classes.modalPaper}>
+          <Grid container direction={"column"}>
+            <Grid item>
+              <div className={classes.toolbarIcon}>
+                <Typography variant={"h5"} style={{ marginRight: "150px" }}>{`${
+                  modalTitle
+                  }`}</Typography>
+                <IconButton onClick={handletosModalClose}>
+                  <CloseIcon />
+                </IconButton>
+              </div>
+            </Grid>
+            <Grid item style={{ overflow:"scroll",maxHeight:"450px"}}>
+              <Typography variant={"p"} style={{ marginRight: "150px" }}>{`${longText}`}</Typography>
+
             </Grid>
           </Grid>
         </div>

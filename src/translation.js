@@ -137,11 +137,8 @@ export default {
     ch: "使用細則",
   },
   tosfull:{
-    ch: "使用細則\n" +
-      "\n" +
-      "\n" +
-      "\n" +
-      "TERMS OF USEBy accessing or using the Token Liquidity Network website and API located at https://PriceFitchAsset.com, and any linked or directed subdomain (such as https://app.PriceFitchAsset.com) (the “Site”) and any content made available through the Site, you (the “User” and collectively with others using the Site - “Users”) agree to be bound by these Terms of Use (“Terms”). The rights in the Site are held by Bprotocol Foundation, a Swiss foundation, with legal seat in Zug, Switzerland, registered in the Swiss commercial register under UID CHE-181.679.849 (“PriceFitchAsset”), and the terms “we,” “us,” and “our” refer to PriceFitchAsset. Please read these Terms carefully. These Terms govern your access to and use of the Site and Content (as defined herein). By using the Content or visiting the Site, you signify your consent to both these Terms and our Privacy Policy, a current version of which is available at https://www.PriceFitchAsset.com/privacy-policy, which is incorporated herein by reference and which may be modified from time to time at our sole discretion and without prior notice. Changes may be made to these Terms from time to time. These changes will apply at that instant to all then current and subsequent uses of the Site. You waive any right you may have to receive specific notice of such changes or modifications. Your continued use of this Site acts as acceptance of such changes or modifications. If you do not agree to the Terms in effect when you access or use the Site, you must stop using the Site.\n" +
+    ch:
+      "TERMS OF USE  By accessing or using the Token Liquidity Network website and API located at https://PriceFitchAsset.com, and any linked or directed subdomain (such as https://app.PriceFitchAsset.com) (the “Site”) and any content made available through the Site, you (the “User” and collectively with others using the Site - “Users”) agree to be bound by these Terms of Use (“Terms”). The rights in the Site are held by Bprotocol Foundation, a Swiss foundation, with legal seat in Zug, Switzerland, registered in the Swiss commercial register under UID CHE-181.679.849 (“PriceFitchAsset”), and the terms “we,” “us,” and “our” refer to PriceFitchAsset. Please read these Terms carefully. These Terms govern your access to and use of the Site and Content (as defined herein). By using the Content or visiting the Site, you signify your consent to both these Terms and our Privacy Policy, a current version of which is available at https://www.PriceFitchAsset.com/privacy-policy, which is incorporated herein by reference and which may be modified from time to time at our sole discretion and without prior notice. Changes may be made to these Terms from time to time. These changes will apply at that instant to all then current and subsequent uses of the Site. You waive any right you may have to receive specific notice of such changes or modifications. Your continued use of this Site acts as acceptance of such changes or modifications. If you do not agree to the Terms in effect when you access or use the Site, you must stop using the Site.\n" +
       "IF YOU DO NOT AGREE TO ANY OF THESE TERMS, PLEASE DO NOT USE THE SITE OR CONTENT.\n" +
       "1. Eligibility\n" +
       "By accessing or using the Site, you represent and warrant that you will not use the Site if the laws applicable to you of due to your country of residency and/or citizenship prohibit you from doing so in accordance with these Terms.\n" +
@@ -180,5 +177,56 @@ export default {
       "18. Miscellaneous\n" +
       "a. The controlling language for these terms of use is English; the meaning of terms, conditions and representations herein are subject to definitions and interpretations in the English language. Any translation is provided for your convenience and may not be deemed to represent accurately the information in the original English. b. If any provision of these Terms is determined to be invalid or unenforceable, the provision shall be deemed to be severable from the remainder of these Terms and will not cause their invalidity or unenforceability. c. These terms of use may be amended from time to time. It is your responsibility to check these terms of use periodically for changes. Your continued use of the Content following the posting of changes will mean that you accept and agree to the changes. If you do not agree with any such modification, you should not use the Content. d. YOU AGREE THAT ANY CAUSE OF ACTION ARISING OUT OF OR RELATED TO THE CONTENT MUST COMMENCE WITHIN ONE (1) YEAR AFTER THE CAUSE OF ACTION ACCRUES. OTHERWISE, SUCH CAUSE OF ACTION IS PERMANENTLY BARRED.\n" +
       "v.01 | May 29, 2019"
+  },
+  privacyfull:{
+    ch: "PRIVACY POLICY\n" +
+      "About Us\n" +
+      "The PriceFitchAsset Network (the “PriceFitchAsset Network”, “We”, “Us” or “Our”) is a Decentralized Liquidity Network that allows you to hold any Ethereum token and convert it to any other token in the network, with no counter party, at an automatically calculated price, using a simple web wallet (the “Services”). This privacy policy has been created to inform about how we manage, collect, store and use the personal information we receive and collect in connection with the PriceFitchAsset Network (the `Policy`).\n" +
+      "Acceptance of Policy\n" +
+      "Our registration process is done by using a chatbot. As such, we create a conversation process where we ask you to agree to the terms of Our Privacy Policy, by replying “yes” you agree that you have read, understood, accept and agree to be bound by this Privacy Policy. If you don’t agree with the Privacy Policy, please do not use our Services.\n" +
+      "Changes to Our Privacy Policy\n" +
+      "We may update this Privacy Policy to reflect changes to our information collection, usage and storage practices. If we make any changes that we deem as “material” (in our sole good faith discretion), we will notify you (using the notification methods set forth in the “Notices” Section prior to the change becoming effective. We encourage you to periodically review this page for the latest information on our privacy practices.\n" +
+      "Information we collect and for which purposes\n" +
+      "We collect information that is necessary for the functioning of our PriceFitchAsset Netwotk and the provision of Services through it. We receive the Information, such as username directly from you when you register to our PriceFitchAsset Network as member of a community. You may voluntarily provide us your contact information and related data, including personal information. We use the information in order to administer our Network and for internal operations, including troubleshooting, data analysis, testing, research, statistical and survey purposes. We may also store information that your computer or mobile device provides us in connection with your use of the Service, such as your browser type, type of computer or mobile device, browser language, IP address. If you register to the PriceFitchAsset Network using a third party Service like Facebook, we may receive information about you from such third party Service.\n" +
+      "Disclosure of Your Information\n" +
+      "We do not rent or sell any information about you to others, or trade any such information. We may employ third party companies and individuals to facilitate the operation of the Network, and to perform services related to administration of the Network (including, but not limited to, bill and credit card payment processing, maintenance, hosting and database management services, web analytics and administration). You understand and agree that we may be required to disclose personal information if required to do so by law or in the belief that such disclosure is reasonably necessary to avoid liability, to comply with legal process, including, but not limited to a subpoena, statute, search warrant, or court order, or to protect our, or a third party, property and rights, to protect the safety of the public or any person, or to prevent or stop activity we may consider to be, or to pose a risk of being, illegal, unethical or legally actionable. In the event we will be acquired by or merged with a third party entity, or in the event of bankruptcy or a comparable event, We reserve the right to transfer or assign personal information in connection with the foregoing events.\n" +
+      "   \n" +
+      "Cookies Statement\n" +
+      "We uses cookies. Cookies are small text files that are placed on your computer by websites that you visit. They are widely used in order to make websites work, or work more efficiently, as well as to provide information to the owners of the site. Cookies are typically stored on your computer's hard drive. Information collected from cookies is used by us to evaluate the effectiveness of our website and API located at https://PriceFitchAsset.com, and any linked or directed subdomain (such as https://app.PriceFitchAsset.com) (the “Site”), analyze trends, and manage the platform. The information collected from cookies allows us to determine such things as which parts of our Site are most visited and difficulties our visitors may experience in accessing our Site. With this knowledge, we can improve the quality of your experience on the platform by recognizing and delivering more of the most desired features and information, as well as by resolving access difficulties. We also use cookies and/or a technology known as web bugs or clear gifs, which are typically stored in emails to help us confirm your receipt of, and response to, our emails and to provide you with a more personalized experience when using our Site. We also use third party service provider(s), to assist us in better understanding the use of our Site. Our service provider(s) will place cookies on the hard drive of your computer and will receive information that we select that will educate us on such things as how visitors navigate around our site, what pages are browsed and general transaction information. Our service provider(s) analyses this information and provides us with aggregate reports. The information and analysis provided by our service provider(s) will be used to assist us in better understanding our visitors' interests in our Site and how to better serve those interests. The information collected by our service provider(s) may be linked to and combined with information that we collect about you while you are using the platform. Our service provider(s) is/are contractually restricted from using information they receive from our Site other than to assist us. Your continued use of our Site, as well as any subsequent usage, will be interpreted as your consent to cookies being stored on your device.\n" +
+      "Security\n" +
+      "Everything We save is encrypted and We have implemented the technical and organizational measures designed to secure your information from accidental loss and from unauthorized access, use, alteration or disclosure. However, we cannot guarantee that unauthorized third parties will never be able to overcome those measures or use your information for improper purposes.\n" +
+      "Processing and transferring your information\n" +
+      "The information provided will be saved and stored with the hosting and information backup providers (such as Google Cloud) in the U.S, held and operated by third parties other than PriceFitchAsset and/or which are not controlled by PriceFitchAsset. Upon providing the information the site visitor agrees and confirms that PriceFitchAsset may transfer to and/or save the information provided thereto on servers located in the U.S.\n" +
+      "Your Rights\n" +
+      "You may review, update, or delete the information collected by or through our Service by logging into your account and reviewing your account settings and profile. You have a right to access to your personal information held by us by requesting a copy in writing. We will provide you with such copy as soon as practicable after receiving a valid request. We may charge you a fee, which shall not exceed the cost for copies. We may request proof of identification to verify your access request and reject any unfair request. To exercise this right, please refer to the “Contact Us” section below.\n" +
+      "Notices\n" +
+      "Notices to you may be made via our website. PriceFitchAsset may also provide notices of changes to this Privacy Policy or other matters by displaying notices or links to notices to you generally on our website. You agree that all agreements, notices, disclosures and any other communications that PriceFitchAsset provide as aforementioned satisfy any legal requirement that such communications be in writing.\n" +
+      "Contact Us\n" +
+      "For any questions about this Privacy Policy or any other issue regarding the Bacnor Network or our Services please contact us at: privacy@PriceFitchAsset.com\n" +
+      "Last Update: May 2018"
+  },
+  aboutusfull:{
+    ch:"普惠資產區塊鏈公鏈系統\n" +
+      "\n" +
+      "以太坊速度慢及需要礦工費限制了非常大量的應用﹐往往一個幾千人的應用已經癱瘓了整個公有鏈；且 無法用於細額交易。\n" +
+      "\n" +
+      "鏈改後的PFA普惠資產，採用JPMORGAN(摩根大通)及微軟(Mircosoft)開發的最新區塊鏈技術，將提供強大，安全可靠，穩定的一個區塊鏈技術，打造全新概念的環球支付系統。\n" +
+      "\n" +
+      "普惠公鏈團隊參與到JPMORGAN(摩根大通)及微軟(Mircosoft)開發，屬於是由世界一流的區塊鏈技術團隊。\n" +
+      "\n" +
+      "普惠資產公有鏈已在原有以太坊公鏈上的普惠資產PFA，升級至獨立的一個主網絡上，在速度和供需方面非常完善。\n" +
+      "\n" +
+      "PFA 鏈改的配套\n" +
+      "因為 Quorum 的兼用性非常大﹐在未來更可以從算法層面鏈改。我們可以建立在大量已開發的以太坊技術上﹐例如熟悉的Truffle,MetaMask,Remix ,OpenZeppelin ﹐它們都已經可以直接在 Quorum 上使用。\n" +
+      "\n" +
+      "普惠資產團隊及摩根大通在選擇區塊鏈技術上持相同意見：以太坊是技術最高的區塊鏈。\n" +
+      "所以 Quorum 的高速﹐免費區塊鏈技術 既解決了速度及細額交易的問題﹐而且增加了一些私隱的設定：私人性信息能夠永遠不會向網絡參與者廣播。私人數據經過加密，只與相關方直接共享﹐同時又不會失去可信任的優秀功能。\n" +
+      "\n" +
+      "Quorum 是一種基於以太坊的分佈式分類賬協議，旨在為金融，供應鏈，零售，房地產等行業提供允許的以太坊實施，支持交易和合同隱私。\n" +
+      "\n" +
+      "Quorum 包含 Go Ethereum 客戶端（也稱為 geth）的\n" +
+      "簡約分支，因此，它利用了以太坊開發人員社區所做的工作。"
   }
+
+
 };

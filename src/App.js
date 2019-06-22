@@ -82,14 +82,14 @@ function App(props) {
     setCannotLoginSnackbarOpen(false);
   };
 
-  const onAccountCreate = (username, password, pvKey) => {
+  const onAccountCreate = async (username, password, pvKey) => {
     try {
-      newAccount(username, password, pvKey);
+      await newAccount(username, password, pvKey);
       setAccountCreatedSnackbarOpen(true);
       props.history.push("/login-account");
     } catch (err) {
       console.log(err);
-      err.toString().includes("Wrong Private Key Format")? setWrongPrivateKeyFormat(true):setAccountNotCreatedSnackbarOpen(true);
+      err.toString().includes("Wrong Private Key Format") ? setWrongPrivateKeyFormat(true) : setAccountNotCreatedSnackbarOpen(true);
 
     }
   };

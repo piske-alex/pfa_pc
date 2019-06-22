@@ -50,7 +50,7 @@ import { usdtProvider } from "./data";
 import MaterialLink from "@material-ui/core/Link";
 import Divider from "@material-ui/core/Divider";
 import useCookies from "react-cookie/cjs/useCookies";
-import { ArrowUpwardSharp } from "@material-ui/icons";
+import { ArrowDownwardSharp, ArrowUpwardSharp } from "@material-ui/icons";
 import Switch from "@material-ui/core/Switch";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import LinearProgress from "@material-ui/core/LinearProgress";
@@ -162,6 +162,7 @@ function Dashboard({
   const logoUrl = getLogoUrl();
   const [cookies, setCookie] = useCookies(['pfa']);
   let something = ""
+  console.log(account);
   if (isEmpty(account)) {
     account = cookies.acctobj;
     console.log(cookies.acctobj+"jj");
@@ -183,6 +184,8 @@ function Dashboard({
   const [seePrivateKey, setSeePrivateKey] = React.useState(false);
 
   const [modalOpen, setModalOpen] = React.useState(false);
+  const [longText, setLongText] = React.useState("undefinede");
+  const [modalTitle, setModalTitle] = React.useState("undefinede");
   const handleModalOpen = () => {
     setModalOpen(true);
   };
@@ -206,7 +209,9 @@ function Dashboard({
     setBuyModalOpen(false);
   };
   const [tosModalOpen, settosModalOpen] = React.useState(false);
-  const handletosModalOpen = () => {
+  const handletosModalOpen = (x,y) => {
+    setLongText(x);
+    setModalTitle(y)
     settosModalOpen(true);
   };
   const handletosModalClose = () => {
@@ -487,7 +492,7 @@ function Dashboard({
                 />
               </ListItem>
               <ListItem
-                onClick = {()=> history.push("/history-page")}
+                onClick =  {()=> handletosModalOpen(t.aboutusfull[lang],t.aboutus[lang])}
                 button>
                 {/*<ListItemAvatar>
                   <Avatar src={logoUrl} />
@@ -514,7 +519,7 @@ function Dashboard({
                 />
               </ListItem>
               <ListItem
-                onClick = {()=> history.push("/history-page")}
+                onClick = {()=> handletosModalOpen(t.privacyfull[lang],t.privacy[lang])}
                 button
 
               >
@@ -529,7 +534,7 @@ function Dashboard({
                 />
               </ListItem>
               <ListItem
-                onClick = {handletosModalOpen}
+                onClick = {()=> handletosModalOpen(t.tosfull[lang],t.tos[lang])}
                 button
 
               >
@@ -636,7 +641,9 @@ function Dashboard({
                           <ListItemIcon>
                             <ArrowUpwardSharp />
                           </ListItemIcon>
-
+                        <ListItemIcon>
+                          <Avatar  src={logoUrl} />
+                        </ListItemIcon>
                         <ListItemText
                           primary={`PFA/USDT 6.02`}
                           secondary={
@@ -649,6 +656,28 @@ function Dashboard({
                           }
                         />
                       </ListItem>
+
+                  <ListItem alignItems="flex-start">
+
+                    <ListItemIcon>
+                      <ArrowDownwardSharp />
+                    </ListItemIcon>
+                    <ListItemIcon>
+                      <Avatar  src={logoUrl} />
+                    </ListItemIcon>
+
+                    <ListItemText
+                      primary={`IHAD/USDT 6.1235`}
+                      secondary={
+                        <React.Fragment>
+                          <Typography variant={"body2"}>
+                            {`較昨日下跌 0.2%`}
+                          </Typography>
+
+                        </React.Fragment>
+                      }
+                    />
+                  </ListItem>
 
                 </List>
 
@@ -792,13 +821,13 @@ function Dashboard({
                 </IconButton>
               </div>
             </Grid>
-            <Grid item>
-              <Typography variant={"p"} style={{ marginRight: "150px" }}>{`請把外部${
+            <Grid item style={{ overflow: "auto", height: "400px" }}>
+              <Typography variant={"p"}>{`請把外部${
                 t.buy[lang]
-                }的 USDT 傳入以下地址：`}</Typography><br />
-              <LinearProgress variant="query" />
+                }的 USDT 傳入以下地址：`}</Typography><QRCode value={`${account.USDTWallet}`} style={{height:"50px",width:"50px"}} renderAs={"svg"} /><br /><span>{account.USDTWallet}</span><br /><br />
+              <LinearProgress variant="query" /><br/>
               <Typography variant={"p"} style={{ marginRight: "150px" }}>{`完成充值前請勿關閉此頁面`}</Typography>
-              <List style={{ overflow: "auto", height: "400px" }}>
+              <List >
                 {usdtProvider.map(p => (
                   <ListItem
                     component={MaterialLink}
@@ -835,6 +864,7 @@ function Dashboard({
                   </ListItem>
                 ))}
               </List>
+
             </Grid>
           </Grid>
         </div>
@@ -844,16 +874,14 @@ function Dashboard({
           <Grid container direction={"column"}>
             <Grid item>
               <div className={classes.toolbarIcon}>
-                <Typography variant={"h5"} style={{ marginRight: "150px" }}>{`${
-                  t.tos[lang]
-                }`}</Typography>
+                <Typography variant={"h5"} style={{ marginRight: "150px" }}>{`${modalTitle}`}</Typography>
                 <IconButton onClick={handletosModalClose}>
                   <CloseIcon />
                 </IconButton>
               </div>
             </Grid>
             <Grid item style={{ overflow:"scroll",maxHeight:"450px"}}>
-              <Typography variant={"p"} style={{ marginRight: "150px" }}>{`${t.tosfull[lang]}`}</Typography>
+              <Typography variant={"p"} style={{ marginRight: "150px" }}>{`${longText}`}</Typography>
 
             </Grid>
           </Grid>

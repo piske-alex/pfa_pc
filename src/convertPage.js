@@ -219,8 +219,8 @@ function ConvertPage({
   const handleSendToAddressChange = event => {
     setSendToAddress(event.target.value);
   };
-
-  const [sendAmount, setSendAmount] = React.useState("");
+  const [longText, setLongText] = React.useState("undefinede");
+  const [modalTitle, setModalTitle] = React.useState("undefinede");const [sendAmount, setSendAmount] = React.useState("");
   const handleSendAmountChange = event => {
     setSendAmount(event.target.value);
   };
@@ -265,6 +265,16 @@ function ConvertPage({
   const [tempBase, setTempBase] = React.useState(
     "0",
   );
+
+  const [tosModalOpen, settosModalOpen] = React.useState(false);
+  const handletosModalOpen = (x,y) => {
+    setLongText(x);
+    setModalTitle(y)
+    settosModalOpen(true);
+  };
+  const handletosModalClose = () => {
+    settosModalOpen(false);
+  };
 
   React.useEffect(() => {
     const fetchBalance = async () => {
@@ -488,6 +498,64 @@ function ConvertPage({
                 <ListItemText
                   primary={
                     <Typography variant={"h5"}>{t.history[lang]}</Typography>
+                  }
+                />
+
+              </ListItem>
+              <ListItem
+                onClick = {()=> handletosModalOpen(t.aboutusfull[lang],t.aboutus[lang])}
+                button>
+                {/*<ListItemAvatar>
+                  <Avatar src={logoUrl} />
+                </ListItemAvatar>*/}
+                <ListItemText
+                  primary={
+                    <Typography variant={"subtitle2"} >{t.aboutus[lang]}</Typography>
+                  }
+                />
+              </ListItem>
+              <ListItem
+                onClick = {()=> history.push("/history-page")}
+                button
+
+              >
+                {/*<ListItemAvatar>
+                  <Avatar src={logoUrl} />
+                </ListItemAvatar>*/}
+
+                <ListItemText
+                  primary={
+                    <Typography variant={"subtitle2"} >{t.usemethod[lang]}</Typography>
+                  }
+                />
+              </ListItem>
+              <ListItem
+                onClick = {()=> handletosModalOpen(t.privacyfull[lang],t.privacy[lang])}
+                button
+
+              >
+                {/*<ListItemAvatar>
+                  <Avatar src={logoUrl} />
+                </ListItemAvatar>*/}
+
+                <ListItemText
+                  primary={
+                    <Typography variant={"subtitle2"} >{t.privacy[lang]}</Typography>
+                  }
+                />
+              </ListItem>
+              <ListItem
+                onClick = {()=> handletosModalOpen(t.tosfull[lang],t.tos[lang])}
+                button
+
+              >
+                {/*<ListItemAvatar>
+                  <Avatar src={logoUrl} />
+                </ListItemAvatar>*/}
+
+                <ListItemText
+                  primary={
+                    <Typography variant={"subtitle2"} >{t.tos[lang]}</Typography>
                   }
                 />
               </ListItem>
@@ -716,6 +784,26 @@ function ConvertPage({
                   </ListItem>
                 ))}
               </List>
+            </Grid>
+          </Grid>
+        </div>
+      </Modal>
+      <Modal open={tosModalOpen} onBackdropClick={handletosModalClose}>
+        <div className={classes.modalPaper}>
+          <Grid container direction={"column"}>
+            <Grid item>
+              <div className={classes.toolbarIcon}>
+                <Typography variant={"h5"} style={{ marginRight: "150px" }}>{`${
+                  modalTitle
+                  }`}</Typography>
+                <IconButton onClick={handletosModalClose}>
+                  <CloseIcon />
+                </IconButton>
+              </div>
+            </Grid>
+            <Grid item style={{ overflow:"scroll",maxHeight:"450px"}}>
+              <Typography variant={"p"} style={{ marginRight: "150px" }}>{`${longText}`}</Typography>
+
             </Grid>
           </Grid>
         </div>
