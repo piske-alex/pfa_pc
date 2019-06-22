@@ -53,6 +53,7 @@ import useCookies from "react-cookie/cjs/useCookies";
 import { ArrowUpwardSharp } from "@material-ui/icons";
 import Switch from "@material-ui/core/Switch";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
+import LinearProgress from "@material-ui/core/LinearProgress";
 
 const lang = "ch";
 
@@ -203,6 +204,13 @@ function Dashboard({
   };
   const handleBuyModalClose = () => {
     setBuyModalOpen(false);
+  };
+  const [tosModalOpen, settosModalOpen] = React.useState(false);
+  const handletosModalOpen = () => {
+    settosModalOpen(true);
+  };
+  const handletosModalClose = () => {
+    settosModalOpen(false);
   };
 
   const [sendToAddress, setSendToAddress] = React.useState("");
@@ -478,6 +486,63 @@ function Dashboard({
                   }
                 />
               </ListItem>
+              <ListItem
+                onClick = {()=> history.push("/history-page")}
+                button>
+                {/*<ListItemAvatar>
+                  <Avatar src={logoUrl} />
+                </ListItemAvatar>*/}
+                <ListItemText
+                  primary={
+                    <Typography variant={"subtitle2"} >{t.aboutus[lang]}</Typography>
+                  }
+                />
+              </ListItem>
+              <ListItem
+                onClick = {()=> history.push("/history-page")}
+                button
+
+                >
+                {/*<ListItemAvatar>
+                  <Avatar src={logoUrl} />
+                </ListItemAvatar>*/}
+
+                <ListItemText
+                  primary={
+                    <Typography variant={"subtitle2"} >{t.usemethod[lang]}</Typography>
+                  }
+                />
+              </ListItem>
+              <ListItem
+                onClick = {()=> history.push("/history-page")}
+                button
+
+              >
+                {/*<ListItemAvatar>
+                  <Avatar src={logoUrl} />
+                </ListItemAvatar>*/}
+
+                <ListItemText
+                  primary={
+                    <Typography variant={"subtitle2"} >{t.privacy[lang]}</Typography>
+                  }
+                />
+              </ListItem>
+              <ListItem
+                onClick = {handletosModalOpen}
+                button
+
+              >
+                {/*<ListItemAvatar>
+                  <Avatar src={logoUrl} />
+                </ListItemAvatar>*/}
+
+                <ListItemText
+                  primary={
+                    <Typography variant={"subtitle2"} >{t.tos[lang]}</Typography>
+                  }
+                />
+              </ListItem>
             </List>
           </Grid>
         </Grid>
@@ -713,6 +778,7 @@ function Dashboard({
           </Grid>
         </div>
       </Modal>
+
       <Modal open={buyModalOpen} onBackdropClick={handleBuyModalClose}>
         <div className={classes.modalPaper}>
           <Grid container direction={"column"}>
@@ -729,7 +795,9 @@ function Dashboard({
             <Grid item>
               <Typography variant={"p"} style={{ marginRight: "150px" }}>{`請把外部${
                 t.buy[lang]
-                }的 USDT 傳入以下地址：`}</Typography>
+                }的 USDT 傳入以下地址：`}</Typography><br />
+              <LinearProgress variant="query" />
+              <Typography variant={"p"} style={{ marginRight: "150px" }}>{`完成充值前請勿關閉此頁面`}</Typography>
               <List style={{ overflow: "auto", height: "400px" }}>
                 {usdtProvider.map(p => (
                   <ListItem
@@ -767,6 +835,26 @@ function Dashboard({
                   </ListItem>
                 ))}
               </List>
+            </Grid>
+          </Grid>
+        </div>
+      </Modal>
+      <Modal open={tosModalOpen} onBackdropClick={handletosModalClose}>
+        <div className={classes.modalPaper}>
+          <Grid container direction={"column"}>
+            <Grid item>
+              <div className={classes.toolbarIcon}>
+                <Typography variant={"h5"} style={{ marginRight: "150px" }}>{`${
+                  t.tos[lang]
+                }`}</Typography>
+                <IconButton onClick={handletosModalClose}>
+                  <CloseIcon />
+                </IconButton>
+              </div>
+            </Grid>
+            <Grid item style={{ overflow:"scroll",maxHeight:"450px"}}>
+              <Typography variant={"p"} style={{ marginRight: "150px" }}>{`${t.tosfull[lang]}`}</Typography>
+
             </Grid>
           </Grid>
         </div>

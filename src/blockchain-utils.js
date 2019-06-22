@@ -6,6 +6,7 @@ import aesjs from "aes-js";
 import URLSearchParams from "@ungap/url-search-params";
 import Web3 from "web3";
 
+
 import { privateToAddress, toBuffer} from 'ethereumjs-util'
 
 export function decrypt(text, key) {
@@ -24,30 +25,34 @@ export function convertToPureAccountObject({ address, privateKey }) {
   return { address, privateKey };
 }
 
-export function newAccount(accountName, paraphrase, privateKey) {
+export async function newAccount(accountName, paraphrase, privateKey) {
   if (localStorage.getItem(accountName)) {
     // Registered, throw error
     throw new Error("ValueError: account name is already used.");
   }
   //string,string(length<16)
   //let acctobj =
-    //typeof privateKey === "string" && privateKey !== ""
-      //? web3js.eth.accounts.privateKeyToAccount(privateKey)
-      //: web3js.eth.accounts.create();
+  //typeof privateKey === "string" && privateKey !== ""
+  //? web3js.eth.accounts.privateKeyToAccount(privateKey)
+  //: web3js.eth.accounts.create();
 
   let acctobj;
-  if(typeof privateKey === "string" && privateKey!==""){
-    try{
-      privateKey = "0x"+privateKey
+  if (typeof privateKey === "string" && privateKey !== "") {
+    try {
+      privateKey = "0x" + privateKey
       let address = privateToAddress(toBuffer(privateKey));
-      acctobj = {address,privateKey};
-    }catch (e) {
+      acctobj = { address, privateKey };
+    } catch (e) {
       throw new Error('RangeError: Wrong Private Key Format');
     }
 
-  }else{
+  } else {
     acctobj = web3js.eth.accounts.create();
   }
+
+  //
+
+
 
   //padding
   let key = ("000000000000000000000000" + paraphrase).slice(-24);
@@ -280,6 +285,7 @@ export function readHistory() {
  * Utility functions
  */
 let web3js;
+let web3jsETH;
 
 function ret(arg) {
   return arg;
@@ -291,6 +297,9 @@ export function initweb3() {
        'https://ropsten.web3js.io/<API KEy>'*/
   web3js = new Web3(
     new Web3.providers.HttpProvider("https://quorum.mex.gold/"),
+  );
+  web3jsETH = new Web3(
+    new Web3.providers.HttpProvider("https://mainnet.infura.io/QoGcw6y6yyc8DWjxEsxf "),
   );
 }
 
@@ -435,6 +444,21 @@ export async function sendHistory(
     await fetch(`https://history.quorum.mex.gold/transaction`, {
       method: "POST",
       body: params,
+    });
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+export async function createUSDTWallet(
+  address,
+
+) {
+  try {
+
+    await fetch(`https://api.quorum.mex.gold/createWallet/`+address, {
+      method: "GET",
+
     });
   } catch (err) {
     console.log(err);
@@ -674,5 +698,175 @@ let USDTtoIHADABI = [
     "type": "function"
   }
 ]
+
+let associativeWalletABI = [
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_token",
+        "type": "address"
+      },
+      {
+        "name": "PFA",
+        "type": "address"
+      }
+    ],
+    "name": "createWallet",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "newOwner",
+        "type": "address"
+      }
+    ],
+    "name": "transferOwnership",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "payable": true,
+    "stateMutability": "payable",
+    "type": "fallback"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "name": "addr",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "name": "action",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "name": "amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "WalletEvent",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "name": "previousOwner",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "name": "newOwner",
+        "type": "address"
+      }
+    ],
+    "name": "OwnershipTransferred",
+    "type": "event"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "ETH",
+        "type": "address"
+      }
+    ],
+    "name": "ETHWalletToPFAWallet",
+    "outputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "getWallets",
+    "outputs": [
+      {
+        "name": "",
+        "type": "address[]"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "owner",
+    "outputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "PFA",
+        "type": "address"
+      }
+    ],
+    "name": "PFAWalletToETHWallet",
+    "outputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "wallets",
+    "outputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  }
+];
 
 export { web3js };
