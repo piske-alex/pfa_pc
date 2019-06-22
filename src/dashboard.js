@@ -663,11 +663,11 @@ function Dashboard({
                       <ArrowDownwardSharp />
                     </ListItemIcon>
                     <ListItemIcon>
-                      <Avatar  src={logoUrl} />
+                      <Avatar  src={'/hadloho.png'} />
                     </ListItemIcon>
 
                     <ListItemText
-                      primary={`IHAD/USDT 6.1235`}
+                      primary={`HAD/USDT 6.1235`}
                       secondary={
                         <React.Fragment>
                           <Typography variant={"body2"}>
