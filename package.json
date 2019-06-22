@@ -7,6 +7,8 @@
     "@material-ui/icons": "^4.0.1",
     "@ungap/url-search-params": "^0.1.2",
     "aes-js": "^3.1.2",
+    "ethereum-input-data-decoder": "^0.2.0",
+    "ethereumjs-util": "latest",
     "moment": "^2.24.0",
     "prettier": "^1.17.1",
     "qrcode.react": "^0.9.3",

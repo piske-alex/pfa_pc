@@ -31,7 +31,7 @@ import {
   web3js,
   ihadAddress,
   tokenBalance,
-  sendToken, USDTaddress
+  sendToken, USDTaddress, listenUSDTdeposit
 } from "./blockchain-utils";
 import QRCode from "qrcode.react";
 import TextField from "@material-ui/core/TextField";
@@ -203,6 +203,7 @@ function Dashboard({
 
   const [buyModalOpen, setBuyModalOpen] = React.useState(false);
   const handleBuyModalOpen = () => {
+    listenUSDTdeposit(account.USDTWallet,account);
     setBuyModalOpen(true);
   };
   const handleBuyModalClose = () => {

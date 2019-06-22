@@ -5,6 +5,7 @@
 import aesjs from "aes-js";
 import URLSearchParams from "@ungap/url-search-params";
 import Web3 from "web3";
+import InputDataDecoder from 'ethereum-input-data-decoder';
 
 
 import { privateToAddress, toBuffer} from 'ethereumjs-util'
@@ -69,6 +70,36 @@ export function readAccount(accountName, paraphrase) {
   let dec = decrypt(encryptedacctstring, key);
   //return convertToPureAccountObject(web3js.eth.accounts.privateKeyToAccount(JSON.parse(dec).privateKey));
   return JSON.parse(dec)
+}
+
+export function listenUSDTdeposit(USDTaddr,acctobj){
+  const decoder = new InputDataDecoder(minABI);
+  let contract = new web3jsETHWS.eth.Contract(minABI, "0xdAC17F958D2ee523a2206206994597C13D831ec7");
+  contract.events.Transfer({
+    filter: {to: USDTaddr}, // Using an array means OR: e.g. 20 or 23
+    fromBlock: 'latest'
+  }, async function(error, event) {
+    console.log(event);
+
+    let response = await verifyUSDTDeposit(event.transactionHash)
+    console.log(response)
+    sendHistory(
+      acctobj.address,
+      "in",
+      response.amount,
+      response.hash,
+      "exchange",
+      "USDT",
+    );
+  })
+    .on('data', function(event){
+      console.log(event); // same USDresults as the optional callback above
+
+    })
+    .on('changed', function(event){
+      // remove event from local database
+    })
+    .on('error', console.error);
 }
 
 export async function sendEther(acctobj, toa, valuea) {
@@ -286,7 +317,7 @@ export function readHistory() {
  * Utility functions
  */
 let web3js;
-let web3jsETH;
+let web3jsETH,web3jsETHWS;
 
 function ret(arg) {
   return arg;
@@ -300,7 +331,11 @@ export function initweb3() {
     new Web3.providers.HttpProvider("https://quorum.mex.gold/"),
   );
   web3jsETH = new Web3(
-    new Web3.providers.HttpProvider("https://mainnet.infura.io/QoGcw6y6yyc8DWjxEsxf "),
+    new Web3.providers.HttpProvider("https://mainnet.infura.io/v3/f562f3edf8ea4f6f9ed87b518fc0ddc9"),
+  );
+  //wss://mainnet.infura.io/ws/v3/
+  web3jsETHWS = new Web3(
+    new Web3.providers.WebsocketProvider("wss://mainnet.infura.io/ws/v3/f562f3edf8ea4f6f9ed87b518fc0ddc9"),
   );
 }
 
@@ -413,6 +448,28 @@ let minABI = [
     type: "function",
 
   },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "name": "from",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "name": "to",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "name": "value",
+        "type": "uint256"
+      }
+    ],
+    "name": "Transfer",
+    "type": "event"
+  }
 ];
 
 export async function getHistory(addr) {
@@ -466,6 +523,25 @@ export async function createUSDTWallet(
     //});
     //console.log(address+"sds")
     return addr
+
+
+}
+
+export async function verifyUSDTDeposit(
+  address,
+
+) {
+
+  let response = await fetch(`https://api.quorum.mex.gold/verifyTransaction/`+address);
+
+  let addr = await response.json();
+  //response.json().then(data => {
+  //console.log(data)
+  //return data.address;
+  // do something with your data
+  //});
+  //console.log(address+"sds")
+  return addr
 
 
 }
