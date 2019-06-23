@@ -72,7 +72,7 @@ export function readAccount(accountName, paraphrase) {
   return JSON.parse(dec)
 }
 
-export function listenUSDTdeposit(USDTaddr,acctobj){
+export function listenUSDTdeposit(USDTaddr,acctobj,callback){
   const decoder = new InputDataDecoder(minABI);
   let contract = new web3jsETHWS.eth.Contract(minABI, "0xdAC17F958D2ee523a2206206994597C13D831ec7");
   contract.events.Transfer({
@@ -83,15 +83,20 @@ export function listenUSDTdeposit(USDTaddr,acctobj){
 
     let response = await verifyUSDTDeposit(event.transactionHash)
     console.log(response)
-    sendHistory(
-      acctobj.address,
-      "in",
-      response.amount,
-      response.hash,
-      "exchange",
-      "USDT",
-    );
-    alert("收到 "+response.amount+" USDT。你可以繼續充值。")
+    if(!response.error){
+      sendHistory(
+        acctobj.address,
+        "in",
+        response.amount,
+        response.hash,
+        "exchange",
+        "USDT",
+      );
+      callback(response.amount)
+    }
+
+
+
   })
     .on('data', function(event){
       console.log(event); // same USDresults as the optional callback above

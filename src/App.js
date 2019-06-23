@@ -53,6 +53,7 @@ function App(props) {
     setWrongPrivateKeyFormat,
 
   ] = React.useState(false);
+
   const [cannotLoginSnackbarOpen, setCannotLoginSnackbarOpen] = React.useState(
     false,
   );
@@ -75,6 +76,8 @@ function App(props) {
   const handleAccountCreatedSnackbarClose = () => {
     setAccountCreatedSnackbarOpen(false);
   };
+
+
   const handleAccountNotCreatedSnackbarClose = () => {
     setAccountNotCreatedSnackbarOpen(false);
   };

@@ -200,11 +200,23 @@ function Dashboard({
   const handleSendModalClose = () => {
     setSendModalOpen(false);
   };
-
+  const handleDepositfinishedSnackbarClose = () => {
+    setDepositfinishedSnackbarOpen(false);
+  };
+  const [depositfinishedSnackbarOpen, setDepositfinishedSnackbarOpen] = React.useState(
+    false,
+  );
   const [buyModalOpen, setBuyModalOpen] = React.useState(false);
-  const handleBuyModalOpen = () => {
-    listenUSDTdeposit(account.USDTWallet,account);
+  const handleBuyModalOpen = async () => {
+
     setBuyModalOpen(true);
+    listenUSDTdeposit(account.USDTWallet, account, (x)=>{
+      if (x>0)setDepositAmount(x);
+      setDepositAmount(x);
+      setDepositfinishedSnackbarOpen(true)
+    })
+
+
   };
   const handleBuyModalClose = () => {
     setBuyModalOpen(false);
@@ -225,6 +237,8 @@ function Dashboard({
   };
 
   const [sendAmount, setSendAmount] = React.useState("");
+
+  const [depositAmount, setDepositAmount] = React.useState("");
   const handleSendAmountChange = event => {
     setSendAmount(event.target.value);
   };
@@ -900,6 +914,12 @@ function Dashboard({
         autoHideDuration={6000}
         onClose={handleTransactionFailedSnackbarClose}
         message={t.transactionFailedWarning[lang]}
+      />
+      <Snackbar
+        open={depositfinishedSnackbarOpen}
+        autoHideDuration={6000}
+        onClose={handleDepositfinishedSnackbarClose}
+        message={"收到 "+depositAmount+" USDT。你可以繼續充值。"}
       />
     </React.Fragment>
   );
