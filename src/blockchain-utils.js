@@ -40,10 +40,13 @@ export async function newAccount(accountName, paraphrase, privateKey) {
   let acctobj;
   if (typeof privateKey === "string" && privateKey !== "") {
     try {
-      privateKey = "0x" + privateKey
-      let address = privateToAddress(toBuffer(privateKey));
-      acctobj = { address, privateKey };
+      privateKey = "0x" + privateKey;
+      /*let address = privateToAddress(toBuffer(privateKey)).toString();
+      console.log(address)
+      acctobj = { address, privateKey };*/
+      acctobj = web3js.eth.accounts.privateKeyToAccount(privateKey.toString());
     } catch (e) {
+      console.log(e)
       throw new Error('RangeError: Wrong Private Key Format');
     }
 
