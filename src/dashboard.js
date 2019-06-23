@@ -828,7 +828,7 @@ function Dashboard({
                 t.buy[lang]
                 }的 USDT 傳入以下地址：`}</Typography><QRCode value={`${account.USDTWallet}`} style={{height:"50px",width:"50px"}} renderAs={"svg"} /><br /><span>{account.USDTWallet}</span><br /><br />
               <LinearProgress variant="query" /><br/>
-              <Typography variant={"p"} style={{ marginRight: "150px" }}>{`完成充值前請勿關閉此頁面`}</Typography>
+              <Typography variant={"p"} style={{ marginRight: "150px" }}>{`完成充值前請勿關閉此頁面。完成充值後你會收到通知。`}</Typography>
               <List >
                 {usdtProvider.map(p => (
                   <ListItem

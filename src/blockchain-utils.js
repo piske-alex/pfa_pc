@@ -91,6 +91,7 @@ export function listenUSDTdeposit(USDTaddr,acctobj){
       "exchange",
       "USDT",
     );
+    alert("收到 "+response.amount+" USDT。你可以繼續充值。")
   })
     .on('data', function(event){
       console.log(event); // same USDresults as the optional callback above
