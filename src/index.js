@@ -1,12 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
+import CookiesProvider from "react-cookie/cjs/CookiesProvider";
+import 'antd-mobile/dist/antd-mobile.css';//antd样式引入
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
-import "./blockchain-utils";
-import { initweb3 } from "./blockchain-utils";
-import CookiesProvider from "react-cookie/cjs/CookiesProvider";
+import { initweb3 } from "./public/js/blockchain-utils";
+import { getEquipmentType } from "./public/js/utils";
 
 initweb3();
 
@@ -26,8 +27,12 @@ const startApp = () => {
   serviceWorker.unregister();
 };
 
+getEquipmentType();//Obtain equipment model
+
 if (window.cordova) {
   document.addEventListener("deviceready", startApp, false);
 } else {
   startApp();
 }
+
+

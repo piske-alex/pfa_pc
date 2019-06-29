@@ -1,6 +1,6 @@
 import React from "react";
 import clsx from "clsx";
-import { makeStyles } from "@material-ui/core/styles";
+import { fade, withStyles, makeStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Drawer from "@material-ui/core/Drawer";
 import AppBar from "@material-ui/core/AppBar";
@@ -20,9 +20,9 @@ import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import Avatar from "@material-ui/core/Avatar";
 import ListItemText from "@material-ui/core/ListItemText";
 import Modal from "@material-ui/core/Modal";
-import t from "./translation";
+import t from "../../public/js/translation";
 import { withRouter } from "react-router-dom";
-import { HorizontalCenter, isEmpty } from "./utils";
+import { HorizontalCenter, isEmpty } from "../../public/js/utils";
 import {
   etherBalance,
   getHistory,
@@ -33,7 +33,7 @@ import {
   tokenBalance,
   sendToken,
   USDTToIHAD
-} from "./blockchain-utils";
+} from "../../public/js/blockchain-utils";
 import QRCode from "qrcode.react";
 import TextField from "@material-ui/core/TextField";
 import CloseIcon from "@material-ui/icons/Close";
@@ -42,15 +42,18 @@ import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 import LogoutIcon from "@material-ui/icons/ExitToApp";
-import { getLogoUrl } from "./utils";
+import { getLogoUrl } from "../../public/js/utils";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ReceiveIcon from "@material-ui/icons/CallReceived";
 import SendIcon from "@material-ui/icons/CallMade";
 import Moment from "react-moment";
-import { usdtProvider } from "./data";
+import { usdtProvider } from "../../public/js/data";
 import MaterialLink from "@material-ui/core/Link";
 import Divider from "@material-ui/core/Divider";
 import useCookies from "react-cookie/cjs/useCookies";
+import InputBase from '@material-ui/core/InputBase';
+import Config from "../../public/js/config";
+import './convertPage.css';
 
 const lang = "ch";
 
@@ -116,7 +119,9 @@ const useStyles = makeStyles(theme => ({
       width: theme.spacing(9),
     },
   },
-  appBarSpacer: theme.mixins.toolbar,
+  // appBarSpacer: {
+  //   minHeight:50,
+  // },
   content: {
     flexGrow: 1,
     height: "100vh",
@@ -146,7 +151,127 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(1),
     outline: "none",
   },
+
+  /**mobile start*/
+  topMarginHeight: {
+    minHeight:"8vh",
+  },
+  fLeft:{
+    float:'left',
+    margin:"0 8px",
+  },
+  fRight:{
+    float:'right'
+  },
+  bottombuttonStyle:{
+    width:"100%",
+    backgroundColor:"#13161b!important",
+    color:"#FFB601!important",
+    border:"1px solid #BEB689!important"
+  },
+  inputSize:{
+    width:120,
+    marginTop:2,
+    float: "right",
+  },
+  itemHeight:{
+    height:50,
+    marginTop:10,
+  },
+  selectZiFontSize:{
+    width: 50,
+    fontSize:16,
+    lineHeight: 0.8,
+    textAlign: "left",
+  },
+  selectPadRight:{
+    paddingRight:0,
+  },
+  bottomButtonMargin:{
+    height: 40,
+    marginTop:30,
+  },
+  linkImgLeft:{
+    width:35,
+    height:35,
+    float:'left',
+    borderRadius:50,
+  },
+  linkImgContrary:{
+    width:30,
+    height:30,
+  },
+  notesFontSize:{
+    fontSize: 12,
+    lineHeight: "12px",
+    fontFamily: "FZZhongDengXian-Z07S",
+  },
+  /**mobile end*/
+  /**iPad start*/
+  topMarginHeightIPad: {
+    minHeight:110,
+  },
+  itemHeightIpad:{
+    height:50,
+    marginTop:30,
+  },
+  inputSizeIpad:{
+    width:160,
+    marginTop:3,
+    float: "right",
+  },
+  linkImgContraryIpad:{
+    width:30,
+    height:30,
+  },
+  bottomButtonMarginIpad:{
+    height: 40,
+    marginTop:60,
+  },
+  /**iPad end*/
+  /**PC start*/
+  
+  /**PC end*/
+  
+
+
 }));
+
+const BootstrapInput = withStyles(theme => ({
+  root: {
+    'label + &': {
+      marginTop: theme.spacing(3),
+    },
+  },
+  input: {
+    position: 'relative',
+    // width: '50px',
+    borderRadius: 5,
+    backgroundColor: '#222834',
+    border: '1px solid #19242A',
+    fontSize: 16,
+    padding: '5.5px 5.5px',
+    color:'#FFB601',
+    transition: theme.transitions.create(['border-color', 'box-shadow']),
+    fontFamily: [
+      '-apple-system',
+      'BlinkMacSystemFont',
+      '"Segoe UI"',
+      'Roboto',
+      '"Helvetica Neue"',
+      'Arial',
+      'sans-serif',
+      '"Apple Color Emoji"',
+      '"Segoe UI Emoji"',
+      '"Segoe UI Symbol"',
+    ].join(','),
+    '&:focus': {
+      boxShadow: `${fade(theme.palette.primary.main, 0.25)} 0 0 0 0.2rem`,
+      borderColor: '#BEB689',
+    },
+  },
+}))(InputBase);
+
 
 function ConvertPage({
                        account,
@@ -196,8 +321,11 @@ function ConvertPage({
   const convertUSDTtoIHAD = () => {
     const sendAsset = async () => {
       try {
-        if (currencyDropdownValue === "usdtTOihad") {
+        let cdv = leftcurrencyDropdownValue + "TO" + rightcurrencyDropdownValue;
+        if (cdv === "usdtTOihad") {
           await USDTToIHAD(account,tempBase,)
+        } else if (cdv === "ihadTousdt"){
+
         } else {
           throw new Error("ValueError: No currency type selected");
         }
@@ -260,6 +388,14 @@ function ConvertPage({
 
   const [currencyDropdownValue, setCurrencyDropdownValue] = React.useState(
     "usdtTOihad",
+  );
+
+  const [leftcurrencyDropdownValue, setleftCurrencyDropdownValue] = React.useState(
+    "usdt",
+  );
+
+  const [rightcurrencyDropdownValue, setrightCurrencyDropdownValue] = React.useState(
+    "ihad",
   );
 
   const [tempBase, setTempBase] = React.useState(
@@ -333,10 +469,10 @@ function ConvertPage({
   return (
     <React.Fragment>
       <CssBaseline />
-      <AppBar
+      {/* <AppBar
         position="absolute"
         className={clsx(
-          classes.appBar /*, drawerOpen && classes.appBarShift */,
+          classes.appBar 
         )}
       >
         <Toolbar className={classes.toolbar}>
@@ -364,11 +500,8 @@ function ConvertPage({
           <IconButton color={"inherit"} onClick={handleLogout} edge={"end"}>
             <LogoutIcon />
           </IconButton>
-          {/*<IconButton color="inherit" onClick={handleModalOpen} edge={"end"}>*/}
-          {/*  <MoreIcon />*/}
-          {/*</IconButton>*/}
         </Toolbar>
-      </AppBar>
+      </AppBar> */}
 
       <Drawer
         variant="temporary"
@@ -565,8 +698,8 @@ function ConvertPage({
       </Drawer>
 
       <main className={classes.content}>
-        <div className={classes.appBarSpacer} />
-        <Container maxWidth="lg" className={classes.container}>
+        <Grid className={Config.equipmentType==="mobile"?classes.topMarginHeight:classes.topMarginHeightIPad} ></Grid>
+        <Container maxWidth="lg" className ={classes.container} >
           <Grid container direction={"column"}>
             <Grid item style={{ marginBottom: "10px" }}>
               <Grid
@@ -577,13 +710,14 @@ function ConvertPage({
                 justify="center"
               >
                 <Grid item>
-                  <Avatar style={{ width: 60, height: 60 }} src={logoUrl} />
+                  <Avatar style={{ width: 60, height: 60,borderRadius:0 }} src="https://i.loli.net/2019/06/26/5d12cd78a53e047314.png" />
                 </Grid>
               </Grid>
             </Grid>
-            <Grid item>
+            <Grid item style={{marginTop:"20px"}}>
               <HorizontalCenter>
-                <Select
+
+                {/* <Select
                   value={currencyDropdownValue}
                   onChange={e => setCurrencyDropdownValue(e.target.value)}
                   style={{ width: "300px" }}
@@ -595,20 +729,19 @@ function ConvertPage({
                       HAD/USDT
                     </Typography>
                   </MenuItem>
-
                 </Select>
-                <form className={classes.container} noValidate autoComplete="off">
+                <form className={classes.container} style={{float:"left"}} noValidate autoComplete="off">
                   <TextField
                     id="outlined-name"
                     label="USDT"
                     className={classes.textField}
                     value={tempBase}
+                    placeholder="Enter Amount"
                     onChange={e => setTempBase(e.target.value)}
                     style={{ width: "140px",marginRight:"20px" }}
                     margin="normal"
                     variant="outlined"
                   />
-
                   <TextField
                     id="outlined-name"
                     label="HAD"
@@ -622,19 +755,91 @@ function ConvertPage({
                 <Button
                   variant="contained"
                   color="primary"
+                  className="CommonButtonStyle"
                   onClick={convertUSDTtoIHAD}
-                  style={{ width: "300px" }}
+                  style={{ width: "64px",margin:"35px 0 0 0"}}
                 >
                   {`${t.convert[lang]}`}
-                </Button>
+                </Button> */}
+
+                  <Grid item className={Config.equipmentType==="mobile"?classes.itemHeight:classes.itemHeightIpad}>
+                    
+                    <img className ={classes.linkImgLeft} alt="USDT" src = "https://i.loli.net/2019/06/26/5d12bffaf379385695.png"/>
+                    <Grid className ={classes.fLeft} >
+                      <Grid className={classes.notesFontSize}>支 付</Grid>
+                      <Select
+                        value={leftcurrencyDropdownValue}
+                        onChange={e => setleftCurrencyDropdownValue(e.target.value)}
+                        disableUnderline={true}
+                        className={classes.selectPadRight}
+                        >
+                        <MenuItem value={"usdt"}>
+                          <Typography className={classes.selectZiFontSize} align={"center"}>
+                            USDT
+                          </Typography>
+                        </MenuItem>
+                        <MenuItem value={"ihad"}>
+                          <Typography className={classes.selectZiFontSize} align={"center"}>
+                            HAD
+                          </Typography>
+                        </MenuItem>
+                      </Select>
+                    </Grid>
+                    <FormControl className={Config.equipmentType==="mobile"?classes.inputSize:classes.inputSizeIpad}>
+                      <BootstrapInput id="outlined-name" placeholder="Enter Amount" maxLength={11} 
+                      value={tempBase} onChange={e => setTempBase(e.target.value)} margin="normal" variant="outlined"/>
+                    </FormControl>
+                  </Grid>
+
+                  <Grid item>
+                    <Grid style={{/* margin-top: 10px; */textAlign:"center"}} >
+                      <img className ={Config.equipmentType==="mobile"?classes.linkImgContrary:classes.linkImgContraryIpad} alt="jiantou" src = "https://i.loli.net/2019/06/26/5d1354a288c3d99991.png"/>
+                    </Grid>
+                  </Grid>
+
+                  <Grid item className={Config.equipmentType==="mobile"||"PC"?classes.itemHeight:classes.itemHeightIpad}>
+                    <img className ={classes.linkImgLeft} alt="HAD" src = "https://i.loli.net/2019/06/27/5d1422b33e7ff68920.png"/>
+                    <Grid className ={classes.fLeft}  >
+                      <Grid className={classes.notesFontSize}>收 取</Grid>
+                      <Select
+                        value={rightcurrencyDropdownValue}
+                        onChange={e => setrightCurrencyDropdownValue(e.target.value)}
+                        disableUnderline={true}
+                        className={classes.selectPadRight}
+                        >
+                        <MenuItem value={"ihad"}>
+                          <Typography className={classes.selectZiFontSize} align={"center"}>
+                          HAD
+                          </Typography>
+                        </MenuItem>
+                        <MenuItem value={"usdt"}>
+                          <Typography className={classes.selectZiFontSize} align={"center"}>
+                            USDT
+                          </Typography>
+                        </MenuItem>
+                      </Select>
+                    </Grid>
+                    <FormControl className={Config.equipmentType==="mobile"?classes.inputSize:classes.inputSizeIpad}>
+                      <BootstrapInput id="outlined-name" placeholder="Enter Amount" maxLength={11} value={tempBase*6} margin="normal" variant="outlined"/>
+                    </FormControl>
+                  </Grid>
+
+                  <Grid item className={Config.equipmentType==="mobile"?classes.bottomButtonMargin:classes.bottomButtonMarginIpad}>
+                    <Button
+                      className={classes.bottombuttonStyle}
+                      onClick={convertUSDTtoIHAD}
+                      >
+                      {`${t.convert[lang]}`}
+                    </Button>
+                  </Grid>
+                
               </HorizontalCenter>
             </Grid>
-
-
-
           </Grid>
         </Container>
+        <Grid className="pageFoot"/>
       </main>
+
       <Modal open={modalOpen} onBackdropClick={handleModalClose}>
         <div className={classes.modalPaper}>
           <div className={classes.toolbarIcon}>

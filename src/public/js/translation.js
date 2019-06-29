@@ -33,6 +33,9 @@ export default {
   login: {
     ch: "登入",
   },
+  logOut:{
+    ch: "退出",
+  },
   cannotLoginWarning: {
     ch: "未能登入，請檢查帳號及密碼是否輸入錯誤。",
   },
@@ -136,7 +139,32 @@ export default {
   tos: {
     ch: "使用細則",
   },
-  tosfull:{
+  valuation:{
+    ch: "資產估值(USDT)",
+  },
+  UsdtVules:{
+    ch: "0.01512701",
+  },
+  UsdtCode:{
+    ch: "USDT",
+  },
+  conversion:{
+    ch: "≈￥1123.12",
+  },
+  Recharge:{
+    ch: "充值",
+  },
+  withdrawal:{
+    ch: "提現",
+  },
+  assets:{
+    ch: "顯示所有資產",
+  },
+  title:{
+    ch: "資金",
+  },
+
+  tosfull: {
     ch:
       "TERMS OF USE  By accessing or using the Token Liquidity Network website and API located at https://PriceFitchAsset.com, and any linked or directed subdomain (such as https://app.PriceFitchAsset.com) (the “Site”) and any content made available through the Site, you (the “User” and collectively with others using the Site - “Users”) agree to be bound by these Terms of Use (“Terms”). The rights in the Site are held by Bprotocol Foundation, a Swiss foundation, with legal seat in Zug, Switzerland, registered in the Swiss commercial register under UID CHE-181.679.849 (“PriceFitchAsset”), and the terms “we,” “us,” and “our” refer to PriceFitchAsset. Please read these Terms carefully. These Terms govern your access to and use of the Site and Content (as defined herein). By using the Content or visiting the Site, you signify your consent to both these Terms and our Privacy Policy, a current version of which is available at https://www.PriceFitchAsset.com/privacy-policy, which is incorporated herein by reference and which may be modified from time to time at our sole discretion and without prior notice. Changes may be made to these Terms from time to time. These changes will apply at that instant to all then current and subsequent uses of the Site. You waive any right you may have to receive specific notice of such changes or modifications. Your continued use of this Site acts as acceptance of such changes or modifications. If you do not agree to the Terms in effect when you access or use the Site, you must stop using the Site.\n" +
       "IF YOU DO NOT AGREE TO ANY OF THESE TERMS, PLEASE DO NOT USE THE SITE OR CONTENT.\n" +
@@ -178,7 +206,7 @@ export default {
       "a. The controlling language for these terms of use is English; the meaning of terms, conditions and representations herein are subject to definitions and interpretations in the English language. Any translation is provided for your convenience and may not be deemed to represent accurately the information in the original English. b. If any provision of these Terms is determined to be invalid or unenforceable, the provision shall be deemed to be severable from the remainder of these Terms and will not cause their invalidity or unenforceability. c. These terms of use may be amended from time to time. It is your responsibility to check these terms of use periodically for changes. Your continued use of the Content following the posting of changes will mean that you accept and agree to the changes. If you do not agree with any such modification, you should not use the Content. d. YOU AGREE THAT ANY CAUSE OF ACTION ARISING OUT OF OR RELATED TO THE CONTENT MUST COMMENCE WITHIN ONE (1) YEAR AFTER THE CAUSE OF ACTION ACCRUES. OTHERWISE, SUCH CAUSE OF ACTION IS PERMANENTLY BARRED.\n" +
       "v.01 | May 29, 2019"
   },
-  privacyfull:{
+  privacyfull: {
     ch: "PRIVACY POLICY\n" +
       "About Us\n" +
       "The PriceFitchAsset Network (the “PriceFitchAsset Network”, “We”, “Us” or “Our”) is a Decentralized Liquidity Network that allows you to hold any Ethereum token and convert it to any other token in the network, with no counter party, at an automatically calculated price, using a simple web wallet (the “Services”). This privacy policy has been created to inform about how we manage, collect, store and use the personal information we receive and collect in connection with the PriceFitchAsset Network (the `Policy`).\n" +
@@ -205,28 +233,36 @@ export default {
       "For any questions about this Privacy Policy or any other issue regarding the Bacnor Network or our Services please contact us at: privacy@PriceFitchAsset.com\n" +
       "Last Update: May 2018"
   },
-  aboutusfull:{
-    ch:"普惠資產區塊鏈公鏈系統\n" +
-      "\n" +
-      "以太坊速度慢及需要礦工費限制了非常大量的應用﹐往往一個幾千人的應用已經癱瘓了整個公有鏈；且 無法用於細額交易。\n" +
-      "\n" +
-      "鏈改後的PFA普惠資產，採用JPMORGAN(摩根大通)及微軟(Mircosoft)開發的最新區塊鏈技術，將提供強大，安全可靠，穩定的一個區塊鏈技術，打造全新概念的環球支付系統。\n" +
-      "\n" +
-      "普惠公鏈團隊參與到JPMORGAN(摩根大通)及微軟(Mircosoft)開發，屬於是由世界一流的區塊鏈技術團隊。\n" +
-      "\n" +
-      "普惠資產公有鏈已在原有以太坊公鏈上的普惠資產PFA，升級至獨立的一個主網絡上，在速度和供需方面非常完善。\n" +
-      "\n" +
-      "PFA 鏈改的配套\n" +
-      "因為 Quorum 的兼用性非常大﹐在未來更可以從算法層面鏈改。我們可以建立在大量已開發的以太坊技術上﹐例如熟悉的Truffle,MetaMask,Remix ,OpenZeppelin ﹐它們都已經可以直接在 Quorum 上使用。\n" +
-      "\n" +
-      "普惠資產團隊及摩根大通在選擇區塊鏈技術上持相同意見：以太坊是技術最高的區塊鏈。\n" +
-      "所以 Quorum 的高速﹐免費區塊鏈技術 既解決了速度及細額交易的問題﹐而且增加了一些私隱的設定：私人性信息能夠永遠不會向網絡參與者廣播。私人數據經過加密，只與相關方直接共享﹐同時又不會失去可信任的優秀功能。\n" +
-      "\n" +
-      "Quorum 是一種基於以太坊的分佈式分類賬協議，旨在為金融，供應鏈，零售，房地產等行業提供允許的以太坊實施，支持交易和合同隱私。\n" +
-      "\n" +
-      "Quorum 包含 Go Ethereum 客戶端（也稱為 geth）的\n" +
-      "簡約分支，因此，它利用了以太坊開發人員社區所做的工作。"
-  }
-
-
+  aboutusfull: {
+    ch: "普惠資產區塊鏈公鏈系統<br/><p/>" +
+      "PFA普惠資產採用JPMORGAN(摩根大通)及微軟(Mircosoft)開發的最新區塊鏈技術，將提供強大，安全可靠，穩定的一個區塊鏈技術，打造全新概念的環球支付系統。 普惠公鏈團隊參與到JPMORGAN(摩根大通)及微軟(Mircosoft)開發，屬於世界一流的區塊鏈技術團隊。<br/><p/>" +
+      "普惠資產團隊及摩根大通在選擇區塊鏈技術上持相同意見：以太坊是技術最高的區塊鏈，但是以太坊速度慢及需要礦工費限制了非常大量的應用﹐往往一個幾千人的應用已經癱瘓了整個公有鏈；且 無法用於細額交易。<br/><p/>" +
+      "鏈改後的普惠資產公有鏈是將原有以太坊公鏈上的普惠資產，升級至獨立的一個主網絡上，技術層面稱為硬分叉，升級後在速度和供需方面非常完善，能應付日後高頻交易。<br/><p/>" +
+      "普惠公有鏈的高速﹐共享區塊鏈技術 既解決了速度及細額交易的問題﹐而且增加了一些私隱的設定：私人性信息能夠永遠不會向網絡參與者廣播。私人數據經過加密，只與相關方直接共享﹐同時又不會失去可信任的優秀功能。<br/><p/>" +
+      "摩根大通Quorum技術其實是一種基於以太坊的分佈式分類賬協議，包含 Go Ethereum 客戶端（也稱為 geth）的 簡約分支，旨在為金融，供應鏈，零售，房地產等行業提供允許的以太坊實施，支持交易和合同隱私。 因此，普惠團隊善用了以太坊開發人員社區所做的工作。 因為底層技術Quorum 的兼用性非常大﹐在未來更可以從算法層面鏈改。我們可以建立在大量已開發的以太坊技術上﹐例如熟悉的Truffle,MetaMask,Remix ,OpenZeppelin ﹐它們都已經可以直接在普惠資產公有鏈上使用，避免了重複開發的資源浪費。"
+  },
+  usemethodfull: {
+    ch: "1)重要說明<br/>" +
+      "在建立錢包後﹐馬上備份你的私鑰﹐帳戶不儲存在服務器上﹐而是一條私鑰<br/><p/>" +
+      "2)導入錢包<br/>" +
+      "從Imtoken導入:在Imtoken中按[管理錢包] 再找到 [導出私鑰]<br/>" +
+      "然後在注冊時填上私鑰  #私鑰是一串文字<br/>" +
+      "例如:<br/>" +
+      "f9338567f005a02a5609c161e84d1ab1f47aaa429a01e2299abe8c7d386228fa<br/><p/>" +
+      "3)充值USDT<br/>" +
+      "充值USDT到PFA錢包時﹐必須在交易所選擇ERC-20版的錢包﹐並貼在購買頁面。<br/><p/>" +
+      "4)提取USDT/賣出USDT<br/>" +
+      "提取USDT時﹐在傳送時﹐輸入目標交易所的地址。<br/><p/>" +
+      "5)備份<br/>" +
+      "用戶必須要妥善儲存自己的私鑰。"
+  },
+  walletImportExport: {
+    ch: "從PFA錢包",
+  },
+  importExport: {
+    ch: "導入",
+  },
+  footNavigation: {
+    ch: ["首頁", "錢包", "交易", "幣訊", "關於"]
+  },
 };

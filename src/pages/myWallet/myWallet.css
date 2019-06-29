@@ -1,0 +1,136 @@
+
+
+.backgrad{
+    background-color: #212733!important;
+    width: 100%;
+   
+
+}
+.margintop{
+    width: 100%!important;
+    height: 10px;
+    margin-top: 14px;
+    /* line-height: 50px;
+    letter-spacing: 1px; */
+    background-color:black;
+
+ 
+}
+.binance{
+    width: 31px;
+    height: 20px;
+    line-height: 20px;
+    float: left;
+    font-size: 12pt;
+    margin-top: 5px;
+    margin-left: 16px;
+}
+.binanceCoin{
+    width: 50%;
+    height: 20px;
+    line-height: 20px;
+    float: left;
+    margin-left: 2%;
+    color: #C0C0C0;
+    margin-top: 5px;
+    
+}
+.binanceCoinNumber{
+    height: 20px;
+    line-height: 20px;
+    float: right;
+    width: 42%;
+    font-size: 12pt;
+    margin-top: 5px;
+    text-align: right;
+}
+.donateClass{
+    width: 25px;
+    height: 20px;
+    
+}
+.rechargeClass{
+    margin-left: 6px;
+}
+.titleMagin{
+    margin-top: 20px;
+}
+.msgIcon{
+width: 20px;
+height: 20px;
+float: left;
+margin-top: 2px;
+}
+.msgIconText{
+    margin-top: 5px;
+    height: 20px;
+    float: left;
+    margin-left: 5px;
+}
+.msgIconTextrg{
+    height: 20px;
+    float: left;
+    color: #C0C0C0;
+    float: right;
+    width: 50px;
+    margin-right: -8px;
+}
+.usdt{
+    width: 25px;
+    height: 25px;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    font-size: 1.25rem;
+    align-items: center;
+    flex-shrink: 0;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    user-select: none;
+    border-radius: 50%;
+    justify-content: center;
+    margin-left: -13px;
+}
+.usdtVulesClass{
+    margin-top: -7px;
+    font-size:16pt;
+    float: left;
+    
+  }
+  .usdtVulesClassCode{
+    margin-top: -2px;
+    font-size:10pt;
+    float: left;
+    color: #C0C0C0;
+    
+  }
+  .myWalletline{
+    /* margin: 0px 10px!important; */
+    color: #73767d;
+    list-style: none;
+    margin-left: 1px;
+    width: 100%;
+  }
+.paddingle{
+    padding-left: 16px;
+    padding-right: 16px;
+}
+.myWalletClass{
+    width: 100%;
+    height: 50px;
+}
+.myWalletTab{
+    width: 100%;
+    display: flex;
+    position: relative;
+    box-sizing: border-box;
+    text-align: left;
+    align-items: center;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    justify-content: flex-start;
+    text-decoration: none;
+    padding-right: 16px;
+    padding-left: 16px;
+    align-items: flex-start;
+
+}

@@ -20,9 +20,9 @@ import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import Avatar from "@material-ui/core/Avatar";
 import ListItemText from "@material-ui/core/ListItemText";
 import Modal from "@material-ui/core/Modal";
-import t from "./translation";
+import t from "./public/js/translation";
 import { withRouter } from "react-router-dom";
-import { HorizontalCenter, isEmpty } from "./utils";
+import { HorizontalCenter, isEmpty } from "./public/js/utils";
 import {
   etherBalance,
   getHistory,
@@ -32,7 +32,7 @@ import {
   ihadAddress,
   tokenBalance,
   sendToken,
-} from "./blockchain-utils";
+} from "./public/js/blockchain-utils";
 import QRCode from "qrcode.react";
 import TextField from "@material-ui/core/TextField";
 import CloseIcon from "@material-ui/icons/Close";
@@ -41,12 +41,12 @@ import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 import LogoutIcon from "@material-ui/icons/ExitToApp";
-import { getLogoUrl } from "./utils";
+import { getLogoUrl } from "./public/js/utils";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ReceiveIcon from "@material-ui/icons/CallReceived";
 import SendIcon from "@material-ui/icons/CallMade";
 import Moment from "react-moment";
-import { usdtProvider } from "./data";
+import { usdtProvider } from "./public/js/data";
 import MaterialLink from "@material-ui/core/Link";
 import Divider from "@material-ui/core/Divider";
 import useCookies from "react-cookie/cjs/useCookies";

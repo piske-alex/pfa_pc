@@ -1,10 +1,10 @@
 import React from "react";
-import { importAccounts, exportAccounts } from "./blockchain-utils";
-import { HorizontalCenter, VerticalCenter } from "./utils";
+import { importAccounts, exportAccounts } from "../../public/js/blockchain-utils";
+import { HorizontalCenter, VerticalCenter } from "../../public/js/utils";
 import { Grid, Snackbar } from "@material-ui/core";
 import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
-import trans from "./translation";
+import trans from "../../public/js/translation";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import TextField from "@material-ui/core/TextField";
@@ -42,25 +42,22 @@ function AccountManagerPanel({ history }) {
     <React.Fragment>
       <VerticalCenter gridStyle={{ minHeight: "80vh" }}>
         <HorizontalCenter>
-          <Grid
-            container
-            alignItems={"center"}
-            direction={"column"}
-            spacing={2}
-            style={{ width: "100%" }}
-          >
-            <Grid item style={{ width: "80%" }}>
-              <Typography disabled variant={"body2"}>
+          <Grid container alignItems={"center"} direction={"column"} spacing={2}>
+            <Grid item>
+              <Typography disabled variant={"body2"} className="textInfo" style={{ width: 300 , textAlign: "justify"}}>
                 {trans.exportInstructionInfo1[lang]}
               </Typography>
             </Grid>
-            <Grid item style={{ width: "80%" }}>
-              <Typography disabled variant={"body2"}>
+
+            <Grid item>
+              <Typography disabled variant={"body2"} className="textInfo" style={{ width: 300 , textAlign: "justify"}}>
                 {trans.exportInstructionInfo2[lang]}
               </Typography>
             </Grid>
+
             <Grid item>
               <TextField
+                style={{ width: 300 }}
                 disabled
                 variant={"outlined"}
                 value={exportAccounts()}
@@ -69,8 +66,10 @@ function AccountManagerPanel({ history }) {
                 label={trans.copyHere[lang]}
               />
             </Grid>
+
             <Grid item>
               <TextField
+                style={{ width: 300 }}
                 variant={"outlined"}
                 value={importData}
                 onChange={event => {
@@ -81,24 +80,33 @@ function AccountManagerPanel({ history }) {
                 label={trans.pasteHere[lang]}
               />
             </Grid>
+
             <Grid item>
-              <Button
-                variant="contained"
-                color="primary"
-                onClick={handleImport}
-              >
-                {trans.import[lang]}
-              </Button>
-            </Grid>
-            <Grid item>
-              <Button
-                variant="contained"
-                color="primary"
-                component={Link}
-                to={"/login-account"}
-              >
-                {trans.back[lang]}
-              </Button>
+              <Grid container alignItems={"center"} direction={"row"} spacing={2}>
+                <Grid item>
+                  <Button
+                    className="CommonButtonStyle"
+                    variant="contained"
+                    color="primary"
+                    onClick={handleImport}
+                    style={{ width: "142px" }}
+                  >
+                    {trans.import[lang]}
+                  </Button>
+                </Grid>
+                <Grid item>
+                  <Button
+                    className="CommonButtonStyle"
+                    variant="contained"
+                    color="primary"
+                    component={Link}
+                    to={"/login-account"}
+                    style={{ width: "142px" }}
+                  >
+                    {trans.back[lang]}
+                  </Button>
+                </Grid>
+              </Grid>
             </Grid>
           </Grid>
         </HorizontalCenter>

@@ -1,20 +1,21 @@
 import React from "react";
-import { Route } from "react-router-dom";
-import CreateAccountPage from "./createAccountPage";
-import Dashboard from "./dashboard";
+import { withRouter, Switch, Route} from "react-router-dom";
 import { Snackbar } from "@material-ui/core";
-import HistoryPage from "./historyPage"
-import trans from "./translation";
-import { newAccount, readAccount } from "./blockchain-utils";
-import { withRouter, Switch } from "react-router-dom";
-import LoginAccountPage from "./loginAccountPage";
-import AccountManagerPanel from "./accountManagerPanel";
 import createMuiTheme from "@material-ui/core/styles/createMuiTheme";
 import { ThemeProvider } from "@material-ui/styles";
+import CreateAccountPage from "./pages/createAccountPage/createAccountPage";
+import Dashboard from "./pages/dashboard/dashboard";
+import HistoryPage from "./historyPage"
+import trans from "./public/js/translation";
+import { newAccount, readAccount } from "./public/js/blockchain-utils";
+import LoginAccountPage from "./pages/loginAccountPage/loginAccountPage";
+import AccountManagerPanel from "./pages/accountManagerPanel/accountManagerPanel";
 import useCookies from "react-cookie/cjs/useCookies";
-import ConvertPage from "./convertPage";
-
-const lang = "ch";
+import ConvertPage from "./pages/convertPage/convertPage";
+import FootNavigation from "./pages/foot/footNavigation";
+import AboutUs from "./pages/aboutUs/aboutUs";
+import MyWallet from "./pages/myWallet/myWallet";
+import Config from "./public/js/config";
 
 const theme = createMuiTheme({
   palette: {
@@ -39,6 +40,7 @@ const theme = createMuiTheme({
 });
 
 function App(props) {
+
   const [
     accountCreatedSnackbarOpen,
     setAccountCreatedSnackbarOpen,
@@ -113,7 +115,7 @@ function App(props) {
       setCannotLoginSnackbarOpen(true);
     }
   };
-
+  
   return (
     <ThemeProvider theme={theme}>
       <React.Fragment>
@@ -127,7 +129,38 @@ function App(props) {
           <Route
             path={"/app"}
             render={() => (
-              <Dashboard
+              <div>
+                <Dashboard
+                  account={account}
+                  currentUsername={currentUsername}
+                  handleLogout={handleLogout}
+                  handleChangeAccount={handleChangeAccount}
+                />
+                <FootNavigation {...props}/>
+              </div>
+            )}
+          />
+          <Route
+            path={"/aboutus"}
+            render={() => (
+              <div>
+                <AboutUs props={props} handleLogout={handleLogout}/>
+                <FootNavigation {...props} />
+              </div>
+            )}
+          />
+            <Route
+            path={"/myWallet"}
+            render={() => (
+              <div>
+                <MyWallet props={props} />
+                <FootNavigation {...props} />
+              </div>
+            )}
+          />
+          <Route path={"/history-page"}
+            render={() => (
+              <HistoryPage
                 account={account}
                 currentUsername={currentUsername}
                 handleLogout={handleLogout}
@@ -135,25 +168,18 @@ function App(props) {
               />
             )}
           />
-          <Route path={"/history-page"}
-                 render={() => (
-                   <HistoryPage
-                     account={account}
-                     currentUsername={currentUsername}
-                     handleLogout={handleLogout}
-                     handleChangeAccount={handleChangeAccount}
-                   />
-                 )}
-          />
           <Route path={"/convert-page"}
-                 render={() => (
-                   <ConvertPage
-                     account={account}
-                     currentUsername={currentUsername}
-                     handleLogout={handleLogout}
-                     handleChangeAccount={handleChangeAccount}
-                   />
-                 )}
+            render={() => (
+              <div>
+                <ConvertPage
+                  account={account}
+                  currentUsername={currentUsername}
+                  handleLogout={handleLogout}
+                  handleChangeAccount={handleChangeAccount}
+                />
+                <FootNavigation {...props} />
+              </div>
+            )}
           />
           <Route path={"/account-manager"} component={AccountManagerPanel} />
           <Route
@@ -171,25 +197,25 @@ function App(props) {
           open={accountCreatedSnackbarOpen}
           autoHideDuration={6000}
           onClose={handleAccountCreatedSnackbarClose}
-          message={trans.accountCreatedInfo[lang]}
+          message={trans.accountCreatedInfo[Config.lang]}
         />
         <Snackbar
           open={accountNotCreatedSnackbarOpen}
           autoHideDuration={6000}
           onClose={handleAccountNotCreatedSnackbarClose}
-          message={trans.accountNotCreatedInfo[lang]}
+          message={trans.accountNotCreatedInfo[Config.lang]}
         />
         <Snackbar
           open={wrongPrivateKeyFormat}
           autoHideDuration={6000}
           onClose={handleAccountNotCreatedSnackbarClose}
-          message={trans.wrongPrivateKeyFormat[lang]}
+          message={trans.wrongPrivateKeyFormat[Config.lang]}
         />
         <Snackbar
           open={cannotLoginSnackbarOpen}
           autoHideDuration={6000}
           onClose={handleCannotLoginSnackbarClose}
-          message={trans.cannotLoginWarning[lang]}
+          message={trans.cannotLoginWarning[Config.lang]}
         />
       </React.Fragment>
     </ThemeProvider>

@@ -11,3 +11,47 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+/* -----------------公共样式区----------------- */
+/* 按钮样式 */
+.CommonButtonStyle{
+  font-family: "FZZhongDengXian-Z07S"!important;
+  background-color: #13161b!important;
+  color: #FFB601!important;
+  border:1px solid #BEB689!important;
+}
+.iconBtn{
+  padding: 4px!important;
+}
+.textInfo{
+  font-family: "FZZhongDengXian-Z07S"!important;
+  font-size: 14px!important;
+  color: rgba(255, 255, 255, 0.7)!important;
+}
+.textWallet{
+  float: left!important;
+  font-family: "FZZhongDengXian-Z07S"!important;
+  color: #FFF!important;
+}
+.textImport{
+  float: left!important;
+  font-family: "FZZhongDengXian-Z07S"!important;
+  color: #FFB601!important;
+  text-decoration:none!important;
+}
+.inputLabel{
+  font-size: 1.2rem!important;
+  font-family: "FZZhongDengXian-Z07S"!important;
+  color: #FFF!important;
+}
+.formHelperText{
+  font-family: "FZZhongDengXian-Z07S"!important;
+  font-size: 0.5rem!important;
+}
+.MuiInputBase-root{
+  font-family: "FZZhongDengXian-Z07S"!important;
+}
+
+.pageFoot{
+  height: 60px;
+}

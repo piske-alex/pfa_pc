@@ -1,0 +1,166 @@
+.maxWidth{
+    max-width: 1100px;    
+    margin: 0 auto;
+    background-color: #000!important;
+    height: auto;
+}
+@media only screen and (min-width: 1000px) {
+    .wheelPlanting{
+        width: 100%;
+        height: 350px;
+        overflow: hidden;
+    }
+}
+@media only screen and (max-width: 1000px) {
+    .wheelPlanting{
+        width: 100%;
+        height: 250px;
+        overflow: hidden;
+    }
+}
+.am-wingblank.am-wingblank-lg{
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.wheelPlantingUl{
+    width: 300%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+/* .wheelPlantingLi{
+    width: 33.33%;
+    float: left;
+    margin: 0;
+    padding: 0;
+    height: auto;
+} */
+.on{
+    transform: translateZ(0px) translateX(0px);
+    transition: none 0s ease 0s;
+    visibility: visible;
+}
+.hideLeft{
+    transform: translateZ(0px) translateX(-200%);
+    transition: -webkit-transform 300ms ease 0s;
+    visibility: visible;
+}
+.hideRight{
+    transform: translateZ(0px) translateX(100%);
+    transition: -webkit-transform 300ms ease 0s;
+    visibility: visible;
+}
+.header{
+    background-color: #1c202c;
+}
+.top{
+    color: #fff;
+    text-align: center;
+    padding: 10px 0px;
+}
+.center{
+    border-left: 1px solid #434343;
+    border-right: 1px solid #434343;
+}
+.title{
+    font-size: 12px;
+    color: #73767d;
+    line-height: 15px;
+}
+.sum{
+    font-size: 15px;
+    line-height: 20px;
+}
+.gain{
+    font-size: 12px;
+    line-height: 15px;
+}
+.red{
+    color: #be0b5b;
+}
+.green{
+    color: #08b67f;
+}
+.line{
+    margin: 0px 15px!important;
+    color: #73767d;
+    list-style: none;
+}
+.msg{
+    height: 34px;
+    line-height: 34px;
+    color: #fff;
+    font-size: 10px;
+}
+.msg .msgIcon{
+    float: left;
+    margin: 4px 10px 0px 15px;
+    height: 34px!important;
+}
+.link{
+    margin: 10px 0px;
+    background-color: #1c202c;
+    color: #fff;
+    font-size: 13px;
+    text-align: center;
+    padding: 10px 0px;
+}
+.link .linkImg{
+    width: 28px;
+    height: 28px;
+    /* border-radius: 50px; */
+}
+.link .linkItem{
+    margin: 0 1.5%;
+}
+.Ranking{
+    height: 40px;
+    background-color: #1c202c;
+    color: #fff;
+    line-height: 40px;
+    font-size: 13px;
+}
+.Ranking .RankingIcon{
+    float: left;
+    margin: 8px 10px 0px 15px;
+    height: 40px!important;
+}
+.RankingTitle{
+    float: left;
+}
+.right{
+    float: right;
+    height: 40px!important;
+    margin-right: 15px;
+}
+.listHeader{
+    height: 34px;
+    background-color: #141821;
+    color: #73767d;
+    line-height: 34px;
+    font-size: 13px;
+}
+.listLeft{
+    padding-left: 15px;
+}
+.listRight{
+    text-align: right;
+    padding-right: 15px;
+}
+.dashboard .list{
+    margin-top: 15px;
+    padding-left: 15px;
+    height: 35px;
+}
+.dashboard .borderLine{
+    border-bottom: 1px solid #242424;
+}
+.dashboard .three{
+    text-align: right;
+    padding-right: 30px;
+}
+.dashboard .btc{
+    font-size: 13px;
+    color: #73767d;
+}
