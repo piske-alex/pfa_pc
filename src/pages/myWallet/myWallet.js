@@ -306,12 +306,12 @@ function Dashboard({
   React.useEffect(() => {
     const fetchBalance = async () => {
       try {
-        setPfaBalance(`${await etherBalance(account)} PFA`);
+        setPfaBalance(await etherBalance(account));
         const tkBal = await tokenBalance(account, ihadAddress);
         const USDTBal = await tokenBalance(account, USDTaddress);
         console.log(tkBal + "sdfs")
-        setIhadBalance(tkBal != null ? `${tkBal} HAD` : "");
-        setUSDTBalance(USDTBal != null ? `${USDTBal} USDT` : "");
+        setIhadBalance(tkBal != null ? tkBal: 0);
+        setUSDTBalance(USDTBal != null ? USDTBal : 0);
       } catch (err) {
         console.log(err);
       }
@@ -367,7 +367,7 @@ function Dashboard({
               <Grid item>
                 <HorizontalCenter>
                   <Grid className="usdtVulesClass">
-                    {t.UsdtVules[lang]}
+                    {pfaBalance*6+ihadBalance *6+USDTbalance}
                   </Grid>
                   <Grid className="usdtVulesClassCode">
                     {t.UsdtCode[lang]}
@@ -375,13 +375,13 @@ function Dashboard({
                 </HorizontalCenter>
               </Grid>
 
-              <Grid item>
+              {/*<Grid item>
                 <HorizontalCenter>
                   <Typography className={classes.container1}>
                     {t.conversion[lang]}
                   </Typography>
                 </HorizontalCenter>
-              </Grid>
+              </Grid>*/}
 
 
               <Grid item style={{ height: "10px" }} />
