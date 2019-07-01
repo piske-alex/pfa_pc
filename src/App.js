@@ -144,7 +144,8 @@ function App(props) {
             path={"/aboutus"}
             render={() => (
               <div>
-                <AboutUs props={props} handleLogout={handleLogout}/>
+                <AboutUs props={props} account={account}
+                         currentUsername={currentUsername} handleLogout={handleLogout}/>
                 <FootNavigation {...props} />
               </div>
             )}

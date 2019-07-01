@@ -15,7 +15,7 @@ export default class FootNavigation extends Component {
         { title: "錢包", icon: 'account_balance_wallet', toPage: '/myWallet' },
         { title: "交易", icon: 'swap_horizontal_circle', toPage: '/convert-page' },
         { title: "幣訊", icon: 'language', toPage: '/app' },
-        { title: "關於", icon: 'group', toPage: '/aboutUs' },
+        { title: "我的", icon: 'group', toPage: '/aboutUs' },
       ],
     };
     this.init();

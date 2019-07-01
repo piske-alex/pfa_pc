@@ -1,5 +1,5 @@
 import React from "react";
-import { getIcon } from "../../public/js/utils";
+import { getIcon, isEmpty } from "../../public/js/utils";
 import { Grid } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
@@ -10,6 +10,9 @@ import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import Typography from "@material-ui/core/Typography";
 import { withRouter } from "react-router-dom";
+import QRCode from "qrcode.react";
+import useCookies from "react-cookie/cjs/useCookies";
+import TextField from "@material-ui/core/TextField";
 
 const lang = "ch";
 
@@ -117,7 +120,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function AboutUs({ history,handleLogout }) {
+function AboutUs({ history,handleLogout, currentUsername, account }) {
   const classes = useStyles();
   const [longText, setLongText] = React.useState("undefinede");
   const [modalTitle, setModalTitle] = React.useState("undefinede");
@@ -141,6 +144,17 @@ function AboutUs({ history,handleLogout }) {
   const onSumbit = () => {
     handleLogout();
   };
+  const [cookies, setCookie] = useCookies(['pfa']);
+  let something = ""
+  console.log(account);
+  if (account==null || isEmpty(account)) {
+    account = cookies.acctobj;
+    console.log(cookies.acctobj + "jj");
+    isEmpty(account) ? history.push("/login-account") : something = "continue";
+  }
+  let accName = currentUsername;
+  isEmpty(accName) ? currentUsername = cookies.username : currentUsername = currentUsername;
+  const accAddr = account.address;
   setTimeout(() => {
     let foot = document.getElementById("foot").offsetTop;
     let logOut = document.getElementById("logOut").offsetTop;
@@ -173,9 +187,30 @@ function AboutUs({ history,handleLogout }) {
           <Grid className={classes.icon}>
             <img style={{ width: 60, height: 60 }} src={getIcon()} />
           </Grid>
+
           <Grid className={classes.introduce}>我們希望讓大家更了解鏈改後的PFA區塊鏈</Grid>
         </Grid>
-
+        <Grid
+          container
+          direction={"column"}
+          alignItems={"center"}
+          justify={"space-evenly"}
+          spacing={5}
+        >
+        <Grid item>
+          <Typography variant={"h5"}>{currentUsername}</Typography>
+        </Grid>
+        <Grid item>
+          <QRCode value={`pfa:${account.address}`} renderAs={"svg"} />
+        </Grid>
+        <Grid item>
+          <TextField
+            variant={"outlined"}
+            value={account.address}
+            disabled
+          />
+        </Grid>
+        </Grid>
         <Grid >
           <Grid className={classes.content} onClick={() => handletosModalOpen(trans.aboutusfull[lang], trans.aboutus[lang])}>
             <Grid className={classes.contentIconsLeft}>

@@ -2,386 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33c7a400-888c-4aef-b112-febf5c9a8cb5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/watcherTasks.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.netlify/state.json" beforeDir="false" afterPath="$PROJECT_DIR$/.netlify/state.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/REACT.md" beforeDir="false" afterPath="$PROJECT_DIR$/REACT.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_redirects" beforeDir="false" afterPath="$PROJECT_DIR$/_redirects" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chrome-extension.crx" beforeDir="false" afterPath="$PROJECT_DIR$/chrome-extension.crx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chrome-extension.pem" beforeDir="false" afterPath="$PROJECT_DIR$/chrome-extension.pem" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chrome-extension/logo.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/chrome-extension/logo.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chrome-extension/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/chrome-extension/logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chrome-extension/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/chrome-extension/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chrome-extension/www/_redirects" beforeDir="false" afterPath="$PROJECT_DIR$/chrome-extension/www/_redirects" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chrome-extension/www/asset-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/chrome-extension/www/asset-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chrome-extension/www/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/chrome-extension/www/favicon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chrome-extension/www/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/chrome-extension/www/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chrome-extension/www/logo.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/chrome-extension/www/logo.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chrome-extension/www/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/chrome-extension/www/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chrome-extension/www/precache-manifest.c9f81022042e8a995994390f685f5209.js" beforeDir="false" afterPath="$PROJECT_DIR$/chrome-extension/www/precache-manifest.c9f81022042e8a995994390f685f5209.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chrome-extension/www/service-worker.js" beforeDir="false" afterPath="$PROJECT_DIR$/chrome-extension/www/service-worker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chrome-extension/www/static/css/main.d9e75851.chunk.css" beforeDir="false" afterPath="$PROJECT_DIR$/chrome-extension/www/static/css/main.d9e75851.chunk.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chrome-extension/www/static/js/2.78f42bd3.chunk.js" beforeDir="false" afterPath="$PROJECT_DIR$/chrome-extension/www/static/js/2.78f42bd3.chunk.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chrome-extension/www/static/js/main.a4f23345.chunk.js" beforeDir="false" afterPath="$PROJECT_DIR$/chrome-extension/www/static/js/main.a4f23345.chunk.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chrome-extension/www/static/js/runtime~main.d653cc00.js" beforeDir="false" afterPath="$PROJECT_DIR$/chrome-extension/www/static/js/runtime~main.d653cc00.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/config.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/hooks/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/hooks/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/index-original.html" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/index-original.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/CordovaLib/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/CordovaLib/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/CordovaLib/cordova.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/CordovaLib/cordova.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/CordovaLib/project.properties" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/CordovaLib/project.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/CordovaLib/src/org/apache/cordova/AuthenticationToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/CordovaLib/src/org/apache/cordova/AuthenticationToken.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/CordovaLib/src/org/apache/cordova/BuildHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/CordovaLib/src/org/apache/cordova/BuildHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/CordovaLib/src/org/apache/cordova/CallbackContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/CordovaLib/src/org/apache/cordova/CallbackContext.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/CordovaLib/src/org/apache/cordova/CallbackMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/CordovaLib/src/org/apache/cordova/CallbackMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/CordovaLib/src/org/apache/cordova/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/CordovaLib/src/org/apache/cordova/Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/CordovaLib/src/org/apache/cordova/ConfigXmlParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/CordovaLib/src/org/apache/cordova/ConfigXmlParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/CordovaLib/src/org/apache/cordova/CordovaArgs.java" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/CordovaLib/src/org/apache/cordova/CordovaArgs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/CordovaLib/src/org/apache/cordova/CordovaBridge.java" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/CordovaLib/src/org/apache/cordova/CordovaBridge.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/CordovaLib/src/org/apache/cordova/CordovaClientCertRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/CordovaLib/src/org/apache/cordova/CordovaClientCertRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/CordovaLib/src/org/apache/cordova/CordovaDialogsHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/CordovaLib/src/org/apache/cordova/CordovaDialogsHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/CordovaLib/src/org/apache/cordova/CordovaHttpAuthHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/CordovaLib/src/org/apache/cordova/CordovaHttpAuthHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/CordovaLib/src/org/apache/cordova/CordovaInterfaceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/CordovaLib/src/org/apache/cordova/CordovaInterfaceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/CordovaLib/src/org/apache/cordova/CordovaPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/CordovaLib/src/org/apache/cordova/CordovaPlugin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/CordovaLib/src/org/apache/cordova/CordovaPreferences.java" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/CordovaLib/src/org/apache/cordova/CordovaPreferences.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/CordovaLib/src/org/apache/cordova/CordovaResourceApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/CordovaLib/src/org/apache/cordova/CordovaResourceApi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/CordovaLib/src/org/apache/cordova/CordovaWebView.java" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/CordovaLib/src/org/apache/cordova/CordovaWebView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/CordovaLib/src/org/apache/cordova/CordovaWebViewEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/CordovaLib/src/org/apache/cordova/CordovaWebViewEngine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/CordovaLib/src/org/apache/cordova/CordovaWebViewImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/CordovaLib/src/org/apache/cordova/CordovaWebViewImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/CordovaLib/src/org/apache/cordova/ExposedJsApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/CordovaLib/src/org/apache/cordova/ExposedJsApi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/CordovaLib/src/org/apache/cordova/ICordovaClientCertRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/CordovaLib/src/org/apache/cordova/ICordovaClientCertRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/CordovaLib/src/org/apache/cordova/ICordovaCookieManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/CordovaLib/src/org/apache/cordova/ICordovaCookieManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/CordovaLib/src/org/apache/cordova/ICordovaHttpAuthHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/CordovaLib/src/org/apache/cordova/ICordovaHttpAuthHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/CordovaLib/src/org/apache/cordova/PermissionHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/CordovaLib/src/org/apache/cordova/PermissionHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/CordovaLib/src/org/apache/cordova/PluginResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/CordovaLib/src/org/apache/cordova/PluginResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/CordovaLib/src/org/apache/cordova/ResumeCallback.java" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/CordovaLib/src/org/apache/cordova/ResumeCallback.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/CordovaLib/src/org/apache/cordova/Whitelist.java" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/CordovaLib/src/org/apache/cordova/Whitelist.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/CordovaLib/src/org/apache/cordova/engine/SystemCookieManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/CordovaLib/src/org/apache/cordova/engine/SystemCookieManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/CordovaLib/src/org/apache/cordova/engine/SystemWebView.java" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/CordovaLib/src/org/apache/cordova/engine/SystemWebView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/android.json" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/android.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/_redirects" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/_redirects" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/asset-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/asset-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/cordova-js-src/android/nativeapiprovider.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/cordova-js-src/android/nativeapiprovider.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/cordova-js-src/android/promptbasednativeapi.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/cordova-js-src/android/promptbasednativeapi.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/cordova-js-src/exec.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/cordova-js-src/exec.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/cordova-js-src/platform.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/cordova-js-src/platform.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/cordova-js-src/plugin/android/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/cordova-js-src/plugin/android/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/cordova.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/cordova.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/cordova_plugins.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/cordova_plugins.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/favicon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/logo.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/logo.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/service-worker.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/service-worker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/static/css/main.d9e75851.chunk.css" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/static/css/main.d9e75851.chunk.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/static/js/runtime~main.d653cc00.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/static/js/runtime~main.d653cc00.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/java/com/pfa/mobileapp/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/java/com/pfa/mobileapp/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/java/org/apache/cordova/whitelist/WhitelistPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/java/org/apache/cordova/whitelist/WhitelistPlugin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/res/drawable-land-hdpi/screen.png" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/res/drawable-land-hdpi/screen.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/res/drawable-land-ldpi/screen.png" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/res/drawable-land-ldpi/screen.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/res/drawable-land-mdpi/screen.png" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/res/drawable-land-mdpi/screen.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/res/drawable-land-xhdpi/screen.png" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/res/drawable-land-xhdpi/screen.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/res/drawable-land-xxhdpi/screen.png" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/res/drawable-land-xxhdpi/screen.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/res/drawable-land-xxxhdpi/screen.png" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/res/drawable-land-xxxhdpi/screen.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/res/drawable-port-hdpi/screen.png" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/res/drawable-port-hdpi/screen.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/res/drawable-port-ldpi/screen.png" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/res/drawable-port-ldpi/screen.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/res/drawable-port-mdpi/screen.png" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/res/drawable-port-mdpi/screen.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/res/drawable-port-xhdpi/screen.png" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/res/drawable-port-xhdpi/screen.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/res/drawable-port-xxhdpi/screen.png" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/res/drawable-port-xxhdpi/screen.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/res/drawable-port-xxxhdpi/screen.png" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/res/drawable-port-xxxhdpi/screen.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/res/mipmap-mdpi/ic_launcher.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/res/xml/config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/res/xml/config.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/cordova/Api.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/cordova/Api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/cordova/android_sdk_version.bat" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/cordova/android_sdk_version.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/cordova/build.bat" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/cordova/build.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/cordova/check_reqs.bat" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/cordova/check_reqs.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/cordova/clean.bat" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/cordova/clean.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/cordova/defaults.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/cordova/defaults.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/cordova/lib/Adb.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/cordova/lib/Adb.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/cordova/lib/AndroidManifest.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/cordova/lib/AndroidManifest.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/cordova/lib/AndroidProject.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/cordova/lib/AndroidProject.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/cordova/lib/build.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/cordova/lib/build.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/cordova/lib/builders/ProjectBuilder.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/cordova/lib/builders/ProjectBuilder.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/cordova/lib/builders/builders.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/cordova/lib/builders/builders.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/cordova/lib/check_reqs.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/cordova/lib/check_reqs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/cordova/lib/config/GradlePropertiesParser.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/cordova/lib/config/GradlePropertiesParser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/cordova/lib/device.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/cordova/lib/device.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/cordova/lib/emulator.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/cordova/lib/emulator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/cordova/lib/getASPath.bat" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/cordova/lib/getASPath.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/cordova/lib/install-device.bat" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/cordova/lib/install-device.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/cordova/lib/install-emulator.bat" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/cordova/lib/install-emulator.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/cordova/lib/list-devices.bat" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/cordova/lib/list-devices.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/cordova/lib/list-emulator-images.bat" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/cordova/lib/list-emulator-images.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/cordova/lib/list-started-emulators.bat" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/cordova/lib/list-started-emulators.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/cordova/lib/log.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/cordova/lib/log.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/cordova/lib/plugin-build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/cordova/lib/plugin-build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/cordova/lib/pluginHandlers.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/cordova/lib/pluginHandlers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/cordova/lib/prepare.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/cordova/lib/prepare.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/cordova/lib/retry.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/cordova/lib/retry.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/cordova/lib/run.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/cordova/lib/run.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/cordova/lib/start-emulator.bat" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/cordova/lib/start-emulator.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/cordova/log.bat" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/cordova/log.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/cordova/loggingHelper.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/cordova/loggingHelper.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/cordova/run.bat" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/cordova/run.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/cordova/version.bat" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/cordova/version.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/gradle.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/platform_www/cordova-js-src/android/nativeapiprovider.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/platform_www/cordova-js-src/android/nativeapiprovider.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/platform_www/cordova-js-src/android/promptbasednativeapi.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/platform_www/cordova-js-src/android/promptbasednativeapi.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/platform_www/cordova-js-src/exec.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/platform_www/cordova-js-src/exec.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/platform_www/cordova-js-src/platform.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/platform_www/cordova-js-src/platform.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/platform_www/cordova-js-src/plugin/android/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/platform_www/cordova-js-src/plugin/android/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/platform_www/cordova.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/platform_www/cordova.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/platform_www/cordova_plugins.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/platform_www/cordova_plugins.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/project.properties" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/project.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/settings.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/wrapper.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/wrapper.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/browser/browser.json" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/browser/browser.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/browser/config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/browser/config.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/browser/cordova/Api.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/browser/cordova/Api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/browser/cordova/browser_handler.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/browser/cordova/browser_handler.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/browser/cordova/browser_parser.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/browser/cordova/browser_parser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/browser/cordova/build.bat" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/browser/cordova/build.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/browser/cordova/clean" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/browser/cordova/clean" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/browser/cordova/clean.bat" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/browser/cordova/clean.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/browser/cordova/defaults.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/browser/cordova/defaults.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/browser/cordova/lib/build.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/browser/cordova/lib/build.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/browser/cordova/lib/check_reqs.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/browser/cordova/lib/check_reqs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/browser/cordova/lib/clean.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/browser/cordova/lib/clean.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/browser/cordova/lib/run.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/browser/cordova/lib/run.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/browser/cordova/run.bat" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/browser/cordova/run.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/browser/cordova/version.bat" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/browser/cordova/version.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/browser/platform_www/cordova-js-src/confighelper.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/browser/platform_www/cordova-js-src/confighelper.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/browser/platform_www/cordova-js-src/exec.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/browser/platform_www/cordova-js-src/exec.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/browser/platform_www/cordova-js-src/platform.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/browser/platform_www/cordova-js-src/platform.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/browser/platform_www/cordova.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/browser/platform_www/cordova.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/browser/platform_www/cordova_plugins.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/browser/platform_www/cordova_plugins.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/browser/platform_www/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/browser/platform_www/favicon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/browser/platform_www/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/browser/platform_www/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/browser/www/_redirects" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/browser/www/_redirects" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/browser/www/asset-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/browser/www/asset-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/browser/www/config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/browser/www/config.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/browser/www/cordova-js-src/confighelper.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/browser/www/cordova-js-src/confighelper.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/browser/www/cordova-js-src/exec.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/browser/www/cordova-js-src/exec.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/browser/www/cordova-js-src/platform.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/browser/www/cordova-js-src/platform.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/browser/www/cordova.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/browser/www/cordova.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/browser/www/cordova_plugins.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/browser/www/cordova_plugins.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/browser/www/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/browser/www/favicon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/browser/www/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/browser/www/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/browser/www/logo.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/browser/www/logo.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/browser/www/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/browser/www/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/browser/www/precache-manifest.2e6db060c961aac5c783b312bfb41f29.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/browser/www/precache-manifest.2e6db060c961aac5c783b312bfb41f29.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/browser/www/service-worker.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/browser/www/service-worker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/browser/www/static/css/main.d9e75851.chunk.css" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/browser/www/static/css/main.d9e75851.chunk.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/browser/www/static/js/2.1a926be9.chunk.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/browser/www/static/js/2.1a926be9.chunk.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/browser/www/static/js/main.3632c3b7.chunk.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/browser/www/static/js/main.3632c3b7.chunk.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/browser/www/static/js/runtime~main.a8a9905a.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/browser/www/static/js/runtime~main.a8a9905a.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Private/CDVDebug.h" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Private/CDVDebug.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Private/CDVJSON_private.h" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Private/CDVJSON_private.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Private/CDVJSON_private.m" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Private/CDVJSON_private.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Private/CDVPlugin+Private.h" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Private/CDVPlugin+Private.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Private/Plugins/CDVGestureHandler/CDVGestureHandler.h" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Private/Plugins/CDVGestureHandler/CDVGestureHandler.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Private/Plugins/CDVGestureHandler/CDVGestureHandler.m" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Private/Plugins/CDVGestureHandler/CDVGestureHandler.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Private/Plugins/CDVHandleOpenURL/CDVHandleOpenURL.h" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Private/Plugins/CDVHandleOpenURL/CDVHandleOpenURL.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Private/Plugins/CDVHandleOpenURL/CDVHandleOpenURL.m" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Private/Plugins/CDVHandleOpenURL/CDVHandleOpenURL.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Private/Plugins/CDVIntentAndNavigationFilter/CDVIntentAndNavigationFilter.h" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Private/Plugins/CDVIntentAndNavigationFilter/CDVIntentAndNavigationFilter.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Private/Plugins/CDVIntentAndNavigationFilter/CDVIntentAndNavigationFilter.m" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Private/Plugins/CDVIntentAndNavigationFilter/CDVIntentAndNavigationFilter.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Private/Plugins/CDVLocalStorage/CDVLocalStorage.h" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Private/Plugins/CDVLocalStorage/CDVLocalStorage.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Private/Plugins/CDVLocalStorage/CDVLocalStorage.m" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Private/Plugins/CDVLocalStorage/CDVLocalStorage.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Private/Plugins/CDVLogger/CDVLogger.h" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Private/Plugins/CDVLogger/CDVLogger.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Private/Plugins/CDVLogger/CDVLogger.m" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Private/Plugins/CDVLogger/CDVLogger.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Private/Plugins/CDVUIWebViewEngine/CDVUIWebViewDelegate.h" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Private/Plugins/CDVUIWebViewEngine/CDVUIWebViewDelegate.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Private/Plugins/CDVUIWebViewEngine/CDVUIWebViewDelegate.m" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Private/Plugins/CDVUIWebViewEngine/CDVUIWebViewDelegate.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Private/Plugins/CDVUIWebViewEngine/CDVUIWebViewEngine.h" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Private/Plugins/CDVUIWebViewEngine/CDVUIWebViewEngine.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Private/Plugins/CDVUIWebViewEngine/CDVUIWebViewEngine.m" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Private/Plugins/CDVUIWebViewEngine/CDVUIWebViewEngine.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Private/Plugins/CDVUIWebViewEngine/CDVUIWebViewNavigationDelegate.h" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Private/Plugins/CDVUIWebViewEngine/CDVUIWebViewNavigationDelegate.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Private/Plugins/CDVUIWebViewEngine/CDVUIWebViewNavigationDelegate.m" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Private/Plugins/CDVUIWebViewEngine/CDVUIWebViewNavigationDelegate.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/CDV.h" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/CDV.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/CDVAppDelegate.h" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/CDVAppDelegate.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/CDVAppDelegate.m" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/CDVAppDelegate.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/CDVAvailability.h" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/CDVAvailability.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/CDVAvailabilityDeprecated.h" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/CDVAvailabilityDeprecated.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/CDVCommandDelegate.h" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/CDVCommandDelegate.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/CDVCommandDelegateImpl.h" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/CDVCommandDelegateImpl.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/CDVCommandDelegateImpl.m" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/CDVCommandDelegateImpl.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/CDVCommandQueue.h" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/CDVCommandQueue.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/CDVCommandQueue.m" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/CDVCommandQueue.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/CDVConfigParser.h" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/CDVConfigParser.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/CDVConfigParser.m" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/CDVConfigParser.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/CDVInvokedUrlCommand.h" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/CDVInvokedUrlCommand.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/CDVInvokedUrlCommand.m" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/CDVInvokedUrlCommand.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/CDVPlugin+Resources.h" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/CDVPlugin+Resources.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/CDVPlugin+Resources.m" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/CDVPlugin+Resources.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/CDVPlugin.h" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/CDVPlugin.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/CDVPlugin.m" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/CDVPlugin.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/CDVPluginResult.h" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/CDVPluginResult.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/CDVPluginResult.m" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/CDVPluginResult.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/CDVScreenOrientationDelegate.h" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/CDVScreenOrientationDelegate.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/CDVTimer.h" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/CDVTimer.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/CDVTimer.m" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/CDVTimer.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/CDVURLProtocol.h" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/CDVURLProtocol.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/CDVURLProtocol.m" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/CDVURLProtocol.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/CDVUserAgentUtil.h" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/CDVUserAgentUtil.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/CDVUserAgentUtil.m" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/CDVUserAgentUtil.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/CDVViewController.h" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/CDVViewController.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/CDVViewController.m" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/CDVViewController.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/CDVWebViewEngineProtocol.h" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/CDVWebViewEngineProtocol.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/CDVWhitelist.h" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/CDVWhitelist.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/CDVWhitelist.m" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/CDVWhitelist.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/NSDictionary+CordovaPreferences.h" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/NSDictionary+CordovaPreferences.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/NSDictionary+CordovaPreferences.m" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/NSDictionary+CordovaPreferences.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/NSMutableArray+QueueAdditions.h" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/NSMutableArray+QueueAdditions.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/NSMutableArray+QueueAdditions.m" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/Classes/Public/NSMutableArray+QueueAdditions.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/CordovaLib.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/CordovaLib.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/CordovaLib_Prefix.pch" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/CordovaLib_Prefix.pch" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/VERSION" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/VERSION" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/cordova.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/CordovaLib/cordova.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova.xcworkspace/contents.xcworkspacedata" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova.xcworkspace/contents.xcworkspacedata" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova.xcworkspace/xcshareddata/xcschemes/HelloCordova.xcscheme" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova.xcworkspace/xcshareddata/xcschemes/HelloCordova.xcscheme" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Bridging-Header.h" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Bridging-Header.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/CDVLaunchScreen.storyboard" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/CDVLaunchScreen.storyboard" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Classes/AppDelegate.h" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Classes/AppDelegate.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Classes/AppDelegate.m" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Classes/AppDelegate.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Classes/MainViewController.h" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Classes/MainViewController.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Classes/MainViewController.m" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Classes/MainViewController.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Classes/MainViewController.xib" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Classes/MainViewController.xib" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Entitlements-Debug.plist" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Entitlements-Debug.plist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Entitlements-Release.plist" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Entitlements-Release.plist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/HelloCordova-Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/HelloCordova-Info.plist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/HelloCordova-Prefix.pch" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/HelloCordova-Prefix.pch" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/AppIcon.appiconset/Contents.json" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/AppIcon.appiconset/Contents.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/AppIcon.appiconset/icon-1024.png" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/AppIcon.appiconset/icon-1024.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/AppIcon.appiconset/icon-20.png" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/AppIcon.appiconset/icon-20.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/AppIcon.appiconset/icon-20@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/AppIcon.appiconset/icon-20@2x.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/AppIcon.appiconset/icon-20@3x.png" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/AppIcon.appiconset/icon-20@3x.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/AppIcon.appiconset/icon-24@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/AppIcon.appiconset/icon-24@2x.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/AppIcon.appiconset/icon-27.5@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/AppIcon.appiconset/icon-27.5@2x.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/AppIcon.appiconset/icon-29.png" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/AppIcon.appiconset/icon-29.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/AppIcon.appiconset/icon-29@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/AppIcon.appiconset/icon-29@2x.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/AppIcon.appiconset/icon-29@3x.png" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/AppIcon.appiconset/icon-29@3x.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/AppIcon.appiconset/icon-40.png" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/AppIcon.appiconset/icon-40.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/AppIcon.appiconset/icon-40@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/AppIcon.appiconset/icon-40@2x.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/AppIcon.appiconset/icon-44@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/AppIcon.appiconset/icon-44@2x.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/AppIcon.appiconset/icon-50.png" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/AppIcon.appiconset/icon-50.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/AppIcon.appiconset/icon-50@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/AppIcon.appiconset/icon-50@2x.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/AppIcon.appiconset/icon-60@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/AppIcon.appiconset/icon-60@2x.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/AppIcon.appiconset/icon-60@3x.png" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/AppIcon.appiconset/icon-60@3x.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/AppIcon.appiconset/icon-72.png" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/AppIcon.appiconset/icon-72.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/AppIcon.appiconset/icon-72@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/AppIcon.appiconset/icon-72@2x.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/AppIcon.appiconset/icon-76.png" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/AppIcon.appiconset/icon-76.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/AppIcon.appiconset/icon-76@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/AppIcon.appiconset/icon-76@2x.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/AppIcon.appiconset/icon-83.5@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/AppIcon.appiconset/icon-83.5@2x.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/AppIcon.appiconset/icon-86@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/AppIcon.appiconset/icon-86@2x.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/AppIcon.appiconset/icon-98@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/AppIcon.appiconset/icon-98@2x.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/AppIcon.appiconset/icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/AppIcon.appiconset/icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/AppIcon.appiconset/icon@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/AppIcon.appiconset/icon@2x.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/Contents.json" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/Contents.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/LaunchImage.launchimage/Contents.json" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/LaunchImage.launchimage/Contents.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/LaunchImage.launchimage/Default-2436h.png" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/LaunchImage.launchimage/Default-2436h.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/LaunchImage.launchimage/Default-568h@2x~iphone.png" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/LaunchImage.launchimage/Default-568h@2x~iphone.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/LaunchImage.launchimage/Default-667h.png" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/LaunchImage.launchimage/Default-667h.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/LaunchImage.launchimage/Default-736h.png" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/LaunchImage.launchimage/Default-736h.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/LaunchImage.launchimage/Default-Landscape-2436h.png" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/LaunchImage.launchimage/Default-Landscape-2436h.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/LaunchImage.launchimage/Default-Landscape-736h.png" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/LaunchImage.launchimage/Default-Landscape-736h.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/LaunchImage.launchimage/Default-Landscape@2x~ipad.png" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/LaunchImage.launchimage/Default-Landscape@2x~ipad.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/LaunchImage.launchimage/Default-Landscape~ipad.png" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/LaunchImage.launchimage/Default-Landscape~ipad.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/LaunchImage.launchimage/Default-Portrait@2x~ipad.png" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/LaunchImage.launchimage/Default-Portrait@2x~ipad.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/LaunchImage.launchimage/Default-Portrait~ipad.png" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/LaunchImage.launchimage/Default-Portrait~ipad.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/LaunchImage.launchimage/Default@2x~iphone.png" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/LaunchImage.launchimage/Default@2x~iphone.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/LaunchImage.launchimage/Default~iphone.png" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/LaunchImage.launchimage/Default~iphone.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/LaunchStoryboard.imageset/Contents.json" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/LaunchStoryboard.imageset/Contents.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Plugins/README" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Plugins/README" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/main.m" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/main.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/Podfile" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/Podfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/ios.json" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/ios.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/platform_www/cordova-js-src/exec.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/platform_www/cordova-js-src/exec.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/platform_www/cordova-js-src/platform.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/platform_www/cordova-js-src/platform.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/platform_www/cordova-js-src/plugin/ios/console.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/platform_www/cordova-js-src/plugin/ios/console.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/platform_www/cordova-js-src/plugin/ios/logger.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/platform_www/cordova-js-src/plugin/ios/logger.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/platform_www/cordova.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/platform_www/cordova.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/platform_www/cordova_plugins.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/platform_www/cordova_plugins.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/pods-debug.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/pods-debug.xcconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/pods-release.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/pods-release.xcconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/pods.json" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/pods.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/www/cordova-js-src/exec.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/www/cordova-js-src/exec.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/www/cordova-js-src/platform.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/www/cordova-js-src/platform.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/www/cordova-js-src/plugin/ios/console.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/www/cordova-js-src/plugin/ios/console.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/www/cordova-js-src/plugin/ios/logger.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/www/cordova-js-src/plugin/ios/logger.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/www/cordova.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/www/cordova.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/www/cordova_plugins.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/www/cordova_plugins.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/www/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/www/css/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/ios/www/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/ios/www/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/plugins/android.json" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/plugins/android.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/plugins/browser.json" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/plugins/browser.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/plugins/cordova-plugin-whitelist/.github/PULL_REQUEST_TEMPLATE.md" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/plugins/cordova-plugin-whitelist/.github/PULL_REQUEST_TEMPLATE.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/plugins/cordova-plugin-whitelist/CONTRIBUTING.md" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/plugins/cordova-plugin-whitelist/CONTRIBUTING.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/plugins/cordova-plugin-whitelist/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/plugins/cordova-plugin-whitelist/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/plugins/cordova-plugin-whitelist/NOTICE" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/plugins/cordova-plugin-whitelist/NOTICE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/plugins/cordova-plugin-whitelist/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/plugins/cordova-plugin-whitelist/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/plugins/cordova-plugin-whitelist/RELEASENOTES.md" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/plugins/cordova-plugin-whitelist/RELEASENOTES.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/plugins/cordova-plugin-whitelist/doc/de/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/plugins/cordova-plugin-whitelist/doc/de/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/plugins/cordova-plugin-whitelist/doc/es/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/plugins/cordova-plugin-whitelist/doc/es/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/plugins/cordova-plugin-whitelist/doc/fr/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/plugins/cordova-plugin-whitelist/doc/fr/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/plugins/cordova-plugin-whitelist/doc/it/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/plugins/cordova-plugin-whitelist/doc/it/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/plugins/cordova-plugin-whitelist/doc/ja/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/plugins/cordova-plugin-whitelist/doc/ja/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/plugins/cordova-plugin-whitelist/doc/ko/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/plugins/cordova-plugin-whitelist/doc/ko/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/plugins/cordova-plugin-whitelist/doc/pl/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/plugins/cordova-plugin-whitelist/doc/pl/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/plugins/cordova-plugin-whitelist/doc/zh/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/plugins/cordova-plugin-whitelist/doc/zh/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/plugins/cordova-plugin-whitelist/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/plugins/cordova-plugin-whitelist/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/plugins/cordova-plugin-whitelist/plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/plugins/cordova-plugin-whitelist/plugin.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/plugins/cordova-plugin-whitelist/src/android/WhitelistPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/plugins/cordova-plugin-whitelist/src/android/WhitelistPlugin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/plugins/fetch.json" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/plugins/fetch.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/plugins/ios.json" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/plugins/ios.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/www/_redirects" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/www/_redirects" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/www/asset-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/www/asset-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/www/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/www/favicon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/www/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/www/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/www/logo.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/www/logo.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/www/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/www/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/www/service-worker.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/www/service-worker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/www/static/css/main.d9e75851.chunk.css" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/www/static/css/main.d9e75851.chunk.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/www/static/js/runtime~main.d653cc00.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/www/static/js/runtime~main.d653cc00.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pfa-react.iml" beforeDir="false" afterPath="$PROJECT_DIR$/pfa-react.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/public/favicon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/hadloho.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/logo.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/accountManagerPanel.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/blockchain-utils.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/convertPage.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/createAccountPage.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dashboard.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/historyPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/historyPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/loginAccountPage.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/logo.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/serviceWorker.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/serviceWorker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/translation.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/aboutUs/aboutUs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/aboutUs/aboutUs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/convertPage/convertPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/convertPage/convertPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/dashboard/dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/dashboard/dashboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/foot/footNavigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/foot/footNavigation.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -413,19 +39,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/package.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="23" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/foot/footNavigation.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-556">
-              <caret line="16" column="26" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
+            <state relative-caret-position="168">
+              <caret line="21" column="3" lean-forward="true" selection-start-line="21" selection-start-column="3" selection-end-line="21" selection-end-column="3" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -438,11 +55,11 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/myWallet/myWallet.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="314">
-              <caret line="415" column="41" lean-forward="true" selection-start-line="415" selection-start-column="41" selection-end-line="415" selection-end-column="41" />
+            <state relative-caret-position="15">
+              <caret line="373" column="25" selection-start-line="373" selection-start-column="25" selection-end-line="373" selection-end-column="25" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -451,19 +68,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/public/js/utils.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="7" selection-start-line="7" selection-end-line="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/loginAccountPage/loginAccountPage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="181">
-              <caret line="84" lean-forward="true" selection-start-line="84" selection-end-line="84" />
+            <state relative-caret-position="945">
+              <caret line="84" selection-start-line="84" selection-end-line="84" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -474,8 +82,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-121">
-              <caret line="16" column="14" lean-forward="true" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
+            <state relative-caret-position="50">
+              <caret line="16" column="14" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -486,8 +94,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/dashboard/dashboard.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="141">
-              <caret line="343" column="7" lean-forward="true" selection-start-line="326" selection-start-column="2" selection-end-line="343" selection-end-column="7" />
+            <state relative-caret-position="146">
+              <caret line="554" column="78" selection-start-line="554" selection-start-column="78" selection-end-line="554" selection-end-column="78" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -496,10 +104,31 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/App.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="61">
+              <caret line="140" column="14" lean-forward="true" selection-start-line="140" selection-start-column="14" selection-end-line="140" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/aboutUs/aboutUs.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="210" column="12" lean-forward="true" selection-start-line="210" selection-start-column="12" selection-end-line="210" selection-end-column="12" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pages/convertPage/convertPage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="800" column="127" selection-start-line="800" selection-start-column="75" selection-end-line="800" selection-end-column="127" />
+            <state relative-caret-position="90">
+              <caret line="375" column="17" lean-forward="true" selection-start-line="375" selection-start-column="17" selection-end-line="375" selection-end-column="17" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -510,8 +139,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/public/js/blockchain-utils.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="325" column="11" selection-start-line="325" selection-start-column="11" selection-end-line="325" selection-end-column="11" />
+            <state relative-caret-position="120">
+              <caret line="407" column="20" lean-forward="true" selection-start-line="407" selection-start-column="20" selection-end-line="407" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -527,14 +156,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>aboutus</find>
-      <find>stringi</find>
-      <find>acctobj.</find>
-      <find>console.log</find>
-      <find>readAcc</find>
-      <find>buyModal</find>
-      <find>IH</find>
-      <find>logo</find>
       <find>下</find>
       <find>450px</find>
       <find>IHAD/U</find>
@@ -542,7 +163,6 @@
       <find>web3jsETH</find>
       <find>decode</find>
       <find>listen</find>
-      <find>fetch</find>
       <find>handlebuy</find>
       <find>buyMo</find>
       <find>snackb</find>
@@ -556,7 +176,16 @@
       <find>USDT</find>
       <find>PFA</find>
       <find>accountN</find>
+      <find>資產估值</find>
       <find>IHAD</find>
+      <find>fetch</find>
+      <find>about</find>
+      <find>account !=</find>
+      <find>foot</find>
+      <find>currentUsername</find>
+      <find>關於</find>
+      <find>顯示</find>
+      <find>rates</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -604,16 +233,18 @@
         <option value="$PROJECT_DIR$/src/historyPage.js" />
         <option value="$PROJECT_DIR$/src/translation.js" />
         <option value="$PROJECT_DIR$/src/convertPage.js" />
-        <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/dashboard.js" />
         <option value="$PROJECT_DIR$/cordova/www/index.html" />
         <option value="$PROJECT_DIR$/src/blockchain-utils.js" />
         <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/src/pages/dashboard/dashboard.js" />
         <option value="$PROJECT_DIR$/src/public/js/blockchain-utils.js" />
-        <option value="$PROJECT_DIR$/src/pages/convertPage/convertPage.js" />
         <option value="$PROJECT_DIR$/src/pages/loginAccountPage/loginAccountPage.js" />
         <option value="$PROJECT_DIR$/src/pages/myWallet/myWallet.js" />
+        <option value="$PROJECT_DIR$/src/pages/foot/footNavigation.js" />
+        <option value="$PROJECT_DIR$/src/App.js" />
+        <option value="$PROJECT_DIR$/src/pages/aboutUs/aboutUs.js" />
+        <option value="$PROJECT_DIR$/src/pages/dashboard/dashboard.js" />
+        <option value="$PROJECT_DIR$/src/pages/convertPage/convertPage.js" />
       </list>
     </option>
   </component>
@@ -637,13 +268,17 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="pfa_pc" type="b2602c69:ProjectViewProjectNode" />
               <item name="pfa_pc" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pfa_pc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pfa_pc" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="pfa_pc" type="b2602c69:ProjectViewProjectNode" />
@@ -655,6 +290,13 @@
               <item name="pfa_pc" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pfa_pc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pfa_pc" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="aboutUs" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="pfa_pc" type="b2602c69:ProjectViewProjectNode" />
@@ -722,6 +364,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -843,7 +486,8 @@
       <workItem from="1560784865237" duration="15703000" />
       <workItem from="1560890701970" duration="20491000" />
       <workItem from="1561210532589" duration="15038000" />
-      <workItem from="1561718737472" duration="4962000" />
+      <workItem from="1561718737472" duration="8507000" />
+      <workItem from="1561820149343" duration="3613000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1559125947627</created>
@@ -1041,11 +685,25 @@
       <option name="project" value="LOCAL" />
       <updated>1561277155737</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="new version">
+      <created>1561776822725</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1561776822725</updated>
+    </task>
+    <task id="LOCAL-00030" summary="new version">
+      <created>1561777435967</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1561777435967</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="183666000" />
+    <option name="totallyTimeSpent" value="190824000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1060,7 +718,7 @@
     <frame x="0" y="23" width="1440" height="797" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49892008" visible="true" weight="0.18957011" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49892008" visible="true" weight="0.18957011" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Capture Tool" order="3" />
@@ -1079,7 +737,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32850778" />
       <window_info anchor="bottom" id="TypeScript" order="7" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.49753347" visible="true" weight="0.470922" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49753347" visible="true" weight="0.470922" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5017618" side_tool="true" weight="0.23385301" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
@@ -1121,20 +779,15 @@
     <MESSAGE value="Merge branch 'master' of https://gitlab.com/michaellee8/pfa-react&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/blockchain-utils.js&#10;&#10;convert function completed" />
     <MESSAGE value="toggle private key" />
     <MESSAGE value="finalize" />
-    <option name="LAST_COMMIT_MESSAGE" value="finalize" />
+    <MESSAGE value="add things" />
+    <MESSAGE value="new version" />
+    <option name="LAST_COMMIT_MESSAGE" value="new version" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/cordova/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="6" lean-forward="true" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cordova/www/static/js/2.1a926be9.chunk.js" />
     <entry file="file://$PROJECT_DIR$/cordova/www/logo.jpg">
       <provider selected="true" editor-type-id="images" />
@@ -1266,13 +919,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/translation.js" />
     <entry file="file://$PROJECT_DIR$/src/loginAccountPage.js" />
-    <entry file="file://$PROJECT_DIR$/src/public/js/translation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="242" column="4" selection-start-line="242" selection-start-column="4" selection-end-line="242" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/假蚾脣璃.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -1287,52 +933,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.js">
+    <entry file="file://$PROJECT_DIR$/src/public/js/translation.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="193" lean-forward="true" selection-start-line="193" selection-end-line="193" />
+        <state relative-caret-position="2250">
+          <caret line="150" column="2" selection-start-line="150" selection-start-column="2" selection-end-line="150" selection-end-column="2" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/public/js/blockchain-utils.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="325" column="11" selection-start-line="325" selection-start-column="11" selection-end-line="325" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-121">
-          <caret line="16" column="14" lean-forward="true" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/foot/footNavigation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-556">
-          <caret line="16" column="26" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/dashboard/dashboard.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="343" column="7" lean-forward="true" selection-start-line="326" selection-start-column="2" selection-end-line="343" selection-end-column="7" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/dashboard/dashboard.css">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/public/js/utils.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -1343,8 +949,75 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/loginAccountPage/loginAccountPage.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="84" lean-forward="true" selection-start-line="84" selection-end-line="84" />
+        <state relative-caret-position="945">
+          <caret line="84" selection-start-line="84" selection-end-line="84" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/public/js/blockchain-utils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="407" column="20" lean-forward="true" selection-start-line="407" selection-start-column="20" selection-end-line="407" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/dashboard/dashboard.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/myWallet/myWallet.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="373" column="25" selection-start-line="373" selection-start-column="25" selection-end-line="373" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="16" column="14" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/foot/footNavigation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="21" column="3" lean-forward="true" selection-start-line="21" selection-start-column="3" selection-end-line="21" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="61">
+          <caret line="140" column="14" lean-forward="true" selection-start-line="140" selection-start-column="14" selection-end-line="140" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/aboutUs/aboutUs.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="210" column="12" lean-forward="true" selection-start-line="210" selection-start-column="12" selection-end-line="210" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/dashboard/dashboard.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="146">
+          <caret line="554" column="78" selection-start-line="554" selection-start-column="78" selection-end-line="554" selection-end-column="78" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -1353,18 +1026,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/convertPage/convertPage.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="800" column="127" selection-start-line="800" selection-start-column="75" selection-end-line="800" selection-end-column="127" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/myWallet/myWallet.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="415" column="41" lean-forward="true" selection-start-line="415" selection-start-column="41" selection-end-line="415" selection-end-column="41" />
+        <state relative-caret-position="90">
+          <caret line="375" column="17" lean-forward="true" selection-start-line="375" selection-start-column="17" selection-end-line="375" selection-end-column="17" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>

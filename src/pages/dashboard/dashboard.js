@@ -206,7 +206,7 @@ function Dashboard({
   const [cookies, setCookie] = useCookies(['pfa']);
   let something = ""
   console.log(account);
-  if (isEmpty(account)) {
+  if (account == null || isEmpty(account)) {
     account = cookies.acctobj;
     console.log(cookies.acctobj + "jj");
     isEmpty(account) ? history.push("/login-account") : something = "continue";
@@ -527,19 +527,7 @@ function Dashboard({
               justify={"space-evenly"}
               spacing={5}
             >
-              <Grid item>
-                <Typography variant={"h5"}>{currentUsername}</Typography>
-              </Grid>
-              <Grid item>
-                <QRCode value={`pfa:${account.address}`} renderAs={"svg"} />
-              </Grid>
-              <Grid item>
-                <TextField
-                  variant={"outlined"}
-                  value={account.address}
-                  disabled
-                />
-              </Grid>
+
               <Grid item>
                 <FormControlLabel
                   control={
@@ -552,7 +540,7 @@ function Dashboard({
                 <TextField
                   label={t.privateKey[Config.lang]}
                   className={classes.textField}
-                  value={account.privateKey}
+                  value={account.privateKey.substr(2)}
                   style={{ visibility: seePrivateKey ? 'visible' : 'hidden' }}
                   disabled
                   variant="outlined"
@@ -564,6 +552,7 @@ function Dashboard({
         <Modal open={sendModalOpen} onBackdropClick={handleSendModalClose}>
           <div className={classes.modalPaper}>
             <div className={classes.toolbarIcon}>
+              <Typography variant={"h5"} style={{ marginRight: "150px" }}>{`提取`}</Typography>
               <IconButton onClick={handleSendModalClose}>
                 <CloseIcon />
               </IconButton>

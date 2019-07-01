@@ -373,6 +373,15 @@ function ConvertPage({
     setTransactionFailedSnackbarOpen(false);
   };
 
+  const rates = {
+    usdt:{
+      ihad:1.5
+    },
+    ihad:{
+      usdt:1/1.5
+    }
+  };
+
   const [transactionCount, setTransactionCount] = React.useState(0);
 
   const [pfaBalance, setPfaBalance] = React.useState("");
@@ -820,7 +829,7 @@ function ConvertPage({
                       </Select>
                     </Grid>
                     <FormControl className={Config.equipmentType==="mobile"?classes.inputSize:classes.inputSizeIpad}>
-                      <BootstrapInput id="outlined-name" placeholder="Enter Amount" maxLength={11} value={tempBase*6} margin="normal" variant="outlined"/>
+                      <BootstrapInput id="outlined-name" placeholder="Enter Amount" maxLength={11} value={tempBase*rates[leftcurrencyDropdownValue][rightcurrencyDropdownValue]} margin="normal" variant="outlined"/>
                     </FormControl>
                   </Grid>
 
