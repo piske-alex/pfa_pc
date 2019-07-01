@@ -33,6 +33,8 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import LinearProgress from "@material-ui/core/LinearProgress";
 import ChevronRight from "@material-ui/icons/ChevronRight";
 import Icon from '@material-ui/core/Icon';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+
 // import LogoutIcon from "@material-ui/icons/ExitToApp";
 // import ListItemIcon from "@material-ui/core/ListItemIcon";
 // import ReceiveIcon from "@material-ui/icons/CallReceived";
@@ -64,6 +66,9 @@ import {
 import { usdtProvider } from "../../public/js/data";
 import Config from "../../public/js/config";
 import './dashboard.css';
+import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
+import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
+import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 
 const accountInfoRefreshTime = 20;
 const drawerWidth = 300;
@@ -530,50 +535,69 @@ function Dashboard({
               spacing={5}
               style={{overflowY:"scroll",maxHeight:"400px"}}
             >
-              <Typography variant={"h6"}>
-                單一錢包備份
-              </Typography>
-              <p>
-                您備份的是這個錢包，當你注冊錢包時可以導入這個錢包帳戶，亦和以太坊HEX制式互聯互通，唯一不同的是這個PFA錢包只適用PFA公有區塊鏈上的通證，若你將以太坊區塊鏈的通證發到你這個錢包，請導出私鑰到以太坊公有鏈錢包，便可找回你的代幣。
-              </p>
-              <Grid item>
+              <ExpansionPanel>
+                <ExpansionPanelSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel1a-content"
+                  id="panel1a-header"
+                >
+                  <Typography className={classes.heading}>單一錢包備份</Typography>
+                </ExpansionPanelSummary>
+                <ExpansionPanelDetails>
 
-                <FormControlLabel
-                  control={
-                    <Switch checked={seePrivateKey} onChange={e => setSeePrivateKey(e.target.checked)} />
-                  }
-                  label="顯示密鑰"
-                />
-                <Grid item>
-                  <TextField
-                    label={t.privateKey[Config.lang]}
-                    className={classes.textField}
-                    value={account.privateKey.substr(2)}
-                    style={{ visibility: seePrivateKey ? 'visible' : 'hidden' }}
-                    disabled
-                    variant="outlined"
-                  />
-                </Grid>
-              </Grid>
-              <Typography variant={"h6"}>
-                整個錢包備份
-              </Typography>
-              <p>
-                將你所有錢包備份一次，這包括了本程式上的所有錢包帳戶。請在登入頁面「導入PFA錢包使用」。
-              </p>
+                  <Grid item>
+                    <Typography>
+                      您備份的是這個錢包，當你注冊錢包時可以導入這個錢包帳戶，亦和以太坊HEX制式互聯互通，唯一不同的是這個PFA錢包只適用PFA公有區塊鏈上的通證，若你將以太坊區塊鏈的通證發到你這個錢包，請導出私鑰到以太坊公有鏈錢包，便可找回你的代幣。
+                    </Typography>
+                    <FormControlLabel
+                      control={
+                        <Switch checked={seePrivateKey} onChange={e => setSeePrivateKey(e.target.checked)} />
+                      }
+                      label="顯示密鑰"
+                    />
+                    <Grid item>
+                      <TextField
+                        label={t.privateKey[Config.lang]}
+                        className={classes.textField}
+                        value={account.privateKey.substr(2)}
+                        style={{ visibility: seePrivateKey ? 'visible' : 'hidden' }}
+                        disabled
+                        variant="outlined"
+                      />
+                    </Grid>
+                  </Grid>
+                </ExpansionPanelDetails>
+              </ExpansionPanel>
+              <ExpansionPanel>
+                <ExpansionPanelSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel2a-content"
+                  id="panel2a-header"
+                >
+                  <Typography className={classes.heading}>整個錢包備份</Typography>
+                </ExpansionPanelSummary>
+                <ExpansionPanelDetails>
+
+                  <Grid item>
+                    <Typography>
+                      將你所有錢包備份一次，這包括了本程式上的所有錢包帳戶。請在登入頁面「導入PFA錢包使用」。
+                    </Typography>
+                    <TextField
+                      style={{ width: 300 }}
+                      disabled
+                      variant={"outlined"}
+                      value={exportAccounts()}
+                      multiline
+                      rowsMax={4}
+                      label={t.copyHere[Config.lang]}
+                    />
+                  </Grid>
+                </ExpansionPanelDetails>
+              </ExpansionPanel>
 
 
-              <Grid item>
-                <TextField
-                  style={{ width: 300 }}
-                  disabled
-                  variant={"outlined"}
-                  value={exportAccounts()}
-                  multiline
-                  rowsMax={4}
-                  label={t.copyHere[Config.lang]}
-                />
-              </Grid>
+
+
             </Grid>
           </div>
         </Modal>
