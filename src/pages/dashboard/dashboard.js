@@ -56,7 +56,7 @@ import {
   sendEther,
   ihadAddress,
   tokenBalance,
-  sendToken, USDTaddress, listenUSDTdeposit, exportAccounts
+  sendToken, USDTaddress, listenUSDTdeposit, exportAccounts, sendUSDT
 } from "../../public/js/blockchain-utils";
 import {
   getLogoUrl,
@@ -371,7 +371,9 @@ function Dashboard({
           await sendEther(account, sendToAddress, sendAmount);
         } else if (sendCurrency === "ihad") {
           await sendToken(ihadAddress, account, sendToAddress, sendAmount);
-        } else {
+        } else if(sendCurrency === "usdt"){
+          await sendUSDT(sendToAddress,sendAmount,account)
+        }else {
           throw new Error("ValueError: No currency type selected");
         }
         setTransactionFinishedSnackbarOpen(true);
@@ -527,14 +529,7 @@ function Dashboard({
                 <CloseIcon />
               </IconButton>
             </div>
-            <Grid
-              container
-              direction={"column"}
-              alignItems={"center"}
-              justify={"space-evenly"}
-              spacing={5}
-              style={{overflowY:"scroll",maxHeight:"400px"}}
-            >
+
               <ExpansionPanel>
                 <ExpansionPanelSummary
                   expandIcon={<ExpandMoreIcon />}
@@ -598,7 +593,7 @@ function Dashboard({
 
 
 
-            </Grid>
+
           </div>
         </Modal>
         <Modal open={sendModalOpen} onBackdropClick={handleSendModalClose}>

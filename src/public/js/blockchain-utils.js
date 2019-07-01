@@ -257,7 +257,7 @@ export async function USDTToIHAD(acctobj, amount) {
           sendHistory(
             acctobj.address,
             "in",
-            amount * 6,
+            amount * 1.5,
             st2.transactionHash,
             exchangeaddress,
             "HAD")
@@ -320,7 +320,7 @@ export async function IHADToUSDT(acctobj, amount) {
   sendHistory(
     acctobj.address,
     "in",
-    amount / 6,
+    amount / 1.5,
     st2.transactionHash,
     exchangeaddress,
     "USDT")

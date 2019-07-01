@@ -32,7 +32,7 @@ import {
   ihadAddress,
   tokenBalance,
   sendToken,
-  USDTToIHAD
+  USDTToIHAD, IHADToUSDT
 } from "../../public/js/blockchain-utils";
 import QRCode from "qrcode.react";
 import TextField from "@material-ui/core/TextField";
@@ -324,8 +324,8 @@ function ConvertPage({
         let cdv = leftcurrencyDropdownValue + "TO" + rightcurrencyDropdownValue;
         if (cdv === "usdtTOihad") {
           await USDTToIHAD(account,tempBase,)
-        } else if (cdv === "ihadTousdt"){
-
+        } else if (cdv === "ihadTOusdt"){
+          await IHADToUSDT(account,tempBase)
         } else {
           throw new Error("ValueError: No currency type selected");
         }
