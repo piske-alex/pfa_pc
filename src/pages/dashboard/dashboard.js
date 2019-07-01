@@ -54,7 +54,7 @@ import {
   sendEther,
   ihadAddress,
   tokenBalance,
-  sendToken, USDTaddress, listenUSDTdeposit
+  sendToken, USDTaddress, listenUSDTdeposit, exportAccounts
 } from "../../public/js/blockchain-utils";
 import {
   getLogoUrl,
@@ -225,10 +225,10 @@ function Dashboard({
   };
 
   const [seePrivateKey, setSeePrivateKey] = React.useState(false);
-
-  const [modalOpen, setModalOpen] = React.useState(false);
   const [longText, setLongText] = React.useState("undefinede");
   const [modalTitle, setModalTitle] = React.useState("undefinede");
+  const [modalOpen, setModalOpen] = React.useState(false);
+
   const handleModalOpen = () => {
     setModalOpen(true);
   };
@@ -397,6 +397,7 @@ function Dashboard({
     {icon:'monetization_on',text:'提取'},
   ];
   return (
+
     <React.Fragment>
       <div className="dashboard">
         <CssBaseline />
@@ -516,6 +517,7 @@ function Dashboard({
         <Modal open={modalOpen} onBackdropClick={handleModalClose}>
           <div className={classes.modalPaper}>
             <div className={classes.toolbarIcon}>
+              <Typography variant={"h5"} style={{ marginRight: "150px" }}>{`備份`}</Typography>
               <IconButton onClick={handleModalClose}>
                 <CloseIcon />
               </IconButton>
@@ -526,24 +528,50 @@ function Dashboard({
               alignItems={"center"}
               justify={"space-evenly"}
               spacing={5}
+              style={{overflowY:"scroll",maxHeight:"400px"}}
             >
-
+              <Typography variant={"h6"}>
+                單一錢包備份
+              </Typography>
+              <p>
+                您備份的是這個錢包，當你注冊錢包時可以導入這個錢包帳戶，亦和以太坊HEX制式互聯互通，唯一不同的是這個PFA錢包只適用PFA公有區塊鏈上的通證，若你將以太坊區塊鏈的通證發到你這個錢包，請導出私鑰到以太坊公有鏈錢包，便可找回你的代幣。
+              </p>
               <Grid item>
+
                 <FormControlLabel
                   control={
                     <Switch checked={seePrivateKey} onChange={e => setSeePrivateKey(e.target.checked)} />
                   }
                   label="顯示密鑰"
                 />
+                <Grid item>
+                  <TextField
+                    label={t.privateKey[Config.lang]}
+                    className={classes.textField}
+                    value={account.privateKey.substr(2)}
+                    style={{ visibility: seePrivateKey ? 'visible' : 'hidden' }}
+                    disabled
+                    variant="outlined"
+                  />
+                </Grid>
               </Grid>
+              <Typography variant={"h6"}>
+                整個錢包備份
+              </Typography>
+              <p>
+                將你所有錢包備份一次，這包括了本程式上的所有錢包帳戶。請在登入頁面「導入PFA錢包使用」。
+              </p>
+
+
               <Grid item>
                 <TextField
-                  label={t.privateKey[Config.lang]}
-                  className={classes.textField}
-                  value={account.privateKey.substr(2)}
-                  style={{ visibility: seePrivateKey ? 'visible' : 'hidden' }}
+                  style={{ width: 300 }}
                   disabled
-                  variant="outlined"
+                  variant={"outlined"}
+                  value={exportAccounts()}
+                  multiline
+                  rowsMax={4}
+                  label={t.copyHere[Config.lang]}
                 />
               </Grid>
             </Grid>
@@ -592,6 +620,7 @@ function Dashboard({
                   >
                     <MenuItem value="pfa">PFA</MenuItem>
                     <MenuItem value="ihad">IHAD</MenuItem>
+                    <MenuItem value="usdt">USDT</MenuItem>
                   </Select>
                 </FormControl>
               </Grid>

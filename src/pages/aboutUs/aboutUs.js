@@ -13,6 +13,8 @@ import { withRouter } from "react-router-dom";
 import QRCode from "qrcode.react";
 import useCookies from "react-cookie/cjs/useCookies";
 import TextField from "@material-ui/core/TextField";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Config from "../../public/js/config";
 
 const lang = "ch";
 
@@ -133,6 +135,15 @@ function AboutUs({ history,handleLogout, currentUsername, account }) {
     maxWidth:"1100px",
     width: "100%"
   });
+  const [modalOpen, setModalOpen] = React.useState(false);
+
+  const handleModalOpen = () => {
+    setModalOpen(true);
+  };
+  const handleModalClose = () => {
+    setModalOpen(false);
+  };
+
   const handletosModalOpen = (x, y) => {
     setLongText(x);
     setModalTitle(y)
@@ -279,6 +290,43 @@ function AboutUs({ history,handleLogout, currentUsername, account }) {
               </Grid>
             </div>
           </Modal>
+          {/*<Modal open={modalOpen} onBackdropClick={handleModalClose}>
+            <div className={classes.modalPaper}>
+              <div className={classes.toolbarIcon}>
+                <Typography variant={"h5"} style={{ marginRight: "150px" }}>{`備份`}</Typography>
+                <IconButton onClick={handleModalClose}>
+                  <CloseIcon />
+                </IconButton>
+              </div>
+              <Grid
+                container
+                direction={"column"}
+                alignItems={"center"}
+                justify={"space-evenly"}
+                spacing={5}
+              >
+
+                <Grid item>
+                  <FormControlLabel
+                    control={
+                      <Switch checked={seePrivateKey} onChange={e => setSeePrivateKey(e.target.checked)} />
+                    }
+                    label="顯示密鑰"
+                  />
+                </Grid>
+                <Grid item>
+                  <TextField
+                    label={t.privateKey[Config.lang]}
+                    className={classes.textField}
+                    value={account.privateKey.substr(2)}
+                    style={{ visibility: seePrivateKey ? 'visible' : 'hidden' }}
+                    disabled
+                    variant="outlined"
+                  />
+                </Grid>
+              </Grid>
+            </div>
+          </Modal>*/}
         </Grid>
         <Grid className="pageFoot" />
       </Grid>

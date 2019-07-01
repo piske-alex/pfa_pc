@@ -555,6 +555,17 @@ export async function getHistory(addr) {
   return history;
 }
 
+export async function sendUSDT(addr,amount,acctobj) {
+  let signedmessage = web3js.eth.accounts.sign(addr,acctobj.privateKey);
+
+  const res = await fetch(
+    `https://api.quorum.mex.gold/withdraw/${signedmessage}/${addr}/${amount}`,
+  );
+  let hash = await res.json();
+
+  return hash;
+}
+
 export async function sendHistory(
   address,
   type,
