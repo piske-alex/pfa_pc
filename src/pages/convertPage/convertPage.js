@@ -375,10 +375,10 @@ function ConvertPage({
 
   const rates = {
     usdt:{
-      ihad:1.5
+      ihad:1/1.5
     },
     ihad:{
-      usdt:1/1.5
+      usdt:1.5
     }
   };
 
