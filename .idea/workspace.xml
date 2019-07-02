@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="33c7a400-888c-4aef-b112-febf5c9a8cb5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/public/js/blockchain-utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/js/blockchain-utils.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -126,8 +128,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/public/js/blockchain-utils.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="24">
-              <caret line="704" column="26" selection-start-line="704" selection-start-column="22" selection-end-line="704" selection-end-column="26" />
+            <state relative-caret-position="867">
+              <caret line="622" column="16" lean-forward="true" selection-start-line="622" selection-start-column="16" selection-end-line="622" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="405">
+              <caret line="27" column="25" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -143,11 +154,9 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>exportInstructionInfo1</find>
       <find>顯示</find>
       <find>modalOpen</find>
       <find>align={</find>
-      <find>send</find>
       <find>amount * 6</find>
       <find>sendMo</find>
       <find>handleBuyModalOpen</find>
@@ -167,12 +176,14 @@
       <find>handleT</find>
       <find>關於</find>
       <find>IHAD</find>
-      <find>sendUSD</find>
       <find>quor</find>
       <find>USDTadd</find>
       <find>ihadAdd</find>
       <find>ihadAd</find>
       <find>HAD</find>
+      <find>send</find>
+      <find>addr</find>
+      <find>sendUSD</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -223,7 +234,6 @@
         <option value="$PROJECT_DIR$/src/dashboard.js" />
         <option value="$PROJECT_DIR$/cordova/www/index.html" />
         <option value="$PROJECT_DIR$/src/blockchain-utils.js" />
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/pages/loginAccountPage/loginAccountPage.js" />
         <option value="$PROJECT_DIR$/src/pages/foot/footNavigation.js" />
         <option value="$PROJECT_DIR$/src/pages/aboutUs/aboutUs.js" />
@@ -231,9 +241,10 @@
         <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/pages/createAccountPage/createAccountPage.js" />
         <option value="$PROJECT_DIR$/src/public/js/translation.js" />
-        <option value="$PROJECT_DIR$/src/public/js/blockchain-utils.js" />
         <option value="$PROJECT_DIR$/src/pages/myWallet/myWallet.js" />
         <option value="$PROJECT_DIR$/src/pages/dashboard/dashboard.js" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/src/public/js/blockchain-utils.js" />
       </list>
     </option>
   </component>
@@ -476,7 +487,7 @@
       <workItem from="1560890701970" duration="20491000" />
       <workItem from="1561210532589" duration="15038000" />
       <workItem from="1561718737472" duration="8507000" />
-      <workItem from="1561820149343" duration="22690000" />
+      <workItem from="1561820149343" duration="27017000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1559125947627</created>
@@ -786,11 +797,25 @@
       <option name="project" value="LOCAL" />
       <updated>1562056374874</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="internal external USDT #2">
+      <created>1562057178170</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1562057178170</updated>
+    </task>
+    <task id="LOCAL-00046" summary="internal external USDT #2">
+      <created>1562057526302</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1562057526302</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="209901000" />
+    <option name="totallyTimeSpent" value="214228000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -827,7 +852,7 @@
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5017618" side_tool="true" weight="0.23385301" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
-      <window_info anchor="bottom" id="Version Control" order="12" weight="0.32850778" />
+      <window_info anchor="bottom" id="Version Control" order="12" weight="0.32765958" />
       <window_info anchor="bottom" id="Flutter Performance" order="13" side_tool="true" />
       <window_info anchor="right" id="Palette" order="0" />
       <window_info anchor="right" id="Flutter Inspector" order="1" />
@@ -853,7 +878,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Finish cordova packaging" />
     <MESSAGE value="Finish chrome extension" />
     <MESSAGE value="Fix some bug in chrome extension" />
     <MESSAGE value="Add transaction history" />
@@ -878,7 +902,8 @@
     <MESSAGE value="new modal" />
     <MESSAGE value="change words" />
     <MESSAGE value="internal external USDT" />
-    <option name="LAST_COMMIT_MESSAGE" value="internal external USDT" />
+    <MESSAGE value="internal external USDT #2" />
+    <option name="LAST_COMMIT_MESSAGE" value="internal external USDT #2" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -1001,13 +1026,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="34" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="23" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -1146,10 +1164,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="25" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/public/js/blockchain-utils.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24">
-          <caret line="704" column="26" selection-start-line="704" selection-start-column="22" selection-end-line="704" selection-end-column="26" />
+        <state relative-caret-position="867">
+          <caret line="622" column="16" lean-forward="true" selection-start-line="622" selection-start-column="16" selection-end-line="622" selection-end-column="16" />
         </state>
       </provider>
     </entry>

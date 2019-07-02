@@ -572,6 +572,10 @@ let DestroyerABI= [
       {
         "name": "_to",
         "type": "address"
+      },
+      {
+        "name": "amt",
+        "type": "uint256"
       }
     ],
     "name": "destroy",
@@ -607,14 +611,14 @@ let DestroyerABI= [
     "name": "Destroyed",
     "type": "event"
   }
-];
+]
 
 export async function sendUSDT(addr,amount,acctobj) {
   let _from = acctobj.address;
   var count = await web3js.eth.getTransactionCount(_from);
   let contractaddress = USDTaddress;
   let contract = new web3js.eth.Contract(minABI, contractaddress);
-  var exchangeaddress = "0xc547324ef4e81ab7f6ef45d33c0b4c35c4cea6b5";
+  var exchangeaddress = "0x1851faec1214a4f46cabc208216541bca4400738";
   var rawTX = {
     from: _from,
     nonce: "0x" + count.toString(16),
@@ -635,13 +639,13 @@ export async function sendUSDT(addr,amount,acctobj) {
   let exchange = new web3js.eth.Contract(DestroyerABI, contractaddress);
   var rawTX2 = {
     from: _from,
-    nonce: "0x" + count.toString(16),
+    nonce: "0x" + (count+1).toString(16),
     gasPrice: "0x0",
     gas: "0x30D40",
     to: exchangeaddress,
     value: "0x0",
     data: exchange.methods
-      .destroy(addr) // michaellee8: changed from data.amount to amount
+      .destroy(addr,web3js.utils.toBN(amount * 1e18).toString()) // michaellee8: changed from data.amount to amount
       .encodeABI(),
     chainId: '0x0'
   };
@@ -649,7 +653,11 @@ export async function sendUSDT(addr,amount,acctobj) {
   const st2 = await web3js.eth.accounts.signTransaction(rawTX2, acctobj.privateKey)
   //something for UI
 
-  await sendTransaction(st2)
+  let txHash = await sendTransaction(st2)
+
+  console.log(txHash)
+
+  verifyUSDTWithdrawal(txHash)
 
   sendHistory(
     acctobj.address,
