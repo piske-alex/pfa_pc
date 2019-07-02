@@ -175,15 +175,23 @@ export async function sendToken(contractaddress, acctobj, _to, amount) {
     verifyUSDTWithdrawal(signedTransaction.transactionHash)
   }
 
+  let symbol ;
+  switch (contractaddress) {
+    case ihadAddress:
+      symbol="HAD";
+      break;
+    default:
+      symbol="USDT"
+      break
+  }
+
   sendHistory(
     acctobj.address,
     "out",
     amount,
     signedTransaction.transactionHash,
     _to,
-    contractaddress === ihadAddress
-      ? "IHAD"
-      : `Smart Contract at ${contractaddress}`,
+    symbol,
   );
   sendHistory(
     _to,
@@ -191,9 +199,7 @@ export async function sendToken(contractaddress, acctobj, _to, amount) {
     amount,
     signedTransaction.transactionHash,
     acctobj.address,
-    contractaddress === ihadAddress
-      ? "IHAD"
-      : `Smart Contract at ${contractaddress}`,
+    symbol,
   );
   return;
  /* await web3.eth.accounts.signTransaction(rawTX, acctobj.privateKey, function(error, success) {
