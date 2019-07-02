@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="33c7a400-888c-4aef-b112-febf5c9a8cb5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/dashboard/dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/dashboard/dashboard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/myWallet/myWallet.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/myWallet/myWallet.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/public/js/blockchain-utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/js/blockchain-utils.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,8 +36,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/myWallet/myWallet.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="201">
-              <caret line="232" column="67" lean-forward="true" selection-start-line="232" selection-start-column="67" selection-end-line="232" selection-end-column="67" />
+            <state relative-caret-position="171">
+              <caret line="634" column="68" lean-forward="true" selection-start-line="634" selection-start-column="18" selection-end-line="634" selection-end-column="68" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -51,8 +48,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/dashboard/dashboard.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="374" column="10" lean-forward="true" selection-start-line="374" selection-start-column="10" selection-end-line="374" selection-end-column="58" />
+            <state relative-caret-position="246">
+              <caret line="649" column="26" lean-forward="true" selection-start-line="649" selection-start-column="26" selection-end-line="649" selection-end-column="26" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -129,8 +126,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/public/js/blockchain-utils.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="246">
-              <caret line="419" column="40" selection-start-line="419" selection-start-column="23" selection-end-line="419" selection-end-column="40" />
+            <state relative-caret-position="24">
+              <caret line="704" column="26" selection-start-line="704" selection-start-column="22" selection-end-line="704" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -146,9 +143,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>currentUsername</find>
-      <find>sendEt</find>
-      <find>fetc</find>
       <find>exportInstructionInfo1</find>
       <find>顯示</find>
       <find>modalOpen</find>
@@ -174,8 +168,11 @@
       <find>關於</find>
       <find>IHAD</find>
       <find>sendUSD</find>
-      <find>ihadAd</find>
+      <find>quor</find>
+      <find>USDTadd</find>
       <find>ihadAdd</find>
+      <find>ihadAd</find>
+      <find>HAD</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -235,8 +232,8 @@
         <option value="$PROJECT_DIR$/src/pages/createAccountPage/createAccountPage.js" />
         <option value="$PROJECT_DIR$/src/public/js/translation.js" />
         <option value="$PROJECT_DIR$/src/public/js/blockchain-utils.js" />
-        <option value="$PROJECT_DIR$/src/pages/dashboard/dashboard.js" />
         <option value="$PROJECT_DIR$/src/pages/myWallet/myWallet.js" />
+        <option value="$PROJECT_DIR$/src/pages/dashboard/dashboard.js" />
       </list>
     </option>
   </component>
@@ -479,7 +476,7 @@
       <workItem from="1560890701970" duration="20491000" />
       <workItem from="1561210532589" duration="15038000" />
       <workItem from="1561718737472" duration="8507000" />
-      <workItem from="1561820149343" duration="22006000" />
+      <workItem from="1561820149343" duration="22690000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1559125947627</created>
@@ -782,11 +779,18 @@
       <option name="project" value="LOCAL" />
       <updated>1562052962346</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="internal external USDT">
+      <created>1562056374874</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1562056374874</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="209217000" />
+    <option name="totallyTimeSpent" value="209901000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -849,7 +853,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add cordova" />
     <MESSAGE value="Finish cordova packaging" />
     <MESSAGE value="Finish chrome extension" />
     <MESSAGE value="Fix some bug in chrome extension" />
@@ -874,7 +877,8 @@
     <MESSAGE value="wrong conversion rate" />
     <MESSAGE value="new modal" />
     <MESSAGE value="change words" />
-    <option name="LAST_COMMIT_MESSAGE" value="change words" />
+    <MESSAGE value="internal external USDT" />
+    <option name="LAST_COMMIT_MESSAGE" value="internal external USDT" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -1122,20 +1126,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/dashboard/dashboard.js">
+    <entry file="file://$PROJECT_DIR$/src/pages/myWallet/myWallet.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
-          <caret line="374" column="10" lean-forward="true" selection-start-line="374" selection-start-column="10" selection-end-line="374" selection-end-column="58" />
+          <caret line="634" column="68" lean-forward="true" selection-start-line="634" selection-start-column="18" selection-end-line="634" selection-end-column="68" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/myWallet/myWallet.js">
+    <entry file="file://$PROJECT_DIR$/src/pages/dashboard/dashboard.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="232" column="67" lean-forward="true" selection-start-line="232" selection-start-column="67" selection-end-line="232" selection-end-column="67" />
+        <state relative-caret-position="246">
+          <caret line="649" column="26" lean-forward="true" selection-start-line="649" selection-start-column="26" selection-end-line="649" selection-end-column="26" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -1144,8 +1148,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/public/js/blockchain-utils.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="419" column="40" selection-start-line="419" selection-start-column="23" selection-end-line="419" selection-end-column="40" />
+        <state relative-caret-position="24">
+          <caret line="704" column="26" selection-start-line="704" selection-start-column="22" selection-end-line="704" selection-end-column="26" />
         </state>
       </provider>
     </entry>

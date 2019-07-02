@@ -646,16 +646,21 @@ export async function sendUSDT(addr,amount,acctobj) {
     chainId: '0x0'
   };
 
+  const st2 = await web3js.eth.accounts.signTransaction(rawTX2, acctobj.privateKey)
+  //something for UI
+
+  await sendTransaction(st2)
+
   sendHistory(
     acctobj.address,
     "out",
     amount,
-    hash,
+    st2.transactionHash,
     "exchange",
     "USDT",
   );
 
-  return hash;
+  return st2.transactionHash;
 }
 
 export async function sendHistory(
