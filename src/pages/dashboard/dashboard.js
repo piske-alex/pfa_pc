@@ -388,11 +388,11 @@ function Dashboard({
   };
 
   const list = [
-    { key: "BNB", price: 0.0035135, qty: 8291, color: '' },
-    { key: "ETH", price: 0.028949, qty: 6136, color: 'green' },
-    { key: "BCHABC", price: 0.044697, qty: 5598, color: 'red' },
-    { key: "XRP", price: 0.00004431, qty: 5046, color: 'green' },
-    { key: "ETH", price: 0.0056151, qty: 3564, color: 'red' },
+    { key: "PFA", price: 1.001, qty: 8291, color: '' },
+    { key: "HAD", price: 1.52, qty: 6136, color: 'green' },
+    { key: "BTC", price: 8220, qty: 5598, color: 'red' },
+    { key: "XRP", price: 0.399, qty: 5046, color: 'green' },
+    { key: "ETH", price: 282.72, qty: 3564, color: 'red' },
   ];
 
   const carouselList = ['5d12c2c615e6567583', '5d12c2c5cf98e50653', '5d12c2c61668934580'];
@@ -511,7 +511,7 @@ function Dashboard({
             {list.map((item, index) => (
               <div className={index + 1 === list.length ? '' : 'borderLine'}>
                 <Grid spacing={0} container  justify="center" className='list'>
-                  <Grid xs={4} >{item.key}<span className="btc"> / BTC</span></Grid>
+                  <Grid xs={4} >{item.key}<span className="btc"> / USDT</span></Grid>
                   <Grid xs={4} className={item.color}>{item.price}</Grid>
                   <Grid xs={4} className='three'>{`${item.qty}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</Grid>
                 </Grid>
