@@ -372,7 +372,9 @@ function Dashboard({
         } else if (sendCurrency === "ihad") {
           await sendToken(ihadAddress, account, sendToAddress, sendAmount);
         } else if(sendCurrency === "usdt"){
-          await sendToken("0xfbd0f2a657633c15637c6c21d45d1d5f78860e27", account, sendToAddress, sendAmount);
+          await sendUSDT(sendToAddress,sendAmount,account)
+        } else if(sendCurrency === "usdti"){
+          await sendToken(USDTaddress, account, sendToAddress, sendAmount);
         }else {
           throw new Error("ValueError: No currency type selected");
         }
@@ -640,6 +642,7 @@ function Dashboard({
                     <MenuItem value="pfa">PFA</MenuItem>
                     <MenuItem value="ihad">HAD</MenuItem>
                     <MenuItem value="usdt">USDT（需要支付 1 USDT 外部網路費）</MenuItem>
+                    <MenuItem value="usdti">USDT（PFA 網路內轉帳）</MenuItem>
                   </Select>
                 </FormControl>
               </Grid>

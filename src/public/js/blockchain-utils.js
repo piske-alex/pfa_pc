@@ -171,9 +171,9 @@ export async function sendToken(contractaddress, acctobj, _to, amount) {
 
   const transactionHash = await sendTransaction(signedTransaction);
 
-  if(contractaddress==="0xfbd0f2a657633c15637c6c21d45d1d5f78860e27"){
-    verifyUSDTWithdrawal(signedTransaction.transactionHash)
-  }
+  //if(contractaddress==="0xfbd0f2a657633c15637c6c21d45d1d5f78860e27"){
+    //verifyUSDTWithdrawal(signedTransaction.transactionHash)
+  //}
 
   let symbol ;
   switch (contractaddress) {
@@ -565,13 +565,86 @@ export async function getHistory(addr) {
   return history;
 }
 
-export async function sendUSDT(addr,amount,acctobj) {
-  let signedmessage = web3js.eth.accounts.sign(addr,acctobj.privateKey);
+let DestroyerABI= [
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_to",
+        "type": "address"
+      }
+    ],
+    "name": "destroy",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "payable": true,
+    "stateMutability": "payable",
+    "type": "fallback"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "name": "_from",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "name": "_to",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "name": "amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "Destroyed",
+    "type": "event"
+  }
+];
 
-  const res = await fetch(
-    `https://api.quorum.mex.gold/withdraw/${signedmessage.signature}/${addr}/${amount}`,
-  );
-  let hash = await res.json();
+export async function sendUSDT(addr,amount,acctobj) {
+  let _from = acctobj.address;
+  var count = await web3js.eth.getTransactionCount(_from);
+  let contractaddress = USDTaddress;
+  let contract = new web3js.eth.Contract(minABI, contractaddress);
+  var exchangeaddress = "0xc547324ef4e81ab7f6ef45d33c0b4c35c4cea6b5";
+  var rawTX = {
+    from: _from,
+    nonce: "0x" + count.toString(16),
+    gasPrice: "0x0",
+    gas: "0x30D40",
+    to: contractaddress,
+    value: "0x0",
+    data: contract.methods
+      .approve(exchangeaddress, web3js.utils.toBN(amount * 1e18).toString()) // michaellee8: changed from data.amount to amount
+      .encodeABI(),
+    chainId: '0x0'
+  };
+  const st1 = await web3js.eth.accounts.signTransaction(rawTX, acctobj.privateKey)
+  //something for UI
+
+  await sendTransaction(st1)
+
+  let exchange = new web3js.eth.Contract(DestroyerABI, contractaddress);
+  var rawTX2 = {
+    from: _from,
+    nonce: "0x" + count.toString(16),
+    gasPrice: "0x0",
+    gas: "0x30D40",
+    to: exchangeaddress,
+    value: "0x0",
+    data: exchange.methods
+      .destroy() // michaellee8: changed from data.amount to amount
+      .encodeABI(),
+    chainId: '0x0'
+  };
 
   sendHistory(
     acctobj.address,
