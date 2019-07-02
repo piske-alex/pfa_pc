@@ -638,7 +638,7 @@ function Dashboard({
                     }}
                   >
                     <MenuItem value="pfa">PFA</MenuItem>
-                    <MenuItem value="ihad">IHAD</MenuItem>
+                    <MenuItem value="ihad">HAD</MenuItem>
                     <MenuItem value="usdt">USDT（需要支付 1 USDT 外部網路費）</MenuItem>
                   </Select>
                 </FormControl>

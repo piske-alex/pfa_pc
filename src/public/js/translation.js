@@ -64,7 +64,7 @@ export default {
     ch: "資產",
   },
   amount: {
-    ch: "金額",
+    ch: "數量",
   },
   transactionFinishedInfo: {
     ch: "交易已傳送，正等待網絡處理。",
