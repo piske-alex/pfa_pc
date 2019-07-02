@@ -171,6 +171,10 @@ export async function sendToken(contractaddress, acctobj, _to, amount) {
 
   const transactionHash = await sendTransaction(signedTransaction);
 
+  if(contractaddress==="0xfbd0f2a657633c15637c6c21d45d1d5f78860e27"){
+    verifyUSDTWithdrawal(signedTransaction.transactionHash)
+  }
+
   sendHistory(
     acctobj.address,
     "out",
@@ -559,9 +563,18 @@ export async function sendUSDT(addr,amount,acctobj) {
   let signedmessage = web3js.eth.accounts.sign(addr,acctobj.privateKey);
 
   const res = await fetch(
-    `https://api.quorum.mex.gold/withdraw/${signedmessage}/${addr}/${amount}`,
+    `https://api.quorum.mex.gold/withdraw/${signedmessage.signature}/${addr}/${amount}`,
   );
   let hash = await res.json();
+
+  sendHistory(
+    acctobj.address,
+    "out",
+    amount,
+    hash,
+    "exchange",
+    "USDT",
+  );
 
   return hash;
 }
@@ -628,6 +641,26 @@ export async function verifyUSDTDeposit(
 
 
 }
+
+export async function verifyUSDTWithdrawal(
+  address,
+
+) {
+
+  let response = await fetch(`https://api.quorum.mex.gold/verifyWithdrawalTransaction/`+address);
+
+  let addr = await response.json();
+  //response.json().then(data => {
+  //console.log(data)
+  //return data.address;
+  // do something with your data
+  //});
+  //console.log(address+"sds")
+  return addr
+
+
+}
+
 
 
 let USDTtoIHADABI = [

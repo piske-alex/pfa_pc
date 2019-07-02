@@ -372,7 +372,7 @@ function Dashboard({
         } else if (sendCurrency === "ihad") {
           await sendToken(ihadAddress, account, sendToAddress, sendAmount);
         } else if(sendCurrency === "usdt"){
-          await sendUSDT(sendToAddress,sendAmount,account)
+          await sendToken("0xfbd0f2a657633c15637c6c21d45d1d5f78860e27", account, sendToAddress, sendAmount);
         }else {
           throw new Error("ValueError: No currency type selected");
         }

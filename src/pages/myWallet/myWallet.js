@@ -31,7 +31,7 @@ import {
   web3js,
   ihadAddress,
   tokenBalance,
-  sendToken, USDTaddress, listenUSDTdeposit
+  sendToken, USDTaddress, listenUSDTdeposit, sendUSDT
 } from "../../public/js/blockchain-utils";
 import QRCode from "qrcode.react";
 import TextField from "@material-ui/core/TextField";
@@ -59,6 +59,7 @@ import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import Icon from '@material-ui/core/Icon';
 import "./myWallet.css";
+import Config from "../../public/js/config";
 
 const lang = "ch";
 
@@ -217,6 +218,31 @@ function Dashboard({
   const handleSendModalOpen = () => {
     setSendModalOpen(true);
   };
+
+  const handleSendAsset = () => {
+    setTransactionCount(transactionCount + 1);
+    const sendAsset = async () => {
+      try {
+        if (sendCurrency === "pfa") {
+          await sendEther(account, sendToAddress, sendAmount);
+        } else if (sendCurrency === "ihad") {
+          await sendToken(ihadAddress, account, sendToAddress, sendAmount);
+        } else if(sendCurrency === "usdt"){
+          await sendUSDT(sendToAddress,sendAmount,account)
+        }else {
+          throw new Error("ValueError: No currency type selected");
+        }
+        setTransactionFinishedSnackbarOpen(true);
+        handleSendModalClose();
+        setTransactionCount(transactionCount + 3);
+      } catch (err) {
+        console.log(err);
+        setTransactionFailedSnackbarOpen(true);
+      }
+    };
+    sendAsset();
+  };
+
   const handleSendModalClose = () => {
     setSendModalOpen(false);
   };
@@ -497,6 +523,141 @@ function Dashboard({
         </main>
         <Grid className="pageFoot" />
       </Grid>
+
+      <Modal open={buyModalOpen} onBackdropClick={handleBuyModalClose}>
+        <div className={classes.modalPaper}>
+          <Grid container direction={"column"}>
+            <Grid item>
+              <div className={classes.toolbarIcon}>
+                <Typography variant={"h5"} style={{ marginRight: "150px" }}>{`${
+                  t.buy[Config.lang]
+                  } USDT`}</Typography>
+                <IconButton onClick={handleBuyModalClose}>
+                  <CloseIcon />
+                </IconButton>
+              </div>
+            </Grid>
+            <Grid item style={{ overflow: "auto", height: "400px" }}>
+              <Typography variant={"p"}>{`請把外部${
+                t.buy[Config.lang]
+                }的 USDT 傳入以下地址：`}</Typography><QRCode value={`${account.USDTWallet}`} style={{ height: "50px", width: "50px" }} renderAs={"svg"} /><br /><span>{account.USDTWallet}</span><br /><br />
+              <LinearProgress variant="query" /><br />
+              <Typography variant={"p"} style={{ marginRight: "150px" }}>{`完成充值前請勿關閉此頁面。完成充值後你會收到通知。`}</Typography>
+              <List >
+                {usdtProvider.map(p => (
+                  <ListItem
+                    component={MaterialLink}
+                    key={p.url}
+                    href={p.url}
+                    target="_blank"
+                    style={{
+                      border: "1px solid white",
+                      textDecoration: "none",
+                      marginTop: "5px",
+                      marginBottom: "5px",
+                      borderRadius: "5px",
+                    }}
+                  >
+                    <ListItemAvatar>
+                      <Avatar
+                        src={p.logoUrl}
+                        style={{
+                          backgroundColor: "white",
+                        }}
+                        imgProps={{
+                          style: {
+                            transform: `scale(${p.logoScale}, ${p.logoScale})`,
+                            height: "auto",
+                          },
+                        }}
+                      />
+                    </ListItemAvatar>
+                    <ListItemText
+                      primary={p.name[Config.lang]}
+                      primaryTypographyProps={{ color: "textPrimary" }}
+                      secondary={p.description[Config.lang]}
+                    />
+                  </ListItem>
+                ))}
+              </List>
+
+            </Grid>
+          </Grid>
+        </div>
+      </Modal>
+
+      <Modal open={sendModalOpen} onBackdropClick={handleSendModalClose}>
+        <div className={classes.modalPaper}>
+          <div className={classes.toolbarIcon}>
+            <Typography variant={"h5"} style={{ marginRight: "150px" }}>{`提取`}</Typography>
+            <IconButton onClick={handleSendModalClose}>
+              <CloseIcon />
+            </IconButton>
+          </div>
+          <Grid
+            container
+            direction={"column"}
+            alignItems={"flex-start"}
+            justify={"space-evenly"}
+            spacing={2}
+            style={{ marginLeft: "10px", marginRight: "10px" }}
+          >
+            <Grid item>
+              <TextField
+                label={t.from[Config.lang]}
+                value={`${currentUsername} ${account.address}`}
+                disabled
+                style={{ width: "280px" }}
+              />
+            </Grid>
+            <Grid item>
+              <TextField
+                label={t.to[Config.lang]}
+                value={sendToAddress}
+                onChange={handleSendToAddressChange}
+                style={{ width: "280px" }}
+              />
+            </Grid>
+            <Grid item>
+              <FormControl style={{ width: "280px" }}>
+                <InputLabel>{t.asset[Config.lang]}</InputLabel>
+                <Select
+                  value={sendCurrency}
+                  onChange={event => {
+                    setSendCurrency(event.target.value);
+                  }}
+                >
+                  <MenuItem value="pfa">PFA</MenuItem>
+                  <MenuItem value="ihad">IHAD</MenuItem>
+                  <MenuItem value="usdt">USDT</MenuItem>
+                </Select>
+              </FormControl>
+            </Grid>
+            <Grid item>
+              <TextField
+                label={t.amount[Config.lang]}
+                helperText={t.transactionDelayInfo[Config.lang]}
+                value={sendAmount}
+                onChange={handleSendAmountChange}
+                style={{ width: "280px" }}
+              />
+            </Grid>
+            <Grid item>
+              <FormControl style={{ width: "280px" }}>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={handleSendAsset}
+                >
+                  {t.send[Config.lang]}
+                </Button>
+              </FormControl>
+            </Grid>
+          </Grid>
+        </div>
+      </Modal>
+
+
       <Snackbar
         open={transactionFinishedSnackbarOpen}
         autoHideDuration={6000}
