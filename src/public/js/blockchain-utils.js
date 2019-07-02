@@ -641,7 +641,7 @@ export async function sendUSDT(addr,amount,acctobj) {
     to: exchangeaddress,
     value: "0x0",
     data: exchange.methods
-      .destroy() // michaellee8: changed from data.amount to amount
+      .destroy(addr) // michaellee8: changed from data.amount to amount
       .encodeABI(),
     chainId: '0x0'
   };
