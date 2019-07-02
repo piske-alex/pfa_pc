@@ -91,6 +91,7 @@ function App(props) {
     try {
       await newAccount(username, password, pvKey);
       setAccountCreatedSnackbarOpen(true);
+
       props.history.push("/login-account");
     } catch (err) {
       console.log(err);
