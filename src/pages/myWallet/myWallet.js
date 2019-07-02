@@ -393,7 +393,7 @@ function Dashboard({
               <Grid item>
                 <HorizontalCenter>
                   <Grid className="usdtVulesClass">
-                    {pfaBalance*6+ihadBalance *6+USDTbalance}
+                    {pfaBalance*+ihadBalance *1.5+USDTbalance}
                   </Grid>
                   <Grid className="usdtVulesClassCode">
                     {t.UsdtCode[lang]}
