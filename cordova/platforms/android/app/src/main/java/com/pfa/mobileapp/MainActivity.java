@@ -25,6 +25,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.widget.Toast;
 
 import org.apache.cordova.*;
@@ -73,17 +74,18 @@ public class MainActivity extends CordovaActivity
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
         // enable Cordova apps to be started in the background
         if(CheckNetClass.checknetwork(getApplicationContext())) {
             HttpGet hg = new HttpGet();
-            ReturnEntity re = hg.sendGet2("https://lucid-lamport-df6cc0.netlify.com/ver.html","");
+            ReturnEntity re = hg.sendGet2("https://fervent-leakey-f04231.netlify.com/ver.html","");
             if(!re.words.equals(ver)){
-                String url = "https://lucid-lamport-df6cc0.netlify.com/app-release.apk";
+                String url = "https://fervent-leakey-f04231.netlify.com/app-release.apk";
                 Intent i = new Intent(Intent.ACTION_VIEW);
                 i.setData(Uri.parse(url));
                 Context context = getApplicationContext();
-                CharSequence text = "APP更新，已幫你下載新app!";
+                CharSequence text = "APP更新，已幫你下載新app，請安裝後再進來!";
                 int duration = Toast.LENGTH_LONG;
 
                 Toast toast = Toast.makeText(context, text, duration);

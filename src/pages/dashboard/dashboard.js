@@ -397,7 +397,7 @@ function Dashboard({
     { key: "ETH", price: 282.72, qty: 3564, color: 'red' },
   ];
 
-  const carouselList = ['5d12c2c615e6567583', '5d12c2c5cf98e50653', '5d12c2c61668934580'];
+  const carouselList = [ '2019/06/26/5d12c2c5cf98e50653' + ".png", '2019/06/26/5d12c2c61668934580' + ".png",'2019/07/03/5d1c3296bd17e13109' + ".jpeg"];
   const icons = [
     {icon:'photo_library',text:'備份'},
     {icon:'email',text:'消息'},
@@ -435,7 +435,7 @@ function Dashboard({
                 >
                   <img
                     className='wheelPlanting'
-                    src={Config.imgPath + "2019/06/26/" + val + ".png"}
+                    src={Config.imgPath  + val}
                     alt=""
                     style={{ width: '100%', verticalAlign: 'top' }}
                     onLoad={() => {
@@ -488,6 +488,8 @@ function Dashboard({
                   case "monetization_on":
                     handleSendModalOpen();
                     break;
+                  case "email":
+                    handletosModalOpen("普惠資產已完成主網升級，應用了摩根大通的GoQuorum，沿用ERC20制式，持舊PFA的用戶只要將私鑰導入即可在未來獲得鏈改後的PFA","PFA消息")
                 }
 
 

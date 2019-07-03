@@ -23,7 +23,7 @@
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
-    <icon src="./www/logo.jpg" />
+    <icon src="./www/ic_launcher.jpeg" />
     <engine name="browser" spec="^6.0.0" />
     <engine name="android" spec="^8.0.0" />
     <engine name="ios" spec="^5.0.1" />
