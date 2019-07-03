@@ -242,6 +242,16 @@ function Dashboard({
   const handleModalClose = () => {
     setModalOpen(false);
   };
+  const [copiedSnackbarOpen, setCopiedSnackbarOpen] = React.useState(
+    false,
+  );
+  const handleCopiedSnackbarClose =()=> {
+    setCopiedSnackbarOpen(false)
+  }
+
+  const handleCopiedSnackbarOpen =()=> {
+    setCopiedSnackbarOpen(true)
+  }
 
   const [sendModalOpen, setSendModalOpen] = React.useState(false);
   const handleSendModalOpen = () => {
@@ -566,7 +576,7 @@ function Dashboard({
                           disabled
                           variant="outlined"
                         />
-                        <CopyButton text={account.privateKey.substr(2)}>複製</CopyButton>
+                        <CopyButton onClick={handleCopiedSnackbarOpen} text={account.privateKey.substr(2)}>複製</CopyButton>
                       </Paper>
 
                     </Grid>
@@ -597,7 +607,7 @@ function Dashboard({
                         rowsMax={4}
                         label={t.copyHere[Config.lang]}
                       />
-                      <CopyButton text={exportAccounts()}>複製</CopyButton>
+                      <CopyButton onClick={handleCopiedSnackbarOpen} text={exportAccounts()}>複製</CopyButton>
                     </Paper>
 
                   </Grid>
@@ -798,6 +808,12 @@ function Dashboard({
           message={"收到 " + depositAmount + " USDT。你可以繼續充值。"}
         />
       </div>
+      <Snackbar
+        open={copiedSnackbarOpen}
+        autoHideDuration={6000}
+        onClose={handleCopiedSnackbarClose}
+        message={'已複製'}
+      />
     </React.Fragment>
   );
 }

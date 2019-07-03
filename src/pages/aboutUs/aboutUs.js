@@ -1,6 +1,6 @@
 import React from "react";
 import { getIcon, isEmpty } from "../../public/js/utils";
-import { Grid } from "@material-ui/core";
+import { Grid, Snackbar } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -17,6 +17,7 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Config from "../../public/js/config";
 import { exportAccounts } from "../../public/js/blockchain-utils";
 import { CopyButton } from "react-copy-button";
+import Paper from "@material-ui/core/Paper";
 
 const lang = "ch";
 
@@ -186,6 +187,18 @@ function AboutUs({ history,handleLogout, currentUsername, account }) {
       });
     }
   }, 100);
+
+  const [copiedSnackbarOpen, setCopiedSnackbarOpen] = React.useState(
+    false,
+  );
+  const handleCopiedSnackbarClose =()=> {
+    setCopiedSnackbarOpen(false)
+  }
+
+  const handleCopiedSnackbarOpen =()=> {
+    setCopiedSnackbarOpen(true)
+  }
+
   return (
     <React.Fragment>
 
@@ -224,7 +237,7 @@ function AboutUs({ history,handleLogout, currentUsername, account }) {
               value={account.address}
               disabled
             />
-            <CopyButton text={account.address}>複製</CopyButton>
+            <CopyButton onClick={handleCopiedSnackbarOpen} text={account.address} >複製</CopyButton>
           </Paper>
 
         </Grid>
@@ -337,6 +350,12 @@ function AboutUs({ history,handleLogout, currentUsername, account }) {
         </Grid>
         <Grid className="pageFoot" />
       </Grid>
+      <Snackbar
+        open={copiedSnackbarOpen}
+        autoHideDuration={6000}
+        onClose={handleCopiedSnackbarClose}
+        message={'已複製'}
+      />
     </React.Fragment>
   );
 }
