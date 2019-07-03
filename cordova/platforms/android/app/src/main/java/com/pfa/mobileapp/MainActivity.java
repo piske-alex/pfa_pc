@@ -19,17 +19,80 @@
 
 package com.pfa.mobileapp;
 
+import android.content.Context;
+import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.Bundle;
+import android.widget.Toast;
+
 import org.apache.cordova.*;
+import org.json.JSONObject;
+
+class ReturnEntity{
+    public int code;
+    public JSONObject message;
+    public String words;
+    public ReturnEntity(int code, String message){
+        this.code=code;
+        try{
+            this.message = new JSONObject(message) ;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        this.words = message;
+
+    }
+}
+class CheckNetClass {
+
+    public static Boolean checknetwork(Context mContext) {
+
+        NetworkInfo info = ((ConnectivityManager) mContext.getSystemService(Context.CONNECTIVITY_SERVICE))
+                .getActiveNetworkInfo();
+        if (info == null || !info.isConnected())
+        {
+            return false;
+        }
+        if (info.isRoaming()) {
+            // here is the roaming option you can change it if you want to
+            // disable internet while roaming, just return false
+            return true;
+        }
+
+        return true;
+
+    }
+}
 
 public class MainActivity extends CordovaActivity
 {
+    static String ver ="0.1";
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
 
         // enable Cordova apps to be started in the background
+        if(CheckNetClass.checknetwork(getApplicationContext())) {
+            HttpGet hg = new HttpGet();
+            ReturnEntity re = hg.sendGet2("https://lucid-lamport-df6cc0.netlify.com/ver.html","");
+            if(!re.words.equals(ver)){
+                String url = "https://lucid-lamport-df6cc0.netlify.com/app-release.apk";
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                Context context = getApplicationContext();
+                CharSequence text = "APP更新，已幫你下載新app!";
+                int duration = Toast.LENGTH_LONG;
+
+                Toast toast = Toast.makeText(context, text, duration);
+                toast.show();
+                startActivity(i);
+
+                this.finish();
+            }
+        }
         Bundle extras = getIntent().getExtras();
         if (extras != null && extras.getBoolean("cdvStartInBackground", false)) {
             moveTaskToBack(true);
