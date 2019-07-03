@@ -15,6 +15,8 @@ import useCookies from "react-cookie/cjs/useCookies";
 import TextField from "@material-ui/core/TextField";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Config from "../../public/js/config";
+import { exportAccounts } from "../../public/js/blockchain-utils";
+import { CopyButton } from "react-copy-button";
 
 const lang = "ch";
 
@@ -215,11 +217,16 @@ function AboutUs({ history,handleLogout, currentUsername, account }) {
           <QRCode value={`pfa:${account.address}`} renderAs={"svg"} />
         </Grid>
         <Grid item>
-          <TextField
-            variant={"outlined"}
-            value={account.address}
-            disabled
-          />
+          <Paper>
+
+            <TextField
+              variant={"outlined"}
+              value={account.address}
+              disabled
+            />
+            <CopyButton text={account.address}>複製</CopyButton>
+          </Paper>
+
         </Grid>
         </Grid>
         <Grid >
