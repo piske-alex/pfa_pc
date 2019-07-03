@@ -3,49 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="33c7a400-888c-4aef-b112-febf5c9a8cb5" name="Default Changelist" comment="versioning">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/config.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/CordovaLib/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/CordovaLib/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/CordovaLib/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/CordovaLib/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/asset-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/asset-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/before.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/hadloho.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/precache-manifest.f2626d7a4c165985e6e6abbe47324a84.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/service-worker.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/service-worker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/static/css/2.dae7720b.chunk.css" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/static/css/2.dae7720b.chunk.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/static/css/2.dae7720b.chunk.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/static/css/2.dae7720b.chunk.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/static/css/main.ee7f2f16.chunk.css" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/static/css/main.ee7f2f16.chunk.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/static/css/main.ee7f2f16.chunk.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/static/css/main.ee7f2f16.chunk.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/static/js/2.9b1da40f.chunk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/static/js/2.9b1da40f.chunk.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/static/js/main.6dfba4eb.chunk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/static/js/main.6dfba4eb.chunk.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/static/js/runtime~main.d653cc00.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/static/js/runtime~main.d653cc00.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/static/js/runtime~main.d653cc00.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/static/js/runtime~main.d653cc00.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/usdt.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/java/com/pfa/mobileapp/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/java/com/pfa/mobileapp/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/res/xml/config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/res/xml/config.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/www/asset-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/www/asset-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/www/before.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/www/hadloho.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/www/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/www/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/www/precache-manifest.f2626d7a4c165985e6e6abbe47324a84.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/www/service-worker.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/www/service-worker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/www/static/css/2.dae7720b.chunk.css" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/www/static/css/2.dae7720b.chunk.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/www/static/css/2.dae7720b.chunk.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/www/static/css/2.dae7720b.chunk.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/www/static/css/main.ee7f2f16.chunk.css" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/www/static/css/main.ee7f2f16.chunk.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/www/static/css/main.ee7f2f16.chunk.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/www/static/css/main.ee7f2f16.chunk.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/www/static/js/2.9b1da40f.chunk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/www/static/js/2.9b1da40f.chunk.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/www/static/js/main.6dfba4eb.chunk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/www/static/js/main.6dfba4eb.chunk.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/www/static/js/runtime~main.d653cc00.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/www/static/js/runtime~main.d653cc00.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/www/static/js/runtime~main.d653cc00.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/www/static/js/runtime~main.d653cc00.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/www/usdt.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/dashboard/dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/dashboard/dashboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -76,13 +36,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pages/dashboard/dashboard.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="481" column="38" selection-start-line="481" selection-start-column="38" selection-end-line="481" selection-end-column="38" />
+            <state relative-caret-position="218">
+              <caret line="39" column="19" lean-forward="true" selection-start-line="39" selection-start-column="19" selection-end-line="39" selection-end-column="19" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
+                <element signature="e#2510#2724#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -121,14 +82,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="30" lean-forward="true" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
+            <state relative-caret-position="225">
+              <caret line="15" column="51" lean-forward="true" selection-start-line="15" selection-start-column="51" selection-end-line="15" selection-end-column="51" />
               <folding>
                 <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/manifest.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="13" column="12" lean-forward="true" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -146,15 +116,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.project">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-87">
-              <caret line="27" column="25" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
+              <caret line="28" column="25" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -181,7 +146,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>amount * 6</find>
       <find>sendMo</find>
       <find>handleBuyModalOpen</find>
       <find>handleBu</find>
@@ -211,6 +175,7 @@
       <find>HAD</find>
       <find>5d12c2c615e6567583.png</find>
       <find>icons</find>
+      <find>CopyB</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -269,10 +234,10 @@
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/public/js/blockchain-utils.js" />
         <option value="$PROJECT_DIR$/public/ver.html" />
-        <option value="$PROJECT_DIR$/src/pages/dashboard/dashboard.js" />
         <option value="$PROJECT_DIR$/cordova/config.xml" />
         <option value="$PROJECT_DIR$/cordova/www/index.html" />
         <option value="$PROJECT_DIR$/public/index.html" />
+        <option value="$PROJECT_DIR$/src/pages/dashboard/dashboard.js" />
       </list>
     </option>
   </component>
@@ -307,6 +272,24 @@
               <item name="pfa_pc" type="b2602c69:ProjectViewProjectNode" />
               <item name="pfa_pc" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pfa_pc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pfa_pc" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pfa_pc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pfa_pc" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pfa_pc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pfa_pc" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="dashboard" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -438,7 +421,7 @@
       <workItem from="1560890701970" duration="20491000" />
       <workItem from="1561210532589" duration="15038000" />
       <workItem from="1561718737472" duration="8507000" />
-      <workItem from="1561820149343" duration="34270000" />
+      <workItem from="1561820149343" duration="35869000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1559125947627</created>
@@ -780,7 +763,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="221481000" />
+    <option name="totallyTimeSpent" value="223080000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -794,7 +777,7 @@
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="797" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4971537" visible="true" weight="0.18957011" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4971537" visible="true" weight="0.18957011" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Capture Tool" order="3" />
@@ -813,7 +796,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32850778" />
       <window_info anchor="bottom" id="TypeScript" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49753347" visible="true" weight="0.25248227" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.49753347" visible="true" weight="0.25248227" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5017618" side_tool="true" weight="0.23385301" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
@@ -1063,16 +1046,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/manifest.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/.project">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-87">
-          <caret line="27" column="25" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
+          <caret line="28" column="25" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -1088,16 +1068,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/dashboard/dashboard.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="481" column="38" selection-start-line="481" selection-start-column="38" selection-end-line="481" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1142,10 +1112,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="30" lean-forward="true" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
+        <state relative-caret-position="225">
+          <caret line="15" column="51" lean-forward="true" selection-start-line="15" selection-start-column="51" selection-end-line="15" selection-end-column="51" />
           <folding>
             <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/manifest.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="12" lean-forward="true" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/dashboard/dashboard.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="39" column="19" lean-forward="true" selection-start-line="39" selection-start-column="19" selection-end-line="39" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#2510#2724#0" expanded="true" />
           </folding>
         </state>
       </provider>

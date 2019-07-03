@@ -34,6 +34,7 @@ import LinearProgress from "@material-ui/core/LinearProgress";
 import ChevronRight from "@material-ui/icons/ChevronRight";
 import Icon from '@material-ui/core/Icon';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { CopyButton } from "react-copy-button";
 
 // import LogoutIcon from "@material-ui/icons/ExitToApp";
 // import ListItemIcon from "@material-ui/core/ListItemIcon";
@@ -69,6 +70,7 @@ import './dashboard.css';
 import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
+
 
 const accountInfoRefreshTime = 20;
 const drawerWidth = 300;
@@ -555,14 +557,18 @@ function Dashboard({
                       label="顯示密鑰"
                     />
                     <Grid item>
-                      <TextField
-                        label={t.privateKey[Config.lang]}
-                        className={classes.textField}
-                        value={account.privateKey.substr(2)}
-                        style={{ visibility: seePrivateKey ? 'visible' : 'hidden' }}
-                        disabled
-                        variant="outlined"
-                      />
+                      <Paper>
+                        <TextField
+                          label={t.privateKey[Config.lang]}
+                          className={classes.textField}
+                          value={account.privateKey.substr(2)}
+                          style={{ visibility: seePrivateKey ? 'visible' : 'hidden' }}
+                          disabled
+                          variant="outlined"
+                        />
+                        <CopyButton text={account.privateKey.substr(2)}>複製</CopyButton>
+                      </Paper>
+
                     </Grid>
                   </Grid>
                 </ExpansionPanelDetails>
@@ -581,15 +587,19 @@ function Dashboard({
                     <Typography>
                       將你所有錢包備份一次，這包括了本程式上的所有錢包帳戶。請在登入頁面「導入PFA錢包使用」。
                     </Typography>
-                    <TextField
-                      style={{ width: 300 }}
-                      disabled
-                      variant={"outlined"}
-                      value={exportAccounts()}
-                      multiline
-                      rowsMax={4}
-                      label={t.copyHere[Config.lang]}
-                    />
+                    <Paper>
+                      <TextField
+                        style={{ width: 300 }}
+                        disabled
+                        variant={"outlined"}
+                        value={exportAccounts()}
+                        multiline
+                        rowsMax={4}
+                        label={t.copyHere[Config.lang]}
+                      />
+                      <CopyButton text={exportAccounts()}>複製</CopyButton>
+                    </Paper>
+
                   </Grid>
                 </ExpansionPanelDetails>
               </ExpansionPanel>

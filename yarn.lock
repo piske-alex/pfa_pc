@@ -9061,6 +9061,11 @@ react-cookie@^4.0.0:
     hoist-non-react-statics "^3.0.0"
     universal-cookie "^4.0.0"
 
+react-copy-button@^0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/react-copy-button/-/react-copy-button-0.0.3.tgz#e543ac5806cb2671ec9ea206c0e6aa7fef136716"
+  integrity sha512-U5RRLeuk/67rammGIvuYEvb3Nzw54N0tcrD+qLZo59+UKa4eEgMc/fz3uSOPM9ER+lyj05tuxuAxeH77qKFFlw==
+
 react-dev-utils@^9.0.1:
   version "9.0.1"
   resolved "https://registry.yarnpkg.com/react-dev-utils/-/react-dev-utils-9.0.1.tgz#5c03d85a0b2537d0c46af7165c24a7dfb274bef2"
