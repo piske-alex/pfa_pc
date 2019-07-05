@@ -464,17 +464,17 @@ function Dashboard({
             <Grid className='top' spacing={0} container justify="center">
               <Grid item xs={4}>
                 <Grid className='title'>PFA/USDT</Grid>
-                <Grid className='sum'>0.0035135</Grid>
+                <Grid className='sum'>1.001</Grid>
                 <Grid className='gain red'>-1.58%</Grid>
               </Grid>
               <Grid item xs={4} className='center'>
                 <Grid className='title'>HAD/USDT</Grid>
-                <Grid className='sum'>0.00000162</Grid>
+                <Grid className='sum'>1.52</Grid>
                 <Grid className='gain green'>+1.25%</Grid>
               </Grid>
               <Grid item xs={4}>
                 <Grid className='title'>BTC/USDT</Grid>
-                <Grid className='sum green'>0.0002490</Grid>
+                <Grid className='sum green'>8220</Grid>
                 <Grid className='gain green'>+14.91%</Grid>
               </Grid>
             </Grid>
