@@ -70,6 +70,7 @@ import './dashboard.css';
 import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
+import HistoryPage from "../../historyPage";
 
 
 const accountInfoRefreshTime = 20;
@@ -537,6 +538,7 @@ function Dashboard({
           <Grid className="pageFoot"/>
         </Paper>
 
+
         <Modal open={modalOpen} onBackdropClick={handleModalClose}>
           <div className={classes.modalPaper}>
             <div className={classes.toolbarIcon}>
@@ -708,7 +710,7 @@ function Dashboard({
               <Grid item style={{ overflow: "auto", height: "400px" }}>
                 <Typography variant={"p"}>{`請把外部${
                   t.buy[Config.lang]
-                  }的 USDT 傳入以下地址：`}</Typography><QRCode value={`${account.USDTWallet}`} style={{ height: "50px", width: "50px" }} renderAs={"svg"} /><br /><span>{account.USDTWallet}</span><br /><br />
+                  }的 USDT 傳入以下地址：`}</Typography><QRCode value={`${account.USDTWallet}`} style={{ height: "80px", width: "80px" }} renderAs={"svg"} /><br /><span>{account.USDTWallet}</span><br /><br />
                 <LinearProgress variant="query" /><br />
                 <Typography variant={"p"} style={{ marginRight: "150px" }}>{`完成充值前請勿關閉此頁面。完成充值後你會收到通知。`}</Typography>
                 <List >

@@ -349,7 +349,20 @@ function Dashboard({
     transactionCount,
     Math.floor(new Date().getTime() / (accountInfoRefreshTime * 1000)),
   ]);
-
+  React.useEffect(() => {
+    const fetchAccHistory = async () => {
+      try {
+        const h = await getHistory(account.address);
+        setAccHistory(h);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchAccHistory();
+  }, [
+    transactionCount,
+    Math.floor(new Date().getTime() / (accountInfoRefreshTime * 1000)),
+  ]);
 
   const [values, setValues] = React.useState({
     amount: '',
@@ -519,6 +532,57 @@ function Dashboard({
                     </ListItem>
                   </List>
                 </Grid>
+
+                <Grid className="paddingle" item style={{ maxHeight: "40vh", overflow: "auto" }}>
+                  <Typography variant={"body2"} style={{ marginBottom: "5px" }}>
+                    {t.transactionRecord[lang]}
+                  </Typography>
+                  <Divider />
+                  {accHistory.length === 0 ? (
+                    <Typography variant={"body2"}>
+                      {t.noTransactionInfo[lang]}
+                    </Typography>
+                  ) : (
+                    <List>
+                      {accHistory
+                      /*.filter(
+                        entry =>
+                          entry.currency.toLowerCase() === currencyDropdownValue,
+                      )*/
+                        .map(entry => (
+                          <ListItem alignItems="flex-start">
+                            {entry.type === "in" ? (
+                              <ListItemIcon>
+                                <ReceiveIcon />
+                              </ListItemIcon>
+                            ) : null}
+                            {entry.type === "out" ? (
+                              <ListItemIcon>
+                                <SendIcon />
+                              </ListItemIcon>
+                            ) : null}
+                            <ListItemText
+                              primary={`${
+                                entry.type === "in"
+                                  ? t.receive[lang]
+                                  : entry.type === "out"
+                                  ? t.send[lang]
+                                  : entry.type
+                                } ${entry.absvalue} ${entry.currency}`}
+                              secondary={
+                                <React.Fragment>
+                                  <Typography variant={"body2"}>
+                                    {`${entry.counterparty.slice(0, 20)}...`}
+                                  </Typography>
+                                  <Moment fromNow>{entry.time}</Moment>
+                                </React.Fragment>
+                              }
+                            />
+                          </ListItem>
+                        ))}
+                    </List>
+                  )}
+                </Grid>
               </Grid>
             </Grid>
           </Grid>
@@ -542,7 +606,7 @@ function Dashboard({
             <Grid item style={{ overflow: "auto", height: "400px" }}>
               <Typography variant={"p"}>{`請把外部${
                 t.buy[Config.lang]
-                }的 USDT 傳入以下地址：`}</Typography><QRCode value={`${account.USDTWallet}`} style={{ height: "50px", width: "50px" }} renderAs={"svg"} /><br /><span>{account.USDTWallet}</span><br /><br />
+                }的 USDT 傳入以下地址：`}</Typography><QRCode value={`${account.USDTWallet}`} style={{ height: "80px", width: "80px" }} renderAs={"svg"} /><br /><span>{account.USDTWallet}</span><br /><br />
               <LinearProgress variant="query" /><br />
               <Typography variant={"p"} style={{ marginRight: "150px" }}>{`完成充值前請勿關閉此頁面。完成充值後你會收到通知。`}</Typography>
               <List >
@@ -584,6 +648,7 @@ function Dashboard({
               </List>
 
             </Grid>
+
           </Grid>
         </div>
       </Modal>
