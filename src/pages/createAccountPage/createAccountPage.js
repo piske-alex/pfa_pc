@@ -13,7 +13,7 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import IconButton from "@material-ui/core/IconButton";
 import Modal from "@material-ui/core/Modal";
 import CloseIcon from "@material-ui/icons/Close";
-import FormControlLabel from "../dashboard/dashboard";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Config from "../../public/js/config";
 import { CopyButton } from "react-copy-button";
 import Switch from "@material-ui/core/Switch";
@@ -225,9 +225,11 @@ export default function CreateAccountPage({ onAccountCreate }) {
               control={
                 <Switch checked={seePrivateKey} onChange={e => setSeePrivateKey(e.target.checked)} />
               }
+              style={{color:'#fff'}}
               label="我已有 ERC-20 版本的 PFA"
             />
-
+          </Grid>
+          <Grid item>
             <FormControl style={{ visibility: seePrivateKey ? 'visible' : 'hidden' ,width: 300 }}>
               <InputLabel shrink className="inputLabel">{trans.optionalExistingPrivateKey[lang]}</InputLabel>
               <BootstrapInput value={existingPvKey} onChange={onExistingPvKeyChange} type='password'/>

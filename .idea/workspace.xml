@@ -62,8 +62,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/dashboard/dashboard.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="139">
-              <caret line="233" column="66" lean-forward="true" selection-start-line="233" selection-start-column="2" selection-end-line="233" selection-end-column="66" />
+            <state relative-caret-position="202">
+              <caret line="565" column="23" lean-forward="true" selection-start-line="565" selection-start-column="23" selection-end-line="565" selection-end-column="23" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -124,8 +124,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pages/createAccountPage/createAccountPage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="238" column="25" lean-forward="true" selection-start-line="238" selection-start-column="25" selection-end-line="238" selection-end-column="25" />
+            <state relative-caret-position="303">
+              <caret line="227" column="36" lean-forward="true" selection-start-line="227" selection-start-column="36" selection-end-line="227" selection-end-column="36" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -176,8 +176,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>handleBuyModalOpen</find>
-      <find>handleBu</find>
       <find>sendUS</find>
       <find>sendTok</find>
       <find>sendToken</find>
@@ -206,6 +204,8 @@
       <find>icons</find>
       <find>CopyB</find>
       <find>複製</find>
+      <find>seePriv</find>
+      <find>color</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -265,8 +265,8 @@
         <option value="$PROJECT_DIR$/cordova/www/manifest.json" />
         <option value="$PROJECT_DIR$/cordova/package.json" />
         <option value="$PROJECT_DIR$/cordova/config.xml" />
-        <option value="$PROJECT_DIR$/src/pages/dashboard/dashboard.js" />
         <option value="$PROJECT_DIR$/cordova/www/index.html" />
+        <option value="$PROJECT_DIR$/src/pages/dashboard/dashboard.js" />
         <option value="$PROJECT_DIR$/src/pages/createAccountPage/createAccountPage.js" />
       </list>
     </option>
@@ -467,7 +467,7 @@
       <workItem from="1561210532589" duration="15038000" />
       <workItem from="1561718737472" duration="8507000" />
       <workItem from="1561820149343" duration="39797000" />
-      <workItem from="1562292759773" duration="7170000" />
+      <workItem from="1562292759773" duration="7687000" />
     </task>
     <task id="LOCAL-00003" summary="Add packages for new js lib from alex">
       <created>1559183902103</created>
@@ -816,7 +816,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="234178000" />
+    <option name="totallyTimeSpent" value="234695000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -849,9 +849,9 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32850778" />
       <window_info anchor="bottom" id="TypeScript" order="7" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.49753347" visible="true" weight="0.26241136" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.49682876" visible="true" weight="0.26241136" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5024665" side_tool="true" visible="true" weight="0.26241136" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50317127" side_tool="true" visible="true" weight="0.26241136" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
       <window_info anchor="bottom" id="Version Control" order="12" weight="0.32765958" />
       <window_info anchor="bottom" id="Flutter Performance" order="13" side_tool="true" />
@@ -1030,13 +1030,6 @@
     <entry file="file://$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/LaunchImage.launchimage/Default-568h@2x~iphone.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/cordova/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="22" lean-forward="true" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cordova/platforms/ios/PFA/Images.xcassets/AppIcon.appiconset/AppIcon40x40@2x.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -1131,18 +1124,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/dashboard/dashboard.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="233" column="66" lean-forward="true" selection-start-line="233" selection-start-column="2" selection-end-line="233" selection-end-column="66" />
+        <state relative-caret-position="202">
+          <caret line="565" column="23" lean-forward="true" selection-start-line="565" selection-start-column="23" selection-end-line="565" selection-end-column="23" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/cordova/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="22" lean-forward="true" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/createAccountPage/createAccountPage.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="238" column="25" lean-forward="true" selection-start-line="238" selection-start-column="25" selection-end-line="238" selection-end-column="25" />
+        <state relative-caret-position="303">
+          <caret line="227" column="36" lean-forward="true" selection-start-line="227" selection-start-column="36" selection-end-line="227" selection-end-column="36" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
