@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="33c7a400-888c-4aef-b112-febf5c9a8cb5" name="Default Changelist" comment="">
+    <list default="true" id="33c7a400-888c-4aef-b112-febf5c9a8cb5" name="Default Changelist" comment="change rate">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cordova/config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/config.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cordova/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/package-lock.json" afterDir="false" />
@@ -62,8 +62,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/dashboard/dashboard.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="307">
-              <caret line="470" column="55" lean-forward="true" selection-start-line="470" selection-start-column="55" selection-end-line="470" selection-end-column="55" />
+            <state relative-caret-position="139">
+              <caret line="233" column="66" lean-forward="true" selection-start-line="233" selection-start-column="2" selection-end-line="233" selection-end-column="66" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -92,11 +92,43 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cordova/www/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="2868" selection-start-column="2868" selection-end-column="2868" />
+            <state relative-caret-position="15">
+              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/public/js/blockchain-utils.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="157" column="30" lean-forward="true" selection-start-line="157" selection-start-column="30" selection-end-line="157" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/loginAccountPage/loginAccountPage.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1824">
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/pages/createAccountPage/createAccountPage.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="418">
+              <caret line="238" column="25" lean-forward="true" selection-start-line="238" selection-start-column="25" selection-end-line="238" selection-end-column="25" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -222,7 +254,6 @@
         <option value="$PROJECT_DIR$/src/pages/foot/footNavigation.js" />
         <option value="$PROJECT_DIR$/src/pages/convertPage/convertPage.js" />
         <option value="$PROJECT_DIR$/src/App.js" />
-        <option value="$PROJECT_DIR$/src/pages/createAccountPage/createAccountPage.js" />
         <option value="$PROJECT_DIR$/src/public/js/translation.js" />
         <option value="$PROJECT_DIR$/src/pages/myWallet/myWallet.js" />
         <option value="$PROJECT_DIR$/package.json" />
@@ -236,6 +267,7 @@
         <option value="$PROJECT_DIR$/cordova/config.xml" />
         <option value="$PROJECT_DIR$/src/pages/dashboard/dashboard.js" />
         <option value="$PROJECT_DIR$/cordova/www/index.html" />
+        <option value="$PROJECT_DIR$/src/pages/createAccountPage/createAccountPage.js" />
       </list>
     </option>
   </component>
@@ -269,22 +301,6 @@
             <path>
               <item name="pfa_pc" type="b2602c69:ProjectViewProjectNode" />
               <item name="pfa_pc" type="462c0819:PsiDirectoryNode" />
-              <item name="cordova" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pfa_pc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pfa_pc" type="462c0819:PsiDirectoryNode" />
-              <item name="cordova" type="462c0819:PsiDirectoryNode" />
-              <item name="www" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pfa_pc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pfa_pc" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pfa_pc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pfa_pc" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -292,27 +308,6 @@
               <item name="pfa_pc" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pfa_pc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pfa_pc" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="aboutUs" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pfa_pc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pfa_pc" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="accountManagerPanel" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pfa_pc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pfa_pc" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="convertPage" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="pfa_pc" type="b2602c69:ProjectViewProjectNode" />
@@ -333,21 +328,13 @@
               <item name="pfa_pc" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="foot" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pfa_pc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pfa_pc" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
               <item name="loginAccountPage" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="pfa_pc" type="b2602c69:ProjectViewProjectNode" />
               <item name="pfa_pc" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="myWallet" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -480,7 +467,7 @@
       <workItem from="1561210532589" duration="15038000" />
       <workItem from="1561718737472" duration="8507000" />
       <workItem from="1561820149343" duration="39797000" />
-      <workItem from="1562292759773" duration="5447000" />
+      <workItem from="1562292759773" duration="7170000" />
     </task>
     <task id="LOCAL-00003" summary="Add packages for new js lib from alex">
       <created>1559183902103</created>
@@ -829,7 +816,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="232455000" />
+    <option name="totallyTimeSpent" value="234178000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -862,9 +849,9 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32850778" />
       <window_info anchor="bottom" id="TypeScript" order="7" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.49753347" visible="true" weight="0.25248227" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.49753347" visible="true" weight="0.26241136" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5017618" side_tool="true" weight="0.23385301" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5024665" side_tool="true" visible="true" weight="0.26241136" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
       <window_info anchor="bottom" id="Version Control" order="12" weight="0.32765958" />
       <window_info anchor="bottom" id="Flutter Performance" order="13" side_tool="true" />
@@ -892,7 +879,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Hide UI bug due to broken tokenBalance" />
     <MESSAGE value="Build cordova and android app" />
     <MESSAGE value="FINISH!!!" />
     <MESSAGE value="Chane theme and adjust certain ui elements" />
@@ -917,35 +903,14 @@
     <MESSAGE value="versioning" />
     <MESSAGE value="copy button" />
     <MESSAGE value="copy button#2" />
-    <option name="LAST_COMMIT_MESSAGE" value="copy button#2" />
+    <MESSAGE value="change rate" />
+    <option name="LAST_COMMIT_MESSAGE" value="change rate" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-87">
-          <caret line="28" column="25" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/ver.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cordova/hooks/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -1122,16 +1087,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/dashboard/dashboard.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="470" column="55" lean-forward="true" selection-start-line="470" selection-start-column="55" selection-end-line="470" selection-end-column="55" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/REACT.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -1153,8 +1108,44 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cordova/www/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="2868" selection-start-column="2868" selection-end-column="2868" />
+        <state relative-caret-position="15">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/public/js/blockchain-utils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="157" column="30" lean-forward="true" selection-start-line="157" selection-start-column="30" selection-end-line="157" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/loginAccountPage/loginAccountPage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1824">
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/dashboard/dashboard.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="233" column="66" lean-forward="true" selection-start-line="233" selection-start-column="2" selection-end-line="233" selection-end-column="66" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/createAccountPage/createAccountPage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="238" column="25" lean-forward="true" selection-start-line="238" selection-start-column="25" selection-end-line="238" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

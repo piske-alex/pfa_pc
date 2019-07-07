@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid } from "@material-ui/core";
+import { Grid, Paper } from "@material-ui/core";
 import { HorizontalCenter, VerticalCenter } from "../../public/js/utils";
 import trans from "../../public/js/translation";
 import TextField from "@material-ui/core/TextField";
@@ -13,6 +13,10 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import IconButton from "@material-ui/core/IconButton";
 import Modal from "@material-ui/core/Modal";
 import CloseIcon from "@material-ui/icons/Close";
+import FormControlLabel from "../dashboard/dashboard";
+import Config from "../../public/js/config";
+import { CopyButton } from "react-copy-button";
+import Switch from "@material-ui/core/Switch";
 const lang = "ch";
 
 const BootstrapInput = withStyles(theme => ({
@@ -167,6 +171,7 @@ export default function CreateAccountPage({ onAccountCreate }) {
   const onPasswordAgainChange = event => {
     setPasswordAgain(event.target.value);
   };
+  const [seePrivateKey, setSeePrivateKey] = React.useState(false);
 
   //const [sendAmount, setSendAmount] = React.useState("");
   const [existingPvKey, setExistingPvKey] = React.useState("");
@@ -216,7 +221,14 @@ export default function CreateAccountPage({ onAccountCreate }) {
             </FormControl>
           </Grid>
           <Grid item>
-            <FormControl style={{ width: 300 }}>
+            <FormControlLabel
+              control={
+                <Switch checked={seePrivateKey} onChange={e => setSeePrivateKey(e.target.checked)} />
+              }
+              label="我已有 ERC-20 版本的 PFA"
+            />
+
+            <FormControl style={{ visibility: seePrivateKey ? 'visible' : 'hidden' ,width: 300 }}>
               <InputLabel shrink className="inputLabel">{trans.optionalExistingPrivateKey[lang]}</InputLabel>
               <BootstrapInput value={existingPvKey} onChange={onExistingPvKeyChange} type='password'/>
             </FormControl>
