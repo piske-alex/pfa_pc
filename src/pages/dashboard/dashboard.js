@@ -385,22 +385,32 @@ function Dashboard({
     });
     let ret = await response.json();
     ret.data.url*/
-    createImageBitmap(e.target.files[0])
-      .then(bmp  => {
-        const canvas = document.createElement('canvas');
+    try{
+      createImageBitmap(e.target.files[0])
+        .then(async bmp => {
+          const canvas = await document.createElement('canvas');
 
-        const width = bmp.width;
-        const height = bmp.height;
-        canvas.width = bmp.width;
-        canvas.height = bmp.height;
+          const width = bmp.width;
+          const height = bmp.height;
+          canvas.width = bmp.width;
+          canvas.height = bmp.height;
 
-        const ctx = canvas.getContext('2d');
+          const ctx = await canvas.getContext('2d');
 
-        ctx.drawImage(bmp, 0, 0);
-        const qrCodeImageFormat = ctx.getImageData(0,0,bmp.width,bmp.height);
-        const qrDecoded = jsQR(qrCodeImageFormat.data, qrCodeImageFormat.width, qrCodeImageFormat.height);
-        setSendToAddress(qrDecoded.data);
-      });
+          await ctx.drawImage(bmp, 0, 0);
+          const qrCodeImageFormat = await ctx.getImageData(0, 0, bmp.width, bmp.height);
+          const qrDecoded = await jsQR(qrCodeImageFormat.data, qrCodeImageFormat.width, qrCodeImageFormat.height);
+          if(qrDecoded==null){
+            alert('未能識別二維碼')
+          }else{
+            setSendToAddress(qrDecoded.data);
+          }
+
+        });
+    }catch (e) {
+
+    }
+
   };
   const handleSendAsset = () => {
     setTransactionCount(transactionCount + 1);
