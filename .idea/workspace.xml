@@ -62,7 +62,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/dashboard/dashboard.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="117">
+            <state relative-caret-position="101">
               <caret line="708" column="21" lean-forward="true" selection-start-line="708" selection-start-column="21" selection-end-line="708" selection-end-column="21" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
@@ -95,7 +95,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/loginAccountPage/loginAccountPage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1824">
+            <state relative-caret-position="75">
+              <caret line="25" selection-start-line="25" selection-end-line="46" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -118,8 +119,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pages/myWallet/myWallet.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="139">
-              <caret line="608" column="120" selection-start-line="608" selection-start-column="120" selection-end-line="608" selection-end-column="120" />
+            <state relative-caret-position="320">
+              <caret line="724" column="18" selection-start-line="724" selection-start-column="18" selection-end-line="724" selection-end-column="18" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -178,7 +179,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>handleSendAs</find>
       <find>*6</find>
       <find>buyModalOpen</find>
       <find>市場</find>
@@ -208,6 +208,7 @@
       <find>Hi</find>
       <find>History</find>
       <find>QR</find>
+      <find>Qr</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -252,7 +253,6 @@
         <option value="$PROJECT_DIR$/src/convertPage.js" />
         <option value="$PROJECT_DIR$/src/dashboard.js" />
         <option value="$PROJECT_DIR$/src/blockchain-utils.js" />
-        <option value="$PROJECT_DIR$/src/pages/loginAccountPage/loginAccountPage.js" />
         <option value="$PROJECT_DIR$/src/pages/foot/footNavigation.js" />
         <option value="$PROJECT_DIR$/src/pages/convertPage/convertPage.js" />
         <option value="$PROJECT_DIR$/src/App.js" />
@@ -270,6 +270,7 @@
         <option value="$PROJECT_DIR$/src/pages/createAccountPage/createAccountPage.js" />
         <option value="$PROJECT_DIR$/src/pages/historyPage.js" />
         <option value="$PROJECT_DIR$/src/pages/dashboard/dashboard.js" />
+        <option value="$PROJECT_DIR$/src/pages/loginAccountPage/loginAccountPage.js" />
         <option value="$PROJECT_DIR$/src/pages/myWallet/myWallet.js" />
       </list>
     </option>
@@ -484,7 +485,7 @@
       <workItem from="1561210532589" duration="15038000" />
       <workItem from="1561718737472" duration="8507000" />
       <workItem from="1561820149343" duration="39797000" />
-      <workItem from="1562292759773" duration="11162000" />
+      <workItem from="1562292759773" duration="13574000" />
     </task>
     <task id="LOCAL-00003" summary="Add packages for new js lib from alex">
       <created>1559183902103</created>
@@ -833,7 +834,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="238170000" />
+    <option name="totallyTimeSpent" value="240582000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -846,6 +847,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="797" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49787235" visible="true" weight="0.18957011" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -1100,15 +1102,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/loginAccountPage/loginAccountPage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1824">
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2166">
@@ -1120,16 +1113,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="337" column="12" selection-start-line="337" selection-start-column="12" selection-end-line="386" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/createAccountPage/createAccountPage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="231" column="21" lean-forward="true" selection-start-line="231" selection-start-column="21" selection-end-line="231" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1157,10 +1140,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/createAccountPage/createAccountPage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="231" column="21" lean-forward="true" selection-start-line="231" selection-start-column="21" selection-end-line="231" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/dashboard/dashboard.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
+        <state relative-caret-position="101">
           <caret line="708" column="21" lean-forward="true" selection-start-line="708" selection-start-column="21" selection-end-line="708" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/loginAccountPage/loginAccountPage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="25" selection-start-line="25" selection-end-line="46" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -1169,8 +1172,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/myWallet/myWallet.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="608" column="120" selection-start-line="608" selection-start-column="120" selection-end-line="608" selection-end-column="120" />
+        <state relative-caret-position="320">
+          <caret line="724" column="18" selection-start-line="724" selection-start-column="18" selection-end-line="724" selection-end-column="18" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>

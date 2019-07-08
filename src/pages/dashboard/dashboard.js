@@ -653,6 +653,28 @@ function Dashboard({
                   onChange={handleSendToAddressChange}
                   style={{ width: "280px" }}
                 />
+                <div className="upload-btn-wrapper" style={{
+                  position: "relative",
+                  overflow: "hidden",
+                  display: "inline-block",
+                }}>
+                  <button className="btn" style={{
+                    border: "2px solid gray",
+                    color: "gray",
+                    backgroundColor: "white",
+                    padding: "8px 20px",
+                    borderRadius: "8px",
+                    fontSize: "20px",
+                    fontWeight: "bold",
+                  }}>識別二維碼</button>
+                  <input type="file" name="myfile" style={{
+                    fontSize: "100px",
+                    position: "absolute",
+                    left: 0,
+                    top: 0,
+                    opacity: 0
+                  }}/>
+                </div>
               </Grid>
               <Grid item>
                 <FormControl style={{ width: "280px" }}>

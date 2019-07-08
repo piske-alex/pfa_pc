@@ -1,6 +1,6 @@
 import React from "react";
 import clsx from "clsx";
-import { makeStyles } from "@material-ui/core/styles";
+import { fade, makeStyles, withStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Drawer from "@material-ui/core/Drawer";
 import AppBar from "@material-ui/core/AppBar";
@@ -60,6 +60,7 @@ import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import Icon from '@material-ui/core/Icon';
 import "./myWallet.css";
 import Config from "../../public/js/config";
+import InputBase from "@material-ui/core/InputBase";
 
 const lang = "ch";
 
@@ -145,6 +146,7 @@ const useStyles = makeStyles(theme => ({
     overflow: "auto",
 
   },
+
   container: {
     paddingTop: theme.spacing(4),
     paddingBottom: theme.spacing(4),
@@ -170,6 +172,27 @@ const useStyles = makeStyles(theme => ({
     outline: "none",
   },
 }));
+const BootstrapInput = withStyles(theme => ({
+  root: {
+    'label + &': {
+      marginTop: theme.spacing(2.5),
+    },
+    width:'100%',
+    backgroundColor: '#222834',
+    border: '1px solid #222834',
+    transition: theme.transitions.create(['border-color', 'box-shadow']),
+    '&:focus-within': {
+      boxShadow: `${fade(theme.palette.primary.main, 0.25)} 0 0 0 0.2rem`,
+      borderColor: '#BEB689',
+    },
+  },
+  input: {
+    width:'100%',
+    padding: '5.5px 5.5px',
+    fontSize: 16,
+    color:'#FFB601',
+  },
+}))(InputBase);
 
 function Dashboard({
   account,
@@ -684,6 +707,39 @@ function Dashboard({
                 onChange={handleSendToAddressChange}
                 style={{ width: "280px" }}
               />
+              <div className="upload-btn-wrapper" style={{
+                position: "relative",
+                overflow: "hidden",
+                display: "inline-block",
+              }}>
+                <button className="btn" style={{
+                  border: "2px solid gray",
+                  color: "gray",
+                  backgroundColor: "white",
+                  padding: "8px 20px",
+                  borderRadius: "8px",
+                  fontSize: "20px",
+                  fontWeight: "bold",
+                }}>識別二維碼</button>
+                <input type="file" name="myfile" style={{
+                  fontSize: "100px",
+                  position: "absolute",
+                  left: 0,
+                  top: 0,
+                  opacity: 0
+                }}/>
+              </div>
+              {/*<BootstrapInput
+                label={t.to[Config.lang]}
+                style={{ width: "280px" }}
+                value={sendToAddress}
+                onChange={handleSendToAddressChange}
+                endAdornment={
+                  <Icon className="iconBtn">
+                    <Visibility/>
+                  </Icon>
+                }
+              />*/}
             </Grid>
             <Grid item>
               <FormControl style={{ width: "280px" }}>
@@ -709,6 +765,7 @@ function Dashboard({
                 onChange={handleSendAmountChange}
                 style={{ width: "280px" }}
               />
+
             </Grid>
             <Grid item>
               <FormControl style={{ width: "280px" }}>
