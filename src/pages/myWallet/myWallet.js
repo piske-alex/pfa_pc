@@ -23,6 +23,8 @@ import Modal from "@material-ui/core/Modal";
 import t from "../../public/js/translation";
 import { withRouter } from "react-router-dom";
 import { HorizontalCenter, isEmpty } from "../../public/js/utils";
+import jsQR from "jsqr";
+
 import {
   etherBalance,
   getHistory,
@@ -327,7 +329,34 @@ function Dashboard({
     setTransactionFailedSnackbarOpen,
   ] = React.useState(false);
 
+  const changefile = async (e) => {
+    /*let data = new FormData();
+    data.append('smfile', e.target.files[0]);
+    let response = await fetch(`https://sm.ms/api/upload`, {
+      method: "POST",
+      body: params,
+    });
+    let ret = await response.json();
+    ret.data.url*/
+    console.log(e.target.files[0])
+    createImageBitmap(e.target.files[0])
+      .then(bmp  => {
+        const canvas = document.createElement('canvas');
 
+        const width = bmp.width;
+        const height = bmp.height;
+        canvas.width = bmp.width;
+        canvas.height = bmp.height;
+
+        const ctx = canvas.getContext('2d');
+
+        ctx.drawImage(bmp, 0, 0);
+        const qrCodeImageFormat = ctx.getImageData(0,0,bmp.width,bmp.height);
+        const qrDecoded = jsQR(qrCodeImageFormat.data, qrCodeImageFormat.width, qrCodeImageFormat.height);
+        console.log(qrDecoded)
+        setSendToAddress(qrDecoded.data);
+      });
+  };
 
   const handleTransactionFinishedSnackbarClose = () => {
     setTransactionFinishedSnackbarOpen(false);
@@ -727,7 +756,7 @@ function Dashboard({
                   left: 0,
                   top: 0,
                   opacity: 0
-                }}/>
+                }} onChange={changefile}/>
               </div>
               {/*<BootstrapInput
                 label={t.to[Config.lang]}

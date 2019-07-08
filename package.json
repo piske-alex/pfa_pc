@@ -12,6 +12,7 @@
     "ethereumjs-util": "latest",
     "font-awesome": "^4.7.0",
     "helloworld": "file:cordova",
+    "jsqr": "^1.2.0",
     "moment": "^2.24.0",
     "prettier": "^1.17.1",
     "qrcode.react": "^0.9.3",

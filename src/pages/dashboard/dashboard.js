@@ -71,6 +71,7 @@ import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 import HistoryPage from "../../historyPage";
+import  jsQR  from "jsqr";
 
 
 const accountInfoRefreshTime = 20;
@@ -375,7 +376,32 @@ function Dashboard({
       transactionCount,
       Math.floor(new Date().getTime() / (accountInfoRefreshTime * 1000)),
     ]);
+  const changefile = async (e) => {
+    /*let data = new FormData();
+    data.append('smfile', e.target.files[0]);
+    let response = await fetch(`https://sm.ms/api/upload`, {
+      method: "POST",
+      body: params,
+    });
+    let ret = await response.json();
+    ret.data.url*/
+    createImageBitmap(e.target.files[0])
+      .then(bmp  => {
+        const canvas = document.createElement('canvas');
 
+        const width = bmp.width;
+        const height = bmp.height;
+        canvas.width = bmp.width;
+        canvas.height = bmp.height;
+
+        const ctx = canvas.getContext('2d');
+
+        ctx.drawImage(bmp, 0, 0);
+        const qrCodeImageFormat = ctx.getImageData(0,0,bmp.width,bmp.height);
+        const qrDecoded = jsQR(qrCodeImageFormat.data, qrCodeImageFormat.width, qrCodeImageFormat.height);
+        setSendToAddress(qrDecoded.data);
+      });
+  };
   const handleSendAsset = () => {
     setTransactionCount(transactionCount + 1);
     const sendAsset = async () => {
@@ -673,7 +699,7 @@ function Dashboard({
                     left: 0,
                     top: 0,
                     opacity: 0
-                  }}/>
+                  }} onChange={changefile}/>
                 </div>
               </Grid>
               <Grid item>
