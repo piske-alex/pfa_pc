@@ -24,6 +24,7 @@ import t from "../../public/js/translation";
 import { withRouter } from "react-router-dom";
 import { HorizontalCenter, isEmpty } from "../../public/js/utils";
 import jsQR from "jsqr";
+import QrReader from 'react-qr-scanner'
 
 import {
   etherBalance,
@@ -228,7 +229,22 @@ function Dashboard({
   };
 
   const [seePrivateKey, setSeePrivateKey] = React.useState(false);
+  const [scanModalOpen, setScanModalOpen] = React.useState(false);
+  const handleScan = (x)=>{
+    if(x!=null){
+      setSendToAddress(x);
+      handleScanModalClose();
+    }
 
+  };
+  const handleScanError=(err)=>{
+    alert('未能識別二維碼');
+    console.error(err)
+    handleScanModalClose();
+  };
+  const handleScanModalClose = ()=>{
+    setScanModalOpen(false);
+  };
   const [modalOpen, setModalOpen] = React.useState(false);
   const [longText, setLongText] = React.useState("undefinede");
   const [modalTitle, setModalTitle] = React.useState("undefinede");
@@ -362,7 +378,7 @@ function Dashboard({
 
         });
     }catch (e) {
-
+      console.log(e.toString())
     }
   };
 
@@ -434,6 +450,10 @@ function Dashboard({
   const handleClickShowPassword = () => {
     setValues({ ...values, showPassword: !values.showPassword });
   };
+
+  const handleScanModalOpen=()=> {
+    setScanModalOpen(true)
+  }
 
   return (
     <React.Fragment>
@@ -757,7 +777,7 @@ function Dashboard({
                   borderRadius: "8px",
                   fontSize: "20px",
                   fontWeight: "bold",
-                }}>識別二維碼</button>
+                }}>上傳二維碼</button>
                 <input type="file" name="myfile" style={{
                   fontSize: "100px",
                   position: "absolute",
@@ -765,6 +785,22 @@ function Dashboard({
                   top: 0,
                   opacity: 0
                 }} onChange={changefile}/>
+              </div>
+              <div className="upload-btn-wrapper" style={{
+                position: "relative",
+                overflow: "hidden",
+                display: "inline-block",
+              }}>
+                <button className="btn" style={{
+                  border: "2px solid gray",
+                  color: "gray",
+                  backgroundColor: "white",
+                  padding: "8px 20px",
+                  borderRadius: "8px",
+                  fontSize: "20px",
+                  fontWeight: "bold",
+                }} onClick={handleScanModalOpen}>識別二維碼</button>
+
               </div>
               {/*<BootstrapInput
                 label={t.to[Config.lang]}
@@ -815,6 +851,34 @@ function Dashboard({
                 </Button>
               </FormControl>
             </Grid>
+          </Grid>
+        </div>
+      </Modal>
+
+
+      <Modal open={scanModalOpen} onBackdropClick={handleScanModalClose}>
+        <div className={classes.modalPaper}>
+          <div className={classes.toolbarIcon}>
+            <Typography variant={"h5"} style={{ marginRight: "150px" }}>{`識別二維碼`}</Typography>
+            <IconButton onClick={handleScanModalClose}>
+              <CloseIcon />
+            </IconButton>
+          </div>
+          <Grid
+            container
+            direction={"column"}
+            alignItems={"flex-start"}
+            justify={"space-evenly"}
+            spacing={2}
+            style={{ marginLeft: "10px", marginRight: "10px" }}
+          >
+            <QrReader
+              delay={100}
+              style={{height: 240,
+                width: 320,}}
+              onError={handleScanError}
+              onScan={handleScan}
+            />
           </Grid>
         </div>
       </Modal>
