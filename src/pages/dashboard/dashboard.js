@@ -72,7 +72,7 @@ import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 import HistoryPage from "../../historyPage";
 import  jsQR  from "jsqr";
-import QrReader from "../myWallet/myWallet";
+import QrReader from 'react-qr-scanner'
 
 
 const accountInfoRefreshTime = 20;
