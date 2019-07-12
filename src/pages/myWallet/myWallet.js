@@ -265,13 +265,13 @@ function Dashboard({
     const sendAsset = async () => {
       try {
         if (sendCurrency === "pfa") {
-          await sendEther(account, sendToAddress, sendAmount);
+          await sendEther(account, sendToAddress, sendAmount,memo);
         } else if (sendCurrency === "ihad") {
-          await sendToken(ihadAddress, account, sendToAddress, sendAmount);
+          await sendToken(ihadAddress, account, sendToAddress, sendAmount,memo);
         } else if(sendCurrency === "usdt"){
-          await sendUSDT(sendToAddress,sendAmount,account)
+          await sendUSDT(sendToAddress,sendAmount,account,memo)
         } else if(sendCurrency === "usdti"){
-          await sendToken(USDTaddress, account, sendToAddress, sendAmount);
+          await sendToken(USDTaddress, account, sendToAddress, sendAmount,memo);
         }else {
           throw new Error("ValueError: No currency type selected");
         }
@@ -331,6 +331,11 @@ function Dashboard({
   const handleSendAmountChange = event => {
     setSendAmount(event.target.value);
   };
+  const [memo, setMemo] = React.useState("");
+  const handleMemoChange = event => {
+    setMemo(event.target.value);
+  };
+
 
   const [accountNames, setAccountNames] = React.useState([]);
 
@@ -654,6 +659,9 @@ function Dashboard({
                                   <Typography variant={"body2"}>
                                     {`${entry.counterparty.slice(0, 20)}...`}
                                   </Typography>
+                                  <Typography variant={"body2"}>
+                                    {`${decodeURIComponent(entry.memo)}...`}
+                                  </Typography>
                                   <Moment fromNow>{entry.time}</Moment>
                                 </React.Fragment>
                               }
@@ -829,6 +837,16 @@ function Dashboard({
                   <MenuItem value="usdti">USDT（PFA 網路內轉帳）</MenuItem>
                 </Select>
               </FormControl>
+            </Grid>
+            <Grid item>
+              <TextField
+                label={`備註`}
+                helperText={`備註`}
+                value={memo}
+                onChange={handleMemoChange}
+                style={{ width: "280px" }}
+              />
+
             </Grid>
             <Grid item>
               <TextField

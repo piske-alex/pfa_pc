@@ -94,6 +94,7 @@ export function listenUSDTdeposit(USDTaddr,acctobj,callback){
         response.hash,
         "exchange",
         "USDT",
+        ""
       );
       callback(response.amount)
     }
@@ -111,7 +112,7 @@ export function listenUSDTdeposit(USDTaddr,acctobj,callback){
     .on('error', console.error);
 }
 
-export async function sendEther(acctobj, toa, valuea) {
+export async function sendEther(acctobj, toa, valuea,memo) {
   const amtInWei = web3js.utils.toWei(valuea);
   const signedTransaction = await web3js.eth.accounts.signTransaction({
     to: toa,
@@ -135,6 +136,7 @@ export async function sendEther(acctobj, toa, valuea) {
     signedTransaction.transactionHash,
     toa,
     "PFA",
+    memo
   );
   sendHistory(
     toa,
@@ -143,12 +145,13 @@ export async function sendEther(acctobj, toa, valuea) {
     signedTransaction.transactionHash,
     acctobj.address,
     "PFA",
+    memo
   );
 }
 
 export const ihadAddress = "0x33259094d0341c908d1d589b0677a714e58a9183";
 
-export async function sendToken(contractaddress, acctobj, _to, amount) {
+export async function sendToken(contractaddress, acctobj, _to, amount,memo) {
   let _from = acctobj.address;
   var count = await web3js.eth.getTransactionCount(_from);
   let contract = new web3js.eth.Contract(minABI, contractaddress);
@@ -192,6 +195,7 @@ export async function sendToken(contractaddress, acctobj, _to, amount) {
     signedTransaction.transactionHash,
     _to,
     symbol,
+    memo
   );
   sendHistory(
     _to,
@@ -200,6 +204,7 @@ export async function sendToken(contractaddress, acctobj, _to, amount) {
     signedTransaction.transactionHash,
     acctobj.address,
     symbol,
+    memo
   );
   return;
  /* await web3.eth.accounts.signTransaction(rawTX, acctobj.privateKey, function(error, success) {
@@ -263,14 +268,14 @@ export async function USDTToIHAD(acctobj, amount) {
             amount,
             st2.transactionHash,
             exchangeaddress,
-            "USDT")
+            "USDT","交換")
           sendHistory(
             acctobj.address,
             "in",
             amount * 1.5,
             st2.transactionHash,
             exchangeaddress,
-            "HAD")
+            "HAD","交換")
 
 
 
@@ -689,7 +694,7 @@ export async function sendHistory(
     params.set("hash", hash);
     params.set("counterpartyaddress", counterpartyaddress);
     params.set("currency", currency);
-    params.set("memo",encodeURIComponent(memo))
+    params.set("memo",encodeURIComponent(memo));
     await fetch(`https://history.quorum.mex.gold/transaction`, {
       method: "POST",
       body: params,
