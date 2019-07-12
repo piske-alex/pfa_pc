@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="33c7a400-888c-4aef-b112-febf5c9a8cb5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/dashboard/dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/dashboard/dashboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/myWallet/myWallet.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/myWallet/myWallet.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,11 +35,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/dashboard/dashboard.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="941" column="18" lean-forward="true" selection-start-line="941" selection-start-column="18" selection-end-line="941" selection-end-column="18" />
+            <state relative-caret-position="224">
+              <caret line="839" column="117" selection-start-line="839" selection-start-column="88" selection-end-line="839" selection-end-column="117" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
                 <element signature="e#2514#2728#0" expanded="true" />
@@ -49,8 +51,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/public/js/blockchain-utils.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="539">
-              <caret line="190" selection-start-line="190" selection-end-line="190" />
+            <state relative-caret-position="277">
+              <caret line="338" column="17" lean-forward="true" selection-start-line="338" selection-start-column="17" selection-end-line="338" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -91,11 +93,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pages/myWallet/myWallet.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="122">
-              <caret line="817" column="14" selection-start-line="817" selection-start-column="14" selection-end-line="832" selection-end-column="20" />
+            <state relative-caret-position="160">
+              <caret line="717" column="69" lean-forward="true" selection-start-line="717" selection-start-column="69" selection-end-line="717" selection-end-column="69" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -154,7 +156,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>addr</find>
       <find>sendUSD</find>
       <find>sendU</find>
       <find>HAD</find>
@@ -184,6 +185,7 @@
       <find>sendHistory</find>
       <find>sca</find>
       <find>scanModal</find>
+      <find>IHAD</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -243,10 +245,10 @@
         <option value="$PROJECT_DIR$/src/pages/historyPage.js" />
         <option value="$PROJECT_DIR$/src/pages/loginAccountPage/loginAccountPage.js" />
         <option value="$PROJECT_DIR$/src/pages/aboutUs/aboutUs.js" />
-        <option value="$PROJECT_DIR$/src/public/js/blockchain-utils.js" />
         <option value="$PROJECT_DIR$/src/pages/convertPage/convertPage.js" />
-        <option value="$PROJECT_DIR$/src/pages/myWallet/myWallet.js" />
+        <option value="$PROJECT_DIR$/src/public/js/blockchain-utils.js" />
         <option value="$PROJECT_DIR$/src/pages/dashboard/dashboard.js" />
+        <option value="$PROJECT_DIR$/src/pages/myWallet/myWallet.js" />
       </list>
     </option>
   </component>
@@ -468,21 +470,7 @@
       <workItem from="1561718737472" duration="8507000" />
       <workItem from="1561820149343" duration="39797000" />
       <workItem from="1562292759773" duration="17278000" />
-      <workItem from="1562777082663" duration="9288000" />
-    </task>
-    <task id="LOCAL-00009" summary="Fix some bug in chrome extension">
-      <created>1559283704166</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1559283704166</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Add transaction history">
-      <created>1559308092180</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1559308092180</updated>
+      <workItem from="1562777082663" duration="9712000" />
     </task>
     <task id="LOCAL-00011" summary="Implement IHAD functions">
       <created>1559358587194</created>
@@ -813,11 +801,25 @@
       <option name="project" value="LOCAL" />
       <updated>1562943023462</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="qr border">
+      <created>1562945490517</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1562945490518</updated>
+    </task>
+    <task id="LOCAL-00059" summary="qr border">
+      <created>1562947880786</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1562947880788</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="253574000" />
+    <option name="totallyTimeSpent" value="253998000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1051,6 +1053,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/createAccountPage/createAccountPage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="231" column="21" selection-start-line="231" selection-start-column="21" selection-end-line="231" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/convertPage/convertPage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-88">
+          <caret line="999" column="43" selection-start-line="999" selection-start-column="40" selection-end-line="999" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/aboutUs/aboutUs.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="164">
@@ -1071,50 +1093,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/createAccountPage/createAccountPage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="231" column="21" selection-start-line="231" selection-start-column="21" selection-end-line="231" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/public/js/blockchain-utils.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="539">
-          <caret line="190" selection-start-line="190" selection-end-line="190" />
+        <state relative-caret-position="277">
+          <caret line="338" column="17" lean-forward="true" selection-start-line="338" selection-start-column="17" selection-end-line="338" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/convertPage/convertPage.js">
+    <entry file="file://$PROJECT_DIR$/src/pages/dashboard/dashboard.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-88">
-          <caret line="999" column="43" selection-start-line="999" selection-start-column="40" selection-end-line="999" selection-end-column="43" />
+        <state relative-caret-position="224">
+          <caret line="839" column="117" selection-start-line="839" selection-start-column="88" selection-end-line="839" selection-end-column="117" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#2514#2728#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/myWallet/myWallet.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="817" column="14" selection-start-line="817" selection-start-column="14" selection-end-line="832" selection-end-column="20" />
+        <state relative-caret-position="160">
+          <caret line="717" column="69" lean-forward="true" selection-start-line="717" selection-start-column="69" selection-end-line="717" selection-end-column="69" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/dashboard/dashboard.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="941" column="18" lean-forward="true" selection-start-line="941" selection-start-column="18" selection-end-line="941" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-            <element signature="e#2514#2728#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -715,7 +715,7 @@ function Dashboard({
             <Grid item style={{ overflow: "auto", height: "400px" }}>
               <Typography variant={"p"}>{`請把外部${
                 t.buy[Config.lang]
-                }的 USDT 傳入以下地址：`}</Typography><Paper style={{border:"8px solid white"}}><QRCode value={`${account.USDTWallet}`} style={{ height: "90px", width: "90px" }} renderAs={"svg"} /></Paper><br /><span>{account.USDTWallet}</span><br /><br />
+                }的 USDT 傳入以下地址：`}</Typography><Paper style={{border:"8px solid white",height:"106px",width:"106px"}}><QRCode value={`${account.USDTWallet}`} style={{ height: "90px", width: "90px" }} renderAs={"svg"} /></Paper><br /><span>{account.USDTWallet}</span><br /><br />
               <LinearProgress variant="query" /><br />
               <Typography variant={"p"} style={{ marginRight: "150px" }}>{`完成充值前請勿關閉此頁面。完成充值後你會收到通知。`}</Typography>
               <List >
