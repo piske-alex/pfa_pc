@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="33c7a400-888c-4aef-b112-febf5c9a8cb5" name="Default Changelist" comment="upload photo">
+    <list default="true" id="33c7a400-888c-4aef-b112-febf5c9a8cb5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/dashboard/dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/dashboard/dashboard.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/myWallet/myWallet.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/myWallet/myWallet.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -76,8 +73,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/public/js/blockchain-utils.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="10290">
-              <caret line="692" column="7" selection-start-line="689" selection-start-column="4" selection-end-line="692" selection-end-column="7" />
+            <state relative-caret-position="353">
+              <caret line="340" lean-forward="true" selection-start-line="340" selection-end-line="340" />
             </state>
           </provider>
         </entry>
@@ -109,8 +106,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pages/myWallet/myWallet.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="869" column="37" lean-forward="true" selection-start-line="869" selection-start-column="37" selection-end-line="869" selection-end-column="37" />
+            <state relative-caret-position="300">
+              <caret line="880" column="14" selection-start-line="880" selection-start-column="14" selection-end-line="880" selection-end-column="14" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -153,7 +150,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>tosMo</find>
       <find>* 1</find>
       <find>LongTe</find>
       <find>modalO</find>
@@ -183,6 +179,7 @@
       <find>changefile</find>
       <find>jsQR</find>
       <find>handleScanErr</find>
+      <find>pfaB</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -232,7 +229,6 @@
         <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/public/js/translation.js" />
         <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/src/public/js/blockchain-utils.js" />
         <option value="$PROJECT_DIR$/public/ver.html" />
         <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/src/pages/aboutUs/aboutUs.js" />
@@ -245,6 +241,7 @@
         <option value="$PROJECT_DIR$/src/pages/historyPage.js" />
         <option value="$PROJECT_DIR$/src/pages/loginAccountPage/loginAccountPage.js" />
         <option value="$PROJECT_DIR$/src/pages/dashboard/dashboard.js" />
+        <option value="$PROJECT_DIR$/src/public/js/blockchain-utils.js" />
         <option value="$PROJECT_DIR$/src/pages/myWallet/myWallet.js" />
       </list>
     </option>
@@ -280,6 +277,19 @@
               <item name="pfa_pc" type="b2602c69:ProjectViewProjectNode" />
               <item name="pfa_pc" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pfa_pc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pfa_pc" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pfa_pc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pfa_pc" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="myWallet" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="pfa_pc" type="b2602c69:ProjectViewProjectNode" />
@@ -426,21 +436,7 @@
       <workItem from="1561718737472" duration="8507000" />
       <workItem from="1561820149343" duration="39797000" />
       <workItem from="1562292759773" duration="17278000" />
-      <workItem from="1562777082663" duration="1722000" />
-    </task>
-    <task id="LOCAL-00003" summary="Add packages for new js lib from alex">
-      <created>1559183902103</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1559183902103</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Implement CreateAccountPage">
-      <created>1559193568016</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1559193568016</updated>
+      <workItem from="1562777082663" duration="4676000" />
     </task>
     <task id="LOCAL-00005" summary="Fix newAccount/readAccount bug">
       <created>1559197427900</created>
@@ -771,11 +767,25 @@
       <option name="project" value="LOCAL" />
       <updated>1562170899163</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="scan photo">
+      <created>1562778942791</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1562778942793</updated>
+    </task>
+    <task id="LOCAL-00053" summary="scan photo">
+      <created>1562910858814</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1562910858814</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="246008000" />
+    <option name="totallyTimeSpent" value="248962000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -790,7 +800,7 @@
     <frame x="0" y="23" width="1440" height="797" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49787235" visible="true" weight="0.18957011" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49787235" visible="true" weight="0.18957011" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Capture Tool" order="3" />
@@ -809,7 +819,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32850778" />
       <window_info anchor="bottom" id="TypeScript" order="7" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.49612403" visible="true" weight="0.26241136" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49612403" visible="true" weight="0.26241136" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.503876" side_tool="true" weight="0.26241136" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
@@ -839,7 +849,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="FINISH!!!" />
     <MESSAGE value="Chane theme and adjust certain ui elements" />
     <MESSAGE value="Merge branch 'master' of https://gitlab.com/michaellee8/pfa-react&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/blockchain-utils.js&#10;&#10;convert function completed" />
     <MESSAGE value="toggle private key" />
@@ -864,7 +873,8 @@
     <MESSAGE value="copy button#2" />
     <MESSAGE value="change rate" />
     <MESSAGE value="upload photo" />
-    <option name="LAST_COMMIT_MESSAGE" value="upload photo" />
+    <MESSAGE value="scan photo" />
+    <option name="LAST_COMMIT_MESSAGE" value="scan photo" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -1007,13 +1017,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/public/js/blockchain-utils.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10290">
-          <caret line="692" column="7" selection-start-line="689" selection-start-column="4" selection-end-line="692" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/loginAccountPage/loginAccountPage.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -1062,10 +1065,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/public/js/blockchain-utils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="340" lean-forward="true" selection-start-line="340" selection-end-line="340" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/myWallet/myWallet.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="869" column="37" lean-forward="true" selection-start-line="869" selection-start-column="37" selection-end-line="869" selection-end-column="37" />
+        <state relative-caret-position="300">
+          <caret line="880" column="14" selection-start-line="880" selection-start-column="14" selection-end-line="880" selection-end-column="14" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>

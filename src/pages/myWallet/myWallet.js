@@ -878,6 +878,7 @@ function Dashboard({
                 width: 320,}}
               onError={handleScanError}
               onScan={handleScan}
+              facingMode={"rear"}
             />
           </Grid>
         </div>
