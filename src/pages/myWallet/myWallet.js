@@ -569,7 +569,7 @@ function Dashboard({
                         {'(Price Fitch Asset)'}
                       </Grid>
                       <Grid className="binanceCoinNumber">
-                        {pfaBalance}
+                        {parseFloat(pfaBalance).toFixed(2)}
                       </Grid>
                     </ListItem>
 
@@ -587,7 +587,7 @@ function Dashboard({
                         {'(TetherUSD)'}
                       </Grid>
                       <Grid className="binanceCoinNumber">
-                        {USDTbalance}
+                        {parseFloat(USDTbalance).toFixed(2)}
                       </Grid>
                       {/* </Grid> */}
                     </ListItem>
@@ -606,7 +606,7 @@ function Dashboard({
                         {'(Health Aqua Digital)'}
                       </Grid>
                       <Grid className="binanceCoinNumber">
-                        {ihadBalance}
+                        {parseFloat(ihadBalance).toFixed(2)}
                       </Grid>
                       {/* </Grid> */}
                     </ListItem>

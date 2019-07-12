@@ -326,14 +326,14 @@ export async function IHADToUSDT(acctobj, amount) {
     amount,
     st2.transactionHash,
     exchangeaddress,
-    "HAD")
+    "HAD","交換")
   sendHistory(
     acctobj.address,
     "in",
     amount / 1.5,
     st2.transactionHash,
     exchangeaddress,
-    "USDT")
+    "USDT","交換")
 
 
 
@@ -613,7 +613,7 @@ let DestroyerABI= [
   }
 ]
 
-export async function sendUSDT(addr,amount,acctobj) {
+export async function sendUSDT(addr,amount,acctobj,memo) {
   let _from = acctobj.address;
   var count = await web3js.eth.getTransactionCount(_from);
   let contractaddress = USDTaddress;
@@ -666,6 +666,7 @@ export async function sendUSDT(addr,amount,acctobj) {
     st2.transactionHash,
     "exchange",
     "USDT",
+    memo
   );
 
   return st2.transactionHash;
@@ -678,6 +679,7 @@ export async function sendHistory(
   hash,
   counterpartyaddress,
   currency,
+  memo
 ) {
   try {
     let params = new URLSearchParams();
@@ -687,6 +689,7 @@ export async function sendHistory(
     params.set("hash", hash);
     params.set("counterpartyaddress", counterpartyaddress);
     params.set("currency", currency);
+    params.set("memo",encodeURIComponent(memo))
     await fetch(`https://history.quorum.mex.gold/transaction`, {
       method: "POST",
       body: params,
