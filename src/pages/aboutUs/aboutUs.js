@@ -226,8 +226,8 @@ function AboutUs({ history,handleLogout, currentUsername, account }) {
         <Grid item>
           <Typography variant={"h5"}>{currentUsername}</Typography>
         </Grid>
-        <Grid item>
-          <QRCode value={`pfa:${account.address}`} renderAs={"svg"} />
+        <Grid item style={{border:"8px white", }}>
+          <QRCode value={`pfa:${account.address}`} renderAs={"svg"} style={{border:"8px white solid", }}/>
         </Grid>
         <Grid item>
           <Paper>
