@@ -32,7 +32,7 @@ import {
   ihadAddress,
   tokenBalance,
   sendToken,
-  USDTToIHAD, IHADToUSDT
+  USDTToIHAD, IHADToUSDT, USDTaddress
 } from "../../public/js/blockchain-utils";
 import QRCode from "qrcode.react";
 import TextField from "@material-ui/core/TextField";
@@ -323,9 +323,19 @@ function ConvertPage({
       try {
         let cdv = leftcurrencyDropdownValue + "TO" + rightcurrencyDropdownValue;
         if (cdv === "usdtTOihad") {
-          await USDTToIHAD(account,tempBase,)
+          if(tempBase<=USDTBalance){
+            await USDTToIHAD(account,tempBase,)
+          }else{
+            setTransactionFailedSnackbarOpen(true);
+          }
+
         } else if (cdv === "ihadTOusdt"){
-          await IHADToUSDT(account,tempBase)
+          if(tempBase<=ihadBalance){
+            await IHADToUSDT(account,tempBase)
+          }else{
+            setTransactionFailedSnackbarOpen(true);
+          }
+
         } else {
           throw new Error("ValueError: No currency type selected");
         }
@@ -334,7 +344,7 @@ function ConvertPage({
         setTransactionCount(transactionCount + 3);
       } catch (err) {
         console.log(err);
-        setTransactionFailedSnackbarOpen(true);
+
       }
     };
     sendAsset();
@@ -424,9 +434,12 @@ function ConvertPage({
   React.useEffect(() => {
     const fetchBalance = async () => {
       try {
-        setPfaBalance(`${await etherBalance(account)} PFA`);
+        setPfaBalance(await etherBalance(account));
         const tkBal = await tokenBalance(account, ihadAddress);
-        setIhadBalance(tkBal ? `${tkBal} IHAD` : "");
+        const USDTBal = await tokenBalance(account, USDTaddress);
+        console.log(tkBal + "sdfs")
+        setIhadBalance(tkBal != null ? tkBal: 0);
+        setUSDTBalance(USDTBal != null ? USDTBal : 0);
       } catch (err) {
         console.log(err);
       }

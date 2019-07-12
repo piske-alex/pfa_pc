@@ -72,6 +72,7 @@ import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 import HistoryPage from "../../historyPage";
 import  jsQR  from "jsqr";
+import QrReader from "../myWallet/myWallet";
 
 
 const accountInfoRefreshTime = 20;
@@ -232,12 +233,33 @@ function Dashboard({
   const handleDrawerClose = () => {
     setDrawerOpen(false);
   };
-
+  const [memo, setMemo] = React.useState("");
+  const handleMemoChange = event => {
+    setMemo(event.target.value);
+  };
   const [seePrivateKey, setSeePrivateKey] = React.useState(false);
   const [longText, setLongText] = React.useState("undefinede");
   const [modalTitle, setModalTitle] = React.useState("undefinede");
   const [modalOpen, setModalOpen] = React.useState(false);
+  const [scanModalOpen, setScanModalOpen] = React.useState(false);
+  const handleScan = (x)=>{
+    if(x!=null){
+      setSendToAddress(x);
+      handleScanModalClose();
+    }
 
+  };
+  const handleScanError=(err)=>{
+    alert('未能識別二維碼');
+    console.error(err)
+    handleScanModalClose();
+  };
+  const handleScanModalClose = ()=>{
+    setScanModalOpen(false);
+  };
+  const handleScanModalOpen = ()=>{
+    setScanModalOpen(true);
+  }
   const handleModalOpen = () => {
     setModalOpen(true);
   };
@@ -417,13 +439,33 @@ function Dashboard({
     const sendAsset = async () => {
       try {
         if (sendCurrency === "pfa") {
-          await sendEther(account, sendToAddress, sendAmount);
+          if(sendAmount<=pfaBalance){
+            await sendEther(account, sendToAddress, sendAmount,memo);
+          }else{
+            setTransactionFailedSnackbarOpen(true);
+          }
+
         } else if (sendCurrency === "ihad") {
-          await sendToken(ihadAddress, account, sendToAddress, sendAmount);
+          if(sendAmount<=ihadBalance){
+            await sendToken(ihadAddress, account, sendToAddress, sendAmount,memo);
+          }else{
+            setTransactionFailedSnackbarOpen(true);
+          }
+
         } else if(sendCurrency === "usdt"){
-          await sendUSDT(sendToAddress,sendAmount,account)
+          if(sendAmount<=USDTbalance){
+            await sendUSDT(sendToAddress,sendAmount,account,memo)
+          }else{
+            setTransactionFailedSnackbarOpen(true);
+          }
+
         } else if(sendCurrency === "usdti"){
-          await sendToken(USDTaddress, account, sendToAddress, sendAmount);
+          if(sendAmount<=USDTbalance){
+            await sendToken(USDTaddress, account, sendToAddress, sendAmount,memo);
+          }else{
+            setTransactionFailedSnackbarOpen(true);
+          }
+
         }else {
           throw new Error("ValueError: No currency type selected");
         }
@@ -702,7 +744,7 @@ function Dashboard({
                     borderRadius: "8px",
                     fontSize: "20px",
                     fontWeight: "bold",
-                  }}>識別二維碼</button>
+                  }}>上傳二維碼</button>
                   <input type="file" name="myfile" style={{
                     fontSize: "100px",
                     position: "absolute",
@@ -710,6 +752,23 @@ function Dashboard({
                     top: 0,
                     opacity: 0
                   }} onChange={changefile}/>
+                </div>
+
+                <div className="upload-btn-wrapper" style={{
+                  position: "relative",
+                  overflow: "hidden",
+                  display: "inline-block",
+                }}>
+                  <button className="btn" style={{
+                    border: "2px solid gray",
+                    color: "gray",
+                    backgroundColor: "white",
+                    padding: "8px 20px",
+                    borderRadius: "8px",
+                    fontSize: "20px",
+                    fontWeight: "bold",
+                  }} onClick={handleScanModalOpen}>識別二維碼</button>
+
                 </div>
               </Grid>
               <Grid item>
@@ -736,6 +795,16 @@ function Dashboard({
                   onChange={handleSendAmountChange}
                   style={{ width: "280px" }}
                 />
+              </Grid>
+              <Grid item>
+                <TextField
+                  label={`備註`}
+                  helperText={`備註`}
+                  value={memo}
+                  onChange={handleMemoChange}
+                  style={{ width: "280px" }}
+                />
+
               </Grid>
               <Grid item>
                 <FormControl style={{ width: "280px" }}>
@@ -768,7 +837,7 @@ function Dashboard({
               <Grid item style={{ overflow: "auto", height: "400px" }}>
                 <Typography variant={"p"}>{`請把外部${
                   t.buy[Config.lang]
-                  }的 USDT 傳入以下地址：`}</Typography><QRCode value={`${account.USDTWallet}`} style={{ height: "80px", width: "80px" }} renderAs={"svg"} /><br /><span>{account.USDTWallet}</span><br /><br />
+                  }的 USDT 傳入以下地址：`}</Typography><Paper style={{border:"8px solid white"}}><QRCode value={`${account.USDTWallet}`} style={{ height: "90px", width: "90px" }} renderAs={"svg"} /></Paper><br /><span>{account.USDTWallet}</span><br /><br />
                 <LinearProgress variant="query" /><br />
                 <Typography variant={"p"} style={{ marginRight: "150px" }}>{`完成充值前請勿關閉此頁面。完成充值後你會收到通知。`}</Typography>
                 <List >
@@ -846,6 +915,33 @@ function Dashboard({
                 <Typography variant={"p"} style={{ marginRight: "150px", textAlign: "justify", width: "100%", wordBreak: "break-all" }} dangerouslySetInnerHTML={{ __html: longText }} />
 
               </Grid>
+            </Grid>
+          </div>
+        </Modal>
+        <Modal open={scanModalOpen} onBackdropClick={handleScanModalClose}>
+          <div className={classes.modalPaper}>
+            <div className={classes.toolbarIcon}>
+              <Typography variant={"h5"} style={{ marginRight: "150px" }}>{`識別二維碼`}</Typography>
+              <IconButton onClick={handleScanModalClose}>
+                <CloseIcon />
+              </IconButton>
+            </div>
+            <Grid
+              container
+              direction={"column"}
+              alignItems={"flex-start"}
+              justify={"space-evenly"}
+              spacing={2}
+              style={{ marginLeft: "10px", marginRight: "10px" }}
+            >
+              <QrReader
+                delay={100}
+                style={{height: 240,
+                  width: 320,}}
+                onError={handleScanError}
+                onScan={handleScan}
+                facingMode={"rear"}
+              />
             </Grid>
           </div>
         </Modal>

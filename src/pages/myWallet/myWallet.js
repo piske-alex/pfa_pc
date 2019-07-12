@@ -34,7 +34,7 @@ import {
   web3js,
   ihadAddress,
   tokenBalance,
-  sendToken, USDTaddress, listenUSDTdeposit, sendUSDT
+  sendToken, USDTaddress, listenUSDTdeposit, sendUSDT, USDTToIHAD
 } from "../../public/js/blockchain-utils";
 import QRCode from "qrcode.react";
 import TextField from "@material-ui/core/TextField";
@@ -64,6 +64,7 @@ import Icon from '@material-ui/core/Icon';
 import "./myWallet.css";
 import Config from "../../public/js/config";
 import InputBase from "@material-ui/core/InputBase";
+import Paper from "@material-ui/core/Paper";
 
 const lang = "ch";
 
@@ -265,13 +266,33 @@ function Dashboard({
     const sendAsset = async () => {
       try {
         if (sendCurrency === "pfa") {
-          await sendEther(account, sendToAddress, sendAmount,memo);
+          if(sendAmount<=pfaBalance){
+            await sendEther(account, sendToAddress, sendAmount,memo);
+          }else{
+            setTransactionFailedSnackbarOpen(true);
+          }
+
         } else if (sendCurrency === "ihad") {
-          await sendToken(ihadAddress, account, sendToAddress, sendAmount,memo);
+          if(sendAmount<=ihadBalance){
+            await sendToken(ihadAddress, account, sendToAddress, sendAmount,memo);
+          }else{
+            setTransactionFailedSnackbarOpen(true);
+          }
+
         } else if(sendCurrency === "usdt"){
-          await sendUSDT(sendToAddress,sendAmount,account,memo)
+          if(sendAmount<=USDTbalance){
+            await sendUSDT(sendToAddress,sendAmount,account,memo)
+          }else{
+            setTransactionFailedSnackbarOpen(true);
+          }
+
         } else if(sendCurrency === "usdti"){
-          await sendToken(USDTaddress, account, sendToAddress, sendAmount,memo);
+          if(sendAmount<=USDTbalance){
+            await sendToken(USDTaddress, account, sendToAddress, sendAmount,memo);
+          }else{
+            setTransactionFailedSnackbarOpen(true);
+          }
+
         }else {
           throw new Error("ValueError: No currency type selected");
         }
@@ -694,7 +715,7 @@ function Dashboard({
             <Grid item style={{ overflow: "auto", height: "400px" }}>
               <Typography variant={"p"}>{`請把外部${
                 t.buy[Config.lang]
-                }的 USDT 傳入以下地址：`}</Typography><QRCode value={`${account.USDTWallet}`} style={{ height: "80px", width: "80px" }} renderAs={"svg"} /><br /><span>{account.USDTWallet}</span><br /><br />
+                }的 USDT 傳入以下地址：`}</Typography><Paper style={{border:"8px solid white"}}><QRCode value={`${account.USDTWallet}`} style={{ height: "90px", width: "90px" }} renderAs={"svg"} /></Paper><br /><span>{account.USDTWallet}</span><br /><br />
               <LinearProgress variant="query" /><br />
               <Typography variant={"p"} style={{ marginRight: "150px" }}>{`完成充值前請勿關閉此頁面。完成充值後你會收到通知。`}</Typography>
               <List >
