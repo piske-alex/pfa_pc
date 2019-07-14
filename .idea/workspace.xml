@@ -4,7 +4,6 @@
     <list default="true" id="33c7a400-888c-4aef-b112-febf5c9a8cb5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/myWallet/myWallet.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/myWallet/myWallet.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/public/js/blockchain-utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/js/blockchain-utils.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -38,7 +37,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/dashboard/dashboard.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="11856">
+            <state relative-caret-position="9229">
               <caret line="1180" column="51" selection-start-line="1180" selection-start-column="36" selection-end-line="1180" selection-end-column="51" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
@@ -48,11 +47,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/public/js/blockchain-utils.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="735" column="10" lean-forward="true" selection-start-line="735" selection-start-column="10" selection-end-line="735" selection-end-column="10" />
+            <state relative-caret-position="154">
+              <caret line="216" column="25" lean-forward="true" selection-start-line="216" selection-start-column="25" selection-end-line="216" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -93,11 +92,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pages/myWallet/myWallet.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="196">
-              <caret line="965" column="19" selection-start-line="965" selection-start-column="19" selection-end-line="965" selection-end-column="19" />
+            <state relative-caret-position="228">
+              <caret line="955" column="25" lean-forward="true" selection-start-line="955" selection-start-column="25" selection-end-line="955" selection-end-column="25" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -117,8 +116,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>複製</find>
-      <find>color</find>
       <find>seePriv</find>
       <find>Hi</find>
       <find>History</find>
@@ -146,6 +143,8 @@
       <find>sendTok</find>
       <find>prices</find>
       <find>sendEth</find>
+      <find>sendUSDT</find>
+      <find>storeobj</find>
       <find>handletosModalO</find>
     </findStrings>
     <replaceStrings>
@@ -208,8 +207,8 @@
         <option value="$PROJECT_DIR$/src/pages/aboutUs/aboutUs.js" />
         <option value="$PROJECT_DIR$/src/pages/convertPage/convertPage.js" />
         <option value="$PROJECT_DIR$/src/pages/dashboard/dashboard.js" />
-        <option value="$PROJECT_DIR$/src/pages/myWallet/myWallet.js" />
         <option value="$PROJECT_DIR$/src/public/js/blockchain-utils.js" />
+        <option value="$PROJECT_DIR$/src/pages/myWallet/myWallet.js" />
       </list>
     </option>
   </component>
@@ -243,48 +242,23 @@
             <path>
               <item name="pfa_pc" type="b2602c69:ProjectViewProjectNode" />
               <item name="pfa_pc" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="cordova" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pfa_pc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pfa_pc" type="462c0819:PsiDirectoryNode" />
+              <item name="cordova" type="462c0819:PsiDirectoryNode" />
+              <item name="www" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pfa_pc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pfa_pc" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="pfa_pc" type="b2602c69:ProjectViewProjectNode" />
               <item name="pfa_pc" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pfa_pc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pfa_pc" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="accountManagerPanel" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pfa_pc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pfa_pc" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="convertPage" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pfa_pc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pfa_pc" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="dashboard" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pfa_pc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pfa_pc" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="foot" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pfa_pc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pfa_pc" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="myWallet" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="pfa_pc" type="b2602c69:ProjectViewProjectNode" />
@@ -432,28 +406,7 @@
       <workItem from="1561820149343" duration="39797000" />
       <workItem from="1562292759773" duration="17278000" />
       <workItem from="1562777082663" duration="10572000" />
-      <workItem from="1563084068866" duration="5135000" />
-    </task>
-    <task id="LOCAL-00017" summary="toggle private key">
-      <created>1561044333096</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1561044333096</updated>
-    </task>
-    <task id="LOCAL-00018" summary="toggle private key">
-      <created>1561180512729</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1561180512730</updated>
-    </task>
-    <task id="LOCAL-00019" summary="toggle private key">
-      <created>1561209518410</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1561209518410</updated>
+      <workItem from="1563084068866" duration="6406000" />
     </task>
     <task id="LOCAL-00020" summary="toggle private key">
       <created>1561209776860</created>
@@ -777,11 +730,32 @@
       <option name="project" value="LOCAL" />
       <updated>1563104535824</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="trade">
+      <created>1563105509251</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1563105509251</updated>
+    </task>
+    <task id="LOCAL-00067" summary="trade">
+      <created>1563105549006</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1563105549006</updated>
+    </task>
+    <task id="LOCAL-00068" summary="trade">
+      <created>1563106279827</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1563106279827</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="259993000" />
+    <option name="totallyTimeSpent" value="261264000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -794,7 +768,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="797" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49787235" visible="true" weight="0.18957011" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -1067,19 +1040,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/myWallet/myWallet.js">
+    <entry file="file://$PROJECT_DIR$/src/public/js/blockchain-utils.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="965" column="19" selection-start-line="965" selection-start-column="19" selection-end-line="965" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="154">
+          <caret line="216" column="25" lean-forward="true" selection-start-line="216" selection-start-column="25" selection-end-line="216" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/dashboard/dashboard.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="11856">
+        <state relative-caret-position="9229">
           <caret line="1180" column="51" selection-start-line="1180" selection-start-column="36" selection-end-line="1180" selection-end-column="51" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
@@ -1088,10 +1058,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/public/js/blockchain-utils.js">
+    <entry file="file://$PROJECT_DIR$/src/pages/myWallet/myWallet.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="735" column="10" lean-forward="true" selection-start-line="735" selection-start-column="10" selection-end-line="735" selection-end-column="10" />
+        <state relative-caret-position="228">
+          <caret line="955" column="25" lean-forward="true" selection-start-line="955" selection-start-column="25" selection-end-line="955" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -155,7 +155,7 @@ export default {
     ch: "充值",
   },
   withdrawal:{
-    ch: "提現",
+    ch: "提取",
   },
   assets:{
     ch: "顯示所有資產",

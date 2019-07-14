@@ -702,10 +702,10 @@ function Dashboard({
                               secondary={
                                 <React.Fragment>
                                   <Typography variant={"body2"}>
-                                    {`${entry.counterparty.slice(0, 20)}...`}
+                                    {`${entry.counterparty}`}
                                   </Typography>
                                   <Typography variant={"body2"}>
-                                    {`${decodeURIComponent(entry.memo)}...`}
+                                    {`${decodeURIComponent(entry.memo).slice(0,30)}`}
                                   </Typography>
                                   <Moment fromNow>{entry.time}</Moment>
                                 </React.Fragment>
@@ -883,22 +883,23 @@ function Dashboard({
                 </Select>
               </FormControl>
             </Grid>
-            <Grid item>
-              <TextField
-                label={`備註`}
-                helperText={`備註`}
-                value={memo}
-                onChange={handleMemoChange}
-                style={{ width: "280px" }}
-              />
 
-            </Grid>
             <Grid item>
               <TextField
                 label={t.amount[Config.lang]}
                 helperText={t.transactionDelayInfo[Config.lang]}
                 value={sendAmount}
                 onChange={handleSendAmountChange}
+                style={{ width: "280px" }}
+              />
+
+            </Grid>
+            <Grid item>
+              <TextField
+                label={`備註`}
+                helperText={`備註可用中英文填寫，最多顯示30字`}
+                value={memo}
+                onChange={handleMemoChange}
                 style={{ width: "280px" }}
               />
 
@@ -947,8 +948,8 @@ function Dashboard({
         </div>
       </Modal>
 
-      <Modal open={tradeModalOpen} onBackdropClick={handleTradeModalClose}>
-        <div className={classes.modalPaper}>
+      <Modal open={tradeModalOpen} onBackdropClick={handleTradeModalClose} >
+        <div className={classes.modalPaper} style={{top:"calc(50% - 700px / 2)",height:"700px"}}>
           <div className={classes.toolbarIcon}>
             <Typography variant={"h5"} style={{ marginRight: "150px" }}>{`交易憑證`}</Typography>
             <IconButton onClick={handleTradeModalClose}>
