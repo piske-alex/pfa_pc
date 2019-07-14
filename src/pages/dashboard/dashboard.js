@@ -355,6 +355,22 @@ function Dashboard({
 
   const [USDTbalance, setUSDTBalance] = React.useState("");
 
+  const [prices,setPrices] = React.useState({data:{
+    BTC:{
+      quote:{
+        USD:{
+          price:0,
+          percent_change_24h:0
+        }
+      }
+    }
+    }})
+  const [list,setList] = React.useState([{ key: "PFA", price: 1.000, qty: (Math.random()*800+8000).toFixed(2), color: '' },
+    { key: "HAD", price: 1.500, qty: (Math.random()*800+6000).toFixed(2), color: 'green' },
+    { key: "BTC", price: 0, qty: 0, color: 'red' },
+    { key: "XRP", price: 0, qty: 0, color: 'green' },
+    { key: "ETH", price: 0, qty: 0, color: 'red' },])
+
   const [accHistory, setAccHistory] = React.useState([]);
 
   const [sendCurrency, setSendCurrency] = React.useState("pfa");
@@ -385,6 +401,30 @@ function Dashboard({
     ]);
 
   React.useEffect(() => {
+    const fetchPrice = async () => {
+      try {
+        const h = await fetch("https://rtprice.rubbity.io/");
+        let price = await h.json();
+        console.log(price)
+        setPrices(price);
+        setList([{ key: "PFA", price: 1.000, qty: Math.random()*800+8000, color: '' },
+          { key: "HAD", price: 1.500, qty: Math.random()*800+6000, color: 'green' },
+          { key: "BTC", price: price.data.BTC.quote.USD.price, qty: price.data.BTC.quote.USD.volume_24h, color: 'red' },
+          { key: "XRP", price: price.data.XRP.quote.USD.price, qty: price.data.XRP.quote.USD.volume_24h, color: 'green' },
+          { key: "ETH", price: price.data.ETH.quote.USD.price, qty: price.data.ETH.quote.USD.volume_24h, color: 'red' },]);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchPrice();
+  }, [
+      transactionCount,
+      Math.floor(new Date().getTime() / (accountInfoRefreshTime * 1000)),
+    ]);
+
+
+
+  React.useEffect(() => {
     const fetchAccHistory = async () => {
       try {
         const h = await getHistory(account.address);
@@ -395,9 +435,9 @@ function Dashboard({
     };
     fetchAccHistory();
   }, [
-      transactionCount,
-      Math.floor(new Date().getTime() / (accountInfoRefreshTime * 1000)),
-    ]);
+    transactionCount,
+    Math.floor(new Date().getTime() / (accountInfoRefreshTime * 1000)),
+  ]);
   const changefile = async (e) => {
     /*let data = new FormData();
     data.append('smfile', e.target.files[0]);
@@ -480,13 +520,7 @@ function Dashboard({
     sendAsset();
   };
 
-  const list = [
-    { key: "PFA", price: 1.001, qty: 8291, color: '' },
-    { key: "HAD", price: 1.52, qty: 6136, color: 'green' },
-    { key: "BTC", price: 8220, qty: 5598, color: 'red' },
-    { key: "XRP", price: 0.399, qty: 5046, color: 'green' },
-    { key: "ETH", price: 282.72, qty: 3564, color: 'red' },
-  ];
+
 
   const carouselList = [ '2019/06/26/5d12c2c5cf98e50653' + ".png", '2019/06/26/5d12c2c61668934580' + ".png",'2019/07/03/5d1c3296bd17e13109' + ".jpeg"];
   const icons = [
@@ -543,18 +577,18 @@ function Dashboard({
             <Grid className='top' spacing={0} container justify="center">
               <Grid item xs={4}>
                 <Grid className='title'>PFA/USDT</Grid>
-                <Grid className='sum'>1.001</Grid>
+                <Grid className='sum'>1.000</Grid>
                 <Grid className='gain red'>-1.58%</Grid>
               </Grid>
               <Grid item xs={4} className='center'>
                 <Grid className='title'>HAD/USDT</Grid>
-                <Grid className='sum'>1.52</Grid>
+                <Grid className='sum'>1.500</Grid>
                 <Grid className='gain green'>+1.25%</Grid>
               </Grid>
               <Grid item xs={4}>
                 <Grid className='title'>BTC/USDT</Grid>
-                <Grid className='sum green'>8220</Grid>
-                <Grid className='gain green'>+14.91%</Grid>
+                <Grid className='sum green'>{prices.data.BTC.quote.USD.price}</Grid>
+                <Grid className={`gain `+prices.data.BTC.quote.USD.percent_change_24h>0?"green":"red"}>{prices.data.BTC.quote.USD.percent_change_24h}%</Grid>
               </Grid>
             </Grid>
             <Divider component="li" className='line' />

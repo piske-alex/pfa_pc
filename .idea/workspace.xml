@@ -4,7 +4,6 @@
     <list default="true" id="33c7a400-888c-4aef-b112-febf5c9a8cb5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/dashboard/dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/dashboard/dashboard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/myWallet/myWallet.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/myWallet/myWallet.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,12 +33,12 @@
     <favorites_list name="pfa-react" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+    <leaf>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pages/dashboard/dashboard.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="839" column="117" selection-start-line="839" selection-start-column="88" selection-end-line="839" selection-end-column="117" />
+            <state relative-caret-position="247">
+              <caret line="402" column="24" selection-start-line="402" selection-start-column="24" selection-end-line="402" selection-end-column="24" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
                 <element signature="e#2514#2728#0" expanded="true" />
@@ -49,97 +48,13 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/public/js/blockchain-utils.js">
+        <entry file="file://$PROJECT_DIR$/src/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="277">
-              <caret line="338" column="17" lean-forward="true" selection-start-line="338" selection-start-column="17" selection-end-line="338" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/aboutUs/aboutUs.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="164">
-              <caret line="229" column="99" selection-start-line="229" selection-start-column="99" selection-end-line="229" selection-end-column="99" />
+            <state relative-caret-position="3240">
+              <caret line="216" column="23" lean-forward="true" selection-start-line="216" selection-start-column="23" selection-end-line="216" selection-end-column="23" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/loginAccountPage/loginAccountPage.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="25" selection-start-line="25" selection-end-line="46" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/createAccountPage/createAccountPage.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="231" column="21" selection-start-line="231" selection-start-column="21" selection-end-line="231" selection-end-column="21" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/pages/myWallet/myWallet.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="717" column="69" lean-forward="true" selection-start-line="717" selection-start-column="69" selection-end-line="717" selection-end-column="69" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/convertPage/convertPage.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-88">
-              <caret line="999" column="43" selection-start-line="999" selection-start-column="40" selection-end-line="999" selection-end-column="43" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/index.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-187">
-              <caret line="18" column="29" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/package.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="33" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/historyPage.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="32" column="15" selection-start-line="32" selection-start-column="15" selection-end-line="32" selection-end-column="15" />
             </state>
           </provider>
         </entry>
@@ -156,9 +71,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>sendUSD</find>
-      <find>sendU</find>
-      <find>HAD</find>
       <find>5d12c2c615e6567583.png</find>
       <find>icons</find>
       <find>CopyB</find>
@@ -174,7 +86,6 @@
       <find>jsQR</find>
       <find>handleScanErr</find>
       <find>pfaB</find>
-      <find>sendTok</find>
       <find>send</find>
       <find>sendEthe</find>
       <find>history</find>
@@ -184,8 +95,12 @@
       <find>buy</find>
       <find>sendHistory</find>
       <find>sca</find>
-      <find>scanModal</find>
       <find>IHAD</find>
+      <find>scanModal</find>
+      <find>handleScan</find>
+      <find>slice</find>
+      <find>setSendTo</find>
+      <find>sendTok</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -247,8 +162,8 @@
         <option value="$PROJECT_DIR$/src/pages/aboutUs/aboutUs.js" />
         <option value="$PROJECT_DIR$/src/pages/convertPage/convertPage.js" />
         <option value="$PROJECT_DIR$/src/public/js/blockchain-utils.js" />
-        <option value="$PROJECT_DIR$/src/pages/dashboard/dashboard.js" />
         <option value="$PROJECT_DIR$/src/pages/myWallet/myWallet.js" />
+        <option value="$PROJECT_DIR$/src/pages/dashboard/dashboard.js" />
       </list>
     </option>
   </component>
@@ -470,21 +385,8 @@
       <workItem from="1561718737472" duration="8507000" />
       <workItem from="1561820149343" duration="39797000" />
       <workItem from="1562292759773" duration="17278000" />
-      <workItem from="1562777082663" duration="9712000" />
-    </task>
-    <task id="LOCAL-00011" summary="Implement IHAD functions">
-      <created>1559358587194</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1559358587195</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Hide UI bug due to broken tokenBalance">
-      <created>1559362191600</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1559362191600</updated>
+      <workItem from="1562777082663" duration="10572000" />
+      <workItem from="1563084068866" duration="1895000" />
     </task>
     <task id="LOCAL-00013" summary="Build cordova and android app">
       <created>1559364500462</created>
@@ -815,11 +717,25 @@
       <option name="project" value="LOCAL" />
       <updated>1562947880788</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="qr border">
+      <created>1562948135275</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1562948135276</updated>
+    </task>
+    <task id="LOCAL-00061" summary="qr border">
+      <created>1562989953973</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1562989953973</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="253998000" />
+    <option name="totallyTimeSpent" value="256753000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -832,7 +748,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="797" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49787235" visible="true" weight="0.18957011" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -915,13 +830,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/cordova/www/manifest.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/LaunchImage.launchimage/Default@2x~iphone.png" />
     <entry file="file://$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/LaunchImage.launchimage/Default-667h.png" />
     <entry file="file://$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/LaunchImage.launchimage/Default-Landscape-736h.png" />
@@ -995,13 +903,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2166">
-          <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/historyPage.js" />
     <entry file="file://$PROJECT_DIR$/cordova/www/index.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -1053,16 +954,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/createAccountPage/createAccountPage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="231" column="21" selection-start-line="231" selection-start-column="21" selection-end-line="231" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/convertPage/convertPage.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-88">
@@ -1073,9 +964,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/public/js/blockchain-utils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2460">
+          <caret line="170" column="19" selection-start-line="170" selection-start-column="19" selection-end-line="170" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../wordpress 2/wp-includes/js/dist/vendor/moment.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="51668" selection-start-column="51668" selection-end-column="51668" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/aboutUs/aboutUs.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
+        <state relative-caret-position="3150">
           <caret line="229" column="99" selection-start-line="229" selection-start-column="99" selection-end-line="229" selection-end-column="99" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
@@ -1085,7 +990,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/loginAccountPage/loginAccountPage.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
+        <state relative-caret-position="60">
           <caret line="25" selection-start-line="25" selection-end-line="46" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
@@ -1093,30 +998,43 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/public/js/blockchain-utils.js">
+    <entry file="file://$PROJECT_DIR$/src/pages/createAccountPage/createAccountPage.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="338" column="17" lean-forward="true" selection-start-line="338" selection-start-column="17" selection-end-line="338" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/dashboard/dashboard.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="839" column="117" selection-start-line="839" selection-start-column="88" selection-end-line="839" selection-end-column="117" />
+        <state relative-caret-position="3195">
+          <caret line="231" column="21" selection-start-line="231" selection-start-column="21" selection-end-line="231" selection-end-column="21" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
-            <element signature="e#2514#2728#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/myWallet/myWallet.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="717" column="69" lean-forward="true" selection-start-line="717" selection-start-column="69" selection-end-line="717" selection-end-column="69" />
+        <state relative-caret-position="2535">
+          <caret line="235" column="35" lean-forward="true" selection-start-line="235" selection-start-column="6" selection-end-line="235" selection-end-column="35" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3240">
+          <caret line="216" column="23" lean-forward="true" selection-start-line="216" selection-start-column="23" selection-end-line="216" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/dashboard/dashboard.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="402" column="24" selection-start-line="402" selection-start-column="24" selection-end-line="402" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#2514#2728#0" expanded="true" />
           </folding>
         </state>
       </provider>
