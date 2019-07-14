@@ -722,7 +722,7 @@ export async function sendUSDT(addr,amount,acctobj,memo) {
   let storeobj = {
     from:acctobj.address,
     to:addr,
-    type:symbol,
+    type:"USDT",
     amt:amount,
     time:dateString
   }
