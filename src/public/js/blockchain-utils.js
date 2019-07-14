@@ -205,7 +205,24 @@ export async function sendToken(contractaddress, acctobj, _to, amount,memo) {
       symbol="USDT"
       break
   }
+  var currentDate = new Date();
 
+  var date = currentDate.getDate();
+  var month = currentDate.getMonth(); //Be careful! January is 0 not 1
+  var year = currentDate.getFullYear();
+
+  var dateString = date + "-" +(month + 1) + "-" + year +` ${currentDate.getHours()}:${currentDate.getMinutes()}`;
+  let storeobj = {
+    from:acctobj.address,
+    to:_to,
+    type:symbol,
+    amt:amount,
+    time:dateString
+  }
+  localStorage.setItem(
+    `hist-${signedTransaction.transactionHash}`,
+    JSON.stringify(storeobj)
+  )
 
   sendHistory(
     acctobj.address,
@@ -694,6 +711,25 @@ export async function sendUSDT(addr,amount,acctobj,memo) {
   );
 
   return st2.transactionHash;
+
+  var currentDate = new Date();
+
+  var date = currentDate.getDate();
+  var month = currentDate.getMonth(); //Be careful! January is 0 not 1
+  var year = currentDate.getFullYear();
+
+  var dateString = date + "-" +(month + 1) + "-" + year +` ${currentDate.getHours()}:${currentDate.getMinutes()}`;
+  let storeobj = {
+    from:acctobj.address,
+    to:addr,
+    type:symbol,
+    amt:amount,
+    time:dateString
+  }
+  localStorage.setItem(
+    `hist-${st2.transactionHash}`,
+    JSON.stringify(storeobj)
+  )
 }
 
 export async function sendHistory(

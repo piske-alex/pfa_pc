@@ -963,9 +963,7 @@ function Dashboard({
             spacing={2}
             style={{ marginLeft: "10px", marginRight: "10px" }}
           >
-            <p>
-              由: {tradeDetails.from}
-            </p>
+            <p>發送地址: {tradeDetails.from}</p>
             <p>目標地址:	{tradeDetails.to}</p>
             <p>種類: {tradeDetails.type}</p>
             <p>數量: {tradeDetails.amt}</p>

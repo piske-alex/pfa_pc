@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="33c7a400-888c-4aef-b112-febf5c9a8cb5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/dashboard/dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/dashboard/dashboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/myWallet/myWallet.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/myWallet/myWallet.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/public/js/blockchain-utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/js/blockchain-utils.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,14 +35,47 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/dashboard/dashboard.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="410" column="77" selection-start-line="410" selection-start-column="77" selection-end-line="410" selection-end-column="77" />
+            <state relative-caret-position="11856">
+              <caret line="1180" column="51" selection-start-line="1180" selection-start-column="36" selection-end-line="1180" selection-end-column="51" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
                 <element signature="e#2514#2728#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/public/js/blockchain-utils.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="735" column="10" lean-forward="true" selection-start-line="735" selection-start-column="10" selection-end-line="735" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/accountManagerPanel/accountManagerPanel.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="326">
+              <caret line="62" column="31" lean-forward="true" selection-start-line="62" selection-start-column="31" selection-end-line="62" selection-end-column="31" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/foot/footNavigation.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="10" column="20" lean-forward="true" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -52,6 +86,18 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="3240">
               <caret line="216" column="23" lean-forward="true" selection-start-line="216" selection-start-column="23" selection-end-line="216" selection-end-column="23" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/myWallet/myWallet.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="196">
+              <caret line="965" column="19" selection-start-line="965" selection-start-column="19" selection-end-line="965" selection-end-column="19" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -71,9 +117,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>5d12c2c615e6567583.png</find>
-      <find>icons</find>
-      <find>CopyB</find>
       <find>複製</find>
       <find>color</find>
       <find>seePriv</find>
@@ -101,6 +144,9 @@
       <find>slice</find>
       <find>setSendTo</find>
       <find>sendTok</find>
+      <find>prices</find>
+      <find>sendEth</find>
+      <find>handletosModalO</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -161,9 +207,9 @@
         <option value="$PROJECT_DIR$/src/pages/loginAccountPage/loginAccountPage.js" />
         <option value="$PROJECT_DIR$/src/pages/aboutUs/aboutUs.js" />
         <option value="$PROJECT_DIR$/src/pages/convertPage/convertPage.js" />
-        <option value="$PROJECT_DIR$/src/public/js/blockchain-utils.js" />
-        <option value="$PROJECT_DIR$/src/pages/myWallet/myWallet.js" />
         <option value="$PROJECT_DIR$/src/pages/dashboard/dashboard.js" />
+        <option value="$PROJECT_DIR$/src/pages/myWallet/myWallet.js" />
+        <option value="$PROJECT_DIR$/src/public/js/blockchain-utils.js" />
       </list>
     </option>
   </component>
@@ -210,13 +256,6 @@
               <item name="pfa_pc" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="aboutUs" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pfa_pc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pfa_pc" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
               <item name="accountManagerPanel" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -232,6 +271,13 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
               <item name="dashboard" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pfa_pc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pfa_pc" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="foot" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="pfa_pc" type="b2602c69:ProjectViewProjectNode" />
@@ -386,21 +432,7 @@
       <workItem from="1561820149343" duration="39797000" />
       <workItem from="1562292759773" duration="17278000" />
       <workItem from="1562777082663" duration="10572000" />
-      <workItem from="1563084068866" duration="2357000" />
-    </task>
-    <task id="LOCAL-00015" summary="Chane theme and adjust certain ui elements">
-      <created>1559811402341</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1559811402341</updated>
-    </task>
-    <task id="LOCAL-00016" summary="Merge branch 'master' of https://gitlab.com/michaellee8/pfa-react&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/blockchain-utils.js&#10;&#10;convert function completed">
-      <created>1560890749684</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1560890749684</updated>
+      <workItem from="1563084068866" duration="5135000" />
     </task>
     <task id="LOCAL-00017" summary="toggle private key">
       <created>1561044333096</created>
@@ -731,11 +763,25 @@
       <option name="project" value="LOCAL" />
       <updated>1563092880981</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="qr border">
+      <created>1563093336783</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1563093336783</updated>
+    </task>
+    <task id="LOCAL-00065" summary="trade">
+      <created>1563104535824</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1563104535824</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="257215000" />
+    <option name="totallyTimeSpent" value="259993000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -799,7 +845,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Merge branch 'master' of https://gitlab.com/michaellee8/pfa-react&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/blockchain-utils.js&#10;&#10;convert function completed" />
     <MESSAGE value="toggle private key" />
     <MESSAGE value="finalize" />
     <MESSAGE value="add things" />
@@ -824,14 +869,14 @@
     <MESSAGE value="upload photo" />
     <MESSAGE value="scan photo" />
     <MESSAGE value="qr border" />
-    <option name="LAST_COMMIT_MESSAGE" value="qr border" />
+    <MESSAGE value="trade" />
+    <option name="LAST_COMMIT_MESSAGE" value="trade" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/LaunchImage.launchimage/Default@2x~iphone.png" />
     <entry file="file://$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/LaunchImage.launchimage/Default-667h.png" />
     <entry file="file://$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/LaunchImage.launchimage/Default-Landscape-736h.png" />
     <entry file="file://$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/LaunchImage.launchimage/Default-Landscape-2436h.png" />
@@ -921,16 +966,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/foot/footNavigation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="5" selection-start-line="5" selection-end-line="5" selection-end-column="55" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package-lock.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -962,13 +997,6 @@
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/public/js/blockchain-utils.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2460">
-          <caret line="170" column="19" selection-start-line="170" selection-start-column="19" selection-end-line="170" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -1009,16 +1037,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/myWallet/myWallet.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2535">
-          <caret line="235" column="35" lean-forward="true" selection-start-line="235" selection-start-column="6" selection-end-line="235" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3240">
@@ -1029,14 +1047,51 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/foot/footNavigation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="20" lean-forward="true" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/accountManagerPanel/accountManagerPanel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="326">
+          <caret line="62" column="31" lean-forward="true" selection-start-line="62" selection-start-column="31" selection-end-line="62" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/myWallet/myWallet.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="965" column="19" selection-start-line="965" selection-start-column="19" selection-end-line="965" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/dashboard/dashboard.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="410" column="77" selection-start-line="410" selection-start-column="77" selection-end-line="410" selection-end-column="77" />
+        <state relative-caret-position="11856">
+          <caret line="1180" column="51" selection-start-line="1180" selection-start-column="36" selection-end-line="1180" selection-end-column="51" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
             <element signature="e#2514#2728#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/public/js/blockchain-utils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="735" column="10" lean-forward="true" selection-start-line="735" selection-start-column="10" selection-end-line="735" selection-end-column="10" />
         </state>
       </provider>
     </entry>
