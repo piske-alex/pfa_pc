@@ -407,11 +407,11 @@ function Dashboard({
         let price = await h.json();
         console.log(price)
         setPrices(price);
-        setList([{ key: "PFA", price: 1.000, qty: Math.random()*800+8000, color: '' },
+        setList([{ key: "PFA", price: 1.000, qty: Math.random()*800+8000, color: 'green' },
           { key: "HAD", price: 1.500, qty: Math.random()*800+6000, color: 'green' },
-          { key: "BTC", price: price.data.BTC.quote.USD.price, qty: price.data.BTC.quote.USD.volume_24h, color: 'red' },
-          { key: "XRP", price: price.data.XRP.quote.USD.price, qty: price.data.XRP.quote.USD.volume_24h, color: 'green' },
-          { key: "ETH", price: price.data.ETH.quote.USD.price, qty: price.data.ETH.quote.USD.volume_24h, color: 'red' },]);
+          { key: "BTC", price: price.data.BTC.quote.USD.price, qty: price.data.BTC.quote.USD.volume_24h, color: price.data.BTC.quote.USD.percent_change_24h>0?"green":"red" },
+          { key: "XRP", price: price.data.XRP.quote.USD.price, qty: price.data.XRP.quote.USD.volume_24h, color: price.data.XRP.quote.USD.percent_change_24h>0?"green":"red" },
+          { key: "ETH", price: price.data.ETH.quote.USD.price, qty: price.data.ETH.quote.USD.volume_24h, color: price.data.ETH.quote.USD.percent_change_24h>0?"green":"red" },]);
       } catch (err) {
         console.log(err);
       }
@@ -578,16 +578,16 @@ function Dashboard({
               <Grid item xs={4}>
                 <Grid className='title'>PFA/USDT</Grid>
                 <Grid className='sum'>1.000</Grid>
-                <Grid className='gain red'>-1.58%</Grid>
+                <Grid className='gain red'>+0.001%</Grid>
               </Grid>
               <Grid item xs={4} className='center'>
                 <Grid className='title'>HAD/USDT</Grid>
                 <Grid className='sum'>1.500</Grid>
-                <Grid className='gain green'>+1.25%</Grid>
+                <Grid className='gain green'>+0.001%</Grid>
               </Grid>
               <Grid item xs={4}>
                 <Grid className='title'>BTC/USDT</Grid>
-                <Grid className='sum green'>{prices.data.BTC.quote.USD.price}</Grid>
+                <Grid className={'sum '+prices.data.BTC.quote.USD.percent_change_24h>0?"green":"red"}>{prices.data.BTC.quote.USD.price}</Grid>
                 <Grid className={`gain `+prices.data.BTC.quote.USD.percent_change_24h>0?"green":"red"}>{prices.data.BTC.quote.USD.percent_change_24h}%</Grid>
               </Grid>
             </Grid>
