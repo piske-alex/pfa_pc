@@ -159,7 +159,8 @@ export async function sendEther(acctobj, toa, valuea,memo) {
     to:toa,
     type:"PFA",
     amt:valuea,
-    time:dateString
+    time:dateString,
+    memo:memo
   }
   localStorage.setItem(
     `hist-${signedTransaction.transactionHash}`,
@@ -217,7 +218,8 @@ export async function sendToken(contractaddress, acctobj, _to, amount,memo) {
     to:_to,
     type:symbol,
     amt:amount,
-    time:dateString
+    time:dateString,
+    memo:memo
   }
   localStorage.setItem(
     `hist-${signedTransaction.transactionHash}`,
@@ -724,7 +726,8 @@ export async function sendUSDT(addr,amount,acctobj,memo) {
     to:addr,
     type:"USDT",
     amt:amount,
-    time:dateString
+    time:dateString,
+    memo:memo
   }
   localStorage.setItem(
     `hist-${st2.transactionHash}`,

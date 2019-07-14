@@ -678,7 +678,7 @@ function Dashboard({
                           entry.currency.toLowerCase() === currencyDropdownValue,
                       )*/
                         .map(entry => (
-                          <ListItem alignItems="flex-start" onClick={()=>{
+                          <ListItem alignItems="flex-start" style={{paddingTop:"0px",paddingBottom:"0px"}} onClick={()=>{
                             handleTradeModalOpen(entry.hash)
                           }}>
                             {entry.type === "in" ? (
@@ -967,6 +967,7 @@ function Dashboard({
             <p>目標地址:	{tradeDetails.to}</p>
             <p>種類: {tradeDetails.type}</p>
             <p>數量: {tradeDetails.amt}</p>
+            <p>備註: {tradeDetails.memo}</p>
             <p>時間: {tradeDetails.time}</p>
           </Grid>
         </div>
