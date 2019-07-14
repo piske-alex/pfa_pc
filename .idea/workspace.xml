@@ -37,8 +37,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pages/dashboard/dashboard.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="402" column="24" selection-start-line="402" selection-start-column="24" selection-end-line="402" selection-end-column="24" />
+            <state relative-caret-position="135">
+              <caret line="410" column="77" selection-start-line="410" selection-start-column="77" selection-end-line="410" selection-end-column="77" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
                 <element signature="e#2514#2728#0" expanded="true" />
@@ -386,21 +386,7 @@
       <workItem from="1561820149343" duration="39797000" />
       <workItem from="1562292759773" duration="17278000" />
       <workItem from="1562777082663" duration="10572000" />
-      <workItem from="1563084068866" duration="1895000" />
-    </task>
-    <task id="LOCAL-00013" summary="Build cordova and android app">
-      <created>1559364500462</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1559364500462</updated>
-    </task>
-    <task id="LOCAL-00014" summary="FINISH!!!">
-      <created>1559411900792</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1559411900792</updated>
+      <workItem from="1563084068866" duration="2357000" />
     </task>
     <task id="LOCAL-00015" summary="Chane theme and adjust certain ui elements">
       <created>1559811402341</created>
@@ -731,11 +717,25 @@
       <option name="project" value="LOCAL" />
       <updated>1562989953973</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="qr border">
+      <created>1563092597282</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1563092597284</updated>
+    </task>
+    <task id="LOCAL-00063" summary="qr border">
+      <created>1563092880981</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1563092880981</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="256753000" />
+    <option name="totallyTimeSpent" value="257215000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -748,6 +748,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="797" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49787235" visible="true" weight="0.18957011" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -1030,8 +1031,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/dashboard/dashboard.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="402" column="24" selection-start-line="402" selection-start-column="24" selection-end-line="402" selection-end-column="24" />
+        <state relative-caret-position="135">
+          <caret line="410" column="77" selection-start-line="410" selection-start-column="77" selection-end-line="410" selection-end-column="77" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
             <element signature="e#2514#2728#0" expanded="true" />
