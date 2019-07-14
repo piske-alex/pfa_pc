@@ -147,6 +147,24 @@ export async function sendEther(acctobj, toa, valuea,memo) {
     "PFA",
     memo
   );
+  var currentDate = new Date();
+
+  var date = currentDate.getDate();
+  var month = currentDate.getMonth(); //Be careful! January is 0 not 1
+  var year = currentDate.getFullYear();
+
+  var dateString = date + "-" +(month + 1) + "-" + year +` ${currentDate.getHours()}:${currentDate.getMinutes()}`;
+  let storeobj = {
+    from:acctobj.address,
+    to:toa,
+    type:"PFA",
+    amt:valuea,
+    time:dateString
+  }
+  localStorage.setItem(
+    `hist-${signedTransaction.transactionHash}`,
+    JSON.stringify(storeobj)
+  )
 }
 
 export const ihadAddress = "0x33259094d0341c908d1d589b0677a714e58a9183";

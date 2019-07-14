@@ -247,6 +247,28 @@ function Dashboard({
     setScanModalOpen(false);
   };
   const [modalOpen, setModalOpen] = React.useState(false);
+  const [tradeModalOpen, setTradeModalOpen] = React.useState(false);
+  const handleTradeModalClose = ()=>{
+    setTradeModalOpen(false);
+  }
+  const [noinfoSnackbarOpen, setnoinfoSnackbarOpen] = React.useState(false);
+  const handlenoinfoSnackbarClose = ()=>{
+    setnoinfoSnackbarOpen(false);
+  }
+  const [tradeDetails,setTradeDetails] = React.useState({});
+  const handleTradeModalOpen = (hash)=>{
+    let dt = localStorage.getItem('hist-'+hash)
+    console.log(dt)
+    if(dt==null){
+      setnoinfoSnackbarOpen(true);
+    }else{
+      setTradeDetails(JSON.parse(dt))
+      setTradeModalOpen(true)
+    }
+
+
+  }
+
   const [longText, setLongText] = React.useState("undefinede");
   const [modalTitle, setModalTitle] = React.useState("undefinede");
   const handleModalOpen = () => {
@@ -656,7 +678,9 @@ function Dashboard({
                           entry.currency.toLowerCase() === currencyDropdownValue,
                       )*/
                         .map(entry => (
-                          <ListItem alignItems="flex-start">
+                          <ListItem alignItems="flex-start" onClick={()=>{
+                            handleTradeModalOpen(entry.hash)
+                          }}>
                             {entry.type === "in" ? (
                               <ListItemIcon>
                                 <ReceiveIcon />
@@ -923,6 +947,32 @@ function Dashboard({
         </div>
       </Modal>
 
+      <Modal open={tradeModalOpen} onBackdropClick={handleTradeModalClose}>
+        <div className={classes.modalPaper}>
+          <div className={classes.toolbarIcon}>
+            <Typography variant={"h5"} style={{ marginRight: "150px" }}>{`交易憑證`}</Typography>
+            <IconButton onClick={handleTradeModalClose}>
+              <CloseIcon />
+            </IconButton>
+          </div>
+          <Grid
+            container
+            direction={"column"}
+            alignItems={"flex-start"}
+            justify={"space-evenly"}
+            spacing={2}
+            style={{ marginLeft: "10px", marginRight: "10px" }}
+          >
+            <p>
+              由: {tradeDetails.from}
+            </p>
+            <p>目標地址:	{tradeDetails.to}</p>
+            <p>種類: {tradeDetails.type}</p>
+            <p>數量: {tradeDetails.amt}</p>
+            <p>時間: {tradeDetails.time}</p>
+          </Grid>
+        </div>
+      </Modal>
 
       <Snackbar
         open={transactionFinishedSnackbarOpen}
@@ -941,6 +991,12 @@ function Dashboard({
         autoHideDuration={6000}
         onClose={handleDepositfinishedSnackbarClose}
         message={"收到 " + depositAmount + " USDT。你可以繼續充值。"}
+      />
+      <Snackbar
+        open={noinfoSnackbarOpen}
+        autoHideDuration={6000}
+        onClose={handlenoinfoSnackbarClose}
+        message={"沒有相關資料"}
       />
     </React.Fragment>
   );
