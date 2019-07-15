@@ -407,7 +407,7 @@ function Dashboard({
         let price = await h.json();
         console.log(price)
         setPrices(price);
-        setList([{ key: "PFA", price: 1.00005, qty: (Math.random()*800+8000).toFixed(2), color: 'green' },
+        setList([{ key: "PFA", price: 1.000005, qty: (Math.random()*800+8000).toFixed(2), color: 'green' },
           { key: "HAD", price: 1.500031, qty: (Math.random()*800+6000).toFixed(2), color: 'green' },
           { key: "BTC", price: (price.data.BTC.quote.USD.price).toFixed(3), qty: (price.data.BTC.quote.USD.volume_24h).toFixed(2), color: price.data.BTC.quote.USD.percent_change_24h>0?"green":"red" },
           { key: "XRP", price: (price.data.XRP.quote.USD.price).toFixed(3), qty: (price.data.XRP.quote.USD.volume_24h).toFixed(2), color: price.data.XRP.quote.USD.percent_change_24h>0?"green":"red" },
