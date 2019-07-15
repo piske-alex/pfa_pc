@@ -709,7 +709,7 @@ function Dashboard({
                                 } ${entry.absvalue} ${entry.currency}`}
                               secondary={
                                 <React.Fragment>
-                                  <Typography variant={"body2"}>
+                                  <Typography variant={"body2"} style={{maxWidth:"250px",overflowX:"auto"}}>
                                     {`${entry.counterparty}`}
                                   </Typography>
                                   <Typography variant={"body2"}>

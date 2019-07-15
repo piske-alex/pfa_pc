@@ -3,33 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="33c7a400-888c-4aef-b112-febf5c9a8cb5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/config.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/asset-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/asset-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/ic_launcher.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/precache-manifest.7f47bb86155489c6c7e4639a6d349887.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/service-worker.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/service-worker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/static/js/2.7c993ba2.chunk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/static/js/2.7c993ba2.chunk.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/static/js/main.353bfdfd.chunk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/static/js/main.353bfdfd.chunk.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/res/drawable-land-hdpi/screen.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/res/drawable-land-ldpi/screen.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/res/drawable-land-mdpi/screen.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/res/drawable-land-xhdpi/screen.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/res/drawable-land-xxhdpi/screen.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/res/drawable-land-xxxhdpi/screen.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/res/drawable-port-hdpi/screen.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/res/drawable-port-ldpi/screen.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/res/drawable-port-mdpi/screen.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/res/drawable-port-xhdpi/screen.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/res/drawable-port-xxhdpi/screen.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/res/drawable-port-xxxhdpi/screen.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/res/mipmap-mdpi/ic_launcher.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/res/xml/config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/res/xml/config.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/myWallet/myWallet.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/myWallet/myWallet.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -59,11 +33,11 @@
     <favorites_list name="pfa-react" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/dashboard/dashboard.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
+            <state relative-caret-position="11835">
               <caret line="848" column="35" selection-start-line="848" selection-start-column="35" selection-end-line="848" selection-end-column="35" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
@@ -86,7 +60,7 @@
         <entry file="file://$PROJECT_DIR$/public/ver.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="15">
-              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
             </state>
           </provider>
         </entry>
@@ -117,8 +91,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cordova/platforms/android/cordova/build">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-17">
-              <caret line="19" column="2" lean-forward="true" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="2" />
+            <state relative-caret-position="285">
+              <caret line="19" column="2" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="2" />
             </state>
           </provider>
         </entry>
@@ -126,17 +100,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cordova/platforms/android/cordova/lib/AndroidProject.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
+            <state relative-caret-position="315">
               <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pages/myWallet/myWallet.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="298">
-              <caret line="907" column="46" selection-start-line="907" selection-start-column="29" selection-end-line="907" selection-end-column="46" />
+            <state relative-caret-position="263">
+              <caret line="711" column="85" selection-start-line="711" selection-start-column="85" selection-end-line="711" selection-end-column="85" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -147,17 +121,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
+            <state relative-caret-position="345">
               <caret line="23" column="14" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="14" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cordova/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="24" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
+            <state relative-caret-position="255">
+              <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -262,11 +236,11 @@
         <option value="$PROJECT_DIR$/src/public/js/blockchain-utils.js" />
         <option value="$PROJECT_DIR$/src/public/js/translation.js" />
         <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/src/pages/myWallet/myWallet.js" />
         <option value="$PROJECT_DIR$/src/pages/dashboard/dashboard.js" />
         <option value="$PROJECT_DIR$/cordova/www/index.html" />
         <option value="$PROJECT_DIR$/public/ver.html" />
         <option value="$PROJECT_DIR$/cordova/package.json" />
+        <option value="$PROJECT_DIR$/src/pages/myWallet/myWallet.js" />
       </list>
     </option>
   </component>
@@ -296,74 +270,6 @@
             <path>
               <item name="pfa_pc" type="b2602c69:ProjectViewProjectNode" />
               <item name="pfa_pc" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pfa_pc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pfa_pc" type="462c0819:PsiDirectoryNode" />
-              <item name="cordova" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pfa_pc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pfa_pc" type="462c0819:PsiDirectoryNode" />
-              <item name="cordova" type="462c0819:PsiDirectoryNode" />
-              <item name="platforms" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pfa_pc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pfa_pc" type="462c0819:PsiDirectoryNode" />
-              <item name="cordova" type="462c0819:PsiDirectoryNode" />
-              <item name="platforms" type="462c0819:PsiDirectoryNode" />
-              <item name="android" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pfa_pc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pfa_pc" type="462c0819:PsiDirectoryNode" />
-              <item name="cordova" type="462c0819:PsiDirectoryNode" />
-              <item name="platforms" type="462c0819:PsiDirectoryNode" />
-              <item name="android" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pfa_pc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pfa_pc" type="462c0819:PsiDirectoryNode" />
-              <item name="cordova" type="462c0819:PsiDirectoryNode" />
-              <item name="platforms" type="462c0819:PsiDirectoryNode" />
-              <item name="android" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pfa_pc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pfa_pc" type="462c0819:PsiDirectoryNode" />
-              <item name="cordova" type="462c0819:PsiDirectoryNode" />
-              <item name="platforms" type="462c0819:PsiDirectoryNode" />
-              <item name="android" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pfa_pc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pfa_pc" type="462c0819:PsiDirectoryNode" />
-              <item name="cordova" type="462c0819:PsiDirectoryNode" />
-              <item name="platforms" type="462c0819:PsiDirectoryNode" />
-              <item name="android" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pfa_pc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pfa_pc" type="462c0819:PsiDirectoryNode" />
-              <item name="cordova" type="462c0819:PsiDirectoryNode" />
-              <item name="platforms" type="462c0819:PsiDirectoryNode" />
-              <item name="android" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
-              <item name="mipmap-mdpi" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="pfa_pc" type="b2602c69:ProjectViewProjectNode" />
@@ -521,14 +427,8 @@
       <workItem from="1561820149343" duration="39797000" />
       <workItem from="1562292759773" duration="17278000" />
       <workItem from="1562777082663" duration="10572000" />
-      <workItem from="1563084068866" duration="13559000" />
-    </task>
-    <task id="LOCAL-00029" summary="new version">
-      <created>1561776822725</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1561776822725</updated>
+      <workItem from="1563084068866" duration="14527000" />
+      <workItem from="1563201485871" duration="224000" />
     </task>
     <task id="LOCAL-00030" summary="new version">
       <created>1561777435967</created>
@@ -866,11 +766,18 @@
       <option name="project" value="LOCAL" />
       <updated>1563189653601</updated>
     </task>
-    <option name="localTasksCounter" value="78" />
+    <task id="LOCAL-00078" summary="trade">
+      <created>1563194116831</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1563194116840</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="268417000" />
+    <option name="totallyTimeSpent" value="269609000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1024,9 +931,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package-lock.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/package-lock.json" />
     <entry file="file://$PROJECT_DIR$/src/historyPage.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
@@ -1132,26 +1037,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="23" column="14" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/myWallet/myWallet.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="907" column="46" selection-start-line="907" selection-start-column="29" selection-end-line="907" selection-end-column="46" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/dashboard/dashboard.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
+        <state relative-caret-position="11835">
           <caret line="848" column="35" selection-start-line="848" selection-start-column="35" selection-end-line="848" selection-end-column="35" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
@@ -1170,11 +1058,12 @@
     <entry file="file://$PROJECT_DIR$/public/ver.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="text-editor" />
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor>
@@ -1183,7 +1072,6 @@
           <second_editor />
         </state>
       </provider>
-      <provider editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/cordova/platforms/android/app/src/main/assets/www/index.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -1196,22 +1084,39 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cordova/platforms/android/cordova/build">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-17">
-          <caret line="19" column="2" lean-forward="true" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="2" />
+        <state relative-caret-position="285">
+          <caret line="19" column="2" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="2" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cordova/platforms/android/cordova/lib/AndroidProject.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
+        <state relative-caret-position="315">
           <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="14" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cordova/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="24" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
+        <state relative-caret-position="255">
+          <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/myWallet/myWallet.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="711" column="85" selection-start-line="711" selection-start-column="85" selection-end-line="711" selection-end-column="85" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
