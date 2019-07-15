@@ -287,7 +287,8 @@ function Dashboard({
 
   const changeTZ = (time) =>{
     let format = 'YYYY-MM-DD HH:mm:ss';
-    return moment(time, format).tz("Asia/Taipei").format(format);
+    //console.log(moment(time, format).tz("America/Toronto").format(format))
+    return moment(time, format).tz("GMT").format(format);
   }
 
   const handleSendAsset = () => {
