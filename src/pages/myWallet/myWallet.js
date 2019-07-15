@@ -288,7 +288,7 @@ function Dashboard({
   const changeTZ = (time) =>{
     let format = 'YYYY-MM-DD HH:mm:ss';
     //console.log(moment(time, format).tz("America/Toronto").format(format))
-    return moment(time, format).tz("GMT").format(format);
+    return moment(time, format).add(8, 'hours').format(format);
   }
 
   const handleSendAsset = () => {
