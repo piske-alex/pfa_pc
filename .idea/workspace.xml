@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="33c7a400-888c-4aef-b112-febf5c9a8cb5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/dashboard/dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/dashboard/dashboard.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/myWallet/myWallet.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/myWallet/myWallet.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -34,11 +35,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pages/dashboard/dashboard.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="9229">
-              <caret line="1180" column="51" selection-start-line="1180" selection-start-column="36" selection-end-line="1180" selection-end-column="51" />
+            <state relative-caret-position="213">
+              <caret line="407" column="26" lean-forward="true" selection-start-line="407" selection-start-column="26" selection-end-line="407" selection-end-column="26" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
                 <element signature="e#2514#2728#0" expanded="true" />
@@ -92,14 +93,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/myWallet/myWallet.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="955" column="25" lean-forward="true" selection-start-line="955" selection-start-column="25" selection-end-line="955" selection-end-column="25" />
+            <state relative-caret-position="206">
+              <caret line="704" column="61" lean-forward="true" selection-start-line="704" selection-start-column="61" selection-end-line="704" selection-end-column="61" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/public/js/translation.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="139">
+              <caret line="254" column="8" selection-start-line="254" selection-start-column="7" selection-end-line="254" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -116,9 +126,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>seePriv</find>
-      <find>Hi</find>
-      <find>History</find>
       <find>Qr</find>
       <find>sendHis</find>
       <find>QR</find>
@@ -146,6 +153,9 @@
       <find>sendUSDT</find>
       <find>storeobj</find>
       <find>handletosModalO</find>
+      <find>提現</find>
+      <find>提</find>
+      <find>after.</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -192,7 +202,6 @@
         <option value="$PROJECT_DIR$/src/blockchain-utils.js" />
         <option value="$PROJECT_DIR$/src/pages/foot/footNavigation.js" />
         <option value="$PROJECT_DIR$/src/App.js" />
-        <option value="$PROJECT_DIR$/src/public/js/translation.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/public/ver.html" />
         <option value="$PROJECT_DIR$/public/index.html" />
@@ -206,9 +215,10 @@
         <option value="$PROJECT_DIR$/src/pages/loginAccountPage/loginAccountPage.js" />
         <option value="$PROJECT_DIR$/src/pages/aboutUs/aboutUs.js" />
         <option value="$PROJECT_DIR$/src/pages/convertPage/convertPage.js" />
-        <option value="$PROJECT_DIR$/src/pages/dashboard/dashboard.js" />
         <option value="$PROJECT_DIR$/src/public/js/blockchain-utils.js" />
+        <option value="$PROJECT_DIR$/src/public/js/translation.js" />
         <option value="$PROJECT_DIR$/src/pages/myWallet/myWallet.js" />
+        <option value="$PROJECT_DIR$/src/pages/dashboard/dashboard.js" />
       </list>
     </option>
   </component>
@@ -406,14 +416,7 @@
       <workItem from="1561820149343" duration="39797000" />
       <workItem from="1562292759773" duration="17278000" />
       <workItem from="1562777082663" duration="10572000" />
-      <workItem from="1563084068866" duration="6406000" />
-    </task>
-    <task id="LOCAL-00020" summary="toggle private key">
-      <created>1561209776860</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1561209776861</updated>
+      <workItem from="1563084068866" duration="7478000" />
     </task>
     <task id="LOCAL-00021" summary="toggle private key">
       <created>1561209832174</created>
@@ -751,11 +754,18 @@
       <option name="project" value="LOCAL" />
       <updated>1563106279827</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="trade">
+      <created>1563115434732</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1563115434733</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="261264000" />
+    <option name="totallyTimeSpent" value="262336000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -768,6 +778,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="797" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49787235" visible="true" weight="0.18957011" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -850,7 +861,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/LaunchImage.launchimage/Default-667h.png" />
     <entry file="file://$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/LaunchImage.launchimage/Default-Landscape-736h.png" />
     <entry file="file://$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/LaunchImage.launchimage/Default-Landscape-2436h.png" />
     <entry file="file://$PROJECT_DIR$/cordova/platforms/ios/HelloCordova/Images.xcassets/LaunchImage.launchimage/Default-Portrait@2x~ipad.png" />
@@ -1047,23 +1057,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/dashboard/dashboard.js">
+    <entry file="file://$PROJECT_DIR$/src/public/js/translation.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9229">
-          <caret line="1180" column="51" selection-start-line="1180" selection-start-column="36" selection-end-line="1180" selection-end-column="51" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-            <element signature="e#2514#2728#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="139">
+          <caret line="254" column="8" selection-start-line="254" selection-start-column="7" selection-end-line="254" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/myWallet/myWallet.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="955" column="25" lean-forward="true" selection-start-line="955" selection-start-column="25" selection-end-line="955" selection-end-column="25" />
+        <state relative-caret-position="206">
+          <caret line="704" column="61" lean-forward="true" selection-start-line="704" selection-start-column="61" selection-end-line="704" selection-end-column="61" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/dashboard/dashboard.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="407" column="26" lean-forward="true" selection-start-line="407" selection-start-column="26" selection-end-line="407" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#2514#2728#0" expanded="true" />
           </folding>
         </state>
       </provider>

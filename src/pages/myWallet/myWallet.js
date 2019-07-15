@@ -707,7 +707,7 @@ function Dashboard({
                                   <Typography variant={"body2"}>
                                     {`${decodeURIComponent(entry.memo).slice(0,30)}`}
                                   </Typography>
-                                  <Moment fromNow>{entry.time}</Moment>
+                                  <Typography variant={"body2"}>{(entry.time).slice(0,9)} {(entry.time.slice(11,19))}</Typography>
                                 </React.Fragment>
                               }
                             />
