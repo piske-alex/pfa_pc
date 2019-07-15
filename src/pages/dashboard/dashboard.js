@@ -835,7 +835,7 @@ function Dashboard({
               <Grid item>
                 <TextField
                   label={`備註`}
-                  helperText={`備註`}
+                  helperText={`備註可用中英文填寫，最多顯示30字`}
                   value={memo}
                   onChange={handleMemoChange}
                   style={{ width: "280px" }}
