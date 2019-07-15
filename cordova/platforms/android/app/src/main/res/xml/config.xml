@@ -19,7 +19,8 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
-    <icon src="./www/ic_launcher.jpeg" />
+    <icon src="./www/icon.jpeg" />
+    <splash src="black.jpg" />
     <allow-intent href="market:*" />
     <preference name="loglevel" value="DEBUG" />
 </widget>
