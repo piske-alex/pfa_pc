@@ -2,7 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33c7a400-888c-4aef-b112-febf5c9a8cb5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/pages/myWallet/myWallet.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/myWallet/myWallet.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cordova/www/asset-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/www/asset-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cordova/www/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/www/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cordova/www/precache-manifest.0b58072015277499d28887ad7ee797b4.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cordova/www/service-worker.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/www/service-worker.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cordova/www/static/js/2.7c993ba2.chunk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cordova/www/static/js/2.7c993ba2.chunk.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cordova/www/static/js/main.a0449711.chunk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cordova/www/static/js/main.a0449711.chunk.js.map" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,12 +44,33 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/dashboard/dashboard.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="109">
-              <caret line="236" selection-start-line="236" selection-end-line="236" />
+            <state relative-caret-position="231">
+              <caret line="848" column="35" lean-forward="true" selection-start-line="848" selection-start-column="35" selection-end-line="848" selection-end-column="35" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
                 <element signature="e#2512#2726#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/cordova/www/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="2868" selection-start-column="2868" selection-end-column="2868" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor>
+                <caret selection-end-line="1" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -80,22 +109,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/App.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3240">
-              <caret line="216" column="23" selection-start-line="216" selection-start-column="23" selection-end-line="216" selection-end-column="23" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pages/myWallet/myWallet.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="319">
-              <caret line="299" column="46" lean-forward="true" selection-start-line="299" selection-start-column="46" selection-end-line="299" selection-end-column="46" />
+            <state relative-caret-position="298">
+              <caret line="907" column="46" selection-start-line="907" selection-start-column="29" selection-end-line="907" selection-end-column="46" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -169,9 +186,9 @@
       <find>提現</find>
       <find>提</find>
       <find>after.</find>
-      <find>moment</find>
       <find>mom</find>
       <find>changeTZ</find>
+      <find>moment</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -224,7 +241,6 @@
         <option value="$PROJECT_DIR$/cordova/www/manifest.json" />
         <option value="$PROJECT_DIR$/cordova/package.json" />
         <option value="$PROJECT_DIR$/cordova/config.xml" />
-        <option value="$PROJECT_DIR$/cordova/www/index.html" />
         <option value="$PROJECT_DIR$/src/pages/createAccountPage/createAccountPage.js" />
         <option value="$PROJECT_DIR$/src/pages/historyPage.js" />
         <option value="$PROJECT_DIR$/src/pages/loginAccountPage/loginAccountPage.js" />
@@ -232,9 +248,10 @@
         <option value="$PROJECT_DIR$/src/pages/convertPage/convertPage.js" />
         <option value="$PROJECT_DIR$/src/public/js/blockchain-utils.js" />
         <option value="$PROJECT_DIR$/src/public/js/translation.js" />
-        <option value="$PROJECT_DIR$/src/pages/dashboard/dashboard.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/pages/myWallet/myWallet.js" />
+        <option value="$PROJECT_DIR$/src/pages/dashboard/dashboard.js" />
+        <option value="$PROJECT_DIR$/cordova/www/index.html" />
       </list>
     </option>
   </component>
@@ -269,12 +286,6 @@
               <item name="pfa_pc" type="b2602c69:ProjectViewProjectNode" />
               <item name="pfa_pc" type="462c0819:PsiDirectoryNode" />
               <item name="cordova" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pfa_pc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pfa_pc" type="462c0819:PsiDirectoryNode" />
-              <item name="cordova" type="462c0819:PsiDirectoryNode" />
-              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="pfa_pc" type="b2602c69:ProjectViewProjectNode" />
@@ -438,28 +449,7 @@
       <workItem from="1561820149343" duration="39797000" />
       <workItem from="1562292759773" duration="17278000" />
       <workItem from="1562777082663" duration="10572000" />
-      <workItem from="1563084068866" duration="9773000" />
-    </task>
-    <task id="LOCAL-00024" summary="toggle private key">
-      <created>1561224198522</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1561224198522</updated>
-    </task>
-    <task id="LOCAL-00025" summary="toggle private key">
-      <created>1561265291762</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1561265291762</updated>
-    </task>
-    <task id="LOCAL-00026" summary="toggle private key">
-      <created>1561266356050</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1561266356050</updated>
+      <workItem from="1563084068866" duration="11301000" />
     </task>
     <task id="LOCAL-00027" summary="finalize">
       <created>1561274844199</created>
@@ -783,11 +773,32 @@
       <option name="project" value="LOCAL" />
       <updated>1563170004909</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="trade">
+      <created>1563170486348</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1563170486348</updated>
+    </task>
+    <task id="LOCAL-00074" summary="trade">
+      <created>1563170568930</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1563170568931</updated>
+    </task>
+    <task id="LOCAL-00075" summary="trade">
+      <created>1563171970241</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1563171970241</updated>
+    </task>
+    <option name="localTasksCounter" value="76" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="264631000" />
+    <option name="totallyTimeSpent" value="266159000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -935,25 +946,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor>
-            <caret selection-end-line="1" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/historyPage.js" />
-    <entry file="file://$PROJECT_DIR$/cordova/www/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -1071,17 +1064,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/dashboard/dashboard.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="236" selection-start-line="236" selection-end-line="236" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-            <element signature="e#2512#2726#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cordova/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -1098,11 +1080,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/myWallet/myWallet.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="299" column="46" lean-forward="true" selection-start-line="299" selection-start-column="46" selection-end-line="299" selection-end-column="46" />
+        <state relative-caret-position="298">
+          <caret line="907" column="46" selection-start-line="907" selection-start-column="29" selection-end-line="907" selection-end-column="46" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/dashboard/dashboard.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="848" column="35" lean-forward="true" selection-start-line="848" selection-start-column="35" selection-end-line="848" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#2512#2726#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor>
+            <caret selection-end-line="1" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cordova/www/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="2868" selection-start-column="2868" selection-end-column="2868" />
         </state>
       </provider>
     </entry>

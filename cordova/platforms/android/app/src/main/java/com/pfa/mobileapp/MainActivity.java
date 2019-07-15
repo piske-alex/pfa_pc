@@ -69,7 +69,7 @@ class CheckNetClass {
 
 public class MainActivity extends CordovaActivity
 {
-    static String ver ="0.1";
+    static String ver ="0.2";
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
