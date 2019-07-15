@@ -65,6 +65,8 @@ import "./myWallet.css";
 import Config from "../../public/js/config";
 import InputBase from "@material-ui/core/InputBase";
 import Paper from "@material-ui/core/Paper";
+import moment from "moment"
+import "moment-timezone"
 
 const lang = "ch";
 
@@ -282,6 +284,11 @@ function Dashboard({
   const handleSendModalOpen = () => {
     setSendModalOpen(true);
   };
+
+  const changeTZ = (time) =>{
+    let format = 'YYYY-MM-DD HH:mm:ss';
+    return moment(time, format).tz("Asia/Taipei").format(format);
+  }
 
   const handleSendAsset = () => {
     setTransactionCount(transactionCount + 1);
@@ -707,7 +714,7 @@ function Dashboard({
                                   <Typography variant={"body2"}>
                                     {`${decodeURIComponent(entry.memo).slice(0,30)}`}
                                   </Typography>
-                                  <Typography variant={"body2"}>{(entry.time).slice(0,9)} {(entry.time.slice(11,19))}</Typography>
+                                  <Typography variant={"body2"}>{changeTZ(`${(entry.time).slice(0,10)} ${(entry.time.slice(11,19))}`)} (時區：GMT+8)</Typography>
                                 </React.Fragment>
                               }
                             />

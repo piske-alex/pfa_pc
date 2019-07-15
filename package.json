@@ -25,7 +25,8 @@
     "react-qr-scanner": "^0.0.8",
     "react-router-dom": "^5.0.0",
     "react-scripts": "3.0.1",
-    "web3": "^1.0.0-beta.55"
+    "web3": "^1.0.0-beta.55",
+    "moment-timezone": "^0.5.26"
   },
   "scripts": {
     "start": "PORT=3006; react-scripts start",

@@ -40,7 +40,7 @@ import { CopyButton } from "react-copy-button";
 // import ListItemIcon from "@material-ui/core/ListItemIcon";
 // import ReceiveIcon from "@material-ui/icons/CallReceived";
 // import SendIcon from "@material-ui/icons/CallMade";
-// import Moment from "react-moment";
+ import Moment from "react-moment";
 // import { ArrowDownwardSharp, ArrowUpwardSharp } from "@material-ui/icons";
 // import Drawer from "@material-ui/core/Drawer";
 // import AppBar from "@material-ui/core/AppBar";
@@ -73,6 +73,7 @@ import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 import HistoryPage from "../../historyPage";
 import  jsQR  from "jsqr";
 import QrReader from 'react-qr-scanner'
+import moment from "moment";
 
 
 const accountInfoRefreshTime = 20;
@@ -233,6 +234,7 @@ function Dashboard({
   const handleDrawerClose = () => {
     setDrawerOpen(false);
   };
+
   const [memo, setMemo] = React.useState("");
   const handleMemoChange = event => {
     setMemo(event.target.value);
