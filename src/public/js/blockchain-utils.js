@@ -76,7 +76,7 @@ export function readAccount(accountName, paraphrase) {
 }
 
 export function listenUSDTdeposit(USDTaddr,acctobj,callback){
-  const decoder = new InputDataDecoder(minABI);
+  /*const decoder = new InputDataDecoder(minABI);
   let contract = new web3jsETHWS.eth.Contract(minABI, "0xdAC17F958D2ee523a2206206994597C13D831ec7");
   contract.events.Transfer({
     filter: {to: USDTaddr}, // Using an array means OR: e.g. 20 or 23
@@ -109,7 +109,7 @@ export function listenUSDTdeposit(USDTaddr,acctobj,callback){
     .on('changed', function(event){
       // remove event from local database
     })
-    .on('error', console.error);
+    .on('error', console.error);*/
 }
 
 export async function sendEther(acctobj, toa, valuea,memo) {
