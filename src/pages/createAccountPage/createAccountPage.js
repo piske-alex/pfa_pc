@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Paper } from "@material-ui/core";
+import { Grid, Paper, Snackbar } from "@material-ui/core";
 import { HorizontalCenter, VerticalCenter } from "../../public/js/utils";
 import trans from "../../public/js/translation";
 import TextField from "@material-ui/core/TextField";
@@ -159,6 +159,16 @@ const useStyles = makeStyles(theme => ({
 
 export default function CreateAccountPage({ onAccountCreate }) {
   const classes = useStyles();
+  const [
+    accountNotCreatedSnackbarOpen,
+    setAccountNotCreatedSnackbarOpen,
+
+  ] = React.useState(false);
+
+  const handleAccountNotCreatedSnackbarClose = () => {
+    setAccountNotCreatedSnackbarOpen(false);
+  };
+
   const [username, setUsername] = React.useState("");
   const onUsernameChange = event => {
     setUsername(event.target.value);
@@ -190,7 +200,13 @@ export default function CreateAccountPage({ onAccountCreate }) {
   };
 
   const onSumbit = () => {
-    onAccountCreate(username, password, existingPvKey);
+    if (!username.match(/^[0-9a-z]+$/)){
+      setAccountNotCreatedSnackbarOpen(true);
+    }else{
+      onAccountCreate(username, password, existingPvKey);
+    }
+
+
   };
 
   return (
@@ -199,7 +215,7 @@ export default function CreateAccountPage({ onAccountCreate }) {
         <Grid container alignItems={"center"} direction={"column"} spacing={2}>
           <Grid item>
             <FormControl style={{ width: 300 }}>
-              <InputLabel shrink className="inputLabel">{trans.username[lang]}</InputLabel>
+              <InputLabel shrink className="inputLabel" pattern={"[A-Za-z]"} title={"只支援拉丁字元（A-Z）"}>{trans.username[lang]}</InputLabel>
               <BootstrapInput value={username} onChange={onUsernameChange} />
               <FormHelperText className="formHelperText">{username.length > 0? undefined: trans.usernameEmptyWarning[lang]}</FormHelperText>
             </FormControl>
@@ -281,6 +297,12 @@ export default function CreateAccountPage({ onAccountCreate }) {
           </Grid>
         </div>
       </Modal>
+      <Snackbar
+        open={accountNotCreatedSnackbarOpen}
+        autoHideDuration={6000}
+        onClose={handleAccountNotCreatedSnackbarClose}
+        message={"只支援英數字元"}
+      />
     </VerticalCenter>
 
   );
