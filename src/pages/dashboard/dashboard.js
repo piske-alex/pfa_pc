@@ -467,7 +467,7 @@ function Dashboard({
           if(qrDecoded==null){
             alert('未能識別二維碼')
           }else{
-            setSendToAddress(qrDecoded.data);
+            setSendToAddress(qrDecoded.data.slice(5));
           }
 
         });
