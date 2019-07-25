@@ -710,7 +710,7 @@ function Dashboard({
                               secondary={
                                 <React.Fragment>
                                   <Typography variant={"body2"} style={{maxWidth:"250px",overflowX:"auto"}}>
-                                    {`${entry.counterparty}`}
+                                    {`${decodeURIComponent(entry.counterparty)}`}
                                   </Typography>
                                   <Typography variant={"body2"}>
                                     {`${decodeURIComponent(entry.memo).slice(0,30)}`}
