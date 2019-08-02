@@ -589,38 +589,28 @@ function Dashboard({
 
               <Grid item style={{ height: "10px" }} />
               <Grid item>
-                <Grid
-                  container
-                  direction="row"
-                  alignItems="center"
-                  justify="center"
-                >
-                  <Grid item>
-                    <Button
-                      variant="outlined"
-                      onClick={handleBuyModalOpen}
-                      style={{ width: "130px", color: '#C0C0C0',padding:'5px 0px' }}
-                    >
-                      <img src={'/after.png'} className="donateClass" />
-                      <Grid className="rechargeClass">
-                        {t.Recharge[Config.lang]}
-                      </Grid>
-                    </Button>
-                  </Grid>
-                  {/* <Grid item xs={1} /> */}
-                  <Grid item>
-                    <Button
-                      variant="outlined"
-                      onClick={setSendModalOpen}
-                      style={{ width: "130px", color: '#C0C0C0',padding:'5px 0px' }}
-                    >
-                      <img src='https://i.loli.net/2019/06/28/5d15641e8e59187387.png' className="donateClass" />
-                      <Grid className="rechargeClass">
-                        {t.withdrawal[Config.lang]}
-                      </Grid>
-                    </Button>
-                  </Grid>
-                </Grid>
+                <div className = "myWalletTwoBtn">
+                  <Button
+                    variant="outlined"
+                    onClick={handleBuyModalOpen}
+                    style={{ width: "130px", color: '#C0C0C0', padding:'5px 0px', marginRight: 1 }}
+                  >
+                    <img src={'https://minio.koin-exchange.com/avatar/after.png'} className="donateClass" />
+                    <Grid className="rechargeClass">
+                      {t.Recharge[Config.lang]}
+                    </Grid>
+                  </Button>
+                  <Button
+                    variant="outlined"
+                    onClick={setSendModalOpen}
+                    style={{ width: "130px", color: '#C0C0C0', padding:'5px 0px' }}
+                  >
+                    <img src='https://i.loli.net/2019/06/28/5d15641e8e59187387.png' className="donateClass" />
+                    <Grid className="rechargeClass">
+                      {t.withdrawal[Config.lang]}
+                    </Grid>
+                  </Button>
+                </div>
               </Grid>
 
               <Grid style={{ height: '10px', width: '100%', background: 'black', marginTop: '30px' }} />
