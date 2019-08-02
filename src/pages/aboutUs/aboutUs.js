@@ -19,12 +19,8 @@ import { exportAccounts } from "../../public/js/blockchain-utils";
 import { CopyButton } from "react-copy-button";
 import Paper from "@material-ui/core/Paper";
 
-const lang = "ch";
-
 const useStyles = makeStyles(theme => ({
   headBlock: {
-    height: "240px",
-    width: "100%",
     backgroundColor: "#212733",
   },
   head: {
@@ -90,7 +86,7 @@ const useStyles = makeStyles(theme => ({
     padding: "14px",
     outline: "none",
 
-    width: "94%",
+    // width: "94%",
     height: "60%",
     // background: url(box_bg.png) no-repeat;
     // background-size: cover;
@@ -122,7 +118,13 @@ const useStyles = makeStyles(theme => ({
     bottom: "10%",
     maxWidth:"1100px",
     width: "100%"
-  }
+  },
+  userName:{
+    fontSize: '16px',
+    fontWeight: '400',
+    lineHeight: '1.33',
+    letterSpacing: '1px',
+  },
 }));
 
 function AboutUs({ history,handleLogout, currentUsername, account }) {
@@ -251,32 +253,22 @@ function AboutUs({ history,handleLogout, currentUsername, account }) {
 
       <CssBaseline />
       <Grid style={{ maxWidth: "1100px", margin: "0 auto", backgroundColor: "#000!important", height: "auto" }}>
-        <Grid className={classes.headBlock}>
-          <Grid className={classes.head} >
-            {/* <Grid className={classes.headIcons}><i style={{ widows: "100%", height: "100%" }} class="material-icons">keyboard_backspace</i></Grid> */}
-            {trans.aboutus[lang]}
-          </Grid>
-
-          <Grid className={classes.icon}>
-            <img style={{ width: 60, height: 60 }} src={getIcon()} />
-          </Grid>
-
-          <Grid className={classes.introduce}>我們希望讓大家更了解鏈改後的PFA區塊鏈</Grid>
-        </Grid>
         <Grid
           container
           direction={"column"}
           alignItems={"center"}
           justify={"space-evenly"}
           spacing={5}
+          style={{ margin: '0px 0px', width: '100%' }}
+          className={classes.headBlock}
         >
-        <Grid item>
-          <Typography variant={"h5"}>{currentUsername}</Typography>
+        <Grid style={{marginTop:'32px',}}>
+          <Typography className={classes.userName}>{currentUsername}</Typography>
         </Grid>
-        <Grid item style={{border:"8px white", }}>
-          <QRCode value={`pfa:${account.address}`} renderAs={"svg"} style={{border:"8px white solid", }}/>
+        <Grid  style={{border:"8px white",marginTop:'20px' }}>
+          <QRCode value={`pfa:${account.address}`} renderAs={"svg"} style={{border:"8px white solid",height:"200px",width:"200px" }}/>
         </Grid>
-        <Grid item>
+        <Grid style={{margin:'20px 0px',}}>
           <Paper>
 
             <TextField
@@ -286,37 +278,43 @@ function AboutUs({ history,handleLogout, currentUsername, account }) {
               value={account.address}
               disabled
             />
-            <CopyButton onClick={handleCopiedSnackbarOpen} text={account.address} >複製</CopyButton>
+            <CopyButton 
+              className="CopyButtonStyle"
+              onClick={handleCopiedSnackbarOpen} 
+              text={account.address} 
+            >
+              {trans.copy[Config.lang]}
+            </CopyButton>
           </Paper>
 
         </Grid>
         </Grid>
         <Grid >
-          <Grid className={classes.content} onClick={() => handletosModalOpen(trans.aboutusfull[lang], trans.aboutus[lang])}>
+          <Grid className={classes.content} onClick={() => handletosModalOpen(trans.aboutusfull[Config.lang], trans.aboutus[Config.lang])}>
             <Grid className={classes.contentIconsLeft}>
               <i class="material-icons">group</i>
             </Grid>
-            <Grid className={classes.title}>{trans.aboutus[lang]}</Grid>
+            <Grid className={classes.title}>{trans.aboutus[Config.lang]}</Grid>
             <Grid className={classes.contentIconsRight}>
               <i class="material-icons">keyboard_arrow_right</i>
             </Grid>
           </Grid>
 
-          <Grid className={classes.content} onClick={() => handletosModalOpen(trans.privacyfull[lang], trans.privacy[lang])}>
+          <Grid className={classes.content} onClick={() => handletosModalOpen(trans.privacyfull[Config.lang], trans.privacy[Config.lang])}>
             <Grid className={classes.contentIconsLeft}>
               <i class="material-icons">assignment_ind</i>
             </Grid>
-            <Grid className={classes.title}>{trans.privacy[lang]}</Grid>
+            <Grid className={classes.title}>{trans.privacy[Config.lang]}</Grid>
             <Grid className={classes.contentIconsRight}>
               <i class="material-icons">keyboard_arrow_right</i>
             </Grid>
           </Grid>
 
-          <Grid className={classes.content} onClick={() => handletosModalOpen(trans.tosfull[lang], trans.tos[lang])}>
+          <Grid className={classes.content} onClick={() => handletosModalOpen(trans.tosfull[Config.lang], trans.tos[Config.lang])}>
             <Grid className={classes.contentIconsLeft}>
               <i class="material-icons">description</i>
             </Grid>
-            <Grid className={classes.title}>{trans.tos[lang]}</Grid>
+            <Grid className={classes.title}>{trans.tos[Config.lang]}</Grid>
             <Grid className={classes.contentIconsRight}>
               <i class="material-icons">keyboard_arrow_right</i>
             </Grid>
@@ -332,7 +330,7 @@ function AboutUs({ history,handleLogout, currentUsername, account }) {
               onClick={onSumbit}
               style={{ width: "70%",letterSpacing: "1px", }}
             >
-              {trans.logOut[lang]}
+              {trans.logOut[Config.lang]}
             </Button>
           </Grid>
         </Grid>
@@ -342,7 +340,7 @@ function AboutUs({ history,handleLogout, currentUsername, account }) {
       </VerticalCenter> */}
         <Grid style={{ margin: "0 auto" }}>
           <Modal open={tosModalOpen} style={{ height: "100%" }} onBackdropClick={handletosModalClose}>
-            <div className={classes.modalPaper}>
+            <div className={classes.modalPaper + " modalWidth"}>
               <Grid style={{ height: "100%" }} container direction={"column"}>
                 <Grid item style={{ maxHeight: "14%", width: "100%" }}>
                   <div className={classes.toolbarIcon}>
@@ -385,7 +383,7 @@ function AboutUs({ history,handleLogout, currentUsername, account }) {
                 </Grid>
                 <Grid item>
                   <TextField
-                    label={t.privateKey[Config.lang]}
+                    label={t.privateKey[Config.Config.lang]}
                     className={classes.textField}
                     value={account.privateKey.substr(2)}
                     style={{ visibility: seePrivateKey ? 'visible' : 'hidden' }}
@@ -403,7 +401,7 @@ function AboutUs({ history,handleLogout, currentUsername, account }) {
         open={copiedSnackbarOpen}
         autoHideDuration={6000}
         onClose={handleCopiedSnackbarClose}
-        message={'已複製'}
+        message={trans.copied[Config.lang]}
       />
     </React.Fragment>
   );

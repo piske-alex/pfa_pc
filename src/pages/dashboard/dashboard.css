@@ -164,3 +164,29 @@
     font-size: 13px;
     color: #73767d;
 }
+.backupBottom{
+    height: calc(100% - 70px);
+    overflow: auto;
+}
+.CopyBtnStyle{
+    width: 15%!important;
+    padding: 0px;
+}
+.CopyBtnStyleTwo{
+    width: 15%!important;
+    height: 113px!important;
+    padding: 0px;
+}
+.backupBottom .MuiPaper-root{
+    background-color: #283041!important;
+}
+.backupBottom .MuiExpansionPanel-root{
+    position: static;
+}
+.backupBottom .MuiOutlinedInput-input{
+    font-size: 14px;
+    height: auto;
+}
+.MuiFormControl-root .MuiInputLabel-animated{
+    color: #fff!important;
+}

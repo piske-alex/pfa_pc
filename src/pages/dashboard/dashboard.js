@@ -74,6 +74,7 @@ import HistoryPage from "../../historyPage";
 import  jsQR  from "jsqr";
 import QrReader from 'react-qr-scanner'
 import moment from "moment";
+import config from "../../public/js/config";
 
 
 const accountInfoRefreshTime = 20;
@@ -186,7 +187,7 @@ const useStyles = makeStyles(theme => ({
     padding: "14px",
     outline: "none",
 
-    width: "94%",
+    // width: "94%",
     height: "60%",
     // background: url(box_bg.png) no-repeat;
     // background-size: cover;
@@ -202,6 +203,10 @@ const useStyles = makeStyles(theme => ({
     position: "absolute",
     right: "10px",
     top: "18px",
+  },
+  extractRow: {
+    width: '100%',
+    textAlign: 'center',
   }
 }));
 
@@ -522,15 +527,13 @@ function Dashboard({
     sendAsset();
   };
 
-
-
-  const carouselList = [ '2019/06/26/5d12c2c5cf98e50653' + ".png", '2019/06/26/5d12c2c61668934580' + ".png",'2019/07/03/5d1c3296bd17e13109' + ".jpeg"];
+  const carouselList = t.rotaryPlantingMap[config.lang];
   const icons = [
-    {icon:'photo_library',text:'備份'},
-    {icon:'email',text:'消息'},
-    {icon:'import_contacts',text:'說明'},
-    {icon:'add_circle',text:'充值'},
-    {icon:'monetization_on',text:'提取'},
+    {icon:'photo_library',text: t.dashboards.backUp[config.lang]},
+    {icon:'email',text: t.dashboards.message[config.lang]},
+    {icon:'import_contacts',text: t.dashboards.manual[config.lang]},
+    {icon:'add_circle',text: t.Recharge[config.lang]},
+    {icon:'monetization_on',text: t.withdrawal[config.lang]},
   ];
   return (
 
@@ -596,7 +599,7 @@ function Dashboard({
             <Divider component="li" className='line' />
             <Grid className='msg'>
               <Icon className='msgIcon'>volume_up</Icon>
-              <Grid>HAD上線</Grid>
+              <Grid>{t.dashboards.hadOnline[config.lang]}</Grid>
             </Grid>
           </Grid>
           <Grid className='link' spacing={0} container justify="center">
@@ -607,7 +610,7 @@ function Dashboard({
                     handleModalOpen();
                     break;
                   case "import_contacts":
-                    handletosModalOpen(t.usemethodfull.ch, t.usemethod.ch);
+                    handletosModalOpen(t.usemethodfull[config.lang], t.usemethod[config.lang]);
                     break;
                   case "add_circle" :
                     handleBuyModalOpen();
@@ -616,7 +619,7 @@ function Dashboard({
                     handleSendModalOpen();
                     break;
                   case "email":
-                    handletosModalOpen("普惠資產已完成主網升級，應用了摩根大通的GoQuorum，沿用ERC20制式，持舊PFA的用戶只要將私鑰導入即可在未來獲得鏈改後的PFA","PFA消息")
+                    handletosModalOpen(t.pfaMessagefull[config.lang], t.pfaMessage[config.lang])
                 }
 
 
@@ -634,9 +637,9 @@ function Dashboard({
             <ChevronRight className='right' />
           </Grid> */}
           <Grid spacing={0} container justify="center" className='listHeader'>
-            <Grid item xs={4} className='listLeft'>市場</Grid>
-            <Grid item xs={4} className='listLeft'>最新價</Grid>
-            <Grid item xs={4} className='listRight'>成交量(USDT)</Grid>
+            <Grid item xs={4} className='listLeft'>{t.dashboards.market[config.lang]}</Grid>
+            <Grid item xs={4} className='listLeft'>{t.dashboards.price[config.lang]}</Grid>
+            <Grid item xs={4} className='listRight'>{t.dashboards.volume[config.lang]}</Grid>
           </Grid>
           <Grid>
             {list.map((item, index) => (
@@ -654,33 +657,33 @@ function Dashboard({
 
 
         <Modal open={modalOpen} onBackdropClick={handleModalClose}>
-          <div className={classes.modalPaper}>
+          <div className={classes.modalPaper + " modalWidth"}>
             <div className={classes.toolbarIcon}>
-              <Typography variant={"h5"} style={{ marginRight: "150px" }}>{`備份`}</Typography>
-              <IconButton onClick={handleModalClose}>
+              <Typography variant={"h5"} style={{ }}>{t.dashboards.backUp[config.lang]}</Typography>
+              <IconButton className={classes.close} onClick={handleModalClose}>
                 <CloseIcon />
               </IconButton>
             </div>
-
+            <div className="backupBottom">
               <ExpansionPanel>
                 <ExpansionPanelSummary
                   expandIcon={<ExpandMoreIcon />}
                   aria-controls="panel1a-content"
                   id="panel1a-header"
                 >
-                  <Typography className={classes.heading}>單一錢包備份</Typography>
+                  <Typography className={classes.heading}>{t.dashboards.single[config.lang]}</Typography>
                 </ExpansionPanelSummary>
                 <ExpansionPanelDetails>
 
                   <Grid item>
-                    <Typography>
-                      您備份的是這個錢包，當你注冊錢包時可以導入這個錢包帳戶，亦和以太坊HEX制式互聯互通，唯一不同的是這個PFA錢包只適用PFA公有區塊鏈上的通證，若你將以太坊區塊鏈的通證發到你這個錢包，請導出私鑰到以太坊公有鏈錢包，便可找回你的代幣。
+                    <Typography style={{ textAlign:'justify', fontSize: 14 }}>
+                      {t.dashboards.singlefull[config.lang]}
                     </Typography>
                     <FormControlLabel
                       control={
                         <Switch checked={seePrivateKey} onChange={e => setSeePrivateKey(e.target.checked)} />
                       }
-                      label="顯示密鑰"
+                      label={t.dashboards.showPrivateKey[config.lang]}
                     />
                     <Grid item>
                       <Paper>
@@ -688,11 +691,17 @@ function Dashboard({
                           label={t.privateKey[Config.lang]}
                           className={classes.textField}
                           value={account.privateKey.substr(2)}
-                          style={{ visibility: seePrivateKey ? 'visible' : 'hidden' }}
+                          style={{ visibility: seePrivateKey ? 'visible' : 'hidden',width: '85%', fontSize: 14 }}
                           disabled
                           variant="outlined"
                         />
-                        <CopyButton onClick={handleCopiedSnackbarOpen} text={account.privateKey.substr(2)}>複製</CopyButton>
+                        <CopyButton 
+                          className="CopyButtonStyle CopyBtnStyle"
+                          onClick={handleCopiedSnackbarOpen} 
+                          text={account.privateKey.substr(2)}
+                        >
+                          {t.copy[Config.lang]}
+                        </CopyButton>
                       </Paper>
 
                     </Grid>
@@ -705,17 +714,17 @@ function Dashboard({
                   aria-controls="panel2a-content"
                   id="panel2a-header"
                 >
-                  <Typography className={classes.heading}>整個錢包備份</Typography>
+                  <Typography className={classes.heading}>{t.dashboards.entire[config.lang]}</Typography>
                 </ExpansionPanelSummary>
                 <ExpansionPanelDetails>
 
-                  <Grid item>
-                    <Typography>
-                      將你所有錢包備份一次，這包括了本程式上的所有錢包帳戶。請在登入頁面「導入PFA錢包使用」。
+                  <Grid item style={{ width: '100%' }}>
+                    <Typography style={{ textAlign:'justify', fontSize: 14 }}>
+                      {t.dashboards.entirefull[config.lang]}
                     </Typography>
-                    <Paper>
+                    <Paper style={{ marginTop: 15 }}>
                       <TextField
-                        style={{ width: 300 }}
+                        style={{ width: '85%', fontSize: 14 }}
                         disabled
                         variant={"outlined"}
                         value={exportAccounts()}
@@ -723,36 +732,37 @@ function Dashboard({
                         rowsMax={4}
                         label={t.copyHere[Config.lang]}
                       />
-                      <CopyButton onClick={handleCopiedSnackbarOpen} text={exportAccounts()}>複製</CopyButton>
+                      <CopyButton 
+                        className="CopyButtonStyle CopyBtnStyleTwo"
+                        onClick={handleCopiedSnackbarOpen} 
+                        text={exportAccounts()}
+                      >
+                        {t.copy[Config.lang]}
+                      </CopyButton>
                     </Paper>
 
                   </Grid>
                 </ExpansionPanelDetails>
               </ExpansionPanel>
-
-
-
-
-
+            </div>
           </div>
         </Modal>
         <Modal open={sendModalOpen} onBackdropClick={handleSendModalClose}>
-          <div className={classes.modalPaper}>
+          <div className={classes.modalPaper + " modalWidth"}>
             <div className={classes.toolbarIcon}>
-              <Typography variant={"h5"} style={{ marginRight: "150px" }}>{`提取`}</Typography>
-              <IconButton onClick={handleSendModalClose}>
+              <Typography variant={"h5"} style={{ }}>{`${t.withdrawal[Config.lang]}`}</Typography>
+              <IconButton className={classes.close} onClick={handleSendModalClose}>
                 <CloseIcon />
               </IconButton>
             </div>
             <Grid
               container
-              direction={"column"}
               alignItems={"flex-start"}
               justify={"space-evenly"}
               spacing={2}
-              style={{ marginLeft: "10px", marginRight: "10px" }}
+              style={{ padding: '8px 10px',height: "calc(100% - 70px)",overflow: 'auto', width: '100%', margin: 0 }}
             >
-              <Grid item>
+              <Grid item className={classes.extractRow}>
                 <TextField
                   label={t.from[Config.lang]}
                   value={`${currentUsername} ${account.address}`}
@@ -760,27 +770,25 @@ function Dashboard({
                   style={{ width: "280px" }}
                 />
               </Grid>
-              <Grid item>
+              <Grid item className={classes.extractRow}>
                 <TextField
                   label={t.to[Config.lang]}
                   value={sendToAddress}
                   onChange={handleSendToAddressChange}
                   style={{ width: "280px" }}
                 />
+              </Grid>
+              <Grid item className={classes.extractRow}>
                 <div className="upload-btn-wrapper" style={{
                   position: "relative",
                   overflow: "hidden",
                   display: "inline-block",
                 }}>
-                  <button className="btn" style={{
-                    border: "2px solid gray",
-                    color: "gray",
-                    backgroundColor: "white",
-                    padding: "8px 20px",
+                  <button className="CommonButtonStyle" style={{
+                    padding: "11.5px 35px",
                     borderRadius: "8px",
-                    fontSize: "20px",
-                    fontWeight: "bold",
-                  }}>上傳二維碼</button>
+                    fontSize: "14px",
+                  }}>{t.uploadQRCode[Config.lang]}</button>
                   <input type="file" name="myfile" style={{
                     fontSize: "100px",
                     position: "absolute",
@@ -795,19 +803,15 @@ function Dashboard({
                   overflow: "hidden",
                   display: "inline-block",
                 }}>
-                  <button className="btn" style={{
-                    border: "2px solid gray",
-                    color: "gray",
-                    backgroundColor: "white",
-                    padding: "8px 20px",
+                  <button className="CommonButtonStyle" style={{
+                    padding: "11.5px 35px",
                     borderRadius: "8px",
-                    fontSize: "20px",
-                    fontWeight: "bold",
-                  }} onClick={handleScanModalOpen}>識別二維碼</button>
+                    fontSize: "14px",
+                  }} onClick={handleScanModalOpen}>{t.recognitionQRcode[Config.lang]}</button>
 
                 </div>
               </Grid>
-              <Grid item>
+              <Grid item className={classes.extractRow}>
                 <FormControl style={{ width: "280px" }}>
                   <InputLabel>{t.asset[Config.lang]}</InputLabel>
                   <Select
@@ -816,14 +820,14 @@ function Dashboard({
                       setSendCurrency(event.target.value);
                     }}
                   >
-                    <MenuItem value="pfa">PFA</MenuItem>
-                    <MenuItem value="ihad">HAD</MenuItem>
-                    <MenuItem value="usdt">USDT（需要支付 1 USDT 外部網路費）</MenuItem>
-                    <MenuItem value="usdti">USDT（PFA 網路內轉帳）</MenuItem>
+                    <MenuItem value="pfa">{t.pfa[Config.lang]}</MenuItem>
+                    <MenuItem value="ihad">{t.ihad[Config.lang]}</MenuItem>
+                    <MenuItem value="usdt">{t.usdt[Config.lang]}</MenuItem>
+                    <MenuItem value="usdti">{t.usdti[Config.lang]}</MenuItem>
                   </Select>
                 </FormControl>
               </Grid>
-              <Grid item>
+              <Grid item className={classes.extractRow}>
                 <TextField
                   label={t.amount[Config.lang]}
                   helperText={t.transactionDelayInfo[Config.lang]}
@@ -832,22 +836,24 @@ function Dashboard({
                   style={{ width: "280px" }}
                 />
               </Grid>
-              <Grid item>
+              <Grid item className={classes.extractRow}>
                 <TextField
-                  label={`備註`}
-                  helperText={`備註可用中英文填寫，最多顯示30字`}
+                  label={t.note[Config.lang]}
+                  helperText={t.fillInFormat[Config.lang]}
                   value={memo}
                   onChange={handleMemoChange}
                   style={{ width: "280px" }}
                 />
 
               </Grid>
-              <Grid item>
+              <Grid item className={classes.extractRow}>
                 <FormControl style={{ width: "280px" }}>
                   <Button
+                    className="CommonButtonStyle"
                     variant="contained"
                     color="primary"
                     onClick={handleSendAsset}
+                    style={{ letterSpacing: "1px" }}
                   >
                     {t.send[Config.lang]}
                   </Button>
@@ -858,59 +864,99 @@ function Dashboard({
         </Modal>
 
         <Modal open={buyModalOpen} onBackdropClick={handleBuyModalClose}>
-          <div className={classes.modalPaper}>
-            <Grid container direction={"column"}>
+          <div className={classes.modalPaper + " modalWidth"}>
+            <Grid container direction={"column"} style={{ height: '100%' }}>
               <Grid item>
                 <div className={classes.toolbarIcon}>
-                  <Typography variant={"h5"} style={{ marginRight: "150px" }}>{`${
-                    t.buy[Config.lang]
-                    } USDT`}</Typography>
-                  <IconButton onClick={handleBuyModalClose}>
+                  <Typography variant={"h5"} style={{ }}>
+                    {`${t.buy[Config.lang]} ${t.UsdtCode[Config.lang]}`}
+                  </Typography>
+                  <IconButton className={classes.close} onClick={handleBuyModalClose}>
                     <CloseIcon />
                   </IconButton>
                 </div>
               </Grid>
-              <Grid item style={{ overflow: "auto", height: "400px" }}>
-                <Typography variant={"p"}>{`請把外部${
-                  t.buy[Config.lang]
-                  }的 USDT 傳入以下地址：`}</Typography><Paper style={{border:"8px solid white ",height:"106px",width:"106px"}}><QRCode value={`pfa:${account.USDTWallet}`} style={{ height: "90px", width: "90px" }} renderAs={"svg"} /></Paper><br /><span>{account.USDTWallet}</span><br /><br />
+              <Grid item style={{ overflow: "auto", height: "calc(100% - 78px)" }}>
+                <Typography variant={"p"}>
+                  {`${t.purchaseAddress[Config.lang]}`}
+                </Typography>
+                <Paper style={{border:"8px solid white",height:"106px",width:"106px"}}>
+                  <QRCode value={`pfa:${account.USDTWallet}`} style={{ height: "90px", width: "90px" }} renderAs={"svg"} />
+                </Paper><br />
+                <span className="lineFeed">{account.USDTWallet}</span><br /><br />
                 <LinearProgress variant="query" /><br />
-                <Typography variant={"p"} style={{ marginRight: "150px" }}>{`完成充值前請勿關閉此頁面。完成充值後你會收到通知。`}</Typography>
+                <Typography variant={"p"} style={{ }}>{`${t.completeRecharge[Config.lang]}`}</Typography>
                 <List >
                   {usdtProvider.map(p => (
-                    <ListItem
-                      component={MaterialLink}
-                      key={p.url}
-                      href={p.url}
-                      target="_blank"
-                      style={{
-                        border: "1px solid white",
-                        textDecoration: "none",
-                        marginTop: "5px",
-                        marginBottom: "5px",
-                        borderRadius: "5px",
-                      }}
-                    >
-                      <ListItemAvatar>
-                        <Avatar
-                          src={p.logoUrl}
-                          style={{
-                            backgroundColor: "white",
-                          }}
-                          imgProps={{
-                            style: {
-                              transform: `scale(${p.logoScale}, ${p.logoScale})`,
-                              height: "auto",
-                            },
-                          }}
+                    Config.lang == "ch" && p.ch == "true" ? 
+                      <ListItem
+                        component={MaterialLink}
+                        key={p.url}
+                        href={p.url}
+                        target="_blank"
+                        style={{
+                          border: "1px solid white",
+                          textDecoration: "none",
+                          marginTop: "5px",
+                          marginBottom: "5px",
+                          borderRadius: "5px",
+                        }}
+                      >
+                        <ListItemAvatar>
+                          <Avatar
+                            src={p.logoUrl}
+                            style={{
+                              backgroundColor: "white",
+                            }}
+                            imgProps={{
+                              style: {
+                                transform: `scale(${p.logoScale}, ${p.logoScale})`,
+                                height: "auto",
+                              },
+                            }}
+                          />
+                        </ListItemAvatar>
+                        <ListItemText
+                          primary={p.name[Config.lang]}
+                          primaryTypographyProps={{ color: "textPrimary" }}
+                          secondary={p.description[Config.lang]}
                         />
-                      </ListItemAvatar>
-                      <ListItemText
-                        primary={p.name[Config.lang]}
-                        primaryTypographyProps={{ color: "textPrimary" }}
-                        secondary={p.description[Config.lang]}
-                      />
-                    </ListItem>
+                      </ListItem>
+                    : Config.lang == "en" && p.en == "true" ? 
+                        <ListItem
+                          component={MaterialLink}
+                          key={p.url}
+                          href={p.url}
+                          target="_blank"
+                          style={{
+                            border: "1px solid white",
+                            textDecoration: "none",
+                            marginTop: "5px",
+                            marginBottom: "5px",
+                            borderRadius: "5px",
+                          }}
+                        >
+                          <ListItemAvatar>
+                            <Avatar
+                              src={p.logoUrl}
+                              style={{
+                                backgroundColor: "white",
+                              }}
+                              imgProps={{
+                                style: {
+                                  transform: `scale(${p.logoScale}, ${p.logoScale})`,
+                                  height: "auto",
+                                },
+                              }}
+                            />
+                          </ListItemAvatar>
+                          <ListItemText
+                            primary={p.name[Config.lang]}
+                            primaryTypographyProps={{ color: "textPrimary" }}
+                            secondary={p.description[Config.lang]}
+                          />
+                        </ListItem>
+                        :""
                   ))}
                 </List>
 
@@ -919,25 +965,25 @@ function Dashboard({
           </div>
         </Modal>
         <Modal open={tosModalOpen} onBackdropClick={handletosModalClose}>
-          <div className={classes.modalPaper}>
+          <div className={classes.modalPaper + " modalWidth"}>
             <Grid container direction={"column"}>
               <Grid item>
                 <div className={classes.toolbarIcon}>
-                  <Typography variant={"h5"} style={{ marginRight: "150px" }}>{`${modalTitle}`}</Typography>
-                  <IconButton onClick={handletosModalClose}>
+                  <Typography variant={"h5"} style={{ }}>{`${modalTitle}`}</Typography>
+                  <IconButton className={classes.close} onClick={handletosModalClose}>
                     <CloseIcon />
                   </IconButton>
                 </div>
               </Grid>
               <Grid item style={{ overflow: "scroll", maxHeight: "400px" }}>
-                <Typography variant={"p"} style={{ marginRight: "150px" }}>{`${longText}`}</Typography>
+                <Typography variant={"p"} style={{ }}>{`${longText}`}</Typography>
 
               </Grid>
             </Grid>
           </div>
         </Modal>
         <Modal open={tosModalOpen} style={{ height: "100%" }} onBackdropClick={handletosModalClose}>
-          <div className={classes.modalPaper}>
+          <div className={classes.modalPaper + " modalWidth"}>
             <Grid style={{ height: "100%" }} container direction={"column"}>
               <Grid item style={{ maxHeight: "14%", width: "100%" }}>
                 <div className={classes.toolbarIcon}>
@@ -948,17 +994,17 @@ function Dashboard({
                 </div>
               </Grid>
               <Grid item style={{ overflow: "auto", maxHeight: "84%", width: "100%", padding: "6px" }}>
-                <Typography variant={"p"} style={{ marginRight: "150px", textAlign: "justify", width: "100%", wordBreak: "break-all" }} dangerouslySetInnerHTML={{ __html: longText }} />
+                <Typography variant={"p"} style={{ textAlign: "justify", width: "100%", wordBreak: "break-all" }} dangerouslySetInnerHTML={{ __html: longText }} />
 
               </Grid>
             </Grid>
           </div>
         </Modal>
         <Modal open={scanModalOpen} onBackdropClick={handleScanModalClose}>
-          <div className={classes.modalPaper}>
+          <div className={classes.modalPaper + " modalWidth"}>
             <div className={classes.toolbarIcon}>
-              <Typography variant={"h5"} style={{ marginRight: "150px" }}>{`識別二維碼`}</Typography>
-              <IconButton onClick={handleScanModalClose}>
+              <Typography variant={"h5"} style={{ }}>{t.recognitionQRcode[Config.lang]}</Typography>
+              <IconButton className={classes.close} onClick={handleScanModalClose}>
                 <CloseIcon />
               </IconButton>
             </div>
@@ -1004,7 +1050,7 @@ function Dashboard({
         open={copiedSnackbarOpen}
         autoHideDuration={6000}
         onClose={handleCopiedSnackbarClose}
-        message={'已複製'}
+        message={t.copied[Config.lang]}
       />
     </React.Fragment>
   );

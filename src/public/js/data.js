@@ -1,9 +1,11 @@
 export const usdtProvider = [
   {
-    name: { ch: "LocalBitcoins" },
+    name: { ch: "LocalBitcoins",en: "LocalBitcoins" },
+    en: "true",
+    ch: "true",
     url: "https://localbitcoins.com/",
     description: {
-      ch: "知名的國際OTC﹐能直接和世界各地的人對換﹐需先實名注冊。",
+      ch: "知名的國際OTC﹐能直接和世界各地的人對換﹐需先實名注冊。",en:"World Famous OTC, support"
     },
     type: "international",
     logoUrl:
@@ -11,10 +13,25 @@ export const usdtProvider = [
     logoScale: 0.7,
   },
   {
-    name: { ch: "火幣" },
+    name: { ch: "Bitfinex",en: "Bitfinex" },
+    en: "true",
+    ch: "false",
+    url: "https://localbitcoins.com/",
+    description: {
+      en:"The largest and most advanced cryptocurrencies exchange."
+    },
+    type: "international",
+    logoUrl:
+      "https://minio.koin-exchange.com/avatar/shuye.png",
+    logoScale: 0.7,
+  },
+  {
+    name: { ch: "火幣",en: "Houbi" },
+    en: "true",
+    ch: "true",
     url: "https://otc.hbg.com/zh-cn/trade/buy-usdt/",
     description: {
-      ch: "火幣是全中國三大交易所之一﹐支持人民幣買賣USDT﹐需先注冊",
+      ch: "火幣是全中國三大交易所之一﹐支持人民幣買賣USDT﹐需先注冊",en: "Chinese based OTC,accept Chinese bank payment"
     },
     type: "china",
     logoUrl:
@@ -23,6 +40,8 @@ export const usdtProvider = [
   },
   {
     name: { ch: "中幣" },
+    en: "false",
+    ch: "true",
     url: "https://www.zb.com/otc/coinex/buy/usdt_cny/1/no",
     description: {
       ch:
@@ -35,6 +54,8 @@ export const usdtProvider = [
   },
   {
     name: { ch: "TideBit" },
+    en: "false",
+    ch: "true",
     url: "https://www.tidebit.com/",
     description: {
       ch:
@@ -47,6 +68,8 @@ export const usdtProvider = [
   },
   {
     name: { ch: "MyEthShop" },
+    en: "false",
+    ch: "true",
     url: "https://www.myethshop.com/",
     description: {
       ch:

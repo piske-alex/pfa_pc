@@ -17,7 +17,6 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Config from "../../public/js/config";
 import { CopyButton } from "react-copy-button";
 import Switch from "@material-ui/core/Switch";
-const lang = "ch";
 
 const BootstrapInput = withStyles(theme => ({
   root: {
@@ -122,7 +121,7 @@ const useStyles = makeStyles(theme => ({
     padding: "14px",
     outline: "none",
 
-    width: "94%",
+    // width: "94%",
     height: "60%",
     // background: url(box_bg.png) no-repeat;
     // background-size: cover;
@@ -215,25 +214,25 @@ export default function CreateAccountPage({ onAccountCreate }) {
         <Grid container alignItems={"center"} direction={"column"} spacing={2}>
           <Grid item>
             <FormControl style={{ width: 300 }}>
-              <InputLabel shrink className="inputLabel" pattern={"[A-Za-z]"} title={"只支援拉丁字元（A-Z）"}>{trans.username[lang]}</InputLabel>
+              <InputLabel shrink className="inputLabel" pattern={"[A-Za-z]"} title={trans.createAccountPage.onlyAz[Config.lang]}>{trans.username[Config.lang]}</InputLabel>
               <BootstrapInput value={username} onChange={onUsernameChange} />
-              <FormHelperText className="formHelperText">{username.length > 0? undefined: trans.usernameEmptyWarning[lang]}</FormHelperText>
+              <FormHelperText className="formHelperText">{username.length > 0? undefined: trans.usernameEmptyWarning[Config.lang]}</FormHelperText>
             </FormControl>
 
           </Grid>
           <Grid item>
             <FormControl style={{ width: 300 }}>
-              <InputLabel shrink className="inputLabel">{trans.password[lang]}</InputLabel>
+              <InputLabel shrink className="inputLabel">{trans.password[Config.lang]}</InputLabel>
               <BootstrapInput value={password} onChange={onPasswordChange} type='password'/>
-              <FormHelperText className="formHelperText">{password.length >= 8? undefined: trans.passwordLengthWarning[lang]}</FormHelperText>
+              <FormHelperText className="formHelperText">{password.length >= 8? undefined: trans.passwordLengthWarning[Config.lang]}</FormHelperText>
             </FormControl>
 
           </Grid>
           <Grid item>
             <FormControl style={{ width: 300 }}>
-              <InputLabel shrink className="inputLabel">{trans.passwordAgain[lang]}</InputLabel>
+              <InputLabel shrink className="inputLabel">{trans.passwordAgain[Config.lang]}</InputLabel>
               <BootstrapInput value={passwordAgain} onChange={onPasswordAgainChange} type='password'/>
-              <FormHelperText className="formHelperText">{password === passwordAgain? undefined: trans.passwordAgainNotMatchWarning[lang]}</FormHelperText>
+              <FormHelperText className="formHelperText">{password === passwordAgain? undefined: trans.passwordAgainNotMatchWarning[Config.lang]}</FormHelperText>
             </FormControl>
           </Grid>
           <Grid item>
@@ -242,56 +241,46 @@ export default function CreateAccountPage({ onAccountCreate }) {
                 <Switch checked={seePrivateKey} onChange={e => setSeePrivateKey(e.target.checked)} />
               }
               style={{color:'#fff'}}
-              label="我已有 ERC-20 版本的 PFA"
+              label={trans.createAccountPage.ERC20[Config.lang]}
             />
           </Grid>
           <Grid item>
             <FormControl style={{ visibility: seePrivateKey ? 'visible' : 'hidden' ,width: 300 }}>
-              <InputLabel shrink className="inputLabel">{trans.optionalExistingPrivateKey[lang]}</InputLabel>
+              <InputLabel shrink className="inputLabel">{trans.optionalExistingPrivateKey[Config.lang]}</InputLabel>
               <BootstrapInput value={existingPvKey} onChange={onExistingPvKeyChange} type='password'/>
             </FormControl>
           </Grid>
           <Grid item>
             <Typography variant={"body2"} className="textInfo" style={{ width: 300 , textAlign: "justify" }}>
-              {trans.accountCreationWarning1[lang]}
+              {trans.accountCreationWarning1[Config.lang]}
             </Typography>
           </Grid>
           <Grid item>
             <Typography variant={"body2"} className="textInfo" style={{ width: 300 , textAlign: "justify"}}>
-              {trans.accountCreationWarning2[lang]}
+              {trans.accountCreationWarning2[Config.lang]}
             </Typography>
           </Grid>
           <Grid item>
             <Button className="CommonButtonStyle" style={{ width: 300 }} variant="contained" color="primary" onClick={handletosModalOpen}>
-              {trans.register[lang]}
+              {trans.register[Config.lang]}
             </Button>
           </Grid>
         </Grid>
 
       </HorizontalCenter>
       <Modal open={tosModalOpen} style={{ height: "100%" }} onBackdropClick={handletosModalClose}>
-        <div className={classes.modalPaper}>
+        <div className={classes.modalPaper + " modalWidth"}>
           <Grid style={{ height: "100%" }} container direction={"column"}>
-            <Grid item style={{ maxHeight: "14%", width: "100%" }}>
+            <Grid item style={{ maxHeight: "16%", width: "100%" }}>
               <div className={classes.toolbarIcon}>
-                <Typography variant={"h5"} style={{color:"white"}}>{`請謹記你的私鑰及密碼`}</Typography>
+                <Typography variant={"h5"} style={{color:"white",width: '87%',margin:'0 auto'}}>{trans.createAccountPage.remember[Config.lang]}</Typography>
                 <IconButton className={classes.close} onClick={handletosModalClose}>
                   <CloseIcon />
                 </IconButton>
               </div>
             </Grid>
             <Grid item style={{ overflow: "auto", maxHeight: "84%", width: "100%", padding: "6px" }}>
-              <Typography variant={"h7"} style={{ marginRight: "150px", textAlign: "justify", width: "100%", wordBreak: "break-all",color:"white" }} dangerouslySetInnerHTML={{ __html: "個人區塊鏈錢包生成後﹐密碼和私鑰不能再更改﹗\n" +
-                  "我們沒有辦法為你重設帳戶﹗<br>\n" +
-                  "必須備份您的私鑰，我們不能為您重設及找回﹗<br>\n" +
-                  "這些事情我們是做不到的<br>\n" +
-                  "\n" +
-                  "<ul><li>為您操控這個錢包</li>\n" +
-                  "<li>恢復/ 重設/ 更改錢包上的任何資訊</li>\n" +
-                  "<li>取消或更改任何交易</li>\n" +
-                  "<li>凍結您的錢包</li></ul><br>\n" +
-                  "\n" +
-                  "做任何交易前請再三核對資料<br><br>關閉此彈窗及繼續註冊即為同意。" }} />
+              <Typography variant={"h7"} style={{ marginRight: "150px", textAlign: "justify", width: "100%", wordBreak: "break-all",color:"white" }} dangerouslySetInnerHTML={{ __html: trans.createAccountPage.rememberfull[Config.lang] }} />
 
             </Grid>
           </Grid>
@@ -301,7 +290,7 @@ export default function CreateAccountPage({ onAccountCreate }) {
         open={accountNotCreatedSnackbarOpen}
         autoHideDuration={6000}
         onClose={handleAccountNotCreatedSnackbarClose}
-        message={"只支援英數字元"}
+        message={trans.createAccountPage.onlyEn[Config.lang]}
       />
     </VerticalCenter>
 

@@ -41,6 +41,12 @@ const theme = createMuiTheme({
 
 function App(props) {
 
+  (() => {
+    if(localStorage.getItem("lang") != null) {
+      Config.lang = localStorage.getItem("lang")
+    }
+  })();
+
   const [
     accountCreatedSnackbarOpen,
     setAccountCreatedSnackbarOpen,
@@ -116,7 +122,7 @@ function App(props) {
       setCannotLoginSnackbarOpen(true);
     }
   };
-  
+
   return (
     <ThemeProvider theme={theme}>
       <React.Fragment>

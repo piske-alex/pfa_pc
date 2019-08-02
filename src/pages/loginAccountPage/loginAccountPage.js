@@ -21,8 +21,6 @@ import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import Typography from "@material-ui/core/Typography";
 import Config from "../../public/js/config";
 
-const lang = "ch";
-
 const BootstrapInput = withStyles(theme => ({
   root: {
     'label + &': {
@@ -83,10 +81,27 @@ export default function LoginAccountPage({ onAccountLogin, prefillUsername }) {
     setValues({ ...values, showPassword: !values.showPassword });
   };
 
+  const chage = () => {
+    if(Config.lang == "ch") {
+      Config.lang = "en";
+      localStorage.setItem("lang", "en");
+      setConfig("en")
+    } else {
+      Config.lang = "ch";
+      localStorage.setItem("lang", "ch");
+      setConfig("ch")
+    }
+  };
+
+  const [lang, setConfig] = React.useState({})
+
   React.useEffect(() => setAccountNames(readAccountList()), []);
 
   return (
     <VerticalCenter gridStyle={{ minHeight: "80vh"}}>
+      <div className="lang" onClick={chage}>
+        <span className="on">{Config.lang == "ch" ? "中" : "EN"}</span>/<span className="notOn">{Config.lang == "ch" ? "EN" : "中"}</span>
+      </div>
       <HorizontalCenter>
         <Grid container alignItems={"center"} direction={"column"} spacing={2}>
           <Grid item>
@@ -95,7 +110,7 @@ export default function LoginAccountPage({ onAccountLogin, prefillUsername }) {
           </Grid>
           <Grid item>
             <FormControl style={{ width: 300 }}>
-              <InputLabel shrink className="inputLabel">{trans.username[lang]}</InputLabel>
+              <InputLabel shrink className="inputLabel">{trans.username[Config.lang]}</InputLabel>
               <Select value={username} onChange={onUsernameChange}>
                 {accountNames.map(name => (
                   <MenuItem value={name.slice(5)}>{name.slice(5)}</MenuItem>
@@ -105,7 +120,7 @@ export default function LoginAccountPage({ onAccountLogin, prefillUsername }) {
           </Grid>
           <Grid item>
             <FormControl style={{ width: 300 }}>
-              <InputLabel shrink className="inputLabel">{trans.password[lang]}</InputLabel>
+              <InputLabel shrink className="inputLabel">{trans.password[Config.lang]}</InputLabel>
               <BootstrapInput
                 type={values.showPassword ? 'text' : 'password'}
                 value={password}
@@ -116,7 +131,7 @@ export default function LoginAccountPage({ onAccountLogin, prefillUsername }) {
                   </Icon>
                 }
               ></BootstrapInput>
-              <FormHelperText className="formHelperText">{password.length >= 8? undefined: trans.passwordLengthWarning[lang]}</FormHelperText>
+              <FormHelperText className="formHelperText">{password.length >= 8? undefined: trans.passwordLengthWarning[Config.lang]}</FormHelperText>
             </FormControl>
           </Grid>
 
@@ -130,7 +145,7 @@ export default function LoginAccountPage({ onAccountLogin, prefillUsername }) {
                   onClick={onSumbit}
                   style={{ width: "142px" }}
                 >
-                  {trans.login[lang]}
+                  {trans.login[Config.lang]}
                 </Button>
               </Grid>
               <Grid item>
@@ -142,19 +157,26 @@ export default function LoginAccountPage({ onAccountLogin, prefillUsername }) {
                   to={"/create-account"}
                   style={{ width: "142px" }}
                 >
-                  {trans.register[lang]}
+                  {trans.register[Config.lang]}
                 </Button>
               </Grid>
             </Grid>
           </Grid>
 
           <Grid item >
+            {Config.lang == "en" ? 
+              <Typography variant={"body2"} className="textImport" component={Link} to={"/account-manager"}>
+                {trans.importExport[Config.lang]}&nbsp;
+              </Typography>  
+            : null}
             <Typography variant={"body2"} className="textWallet">
-              {trans.walletImportExport[lang]}
+              {trans.walletImportExport[Config.lang]}
             </Typography>
-            <Typography variant={"body2"} className="textImport" component={Link} to={"/account-manager"}>
-              {trans.importExport[lang]}
-            </Typography>
+            {Config.lang == "ch" ? 
+              <Typography variant={"body2"} className="textImport" component={Link} to={"/account-manager"}>
+                {trans.importExport[Config.lang]}
+              </Typography>
+            : null}
           </Grid>
 
           {/* <Grid item>

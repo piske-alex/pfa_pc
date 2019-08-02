@@ -12,8 +12,7 @@ import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
 import { withRouter } from "react-router-dom";
-
-const lang = "ch";
+import Config from "../../public/js/config";
 
 function AccountManagerPanel({ history }) {
   const [importData, setImportData] = React.useState("");
@@ -45,13 +44,13 @@ function AccountManagerPanel({ history }) {
           <Grid container alignItems={"center"} direction={"column"} spacing={2}>
             <Grid item>
               <Typography disabled variant={"body2"} className="textInfo" style={{ width: 300 , textAlign: "justify"}}>
-                {trans.exportInstructionInfo1[lang]}
+                {trans.exportInstructionInfo1[Config.lang]}
               </Typography>
             </Grid>
 
             <Grid item>
               <Typography disabled variant={"body2"} className="textInfo" style={{ width: 300 , textAlign: "justify"}}>
-                {trans.exportInstructionInfo2[lang]}
+                {trans.exportInstructionInfo2[Config.lang]}
               </Typography>
             </Grid>
 
@@ -63,7 +62,7 @@ function AccountManagerPanel({ history }) {
                 value={exportAccounts()}
                 multiline
                 rowsMax={4}
-                label={trans.copyHere[lang]}
+                label={trans.copyHere[Config.lang]}
               />
             </Grid>
 
@@ -77,7 +76,7 @@ function AccountManagerPanel({ history }) {
                 }}
                 multiline
                 rowsMax={4}
-                label={trans.pasteHere[lang]}
+                label={trans.pasteHere[Config.lang]}
               />
             </Grid>
 
@@ -91,7 +90,7 @@ function AccountManagerPanel({ history }) {
                     onClick={handleImport}
                     style={{ width: "142px" }}
                   >
-                    {trans.import[lang]}
+                    {trans.import[Config.lang]}
                   </Button>
                 </Grid>
                 <Grid item>
@@ -103,7 +102,7 @@ function AccountManagerPanel({ history }) {
                     to={"/login-account"}
                     style={{ width: "142px" }}
                   >
-                    {trans.back[lang]}
+                    {trans.back[Config.lang]}
                   </Button>
                 </Grid>
               </Grid>
@@ -115,13 +114,13 @@ function AccountManagerPanel({ history }) {
         open={importSuccessSnackbarOpen}
         autoHideDuration={6000}
         onClose={() => setImportSuccessSnackbarOpen(false)}
-        message={trans.importSuccessInfo[lang]}
+        message={trans.importSuccessInfo[Config.lang]}
       />
       <Snackbar
         open={importFailedSnackbarOpen}
         autoHideDuration={6000}
         onClose={() => setImportFailedSnackbarOpen(false)}
-        message={trans.importFailedWarning[lang]}
+        message={trans.importFailedWarning[Config.lang]}
       />
     </React.Fragment>
   );

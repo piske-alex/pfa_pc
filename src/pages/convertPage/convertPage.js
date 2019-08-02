@@ -55,8 +55,6 @@ import InputBase from '@material-ui/core/InputBase';
 import Config from "../../public/js/config";
 import './convertPage.css';
 
-const lang = "ch";
-
 const accountInfoRefreshTime = 20;
 
 const drawerWidth = 300;
@@ -585,7 +583,7 @@ function ConvertPage({
                   onClick={handleModalOpen}
                   style={{ width: "150px" }}
                 >
-                  {t.details[lang]}
+                  {t.details[Config.lang]}
                 </Button>
               </Grid>
             </Grid>
@@ -629,7 +627,7 @@ function ConvertPage({
                 </ListItemAvatar>*/}
                 <ListItemText
                   primary={
-                    <Typography variant={"h5"}>{t.dashboard[lang]}</Typography>
+                    <Typography variant={"h5"}>{t.dashboard[Config.lang]}</Typography>
                   }
                 />
               </ListItem>
@@ -640,7 +638,7 @@ function ConvertPage({
                 </ListItemAvatar>*/}
                 <ListItemText
                   primary={
-                    <Typography variant={"h5"}>{t.convert[lang]}</Typography>
+                    <Typography variant={"h5"}>{t.convert[Config.lang]}</Typography>
                   }
                 />
               </ListItem>
@@ -652,20 +650,20 @@ function ConvertPage({
                 </ListItemAvatar>*/}
                 <ListItemText
                   primary={
-                    <Typography variant={"h5"}>{t.history[lang]}</Typography>
+                    <Typography variant={"h5"}>{t.history[Config.lang]}</Typography>
                   }
                 />
 
               </ListItem>
               <ListItem
-                onClick = {()=> handletosModalOpen(t.aboutusfull[lang],t.aboutus[lang])}
+                onClick = {()=> handletosModalOpen(t.aboutusfull[Config.lang],t.aboutus[Config.lang])}
                 button>
                 {/*<ListItemAvatar>
                   <Avatar src={logoUrl} />
                 </ListItemAvatar>*/}
                 <ListItemText
                   primary={
-                    <Typography variant={"subtitle2"} >{t.aboutus[lang]}</Typography>
+                    <Typography variant={"subtitle2"} >{t.aboutus[Config.lang]}</Typography>
                   }
                 />
               </ListItem>
@@ -680,12 +678,12 @@ function ConvertPage({
 
                 <ListItemText
                   primary={
-                    <Typography variant={"subtitle2"} >{t.usemethod[lang]}</Typography>
+                    <Typography variant={"subtitle2"} >{t.usemethod[Config.lang]}</Typography>
                   }
                 />
               </ListItem>
               <ListItem
-                onClick = {()=> handletosModalOpen(t.privacyfull[lang],t.privacy[lang])}
+                onClick = {()=> handletosModalOpen(t.privacyfull[Config.lang],t.privacy[Config.lang])}
                 button
 
               >
@@ -695,12 +693,12 @@ function ConvertPage({
 
                 <ListItemText
                   primary={
-                    <Typography variant={"subtitle2"} >{t.privacy[lang]}</Typography>
+                    <Typography variant={"subtitle2"} >{t.privacy[Config.lang]}</Typography>
                   }
                 />
               </ListItem>
               <ListItem
-                onClick = {()=> handletosModalOpen(t.tosfull[lang],t.tos[lang])}
+                onClick = {()=> handletosModalOpen(t.tosfull[Config.lang],t.tos[Config.lang])}
                 button
 
               >
@@ -710,7 +708,7 @@ function ConvertPage({
 
                 <ListItemText
                   primary={
-                    <Typography variant={"subtitle2"} >{t.tos[lang]}</Typography>
+                    <Typography variant={"subtitle2"} >{t.tos[Config.lang]}</Typography>
                   }
                 />
               </ListItem>
@@ -781,14 +779,15 @@ function ConvertPage({
                   onClick={convertUSDTtoIHAD}
                   style={{ width: "64px",margin:"35px 0 0 0"}}
                 >
-                  {`${t.convert[lang]}`}
+                  {`${t.convert[Config.lang]}`}
                 </Button> */}
 
                   <Grid item className={Config.equipmentType==="mobile"?classes.itemHeight:classes.itemHeightIpad}>
                     
-                    <img className ={classes.linkImgLeft} alt="USDT" src = "https://i.loli.net/2019/06/26/5d12bffaf379385695.png"/>
+                    <img className ={classes.linkImgLeft} alt="USDT" src = {"https://i.loli.net/" 
+                      + (leftcurrencyDropdownValue == "usdt" ? "2019/06/26/5d12bffaf379385695.png" : (leftcurrencyDropdownValue == "ihad" ? "2019/06/27/5d1422b33e7ff68920.png" : ""))}/>
                     <Grid className ={classes.fLeft} >
-                      <Grid className={classes.notesFontSize}>支 付</Grid>
+                      <Grid className={classes.notesFontSize}>{t.convertPage.pay[Config.lang]}</Grid>
                       <Select
                         value={leftcurrencyDropdownValue}
                         onChange={e => setleftCurrencyDropdownValue(e.target.value)}
@@ -820,9 +819,10 @@ function ConvertPage({
                   </Grid>
 
                   <Grid item className={Config.equipmentType==="mobile"||"PC"?classes.itemHeight:classes.itemHeightIpad}>
-                    <img className ={classes.linkImgLeft} alt="HAD" src = "https://i.loli.net/2019/06/27/5d1422b33e7ff68920.png"/>
+                    <img className ={classes.linkImgLeft} src = {"https://i.loli.net/" 
+                      + (rightcurrencyDropdownValue == "ihad" ? "2019/06/27/5d1422b33e7ff68920.png" : (rightcurrencyDropdownValue == "usdt" ? "2019/06/26/5d12bffaf379385695.png" : ""))}/>
                     <Grid className ={classes.fLeft}  >
-                      <Grid className={classes.notesFontSize}>收 取</Grid>
+                      <Grid className={classes.notesFontSize}>{t.convertPage.receive[Config.lang]}</Grid>
                       <Select
                         value={rightcurrencyDropdownValue}
                         onChange={e => setrightCurrencyDropdownValue(e.target.value)}
@@ -851,7 +851,7 @@ function ConvertPage({
                       className={classes.bottombuttonStyle}
                       onClick={convertUSDTtoIHAD}
                       >
-                      {`${t.convert[lang]}`}
+                      {`${t.convert[Config.lang]}`}
                     </Button>
                   </Grid>
                 
@@ -909,7 +909,7 @@ function ConvertPage({
           >
             <Grid item>
               <TextField
-                label={t.from[lang]}
+                label={t.from[Config.lang]}
                 value={`${currentUsername} ${account.address}`}
                 disabled
                 style={{ width: "280px" }}
@@ -917,7 +917,7 @@ function ConvertPage({
             </Grid>
             <Grid item>
               <TextField
-                label={t.to[lang]}
+                label={t.to[Config.lang]}
                 value={sendToAddress}
                 onChange={handleSendToAddressChange}
                 style={{ width: "280px" }}
@@ -925,7 +925,7 @@ function ConvertPage({
             </Grid>
             <Grid item>
               <FormControl style={{ width: "280px" }}>
-                <InputLabel>{t.asset[lang]}</InputLabel>
+                <InputLabel>{t.asset[Config.lang]}</InputLabel>
                 <Select
                   value={sendCurrency}
                   onChange={event => {
@@ -939,8 +939,8 @@ function ConvertPage({
             </Grid>
             <Grid item>
               <TextField
-                label={t.amount[lang]}
-                helperText={t.transactionDelayInfo[lang]}
+                label={t.amount[Config.lang]}
+                helperText={t.transactionDelayInfo[Config.lang]}
                 value={sendAmount}
                 onChange={handleSendAmountChange}
                 style={{ width: "280px" }}
@@ -953,7 +953,7 @@ function ConvertPage({
                   color="primary"
                   onClick={handleSendAsset}
                 >
-                  {t.send[lang]}
+                  {t.send[Config.lang]}
                 </Button>
               </FormControl>
             </Grid>
@@ -966,7 +966,7 @@ function ConvertPage({
             <Grid item>
               <div className={classes.toolbarIcon}>
                 <Typography variant={"h5"} style={{ marginRight: "150px" }}>{`${
-                  t.buy[lang]
+                  t.buy[Config.lang]
                   } USDT`}</Typography>
                 <IconButton onClick={handleBuyModalClose}>
                   <CloseIcon />
@@ -1004,9 +1004,9 @@ function ConvertPage({
                       />
                     </ListItemAvatar>
                     <ListItemText
-                      primary={p.name[lang]}
+                      primary={p.name[Config.lang]}
                       primaryTypographyProps={{ color: "textPrimary" }}
-                      secondary={p.description[lang]}
+                      secondary={p.description[Config.lang]}
                     />
                   </ListItem>
                 ))}
@@ -1039,13 +1039,13 @@ function ConvertPage({
         open={transactionFinishedSnackbarOpen}
         autoHideDuration={6000}
         onClose={handleTransactionFinishedSnackbarClose}
-        message={t.transactionFinishedInfo[lang]}
+        message={t.transactionFinishedInfo[Config.lang]}
       />
       <Snackbar
         open={transactionFailedSnackbarOpen}
         autoHideDuration={6000}
         onClose={handleTransactionFailedSnackbarClose}
-        message={t.transactionFailedWarning[lang]}
+        message={t.transactionFailedWarning[Config.lang]}
       />
     </React.Fragment>
   );

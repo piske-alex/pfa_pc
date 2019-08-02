@@ -1,52 +1,114 @@
+/**
+ * 国际化配置文件
+ * ch:中文
+ * en:英文
+ */
 export default {
+  dashboards: {
+    backUp: { ch: "備份", en: "Back up" },
+    message: { ch: "消息", en: "Message" },
+    manual:  { ch: "說明", en: "Manual" },
+    hadOnline: { ch: "HAD上線", en: "HAD online" },
+    market: { ch: "市場", en: "Market" },
+    price: { ch: "最新價", en: "Price" },
+    volume: { ch: "成交量(USDT)", en: "Volume(USDT)" },
+    single: { ch: "單一錢包備份", en: "Single Wallet Private Key" },
+    singlefull: { 
+      ch: "您備份的是這個錢包，當你注冊錢包時可以導入這個錢包帳戶，亦和以太坊HEX制式互聯互通，唯一不同的是這個PFA錢包只適用PFA公有區塊鏈上的通證，若你將以太坊區塊鏈的通證發到你這個錢包，請導出私鑰到以太坊公有鏈錢包，便可找回你的代幣。", 
+      en: "Your back up is only about one private key, it is compatible with Ethereum HEX address, but this PFA Wallet only applies PFA Public chain. If you have sending ethereum token to here, please export your private key to Eth wallet." 
+    },
+    showPrivateKey: { ch: "顯示密鑰", en: "Show private key" },
+    entire: { ch: "整個錢包備份", en: "Back up entire account" },
+    entirefull: { ch: "將你所有錢包備份一次，這包括了本程式上的所有錢包帳戶。請在登入頁面「導入PFA錢包使用」。", en: "This back up included all wallet account this wallet have, please use this at log-in page : Import PFA wallet" },
+  },
+  footNavigations: {
+    message: { ch: "暫未提供，升級後開放市場新聞功能", en: "Will be updated shortly"}
+  },
+  convertPage: {
+    pay: { ch: "支 付", en: "Pay" },
+    receive: { ch: "收 取", en: "Receive" },
+  },
+  createAccountPage: {
+    ERC20: { ch: "我已有 ERC-20 版本的 PFA", en: "I already have ERC20 Private Key" },
+    remember: { ch: "請謹記你的私鑰及密碼", en: "Please remember your Private key and passeword" },
+    rememberfull: {
+      ch: "個人區塊鏈錢包生成後﹐密碼和私鑰不能再更改﹗\n" +
+        "我們沒有辦法為你重設帳戶﹗<br/>\n" +
+        "必須備份您的私鑰，我們不能為您重設及找回﹗<br/>\n" +
+        "這些事情我們是做不到的<br/>\n" +
+        "\n" +
+        "<ul><li>為您操控這個錢包</li>\n" +
+        "<li>恢復/ 重設/ 更改錢包上的任何資訊</li>\n" +
+        "<li>取消或更改任何交易</li>\n" +
+        "<li>凍結您的錢包</li></ul><br/>\n" +
+        "\n" +
+        "做任何交易前請再三核對資料<br/><br/>關閉此彈窗及繼續註冊即為同意。",
+      en: "After your wallet created, password and private key in non-changeable ; We CANNOT reset the account for you;\n" +
+        "Please back-up your account immediately, We CANNOT reset and find your decentralized wallet.<br/>\n" +
+        "Here is something we cannot provide:<br/>\n" +
+        "\n" +
+        "<ul><li>control this wallet</li>\n" +
+        "<li>restore/reset/change information in your wallet</li>\n" +
+        "<li>cancel or change any transaction</li>\n" +
+        "<li>Frozen your account</li></ul><br/>\n" +
+        "\n" +
+        "Please be very very careful of your transaction.<br/><br/>" +
+        "Close this page means you understand and agree with this terms.",
+    },
+    onlyEn: { ch: "只支援英數字元", en: "Only support English account name" },
+    onlyAz: { ch: "只支援拉丁字元（A-Z）", en: "Only support A-Z" },
+  },
+
+  //公共
   fta: { ch: "普惠資產" },
-  password: { ch: "密碼" },
-  username: { ch: "帳戶名稱" },
-  passwordAgain: { ch: "重新輸入密碼" },
+  password: { ch: "密碼", en: "Password" },
+  username: { ch: "帳戶名稱", en: "User name" },
+  passwordAgain: { ch: "重新輸入密碼", en: "Type in your password again", },
   accountCreationWarning1: {
-    ch: "注意，請緊記密碼。",
+    ch: "注意，請緊記密碼。", en: "Important: please remember your password",
   },
   accountCreationWarning2: {
-    ch: "基於安全考慮，一旦遺失密碼，將永久丟失用戶存取權。",
+    ch: "基於安全考慮，一旦遺失密碼，將永久丟失用戶存取權。", 
+    en: "Base on security consideration, if you forgot your private key or password, you will forever lost your wallet.",
   },
   passwordLengthWarning: {
-    ch: "密碼必須有八位以上",
+    ch: "密碼必須有八位以上", en: "Password requires 8 characters",
   },
   passwordAgainNotMatchWarning: {
-    ch: "此欄位必須和上一個欄位一樣",
+    ch: "此欄位必須和上一個欄位一樣", en: "This password must be the same as previous one",
   },
   usernameEmptyWarning: {
-    ch: "用戶名稱不能為空",
+    ch: "用戶名稱不能為空", en: "user name cannot be blank",
   },
   submit: {
     ch: "提交",
   },
   accountCreatedInfo: {
-    ch: "帳戶已被新增",
+    ch: "帳戶已被新增", en: "Account have been created",
   },
   accountNotCreatedInfo: {
     ch: "不能新增帳戶，請檢查是否有同名帳戶。請考慮使用其他帳戶名稱。",
   },
   register: {
-    ch: "註冊",
+    ch: "註冊", en: "Sign-Up"
   },
   login: {
-    ch: "登入",
+    ch: "登入", en: "Sign-In"
   },
   logOut:{
-    ch: "退出",
+    ch: "退出", en: "Logout"
   },
   cannotLoginWarning: {
-    ch: "未能登入，請檢查帳號及密碼是否輸入錯誤。",
+    ch: "未能登入，請檢查帳號及密碼是否輸入錯誤。", en: "Cannot login, please verify your password",
   },
   buy: {
-    ch: "購買",
+    ch: "購買",en: "Purchase",
   },
   send: {
-    ch: "傳送",
+    ch: "傳送",en: "Transfer",
   },
   receive: {
-    ch: "接收",
+    ch: "接收",en: "Accept"
   },
   details: {
     ch: "詳細資料",
@@ -55,71 +117,72 @@ export default {
     ch: "密鑰",
   },
   from: {
-    ch: "由",
+    ch: "由",en: "From"
   },
   to: {
-    ch: "到",
+    ch: "到",en: "To"
   },
   asset: {
-    ch: "資產",
+    ch: "資產",en: "Asset"
   },
   amount: {
-    ch: "數量",
+    ch: "數量",en: "Amount"
   },
   transactionFinishedInfo: {
-    ch: "交易已傳送，正等待網絡處理。",
+    ch: "交易已傳送，正等待網絡處理。", en: "Transaction have been broadcasted, please wait for network process.",
   },
   transactionFailedWarning: {
-    ch: "交易未能傳送，請檢查輸入資料。",
+    ch: "交易未能傳送，請檢查輸入資料。", en: "Transaction cannot transfer, please check input information.",
   },
   exportInstructionInfo1: {
-    ch:
-      "先將以下方格的帳戶資料複製至另一裝置，然後將資料貼上至新裝置中的方格中，並按確定，即可完成帳戶轉移。",
+    ch: "先將以下方格的帳戶資料複製至另一裝置，然後將資料貼上至新裝置中的方格中，並按確定，即可完成帳戶轉移。",
+    en: "Please copy below text and paste on other device, so that the account can be transfered to other device.",
   },
   exportInstructionInfo2: {
-    ch: "注意，一旦貼上在新裝置上完成帳戶轉移，在新裝置的原有帳戶可能被移除。",
+    ch: "注意，一旦貼上在新裝置上完成帳戶轉移，在新裝置的原有帳戶可能被移除。", 
+    en: "Please be noted that once you pasted this text, the origin account will be removed.",
   },
   copyHere: {
-    ch: "這裡複製",
+    ch: "這裡複製", en: "Copy Here",
   },
   pasteHere: {
-    ch: "這裡貼上",
+    ch: "這裡貼上", en: "Paste Here",
   },
   import: {
-    ch: "匯入",
+    ch: "匯入", en: "Import Key",
   },
   back: {
-    ch: "返回",
+    ch: "返回", en: "Back",
   },
   importSuccessInfo: {
-    ch: "匯入成功。",
+    ch: "匯入成功。", en: "Import successful",
   },
   importFailedWarning: {
-    ch: "匯入失敗，請待匯入成功後才刪除原有裝置資料。",
+    ch: "匯入失敗，請待匯入成功後才刪除原有裝置資料。", en: "Import fail, please dont delete original key before import successful",
   },
   accountImportExport: {
     ch: "帳戶匯入／匯出",
   },
   optionalExistingPrivateKey: {
-    ch: "現有私鑰（選填）",
+    ch: "現有私鑰（選填）", en: "Import Private Key (Optional)"
   },
   transactionDelayInfo: {
-    ch: "注意，網絡可能需要一定時間處理交易，請稍等。",
+    ch: "注意，網絡可能需要一定時間處理交易，請稍等。",en: "Aware: It may take some time"
   },
   transactionRecord: {
-    ch: "交易記錄",
+    ch: "交易記錄",en: "Transaction record"
   },
   hangqing: {
     ch: "幣市行情",
   },
   noTransactionInfo: {
-    ch: "暫時未有記錄",
+    ch: "暫時未有記錄",en: "No record recently"
   },
   convert: {
     ch: "轉換",
   },
   wrongPrivateKeyFormat: {
-    ch: "密鑰格式錯誤，請注意去掉密鑰前0x",
+    ch: "密鑰格式錯誤，請注意去掉密鑰前0x", en: 'Private key format incorrect, please aware any "0x" in the beginning was mistakenly input.',
   },
   dashboard: {
     ch: "儀表板",
@@ -128,44 +191,65 @@ export default {
     ch: "交易歷史",
   },
   aboutus: {
-    ch: "關於我們",
+    ch: "關於我們", en: "About Us",
   },
   usemethod: {
-    ch: "使用說明",
+    ch: "使用說明", en: "User Manual"
   },
   privacy: {
-    ch: "私隱權條例",
+    ch: "私隱權條例", en: "Private policy",
   },
   tos: {
-    ch: "使用細則",
+    ch: "使用細則", en: "Terms",
+  },
+  pfaMessage: {
+    ch: "PFA消息", en: "PFA NEWS",
   },
   valuation:{
-    ch: "資產估值(USDT)",
+    ch: "資產估值(USDT)",en: "Asset value(USDT)"
   },
   UsdtVules:{
     ch: "0.01512701",
   },
   UsdtCode:{
-    ch: "USDT",
+    ch: "USDT",en: "USDT",
   },
   conversion:{
     ch: "≈￥1123.12",
   },
   Recharge:{
-    ch: "充值",
+    ch: "充值", en: "Charge"
   },
   withdrawal:{
-    ch: "提取",
+    ch: "提取",en: "Withdraw"
   },
   assets:{
-    ch: "顯示所有資產",
+    ch: "顯示所有資產",en: "Show all asset"
   },
   title:{
-    ch: "資金",
+    ch: "資金",en: "Asset"
   },
-
   tosfull: {
     ch:
+      "使用條款訪問或使用位於https://PriceFitchAsset.com的令牌流動性網絡網站和API，以及任何鏈接或定向的子域名（例如https://app.PriceFitchAsset.com）（“網站”）和任何通過本網站提供的內容，您（“用戶”和與使用本網站的其他人共同使用 - “用戶”）同意受這些使用條款（“條款”）的約束。<br/><p/>" +
+      "請仔細閱讀這些條款。這些條款約束您訪問和使用本網站和內容（如本文所定義）。通過使用內容或訪問本網站，即表示您同意這些條款和我們的隱私政策，其當前版本可在https://www.PriceFitchAsset.com/privacy-policy獲得，該文件在此引用作為參考並且可以自行決定隨時修改，恕不另行通知。可能會不時對這些條款進行更改。這些更改將在該時刻應用於本網站的當前和後續使用。您放棄任何您可能必須收到此類更改或修改的特定通知的權利。您繼續使用本網站即表示接受此類更改或修改。如果您在訪問或使用本網站時不同意有效條款，則必須停止使用本網站。<br/><p/>" +
+      "如果您不同意任何這些條款，請不要使用本網站或內容。<br/>" +
+      "1.資格<br/>" +
+      "通過訪問或使用本網站，您聲明並保證，如果您的居住國和/或公民身份所適用的法律禁止您根據這些條款禁止使用本網站，則您將不會使用本網站。<br/><p/>" +
+      "2.網站內容<br/>" +
+      "一個。該站點提供了一個在線平台，允許您訪問受支持的區塊鏈並與之交互，並提供自主轉換機制的選項，包括不同支持的區塊鏈之間。此類轉換可以是由中繼令牌（統稱為“令牌”）持有的不同智能令牌或其他支持的標準令牌（適用於相關支持的區塊鏈;例如，以太坊區塊鏈上的標準ERC20令牌）。灣通過本網站，您可以（以下內容稱為“內容”）：<br/>" +
+      "i。查看有關不同令牌的信息; <br/>" +
+      "II。查看支持的電子錢包（“電子錢包”或“電子錢包”）中的信息;<br/>" +
+      "III。自己構建事務（在站點界面的幫助下），然後您可以將其發送到區塊鏈。<br/>" +
+      "IV。 PriceFitchAssetX交叉區塊鏈接口，幫助您使用BNT，並在支持的區塊鏈上轉換令牌;<br/>" +
+      "V。與本網站上的其他用戶進行互動和溝通，參與討論並從本網站的社區接收信息;<br/>" +
+      "VI。管理您的電子錢包（與帳戶相關聯），使您能夠發送或接收令牌，在令牌之間進行轉換，查看歷史數據，並輕鬆地在區塊鏈上進行交易;<br/>" +
+      "VII。接收有關您電子錢包中活動的通知;第i，ii和iii小節中詳述的服務可供本網站上的所有用戶使用（無需帳戶），而第iv，v和vi小節中詳述的服務可通過在網站上創建您自己的帳戶獲得（ “帳戶”）。要創建帳戶，您必須指定顯示名稱帳戶（“顯示名稱”）並將帳戶與指定的電子錢包相關聯。<br/><p/>" +
+      "3.創建您的帳戶<br/>" +
+      "上述第（ii）i，ii和iii節中詳述的內容可供本網站上的所有用戶使用（無需帳戶），而第2節（b）中iv，v和vi中詳述的內容均為可以通過在網站上創建自己的帳戶（“帳戶”）來獲得。創建帳戶：要創建帳戶，您必須指定顯示名稱帳戶（“顯示名稱”）並將帳戶與指定的電子錢包相關聯。您的顯示名稱：顯示名稱可以是您選擇的任何名稱，並將在本網站上公開顯示給所有其他用戶。選擇顯示名稱時，請考慮它主要用於使您能夠與本網站上的其他用戶進行交互。您可以隨時更改您的顯示名稱。<br/><p/>" +
+      "4.創建您的電子錢包<br/>" +
+      "PriceFitchAsset無法控制您的電子錢包。請注意，您的錢包由您自己負責，並始終由您自己控制。通過您的帳戶，您可以輕鬆訪問自己的電子錢包 - PriceFitchAsset無法訪問您的電子錢包，也無法控制每個帳戶。",
+    en:
       "TERMS OF USE  By accessing or using the Token Liquidity Network website and API located at https://PriceFitchAsset.com, and any linked or directed subdomain (such as https://app.PriceFitchAsset.com) (the “Site”) and any content made available through the Site, you (the “User” and collectively with others using the Site - “Users”) agree to be bound by these Terms of Use (“Terms”). The rights in the Site are held by Bprotocol Foundation, a Swiss foundation, with legal seat in Zug, Switzerland, registered in the Swiss commercial register under UID CHE-181.679.849 (“PriceFitchAsset”), and the terms “we,” “us,” and “our” refer to PriceFitchAsset. Please read these Terms carefully. These Terms govern your access to and use of the Site and Content (as defined herein). By using the Content or visiting the Site, you signify your consent to both these Terms and our Privacy Policy, a current version of which is available at https://www.PriceFitchAsset.com/privacy-policy, which is incorporated herein by reference and which may be modified from time to time at our sole discretion and without prior notice. Changes may be made to these Terms from time to time. These changes will apply at that instant to all then current and subsequent uses of the Site. You waive any right you may have to receive specific notice of such changes or modifications. Your continued use of this Site acts as acceptance of such changes or modifications. If you do not agree to the Terms in effect when you access or use the Site, you must stop using the Site.\n" +
       "IF YOU DO NOT AGREE TO ANY OF THESE TERMS, PLEASE DO NOT USE THE SITE OR CONTENT.\n" +
       "1. Eligibility\n" +
@@ -204,10 +288,19 @@ export default {
       "These Terms are governed by and construed in accordance with the laws of the Swiss Confederation. You hereby consent that any claim, cause of action or dispute arising out of or relating to these Terms, the Content or the Site shall be submitted to the exclusive jurisdiction of the Cantonal Court of Zug, Switzerland, and you agree to submit to the personal jurisdiction of such courts for the purpose of litigating all such claims.\n" +
       "18. Miscellaneous\n" +
       "a. The controlling language for these terms of use is English; the meaning of terms, conditions and representations herein are subject to definitions and interpretations in the English language. Any translation is provided for your convenience and may not be deemed to represent accurately the information in the original English. b. If any provision of these Terms is determined to be invalid or unenforceable, the provision shall be deemed to be severable from the remainder of these Terms and will not cause their invalidity or unenforceability. c. These terms of use may be amended from time to time. It is your responsibility to check these terms of use periodically for changes. Your continued use of the Content following the posting of changes will mean that you accept and agree to the changes. If you do not agree with any such modification, you should not use the Content. d. YOU AGREE THAT ANY CAUSE OF ACTION ARISING OUT OF OR RELATED TO THE CONTENT MUST COMMENCE WITHIN ONE (1) YEAR AFTER THE CAUSE OF ACTION ACCRUES. OTHERWISE, SUCH CAUSE OF ACTION IS PERMANENTLY BARRED.\n" +
-      "v.01 | May 29, 2019"
+      "v.01 | May 29, 2019",
   },
   privacyfull: {
-    ch: "PRIVACY POLICY\n" +
+    ch: "PriceFotchAsset網絡（“PriceFotchAsset網絡”，“我們”，“我們”或“我們的”）是一個分散的流動性網絡，允許您持有任何以太坊令牌並將其轉換為網絡中的任何其他令牌，沒有對方，以自動計算的價格，使用簡單的網絡錢包（“服務”）。本隱私政策旨在告知我們如何管理，收集，存儲和使用我們收到的與PriceFotchAsset網絡相關的個人信息（“政策”）。<br/><p/>" +
+      "接受政策<br/>" +
+      "我們的註冊過程是使用聊天機器人完成的。因此，我們創建了一個對話流程，我們要求您同意我們的隱私政策條款，回复“是”您同意您已閱讀，理解，接受並同意受本隱私政策的約束。如果您不同意隱私政策，請不要使用我們的服務。<br/><p/>" +
+      "我們隱私政策的變更<br/>" +
+      "我們可能會更新本隱私政策，以反映我們的信息收集，使用和存儲實踐的變化。如果我們做出任何我們認為“重大”的變更（我們酌情決定），我們將通知您（在變更生效之前使用“通知”部分中規定的通知方法。我們鼓勵您定期查看此頁面以獲取有關我們隱私慣例的最新信息。<br/><p/>" +
+      "我們收集的信息以及用於何種目的<br/>" +
+      "我們收集了PriceFotchAsset Netwotk運行所需的信息以及通過它提供的服務。當您作為社區成員註冊我們的PriceFotchAsset網絡時，我們會直接收到您的信息，例如用戶名。您可以自願向我們提供您的聯繫信息和相關數據，包括個人信息。我們使用這些信息來管理我們的網絡和內部操作，包括故障排除，數據分析，測試，研究，統計和調查目的。我們還可能存儲您的計算機或移動設備提供給我們的與您使用服務相關的信息，例如您的瀏覽器類型，計算機或移動設備類型，瀏覽器語言，IP地址。如果您使用Facebook等第三方服務註冊PriceFotchAsset網絡，我們可能會從第三方服務處收到有關您的信息。<br/><p/>" +
+      "披露您的信息<br/>" +
+      "我們不會向您出租或出售任何有關您的信息，也不會交易任何此類信息。我們可能僱用第三方公司和個人來促進網絡的運營，並執行與網絡管理相關的服務（包括但不限於賬單和信用卡支付處理，維護，託管和數據庫管理服務，網絡分析和管理）。您理解並同意，如果法律要求或認為此類披露是合理必要的，以避免責任，我們可能被要求披露個人信息，以遵守法律程序，包括但不限於傳票，法規，搜查令或法院命令，或保護我們或第三方的財產和權利，以保護公眾或任何人的安全，或防止或停止我們可能認為的活動，或構成風險是，非法的，不道德的或法律上可行的。如果我們將被第三方實體收購或合併，或者在破產或類似事件中，我們保留轉讓或轉讓與上述事件相關的個人信息的權利。<br/><p/>",
+    en: "PRIVACY POLICY\n" +
       "About Us\n" +
       "The PriceFitchAsset Network (the “PriceFitchAsset Network”, “We”, “Us” or “Our”) is a Decentralized Liquidity Network that allows you to hold any Ethereum token and convert it to any other token in the network, with no counter party, at an automatically calculated price, using a simple web wallet (the “Services”). This privacy policy has been created to inform about how we manage, collect, store and use the personal information we receive and collect in connection with the PriceFitchAsset Network (the `Policy`).\n" +
       "Acceptance of Policy\n" +
@@ -231,7 +324,7 @@ export default {
       "Notices to you may be made via our website. PriceFitchAsset may also provide notices of changes to this Privacy Policy or other matters by displaying notices or links to notices to you generally on our website. You agree that all agreements, notices, disclosures and any other communications that PriceFitchAsset provide as aforementioned satisfy any legal requirement that such communications be in writing.\n" +
       "Contact Us\n" +
       "For any questions about this Privacy Policy or any other issue regarding the Bacnor Network or our Services please contact us at: privacy@PriceFitchAsset.com\n" +
-      "Last Update: May 2018"
+      "Last Update: May 2018",
   },
   aboutusfull: {
     ch: "普惠資產區塊鏈公鏈系統<br/><p/>" +
@@ -239,11 +332,17 @@ export default {
       "普惠資產團隊及摩根大通在選擇區塊鏈技術上持相同意見：以太坊是技術最高的區塊鏈，但是以太坊速度慢及需要礦工費限制了非常大量的應用﹐往往一個幾千人的應用已經癱瘓了整個公有鏈；且 無法用於細額交易。<br/><p/>" +
       "鏈改後的普惠資產公有鏈是將原有以太坊公鏈上的普惠資產，升級至獨立的一個主網絡上，技術層面稱為硬分叉，升級後在速度和供需方面非常完善，能應付日後高頻交易。<br/><p/>" +
       "普惠公有鏈的高速﹐共享區塊鏈技術 既解決了速度及細額交易的問題﹐而且增加了一些私隱的設定：私人性信息能夠永遠不會向網絡參與者廣播。私人數據經過加密，只與相關方直接共享﹐同時又不會失去可信任的優秀功能。<br/><p/>" +
-      "摩根大通Quorum技術其實是一種基於以太坊的分佈式分類賬協議，包含 Go Ethereum 客戶端（也稱為 geth）的 簡約分支，旨在為金融，供應鏈，零售，房地產等行業提供允許的以太坊實施，支持交易和合同隱私。 因此，普惠團隊善用了以太坊開發人員社區所做的工作。 因為底層技術Quorum 的兼用性非常大﹐在未來更可以從算法層面鏈改。我們可以建立在大量已開發的以太坊技術上﹐例如熟悉的Truffle,MetaMask,Remix ,OpenZeppelin ﹐它們都已經可以直接在普惠資產公有鏈上使用，避免了重複開發的資源浪費。"
+      "摩根大通Quorum技術其實是一種基於以太坊的分佈式分類賬協議，包含 Go Ethereum 客戶端（也稱為 geth）的 簡約分支，旨在為金融，供應鏈，零售，房地產等行業提供允許的以太坊實施，支持交易和合同隱私。 因此，普惠團隊善用了以太坊開發人員社區所做的工作。 因為底層技術Quorum 的兼用性非常大﹐在未來更可以從算法層面鏈改。我們可以建立在大量已開發的以太坊技術上﹐例如熟悉的Truffle,MetaMask,Remix ,OpenZeppelin ﹐它們都已經可以直接在普惠資產公有鏈上使用，避免了重複開發的資源浪費。",
+    en: "Price Fitch Asset Public Blockchain System<br/><p/>" +
+      "Price Fitch Asset (PFA) assets use the latest blockchain technology developed by J.P.MORGAN and Mircosoft to provide a powerful, secure, and stable blockchain technology to create a new concept of global payment system. PFA is involved in the development of J.P.MORGAN and Microsoft which belongs to a world-class blockchain technology team.<br/><p/>" +
+      "Price Fitch Asset and JPMorgan hold the same opinion on the choice of blockchain technology: Ethereum is the most technological blockchain, but Ethereum is slow and requires miners which limit many applications. Usually, a few thousand people will lead Ethereum slow. The application has already smashed the entire public chain; it cannot be used for small amount transactions.<br/><p/>" +
+      "The new public chain reform is a upgrade the original on the Ethereum public chain to an independent main network. Technically called hard fork, and the upgrade is very perfect in terms of speed and supply and demand. Which can handle a large number of high-frequency transactions in the future.<br/><p/>" +
+      "Therefore, the high-speed, shared blockchain technology of PFA public chain not only solves the problem of speed and fine transactions, but also adds some privacy settings: private information can never be broadcast to network participants. Private data is encrypted and shared directly with related parties without losing the trustworthy features.<br/><p/>" +
+      "JPMorgan's Quorum technology is actually a distributed ledger agreement based on Ethereum, including a simple branch of the Go Ethereum client base (also known as geth), designed to provide the Ethereum for the financial, supply chain, retail, real estate and other industries. Implementation, support for transaction and contract privacy. As a result, the PFA team was able to take advantage of the work done by the Ethereum developer community. Because the underlying technology Quorum is very versatile, it can be changed from the algorithm level in the future. We can build on a large number of developed Ethereum technologies, such as the familiar Truffle, MetaMask, Remix, OpenZeppelin, which can all be used directly on Quorum, avoiding waste of resources for repetitive development.",
   },
   usemethodfull: {
     ch: "1)重要說明<br/>" +
-      "在建立錢包後﹐馬上備份你的私鑰﹐帳戶不儲存在服務器上﹐而是一條私鑰<br/><p/>" +
+      "在建立錢包後﹐馬上備份你的私鑰﹐帳戶不儲存在服務器上﹐而是一條私鑰。<br/><p/>" +
       "2)導入錢包<br/>" +
       "從Imtoken導入:在Imtoken中按[管理錢包] 再找到 [導出私鑰]<br/>" +
       "然後在注冊時填上私鑰  #私鑰是一串文字<br/>" +
@@ -254,15 +353,104 @@ export default {
       "4)提取USDT/賣出USDT<br/>" +
       "提取USDT時﹐在傳送時﹐輸入目標交易所的地址。<br/><p/>" +
       "5)備份<br/>" +
-      "用戶必須要妥善儲存自己的私鑰。"
+      "用戶必須要妥善儲存自己的私鑰。",
+    en: "1) Most Important <br/>" +
+      "Once you create account, please back up your private key immediately, your key is not stored on any server but on your phone’s private key <br/><p/>" +
+      "2)Import Wallet<br/>" +
+      "Import from Imtoken: In Imtoken, find “manage wallet” then click “Export Private Key” then paste this private key when you Import your private key here #Private key is a text like: f9338567f005a02a5609c161e84d1ab1f47aaa429a01e2299abe8c7d386228fa<br/><p/>" +
+      "3)Charge USDT<br/>" +
+      "when you chaege USDT to this PFA wallet﹐please select ERC-20 USDT, then send to this ERC20 USDT<br/><p/>" +
+      "4)Withdraw USDT/ Sell USDT<br/>" +
+      "Please click withdraw and select USDT(Send to ETH Network need 1USDT)﹐then input target address on ETH network.<br/><p/>" +
+      "5)Back up<br/>" +
+      "Please well store your private key",
+  },
+  pfaMessagefull: {
+    ch: "普惠資產已完成主網升級，應用了摩根大通的GoQuorum，沿用ERC20制式，持舊PFA的用戶只要將私鑰導入即可在未來置換鏈改後的PFA。",
+    en: "PFA have been upgraded to a main blockchain network, applied GoQuorum. It is ERC20 compatible, those PFA holders please import your private key, you will receive new PFA in future."
   },
   walletImportExport: {
-    ch: "從PFA錢包",
+    ch: "從PFA錢包", en: "from PFA Wallet",
   },
   importExport: {
-    ch: "導入",
+    ch: "導入", en: "Import",
+  },
+  copy: {
+    ch: "複製", en: "Copy",
+  },
+  copied: {
+    ch: "已複製", en: "Copied",
   },
   footNavigation: {
-    ch: ["首頁", "錢包", "交易", "幣訊", "關於"]
+    ch: ["首頁", "錢包", "交易", "幣訊", "我的"], en: ["HOME", "WALLET", "EXCHANGE", "NEWS", "MY WALLET"],
   },
+  purchaseAddress: {
+    ch: "請把外部購買的 USDT 傳入以下地址：",en: "Please send USDT from Ethereum network(ERC20) to this ETH network address:",
+  },
+  completeRecharge: {
+    ch: "完成充值前請勿關閉此頁面。完成充值後你會收到通知。",en: "Please do not close this page before charge finished.",
+  },
+  uploadQRCode: {
+    ch: "上傳二維碼",en: "Upload QR"
+  },
+  recognitionQRcode: {
+    ch: "識別二維碼",en: "Scan QR"
+  },
+  note: {
+    ch: "備註",en: "Note"
+  },
+  fillInFormat:{
+    ch: "備註可用中英文填寫，最多顯示30字",en: "Note can be either Chinese/English, 30 words most"
+  },
+  pfa:{
+    ch: "PFA",en: "PFA"
+  },
+  ihad:{
+    ch: "HAD",en: "HAD"
+  },
+  usdt:{
+    ch: "USDT（轉外部以太網絡 每筆需付1USDT）",en: "USDT(Send to ETH Network need 1USDT)"
+  },
+  usdti:{
+    ch: "USDT（PFA內部互轉 免網絡費）",en: "USDT(PFA internal network transfer)"
+  },
+  noInformation:{
+    ch: "沒有相關資料",en: "No relevant information"
+  },
+  received:{
+    ch: "收到 ",en: "Received "
+  },
+  continue:{
+    ch: " USDT。你可以繼續充值。",en: " USDT, you can continue to recharge."
+  },
+  transactionVC:{
+    ch: "交易憑證",en: "Transaction Code"
+  },
+  sendAddress:{
+    ch: "發送地址",en: "Send Address"
+  },
+  designationAddress:{
+    ch: "目標地址",en: "Designation Address"
+  },
+  type:{
+    ch: "種類",en: "Type"
+  },
+  quantity:{
+    ch: "數量",en: "Quantity"
+  },
+  remark:{
+    ch: "備註",en: "Remark"
+  },
+  time:{
+    ch: "時間",en: "Time"
+  },
+  myWallet:{
+    timeZone:{
+      ch: "時區",en: "Timezone"
+    },
+  },
+  rotaryPlantingMap: {
+    ch: [ '2019/07/31/5d40f6c9e692d73793.jpg', '2019/06/26/5d12c2c61668934580.png','2019/07/03/5d1c3296bd17e13109.jpeg'],
+    en: [ '2019/07/31/5d413d05c946c44072.png', '2019/08/01/5d42532f28d1794181.jpg', '2019/07/31/5d412ff18bffe69494.jpg'],
+  }
 };
