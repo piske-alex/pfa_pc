@@ -330,7 +330,7 @@ function Dashboard({
   }
 
   const handleCopiedSnackbarForPrivOpen =()=> {
-    window.Clipboard.copy(account.privateKey)
+    window.Clipboard.copy(account.privateKey.slice(2))
     setCopiedSnackbarOpen(true)
   }
 
@@ -711,7 +711,7 @@ function Dashboard({
         </Paper>
 
 
-        <Modal id={"copiable"} open={modalOpen} onBackdropClick={handleModalClose}>
+        <Modal  open={modalOpen} onBackdropClick={handleModalClose}>
           <div className={classes.modalPaper + " modalWidth"}>
             <div className={classes.toolbarIcon}>
               <Typography variant={"h5"} style={{ }}>{t.dashboards.backUp[config.lang]}</Typography>
@@ -719,7 +719,7 @@ function Dashboard({
                 <CloseIcon />
               </IconButton>
             </div>
-            <div className="backupBottom">
+            <div className="backupBottom" id={"copiable"}>
               <ExpansionPanel>
                 <ExpansionPanelSummary
                   expandIcon={<ExpandMoreIcon />}
