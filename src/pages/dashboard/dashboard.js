@@ -721,6 +721,8 @@ function Dashboard({
                         value={exportAccounts()}
                         multiline
                         rowsMax={4}
+                        readOnly={false}
+                        contentEditable={true}
                         label={t.copyHere[Config.lang]}
                       />
                       <CopyButton onClick={handleCopiedSnackbarOpen} text={exportAccounts()}>複製</CopyButton>

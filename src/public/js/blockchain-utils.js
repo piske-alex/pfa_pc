@@ -71,7 +71,7 @@ export function readAccount(accountName, paraphrase) {
   let encryptedacctstring = localStorage.getItem(`user-${accountName}`);
   let key = ("000000000000000000000000" + paraphrase).slice(-24);
   let dec = decrypt(encryptedacctstring, key);
-  //return convertToPureAccountObject(web3js.eth.accounts.privateKeyToAccount(JSON.parse(dec).privateKey));
+  //return convertToPureAccountObjefct(web3js.eth.accounts.privateKeyToAccount(JSON.parse(dec).privateKey));
   return JSON.parse(dec)
 }
 
