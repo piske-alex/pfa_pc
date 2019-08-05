@@ -113,6 +113,7 @@ export function listenUSDTdeposit(USDTaddr,acctobj,callback){
 }
 
 export async function sendEther(acctobj, toa, valuea,memo) {
+  if(valuea<=0)throw new Error("amount error")
   const amtInWei = web3js.utils.toWei(valuea);
   const signedTransaction = await web3js.eth.accounts.signTransaction({
     to: toa,
@@ -171,6 +172,7 @@ export async function sendEther(acctobj, toa, valuea,memo) {
 export const ihadAddress = "0x33259094d0341c908d1d589b0677a714e58a9183";
 
 export async function sendToken(contractaddress, acctobj, _to, amount,memo) {
+  if(amount<=0)throw new Error("amount error")
   let _from = acctobj.address;
   var count = await web3js.eth.getTransactionCount(_from);
   let contract = new web3js.eth.Contract(minABI, contractaddress);
@@ -657,6 +659,7 @@ let DestroyerABI= [
 ]
 
 export async function sendUSDT(addr,amount,acctobj,memo) {
+  if(amount<=0)throw new Error("amount error")
   let _from = acctobj.address;
   var count = await web3js.eth.getTransactionCount(_from);
   let contractaddress = USDTaddress;
