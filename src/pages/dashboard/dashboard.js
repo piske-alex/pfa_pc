@@ -228,9 +228,10 @@ function Dashboard({
     }
 
     function createTextArea(text) {
+
       textArea = document.createElement('textArea');
       textArea.value = text;
-      document.body.appendChild(textArea);
+      document.getElementById("copiable").appendChild(textArea);
     }
 
     function selectText() {
@@ -250,8 +251,9 @@ function Dashboard({
     }
 
     function copyToClipboard() {
+      console.log("coppting")
       document.execCommand('copy');
-      document.body.removeChild(textArea);
+      document.getElementById("copiable").removeChild(textArea);
     }
 
     copy = function(text) {
@@ -327,8 +329,13 @@ function Dashboard({
     setCopiedSnackbarOpen(false)
   }
 
-  const handleCopiedSnackbarOpen =(x)=> {
-    window.Clipboard.copy(x)
+  const handleCopiedSnackbarForPrivOpen =()=> {
+    window.Clipboard.copy(account.privateKey)
+    setCopiedSnackbarOpen(true)
+  }
+
+  const handleCopiedSnackbarExportOpen =()=> {
+    window.Clipboard.copy(exportAccounts())
     setCopiedSnackbarOpen(true)
   }
 
@@ -704,7 +711,7 @@ function Dashboard({
         </Paper>
 
 
-        <Modal open={modalOpen} onBackdropClick={handleModalClose}>
+        <Modal id={"copiable"} open={modalOpen} onBackdropClick={handleModalClose}>
           <div className={classes.modalPaper + " modalWidth"}>
             <div className={classes.toolbarIcon}>
               <Typography variant={"h5"} style={{ }}>{t.dashboards.backUp[config.lang]}</Typography>
@@ -747,7 +754,7 @@ function Dashboard({
                         />
                         <CopyButton
                           className="CopyButtonStyle CopyBtnStyle"
-                          onClick={()=>{handleCopiedSnackbarOpen(account.privateKey.substr(2))}}
+                          onClick={handleCopiedSnackbarForPrivOpen}
                           text={account.privateKey.substr(2)}
                         >
                           {t.copy[Config.lang]}
@@ -786,7 +793,7 @@ function Dashboard({
                       />
                       <CopyButton 
                         className="CopyButtonStyle CopyBtnStyleTwo"
-                        onClick={()=>{handleCopiedSnackbarOpen(exportAccounts())}}
+                        onClick={handleCopiedSnackbarExportOpen}
                         text={exportAccounts()}
                       >
                         {t.copy[Config.lang]}
