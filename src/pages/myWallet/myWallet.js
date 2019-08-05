@@ -61,14 +61,14 @@ import { fontSize } from "@material-ui/system";
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import Icon from '@material-ui/core/Icon';
-import "./myWallet.css";
-import Config from "../../public/js/config";
 import InputBase from "@material-ui/core/InputBase";
 import Paper from "@material-ui/core/Paper";
-import moment from "moment"
-import "moment-timezone"
+import moment from "moment";
+import "moment-timezone";
 
-const lang = "ch";
+import trans from "../../public/js/translation";
+import Config from "../../public/js/config";
+import "./myWallet.css";
 
 const accountInfoRefreshTime = 20;
 
@@ -87,10 +87,12 @@ const useStyles = makeStyles(theme => ({
     paddingRight: 24, // keep right padding when drawer closed
   },
   toolbarIcon: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "flex-end",
+    // display: "flex",
+    // alignItems: "center",
+    // justifyContent: "flex-end",
     padding: "0 2px",
+    textAlign: "Center",
+    marginTop: "14px",
     ...theme.mixins.toolbar,
   },
   appBar: {
@@ -148,7 +150,7 @@ const useStyles = makeStyles(theme => ({
   appBarSpacer: theme.mixins.toolbar,
   content: {
     flexGrow: 1,
-    height: "100vh",
+    // height: "100vh",
     overflow: "auto",
 
   },
@@ -167,16 +169,40 @@ const useStyles = makeStyles(theme => ({
     height: 240,
   },
   modalPaper: {
-    position: "absolute",
-    width: 360,
-    height: 500,
-    top: "calc(50% - 500px / 2)",
-    left: "calc(50% - 360px / 2)",
-    backgroundColor: theme.palette.background.paper,
+    // position: "absolute",
+    // width: 360,
+    // height: 500,
+    // top: "calc(50% - 500px / 2)",
+    // left: "calc(50% - 360px / 2)",
+    // backgroundColor: theme.palette.background.paper,
+    // boxShadow: theme.shadows[5],
+    // padding: theme.spacing(1),
+    // outline: "none",
+    backgroundColor: "#212733",
     boxShadow: theme.shadows[5],
-    padding: theme.spacing(1),
+    padding: "14px",
     outline: "none",
+
+    // width: "94%",
+    height: "60%",
+    // background: url(box_bg.png) no-repeat;
+    // background-size: cover;
+    position: "fixed",
+    top: "50%",
+    left: "50%",
+
+    transform: "translate(-50%, -50%)",
+    zIndex: 200,
   },
+  close: {
+    position: "absolute",
+    right: "10px",
+    top: "18px",
+  },
+  extractRow: {
+    width: '100%',
+    textAlign: 'center',
+  }
 }));
 const BootstrapInput = withStyles(theme => ({
   root: {
@@ -514,11 +540,11 @@ function Dashboard({
   return (
     <React.Fragment>
       <CssBaseline />
-      <Grid style={{ maxWidth: "1100px", margin: "0 auto", backgroundColor: "#212733!important", height: "auto" }}>
+      <Grid style={{ maxWidth: "1100px", margin: "0 auto", backgroundColor: "#212733!important", height: "100vh" }}>
         <main className={classes.content}>
           <Grid className="backgrad">
             <Grid className={classes.head} >
-              {t.title[lang]}
+              {t.title[Config.lang]}
             </Grid>
             <Grid container direction={"column"} className="titleMagin" >
               <Grid item style={{ marginBottom: "10px" }}>
@@ -532,7 +558,7 @@ function Dashboard({
                 >
                   <Grid item>
                     <Typography variant={"body2"} className={classes.container1}>
-                      {t.valuation[lang]}
+                      {t.valuation[Config.lang]}
                       {/* <IconButton onClick={handleClickShowPassword} className="iconBtn">
                         {values.showPassword ? <Visibility /> : <VisibilityOff />}
                       </IconButton> */}
@@ -547,7 +573,7 @@ function Dashboard({
                     {pfaBalance*1+ihadBalance *1.5+USDTbalance}
                   </Grid>
                   <Grid className="usdtVulesClassCode">
-                    {t.UsdtCode[lang]}
+                    {t.UsdtCode[Config.lang]}
                   </Grid>
                 </HorizontalCenter>
               </Grid>
@@ -555,7 +581,7 @@ function Dashboard({
               {/*<Grid item>
                 <HorizontalCenter>
                   <Typography className={classes.container1}>
-                    {t.conversion[lang]}
+                    {t.conversion[Config.lang]}
                   </Typography>
                 </HorizontalCenter>
               </Grid>*/}
@@ -563,38 +589,28 @@ function Dashboard({
 
               <Grid item style={{ height: "10px" }} />
               <Grid item>
-                <Grid
-                  container
-                  direction="row"
-                  alignItems="center"
-                  justify="center"
-                >
-                  <Grid item>
-                    <Button
-                      variant="outlined"
-                      onClick={handleBuyModalOpen}
-                      style={{ width: "120px", color: '#C0C0C0' }}
-                    >
-                      <img src={'/after.png'} className="donateClass" />
-                      <Grid className="rechargeClass">
-                        {t.Recharge[lang]}
-                      </Grid>
-                    </Button>
-                  </Grid>
-                  {/* <Grid item xs={1} /> */}
-                  <Grid item>
-                    <Button
-                      variant="outlined"
-                      onClick={setSendModalOpen}
-                      style={{ width: "120px", color: '#C0C0C0' }}
-                    >
-                      <img src='https://i.loli.net/2019/06/28/5d15641e8e59187387.png' className="donateClass" />
-                      <Grid className="rechargeClass">
-                        {t.withdrawal[lang]}
-                      </Grid>
-                    </Button>
-                  </Grid>
-                </Grid>
+                <div className = "myWalletTwoBtn">
+                  <Button
+                    variant="outlined"
+                    onClick={handleBuyModalOpen}
+                    style={{ width: "130px", color: '#C0C0C0', padding:'5px 0px', marginRight: 1 }}
+                  >
+                    <img src={'https://minio.koin-exchange.com/avatar/after.png'} className="donateClass" />
+                    <Grid className="rechargeClass">
+                      {t.Recharge[Config.lang]}
+                    </Grid>
+                  </Button>
+                  <Button
+                    variant="outlined"
+                    onClick={setSendModalOpen}
+                    style={{ width: "130px", color: '#C0C0C0', padding:'5px 0px' }}
+                  >
+                    <img src='https://i.loli.net/2019/06/28/5d15641e8e59187387.png' className="donateClass" />
+                    <Grid className="rechargeClass">
+                      {t.withdrawal[Config.lang]}
+                    </Grid>
+                  </Button>
+                </div>
               </Grid>
 
               <Grid style={{ height: '10px', width: '100%', background: 'black', marginTop: '30px' }} />
@@ -603,7 +619,7 @@ function Dashboard({
                 <Typography variant={"body2"} style={{ marginTop: "10px", color: "#FFB601", height: '6px' }} className="paddingle">
                   <Icon className='msgIcon'>assessment</Icon>
                   <Grid className='msgIconText'>
-                    {t.assets[lang]}
+                    {t.assets[Config.lang]}
                   </Grid>
                   <Grid className='msgIconTextrg'>
                     <Icon className='msgIcon'>sort_by_alpha</Icon>
@@ -669,14 +685,14 @@ function Dashboard({
                   </List>
                 </Grid>
 
-                <Grid className="paddingle" item style={{ maxHeight: "40vh", overflow: "auto" }}>
+                <Grid className="paddingle" item style={{ maxHeight: "40vh", overflow: "auto", paddingBottom: 5 }}>
                   <Typography variant={"body2"} style={{ marginBottom: "5px" }}>
-                    {t.transactionRecord[lang]}
+                    {t.transactionRecord[Config.lang]}
                   </Typography>
                   <Divider />
                   {accHistory.length === 0 ? (
-                    <Typography variant={"body2"}>
-                      {t.noTransactionInfo[lang]}
+                    <Typography variant={"body2"} style={{ marginTop: "5px" }}>
+                      {t.noTransactionInfo[Config.lang]}
                     </Typography>
                   ) : (
                     <List>
@@ -702,9 +718,9 @@ function Dashboard({
                             <ListItemText
                               primary={`${
                                 entry.type === "in"
-                                  ? t.receive[lang]
+                                  ? t.receive[Config.lang]
                                   : entry.type === "out"
-                                  ? t.send[lang]
+                                  ? t.send[Config.lang]
                                   : entry.type
                                 } ${entry.absvalue} ${entry.currency}`}
                               secondary={
@@ -715,7 +731,7 @@ function Dashboard({
                                   <Typography variant={"body2"}>
                                     {`${decodeURIComponent(entry.memo).slice(0,30)}`}
                                   </Typography>
-                                  <Typography variant={"body2"}>{changeTZ(`${(entry.time).slice(0,10)} ${(entry.time.slice(11,19))}`)} (時區：GMT+8)</Typography>
+                                  <Typography variant={"body2"}>{changeTZ(`${(entry.time).slice(0,10)} ${(entry.time.slice(11,19))}`)} ({t.myWallet.timeZone[Config.lang]}：GMT+8)</Typography>
                                 </React.Fragment>
                               }
                             />
@@ -732,59 +748,99 @@ function Dashboard({
       </Grid>
 
       <Modal open={buyModalOpen} onBackdropClick={handleBuyModalClose}>
-        <div className={classes.modalPaper}>
-          <Grid container direction={"column"}>
+        <div className={classes.modalPaper + " modalWidth"}>
+          <Grid container direction={"column"} style={{ height: '100%' }}>
             <Grid item>
               <div className={classes.toolbarIcon}>
-                <Typography variant={"h5"} style={{ marginRight: "150px" }}>{`${
-                  t.buy[Config.lang]
-                  } USDT`}</Typography>
-                <IconButton onClick={handleBuyModalClose}>
+                <Typography variant={"h5"} style={{ }}>
+                  {`${t.buy[Config.lang]} ${t.UsdtCode[Config.lang]}`}
+                </Typography>
+                <IconButton className={classes.close} onClick={handleBuyModalClose}>
                   <CloseIcon />
                 </IconButton>
               </div>
             </Grid>
-            <Grid item style={{ overflow: "auto", height: "400px" }}>
-              <Typography variant={"p"}>{`請把外部${
-                t.buy[Config.lang]
-                }的 USDT 傳入以下地址：`}</Typography><Paper style={{border:"8px solid white",height:"106px",width:"106px"}}><QRCode value={`pfa:${account.USDTWallet}`} style={{ height: "90px", width: "90px" }} renderAs={"svg"} /></Paper><br /><span>{account.USDTWallet}</span><br /><br />
+            <Grid item style={{ overflow: "auto", height: "calc(100% - 78px)" }}>
+              <Typography variant={"p"}>
+                {`${t.purchaseAddress[Config.lang]}`}
+              </Typography>
+              <Paper style={{border:"8px solid white",height:"106px",width:"106px"}}>
+                <QRCode value={`pfa:${account.USDTWallet}`} style={{ height: "90px", width: "90px" }} renderAs={"svg"} />
+              </Paper><br />
+              <span className="lineFeed">{account.USDTWallet}</span><br /><br />
               <LinearProgress variant="query" /><br />
-              <Typography variant={"p"} style={{ marginRight: "150px" }}>{`完成充值前請勿關閉此頁面。完成充值後你會收到通知。`}</Typography>
+              <Typography variant={"p"} style={{ }}>{`${t.completeRecharge[Config.lang]}`}</Typography>
               <List >
                 {usdtProvider.map(p => (
-                  <ListItem
-                    component={MaterialLink}
-                    key={p.url}
-                    href={p.url}
-                    target="_blank"
-                    style={{
-                      border: "1px solid white",
-                      textDecoration: "none",
-                      marginTop: "5px",
-                      marginBottom: "5px",
-                      borderRadius: "5px",
-                    }}
-                  >
-                    <ListItemAvatar>
-                      <Avatar
-                        src={p.logoUrl}
-                        style={{
-                          backgroundColor: "white",
-                        }}
-                        imgProps={{
-                          style: {
-                            transform: `scale(${p.logoScale}, ${p.logoScale})`,
-                            height: "auto",
-                          },
-                        }}
+                  Config.lang == "ch" && p.ch == "true" ? 
+                    <ListItem
+                      component={MaterialLink}
+                      key={p.url}
+                      href={p.url}
+                      target="_blank"
+                      style={{
+                        border: "1px solid white",
+                        textDecoration: "none",
+                        marginTop: "5px",
+                        marginBottom: "5px",
+                        borderRadius: "5px",
+                      }}
+                    >
+                      <ListItemAvatar>
+                        <Avatar
+                          src={p.logoUrl}
+                          style={{
+                            backgroundColor: "white",
+                          }}
+                          imgProps={{
+                            style: {
+                              transform: `scale(${p.logoScale}, ${p.logoScale})`,
+                              height: "auto",
+                            },
+                          }}
+                        />
+                      </ListItemAvatar>
+                      <ListItemText
+                        primary={p.name[Config.lang]}
+                        primaryTypographyProps={{ color: "textPrimary" }}
+                        secondary={p.description[Config.lang]}
                       />
-                    </ListItemAvatar>
-                    <ListItemText
-                      primary={p.name[Config.lang]}
-                      primaryTypographyProps={{ color: "textPrimary" }}
-                      secondary={p.description[Config.lang]}
-                    />
-                  </ListItem>
+                    </ListItem>
+                  : Config.lang == "en" && p.en == "true" ? 
+                      <ListItem
+                        component={MaterialLink}
+                        key={p.url}
+                        href={p.url}
+                        target="_blank"
+                        style={{
+                          border: "1px solid white",
+                          textDecoration: "none",
+                          marginTop: "5px",
+                          marginBottom: "5px",
+                          borderRadius: "5px",
+                        }}
+                      >
+                        <ListItemAvatar>
+                          <Avatar
+                            src={p.logoUrl}
+                            style={{
+                              backgroundColor: "white",
+                            }}
+                            imgProps={{
+                              style: {
+                                transform: `scale(${p.logoScale}, ${p.logoScale})`,
+                                height: "auto",
+                              },
+                            }}
+                          />
+                        </ListItemAvatar>
+                        <ListItemText
+                          primary={p.name[Config.lang]}
+                          primaryTypographyProps={{ color: "textPrimary" }}
+                          secondary={p.description[Config.lang]}
+                        />
+                      </ListItem>
+                      :""
                 ))}
               </List>
 
@@ -795,22 +851,21 @@ function Dashboard({
       </Modal>
 
       <Modal open={sendModalOpen} onBackdropClick={handleSendModalClose}>
-        <div className={classes.modalPaper}>
+        <div className={classes.modalPaper + " modalWidth"}>
           <div className={classes.toolbarIcon}>
-            <Typography variant={"h5"} style={{ marginRight: "150px" }}>{`提取`}</Typography>
-            <IconButton onClick={handleSendModalClose}>
+            <Typography variant={"h5"} style={{ }}>{`${t.withdrawal[Config.lang]}`}</Typography>
+            <IconButton className={classes.close} onClick={handleSendModalClose}>
               <CloseIcon />
             </IconButton>
           </div>
           <Grid
             container
-            direction={"column"}
             alignItems={"flex-start"}
             justify={"space-evenly"}
             spacing={2}
-            style={{ marginLeft: "10px", marginRight: "10px" }}
+            style={{ padding: '8px 10px',height: 'calc(100% - 70px)',overflow: 'auto', width: '100%', margin: 0 }}
           >
-            <Grid item>
+            <Grid item className={classes.extractRow}>
               <TextField
                 label={t.from[Config.lang]}
                 value={`${currentUsername} ${account.address}`}
@@ -818,27 +873,25 @@ function Dashboard({
                 style={{ width: "280px" }}
               />
             </Grid>
-            <Grid item>
+            <Grid item className={classes.extractRow}>
               <TextField
                 label={t.to[Config.lang]}
                 value={sendToAddress}
                 onChange={handleSendToAddressChange}
                 style={{ width: "280px" }}
               />
+            </Grid>
+            <Grid item className={classes.extractRow}>
               <div className="upload-btn-wrapper" style={{
                 position: "relative",
                 overflow: "hidden",
                 display: "inline-block",
               }}>
-                <button className="btn" style={{
-                  border: "2px solid gray",
-                  color: "gray",
-                  backgroundColor: "white",
-                  padding: "8px 20px",
+                <button className="CommonButtonStyle" style={{
+                  width:'142px',
+                  height:'41px',
                   borderRadius: "8px",
-                  fontSize: "20px",
-                  fontWeight: "bold",
-                }}>上傳二維碼</button>
+                }}>{t.uploadQRCode[Config.lang]}</button>
                 <input type="file" name="myfile" style={{
                   fontSize: "100px",
                   position: "absolute",
@@ -852,15 +905,11 @@ function Dashboard({
                 overflow: "hidden",
                 display: "inline-block",
               }}>
-                <button className="btn" style={{
-                  border: "2px solid gray",
-                  color: "gray",
-                  backgroundColor: "white",
-                  padding: "8px 20px",
+                <button className="CommonButtonStyle" style={{
+                  width:'142px',
+                  height:'41px',
                   borderRadius: "8px",
-                  fontSize: "20px",
-                  fontWeight: "bold",
-                }} onClick={handleScanModalOpen}>識別二維碼</button>
+                }} onClick={handleScanModalOpen}>{t.recognitionQRcode[Config.lang]}</button>
 
               </div>
               {/*<BootstrapInput
@@ -875,7 +924,7 @@ function Dashboard({
                 }
               />*/}
             </Grid>
-            <Grid item>
+            <Grid item className={classes.extractRow}>
               <FormControl style={{ width: "280px" }}>
                 <InputLabel>{t.asset[Config.lang]}</InputLabel>
                 <Select
@@ -884,15 +933,15 @@ function Dashboard({
                     setSendCurrency(event.target.value);
                   }}
                 >
-                  <MenuItem value="pfa">PFA</MenuItem>
-                  <MenuItem value="ihad">HAD</MenuItem>
-                  <MenuItem value="usdt">USDT（需要支付 1 USDT 外部網路費）</MenuItem>
-                  <MenuItem value="usdti">USDT（PFA 網路內轉帳）</MenuItem>
+                  <MenuItem value="pfa">{t.pfa[Config.lang]}</MenuItem>
+                  <MenuItem value="ihad">{t.ihad[Config.lang]}</MenuItem>
+                  <MenuItem value="usdt">{t.usdt[Config.lang]}</MenuItem>
+                  <MenuItem value="usdti">{t.usdti[Config.lang]}</MenuItem>
                 </Select>
               </FormControl>
             </Grid>
 
-            <Grid item>
+            <Grid item className={classes.extractRow}>
               <TextField
                 label={t.amount[Config.lang]}
                 helperText={t.transactionDelayInfo[Config.lang]}
@@ -902,22 +951,24 @@ function Dashboard({
               />
 
             </Grid>
-            <Grid item>
+            <Grid item className={classes.extractRow}>
               <TextField
-                label={`備註`}
-                helperText={`備註可用中英文填寫，最多顯示30字`}
+                label={t.note[Config.lang]}
+                helperText={t.fillInFormat[Config.lang]}
                 value={memo}
                 onChange={handleMemoChange}
                 style={{ width: "280px" }}
               />
 
             </Grid>
-            <Grid item>
+            <Grid item className={classes.extractRow}>
               <FormControl style={{ width: "280px" }}>
                 <Button
+                  className="CommonButtonStyle"
                   variant="contained"
                   color="primary"
                   onClick={handleSendAsset}
+                  style={{ letterSpacing: "1px", }}
                 >
                   {t.send[Config.lang]}
                 </Button>
@@ -929,10 +980,10 @@ function Dashboard({
 
 
       <Modal open={scanModalOpen} onBackdropClick={handleScanModalClose}>
-        <div className={classes.modalPaper}>
+        <div className={classes.modalPaper + " modalWidth"}>
           <div className={classes.toolbarIcon}>
-            <Typography variant={"h5"} style={{ marginRight: "150px" }}>{`識別二維碼`}</Typography>
-            <IconButton onClick={handleScanModalClose}>
+            <Typography variant={"h5"} style={{ }}>{t.recognitionQRcode[Config.lang]}</Typography>
+            <IconButton className={classes.close} onClick={handleScanModalClose}>
               <CloseIcon />
             </IconButton>
           </div>
@@ -957,10 +1008,10 @@ function Dashboard({
       </Modal>
 
       <Modal open={tradeModalOpen} onBackdropClick={handleTradeModalClose} >
-        <div className={classes.modalPaper} style={{top:"calc(50% - 700px / 2)",height:"700px"}}>
+        <div className={classes.modalPaper + " modalWidth"} style={{top:"calc(50% - 700px / 2)",height:"700px"}}>
           <div className={classes.toolbarIcon}>
-            <Typography variant={"h5"} style={{ marginRight: "150px" }}>{`交易憑證`}</Typography>
-            <IconButton onClick={handleTradeModalClose}>
+            <Typography variant={"h5"} style={{ }}>{t.transactionVC[Config.lang]}</Typography>
+            <IconButton className={classes.close} onClick={handleTradeModalClose}>
               <CloseIcon />
             </IconButton>
           </div>
@@ -972,12 +1023,12 @@ function Dashboard({
             spacing={2}
             style={{ marginLeft: "10px", marginRight: "10px" }}
           >
-            <p>發送地址: {tradeDetails.from}</p>
-            <p>目標地址:	{tradeDetails.to}</p>
-            <p>種類: {tradeDetails.type}</p>
-            <p>數量: {tradeDetails.amt}</p>
-            <p>備註: {tradeDetails.memo}</p>
-            <p>時間: {tradeDetails.time}</p>
+            <p>{t.sendAddress[Config.lang]}: {tradeDetails.from}</p>
+            <p>{t.designationAddress[Config.lang]}:	{tradeDetails.to}</p>
+            <p>{t.type[Config.lang]}: {tradeDetails.type}</p>
+            <p>{t.quantity[Config.lang]}: {tradeDetails.amt}</p>
+            <p>{t.remark[Config.lang]}: {tradeDetails.memo}</p>
+            <p>{t.time[Config.lang]}: {tradeDetails.time}</p>
           </Grid>
         </div>
       </Modal>
@@ -986,25 +1037,25 @@ function Dashboard({
         open={transactionFinishedSnackbarOpen}
         autoHideDuration={6000}
         onClose={handleTransactionFinishedSnackbarClose}
-        message={t.transactionFinishedInfo[lang]}
+        message={t.transactionFinishedInfo[Config.lang]}
       />
       <Snackbar
         open={transactionFailedSnackbarOpen}
         autoHideDuration={6000}
         onClose={handleTransactionFailedSnackbarClose}
-        message={t.transactionFailedWarning[lang]}
+        message={t.transactionFailedWarning[Config.lang]}
       />
       <Snackbar
         open={depositfinishedSnackbarOpen}
         autoHideDuration={6000}
         onClose={handleDepositfinishedSnackbarClose}
-        message={"收到 " + depositAmount + " USDT。你可以繼續充值。"}
+        message={t.received[Config.lang]+ depositAmount +t.continue[Config.lang]}
       />
       <Snackbar
         open={noinfoSnackbarOpen}
         autoHideDuration={6000}
         onClose={handlenoinfoSnackbarClose}
-        message={"沒有相關資料"}
+        message={t.noInformation[Config.lang]}
       />
     </React.Fragment>
   );

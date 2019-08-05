@@ -17,7 +17,6 @@
  
 }
 .binance{
-    width: 31px;
     height: 20px;
     line-height: 20px;
     float: left;
@@ -26,7 +25,7 @@
     margin-left: 16px;
 }
 .binanceCoin{
-    width: 50%;
+    width: 100%;
     height: 20px;
     line-height: 20px;
     float: left;
@@ -132,5 +131,8 @@ margin-top: 2px;
     padding-right: 16px;
     padding-left: 16px;
     align-items: flex-start;
-
+}
+.myWalletTwoBtn{
+    width: 261px;
+    margin: 0 auto;
 }
