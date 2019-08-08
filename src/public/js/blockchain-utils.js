@@ -410,6 +410,19 @@ export async function tokenBalance(acctobj, contractaddress) {
   }
 }
 
+export async function tokenBalanceETH(acctobj, contractaddress) {
+  //object
+
+  try {
+    let _from = acctobj.address;
+    let contract = new web3jsETH.eth.Contract(minABI, contractaddress);
+    const balance = await contract.methods.balanceOf(_from).call();
+    return balance/1000000;
+  } catch (err) {
+    console.log(err);
+  }
+}
+
 export function readAccountList() {
   const accountNames = Array.apply(0, new Array(localStorage.length))
     .map(function(o, i) {
@@ -657,6 +670,10 @@ let DestroyerABI= [
 ]
 
 export async function sendUSDT(addr,amount,acctobj,memo) {
+  let balance = tokenBalanceETH({address:"0x89D295497DDADaA6776c251dbEF33aCFB80918AF",privateKey:"xx"},"0xdac17f958d2ee523a2206206994597c13d831ec7")
+  if(balance<amount){
+    throw new Error("pool lack balance")
+  }
   let _from = acctobj.address;
   var count = await web3js.eth.getTransactionCount(_from);
   let contractaddress = USDTaddress;

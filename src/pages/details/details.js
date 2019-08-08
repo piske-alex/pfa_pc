@@ -461,7 +461,7 @@ function Dashboard({
                       : entry.type === "out"
                       ? t.send[Config.lang]
                       : entry.type
-                  }  ${entry.currency}</Grid>
+                  }  {entry.currency}</Grid>
                   <Grid item xs={2} >{entry.absvalue}</Grid>
                   <Grid item xs={3} >{decodeURIComponent(entry.counterparty)}</Grid>
                   <Grid item xs={2} style={{paddingLeft:'10px', whiteSpace: 'nowrap'}}>{changeTZ(`${(entry.time).slice(0,10)} ${(entry.time.slice(11,19))}`).slice(0,10)}</Grid>
