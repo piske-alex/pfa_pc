@@ -462,12 +462,13 @@ function Dashboard({
                       ? t.send[Config.lang]
                       : entry.type
                   }  ${entry.currency}</Grid>
-                  <Grid item xs={2} >${entry.absvalue}</Grid>
-                  <Grid item xs={3} >${decodeURIComponent(entry.counterparty)}</Grid>
-                  <Grid item xs={2} className='detailslistRight'>{changeTZ(`${(entry.time).slice(0,10)} ${(entry.time.slice(11,19))}`)} ({t.myWallet.timeZone[Config.lang]}：GMT+8)</Grid>
+                  <Grid item xs={2} >{entry.absvalue}</Grid>
+                  <Grid item xs={3} >{decodeURIComponent(entry.counterparty)}</Grid>
+                  <Grid item xs={2} style={{paddingLeft:'10px', whiteSpace: 'nowrap'}}>{changeTZ(`${(entry.time).slice(0,10)} ${(entry.time.slice(11,19))}`).slice(0,10)}</Grid>
+                  <Grid item xs={2} className='detailslistRight'>{changeTZ(`${(entry.time).slice(0,10)} ${(entry.time.slice(11,19))}`).slice(11,19)} </Grid>
                 </Grid>
                 <Grid className="remarks">
-                  <Grid item xs={12} >{decodeURIComponent(entry.memo)}</Grid>
+                  <Grid item xs={12} >({t.myWallet.timeZone[Config.lang]}：GMT+8) 備註{decodeURIComponent(entry.memo)}</Grid>
                 </Grid>
                 <Divider />
                 </div>
