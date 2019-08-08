@@ -35,20 +35,7 @@ import ChevronRight from "@material-ui/icons/ChevronRight";
 import Icon from '@material-ui/core/Icon';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { CopyButton } from "react-copy-button";
-
-// import LogoutIcon from "@material-ui/icons/ExitToApp";
-// import ListItemIcon from "@material-ui/core/ListItemIcon";
-// import ReceiveIcon from "@material-ui/icons/CallReceived";
-// import SendIcon from "@material-ui/icons/CallMade";
- import Moment from "react-moment";
-// import { ArrowDownwardSharp, ArrowUpwardSharp } from "@material-ui/icons";
-// import Drawer from "@material-ui/core/Drawer";
-// import AppBar from "@material-ui/core/AppBar";
-// import Toolbar from "@material-ui/core/Toolbar";
-// import Container from "@material-ui/core/Container";
-// import MenuIcon from "@material-ui/icons/Menu";
-// import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
-// import MoreIcon from "@material-ui/icons/MoreHoriz";
+import Moment from "react-moment";
 
 import {
   etherBalance,
@@ -218,55 +205,6 @@ function Dashboard({
   handleChangeAccount,
 
 }) {
-
-  window.Clipboard = (function(window, document, navigator) {
-    var textArea,
-      copy;
-
-    function isOS() {
-      return navigator.userAgent.match(/ipad|iphone/i);
-    }
-
-    function createTextArea(text) {
-
-      textArea = document.createElement('textArea');
-      textArea.value = text;
-      document.getElementById("copiable").appendChild(textArea);
-    }
-
-    function selectText() {
-      var range,
-        selection;
-
-      if (isOS()) {
-        range = document.createRange();
-        range.selectNodeContents(textArea);
-        selection = window.getSelection();
-        selection.removeAllRanges();
-        selection.addRange(range);
-        textArea.setSelectionRange(0, 999999);
-      } else {
-        textArea.select();
-      }
-    }
-
-    function copyToClipboard() {
-      console.log("coppting")
-      document.execCommand('copy');
-      document.getElementById("copiable").removeChild(textArea);
-    }
-
-    copy = function(text) {
-      createTextArea(text);
-      selectText();
-      copyToClipboard();
-    };
-
-    return {
-      copy: copy
-    };
-  })(window, document, navigator);
-
   const logoUrl = getLogoUrl();
   const [cookies, setCookie] = useCookies(['pfa']);
   let something = ""
@@ -306,7 +244,7 @@ function Dashboard({
 
   };
   const handleScanError=(err)=>{
-    alert('未能識別二維碼');
+    alert(t.qrTips[Config.lang]);
     console.error(err)
     handleScanModalClose();
   };
@@ -329,13 +267,7 @@ function Dashboard({
     setCopiedSnackbarOpen(false)
   }
 
-  const handleCopiedSnackbarForPrivOpen =()=> {
-    window.Clipboard.copy(account.privateKey.slice(2))
-    setCopiedSnackbarOpen(true)
-  }
-
-  const handleCopiedSnackbarExportOpen =()=> {
-    window.Clipboard.copy(exportAccounts())
+  const handleCopiedSnackbarOpen =()=> {
     setCopiedSnackbarOpen(true)
   }
 
@@ -435,7 +367,7 @@ function Dashboard({
 
   const [accHistory, setAccHistory] = React.useState([]);
 
-  const [sendCurrency, setSendCurrency] = React.useState("pfa");
+  const [sendCurrency, setSendCurrency] = React.useState("ihad");
 
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
@@ -525,7 +457,7 @@ function Dashboard({
           const qrCodeImageFormat = await ctx.getImageData(0, 0, bmp.width, bmp.height);
           const qrDecoded = await jsQR(qrCodeImageFormat.data, qrCodeImageFormat.width, qrCodeImageFormat.height);
           if(qrDecoded==null){
-            alert('未能識別二維碼')
+            alert(t.qrTips[Config.lang])
           }else{
             setSendToAddress(qrDecoded.data.slice(5));
           }
@@ -711,7 +643,7 @@ function Dashboard({
         </Paper>
 
 
-        <Modal  open={modalOpen} onBackdropClick={handleModalClose}>
+        <Modal open={modalOpen} onBackdropClick={handleModalClose}>
           <div className={classes.modalPaper + " modalWidth"}>
             <div className={classes.toolbarIcon}>
               <Typography variant={"h5"} style={{ }}>{t.dashboards.backUp[config.lang]}</Typography>
@@ -719,7 +651,7 @@ function Dashboard({
                 <CloseIcon />
               </IconButton>
             </div>
-            <div className="backupBottom" id={"copiable"}>
+            <div className="backupBottom">
               <ExpansionPanel>
                 <ExpansionPanelSummary
                   expandIcon={<ExpandMoreIcon />}
@@ -746,15 +678,13 @@ function Dashboard({
                           label={t.privateKey[Config.lang]}
                           className={classes.textField}
                           value={account.privateKey.substr(2)}
-                          readOnly={false}
-                          contentEditable={true}
                           style={{ visibility: seePrivateKey ? 'visible' : 'hidden',width: '85%', fontSize: 14 }}
                           disabled
                           variant="outlined"
                         />
-                        <CopyButton
+                        <CopyButton 
                           className="CopyButtonStyle CopyBtnStyle"
-                          onClick={handleCopiedSnackbarForPrivOpen}
+                          onClick={handleCopiedSnackbarOpen} 
                           text={account.privateKey.substr(2)}
                         >
                           {t.copy[Config.lang]}
@@ -787,13 +717,11 @@ function Dashboard({
                         value={exportAccounts()}
                         multiline
                         rowsMax={4}
-                        readOnly={false}
-                        contentEditable={true}
                         label={t.copyHere[Config.lang]}
                       />
                       <CopyButton 
                         className="CopyButtonStyle CopyBtnStyleTwo"
-                        onClick={handleCopiedSnackbarExportOpen}
+                        onClick={handleCopiedSnackbarOpen} 
                         text={exportAccounts()}
                       >
                         {t.copy[Config.lang]}
@@ -807,7 +735,7 @@ function Dashboard({
           </div>
         </Modal>
         <Modal open={sendModalOpen} onBackdropClick={handleSendModalClose}>
-          <div className={classes.modalPaper + " modalWidth"}>
+          <div className={classes.modalPaper + " modalWidthTwo modelHeight"}>
             <div className={classes.toolbarIcon}>
               <Typography variant={"h5"} style={{ }}>{`${t.withdrawal[Config.lang]}`}</Typography>
               <IconButton className={classes.close} onClick={handleSendModalClose}>
@@ -819,7 +747,7 @@ function Dashboard({
               alignItems={"flex-start"}
               justify={"space-evenly"}
               spacing={2}
-              style={{ padding: '8px 10px',height: "calc(100% - 70px)",overflow: 'auto', width: '100%', margin: 0 }}
+              style={{ height: "calc(100% - 70px)",overflow: 'auto', width: '100%', margin: 0 }}
             >
               <Grid item className={classes.extractRow}>
                 <TextField
@@ -838,36 +766,36 @@ function Dashboard({
                 />
               </Grid>
               <Grid item className={classes.extractRow}>
-                <div className="upload-btn-wrapper" style={{
-                  position: "relative",
-                  overflow: "hidden",
-                  display: "inline-block",
-                }}>
-                  <button className="CommonButtonStyle" style={{
-                    padding: "11.5px 35px",
-                    borderRadius: "8px",
-                    fontSize: "14px",
-                  }}>{t.uploadQRCode[Config.lang]}</button>
-                  <input type="file" name="myfile" style={{
-                    fontSize: "100px",
-                    position: "absolute",
-                    left: 0,
-                    top: 0,
-                    opacity: 0
-                  }} onChange={changefile}/>
-                </div>
-
-                <div className="upload-btn-wrapper" style={{
-                  position: "relative",
-                  overflow: "hidden",
-                  display: "inline-block",
-                }}>
-                  <button className="CommonButtonStyle" style={{
-                    padding: "11.5px 35px",
-                    borderRadius: "8px",
-                    fontSize: "14px",
-                  }} onClick={handleScanModalOpen}>{t.recognitionQRcode[Config.lang]}</button>
-
+                <div style={{ width: 280, marginLeft: 'calc(50% - 140px)' }}>
+                  <div className="upload-btn-wrapper" style={{
+                    position: "relative",
+                    overflow: "hidden",
+                    display: "inline-block",
+                  }}>
+                    <button className="CommonButtonStyle" style={{
+                      width:140,
+                      height:'41px',
+                      borderRadius: "8px",
+                    }}>{t.uploadQRCode[Config.lang]}</button>
+                    <input type="file" name="myfile" style={{
+                      fontSize: "100px",
+                      position: "absolute",
+                      left: 0,
+                      top: 0,
+                      opacity: 0
+                    }} onChange={changefile}/>
+                  </div>
+                  <div className="upload-btn-wrapper" style={{
+                    position: "relative",
+                    overflow: "hidden",
+                    display: "inline-block",
+                  }}>
+                    <button className="CommonButtonStyle" style={{
+                      width:140,
+                      height:'41px',
+                      borderRadius: "8px",
+                    }} onClick={handleScanModalOpen}>{t.recognitionQRcode[Config.lang]}</button>
+                  </div>
                 </div>
               </Grid>
               <Grid item className={classes.extractRow}>
@@ -879,8 +807,8 @@ function Dashboard({
                       setSendCurrency(event.target.value);
                     }}
                   >
-                    <MenuItem value="pfa">{t.pfa[Config.lang]}</MenuItem>
                     <MenuItem value="ihad">{t.ihad[Config.lang]}</MenuItem>
+                    <MenuItem value="pfa">{t.pfa[Config.lang]}</MenuItem>
                     <MenuItem value="usdt">{t.usdt[Config.lang]}</MenuItem>
                     <MenuItem value="usdti">{t.usdti[Config.lang]}</MenuItem>
                   </Select>
@@ -923,7 +851,7 @@ function Dashboard({
         </Modal>
 
         <Modal open={buyModalOpen} onBackdropClick={handleBuyModalClose}>
-          <div className={classes.modalPaper + " modalWidth"}>
+          <div className={classes.modalPaper + " modalWidthTwo modelHeight"}>
             <Grid container direction={"column"} style={{ height: '100%' }}>
               <Grid item>
                 <div className={classes.toolbarIcon}>

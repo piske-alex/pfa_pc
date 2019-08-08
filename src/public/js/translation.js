@@ -229,6 +229,65 @@ export default {
   title:{
     ch: "資金",en: "Asset"
   },
+  details:{
+    ch: "詳細資料", en:"Details"
+  },
+  detailsTitle:{
+    ch: "詳細資料",en:"Details"
+  },
+  detailsAddress:{
+    ch: "NDJHSIAHDISHDSD",
+  },
+  currency:{
+    ch: "幣種",en:"Token"
+  },
+  amount:{
+    ch: "量",en:"Vol."
+  },
+  address:{
+    ch: "地址",en:"Address"
+  },
+  date:{
+    ch: "日期",en:"Date"
+  },
+  time:{
+    ch: "時間",en:"Time"
+  },
+  dataCurrency:{
+    ch:"收HAD",en:"rece.HAD"
+  },
+  dataAmount:{
+    ch:"100",en:"100"
+  },
+  dataAddress:{
+    ch:"Ox7B135..",en:"Ox7B135.."
+  },
+  dataDate:{
+    ch:"8月7日",en:"8/7"
+  },
+  dataTime:{
+    ch:"04:24",en:"04:24"
+  },
+  dataRamarks:{
+    ch:"備註：XXXXX",en:"Note:xxxxxx"
+  },
+
+  dataCurrencyTwo:{
+    ch:"發USDT",en:"send.USDT"
+  },
+  dataAmountTwo:{
+    ch:"10000",en:"10000"
+  },
+  dataAddressTwo:{
+    ch:"Ox7B135..",en:"Ox7B135.."
+  },
+  dataDateTwo:{
+    ch:"8月7日",en:"8/7"
+  },
+  dataTimeTwo:{
+    ch:"04:24",en:"04:24"
+  },
+  
   tosfull: {
     ch:
       "使用條款訪問或使用位於https://PriceFitchAsset.com的令牌流動性網絡網站和API，以及任何鏈接或定向的子域名（例如https://app.PriceFitchAsset.com）（“網站”）和任何通過本網站提供的內容，您（“用戶”和與使用本網站的其他人共同使用 - “用戶”）同意受這些使用條款（“條款”）的約束。<br/><p/>" +
@@ -452,5 +511,8 @@ export default {
   rotaryPlantingMap: {
     ch: [ '2019/07/31/5d40f6c9e692d73793.jpg', '2019/06/26/5d12c2c61668934580.png','2019/07/03/5d1c3296bd17e13109.jpeg'],
     en: [ '2019/07/31/5d413d05c946c44072.png', '2019/08/01/5d42532f28d1794181.jpg', '2019/07/31/5d412ff18bffe69494.jpg'],
+  },
+  qrTips: {
+    ch: "未能識別二維碼", en: "Cannot scan QR",
   }
 };

@@ -93,18 +93,50 @@ code {
   .modalWidth{
     width: 43%;
   }
+  .modalWidthTwo{
+    width: 43%;
+  }
+  .modelHeight{
+    height: 60%!important;
+  }
 }
 @media only screen and (min-width: 430px) and (max-width: 1000px) {
   .modalWidth{
     width: 48%;
+  }
+  .modalWidthTwo{
+    width: 48%;
+  }
+  .modelHeight{
+    height: 60%!important;
   }
 }
 @media only screen and (max-width: 430px) {
   .modalWidth{
     width: 95%;
   }
+  .modalWidthTwo{
+    width: 100%;
+  }
+  .modelHeight{
+    height: 100%!important;
+  }
+}
+.codeWidth{
+  width: 100%;
+  overflow-x: auto;
 }
 .lineFeed{
   white-space:normal; 
   word-break:break-all;
+}
+@media only screen and (max-width: 350px) {
+  .butWidth{
+    width: 120px;
+  }
+}
+@media only screen and (min-width: 350px) {
+  .butWidth{
+    width: 139px;
+  }
 }

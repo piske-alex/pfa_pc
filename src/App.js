@@ -16,6 +16,7 @@ import FootNavigation from "./pages/foot/footNavigation";
 import AboutUs from "./pages/aboutUs/aboutUs";
 import MyWallet from "./pages/myWallet/myWallet";
 import Config from "./public/js/config";
+import Details from "./pages/details/details";
 
 const theme = createMuiTheme({
   palette: {
@@ -152,6 +153,16 @@ function App(props) {
             render={() => (
               <div>
                 <AboutUs props={props} account={account}
+                         currentUsername={currentUsername} handleLogout={handleLogout}/>
+                <FootNavigation {...props} />
+              </div>
+            )}
+          />
+          <Route
+            path={"/details"}
+            render={() => (
+              <div>
+                <Details props={props} account={account}
                          currentUsername={currentUsername} handleLogout={handleLogout}/>
                 <FootNavigation {...props} />
               </div>

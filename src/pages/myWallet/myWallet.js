@@ -184,7 +184,7 @@ const useStyles = makeStyles(theme => ({
     outline: "none",
 
     // width: "94%",
-    height: "60%",
+    // height: "60%",
     // background: url(box_bg.png) no-repeat;
     // background-size: cover;
     position: "fixed",
@@ -232,6 +232,7 @@ function Dashboard({
   currentUsername,
   handleLogout,
   handleChangeAccount,
+  props,
 
 }) {
   const logoUrl = getLogoUrl();
@@ -267,7 +268,7 @@ function Dashboard({
 
   };
   const handleScanError=(err)=>{
-    alert('未能識別二維碼');
+    alert(t.qrTips[Config.lang]);
     console.error(err)
     handleScanModalClose();
   };
@@ -384,6 +385,11 @@ function Dashboard({
 
 
   };
+
+  const detailsButton = async () => {//ldx
+    props.history.push("/details");
+  };
+
   const handleBuyModalClose = () => {
     setBuyModalOpen(false);
   };
@@ -453,7 +459,7 @@ function Dashboard({
           const qrCodeImageFormat = await ctx.getImageData(0, 0, bmp.width, bmp.height);
           const qrDecoded = await jsQR(qrCodeImageFormat.data, qrCodeImageFormat.width, qrCodeImageFormat.height);
           if(qrDecoded==null){
-            alert('未能識別二維碼')
+            alert(t.qrTips[Config.lang])
           }else{
             setSendToAddress(qrDecoded.data.slice(4));
           }
@@ -481,7 +487,7 @@ function Dashboard({
 
   const [accHistory, setAccHistory] = React.useState([]);
 
-  const [sendCurrency, setSendCurrency] = React.useState("pfa");
+  const [sendCurrency, setSendCurrency] = React.useState("ihad");
 
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
@@ -559,9 +565,6 @@ function Dashboard({
                   <Grid item>
                     <Typography variant={"body2"} className={classes.container1}>
                       {t.valuation[Config.lang]}
-                      {/* <IconButton onClick={handleClickShowPassword} className="iconBtn">
-                        {values.showPassword ? <Visibility /> : <VisibilityOff />}
-                      </IconButton> */}
                     </Typography>
                   </Grid>
                 </Grid>
@@ -578,17 +581,8 @@ function Dashboard({
                 </HorizontalCenter>
               </Grid>
 
-              {/*<Grid item>
-                <HorizontalCenter>
-                  <Typography className={classes.container1}>
-                    {t.conversion[Config.lang]}
-                  </Typography>
-                </HorizontalCenter>
-              </Grid>*/}
-
-
               <Grid item style={{ height: "10px" }} />
-              <Grid item>
+              <Grid item style={{ width: '100%', paddingLeft: 'calc(50% - 261px / 2)' }}>
                 <div className = "myWalletTwoBtn">
                   <Button
                     variant="outlined"
@@ -612,10 +606,11 @@ function Dashboard({
                   </Button>
                 </div>
               </Grid>
-
+            </Grid>
+            <Grid container direction={"column"} >
               <Grid style={{ height: '10px', width: '100%', background: 'black', marginTop: '30px' }} />
 
-              <Grid>
+              <Grid style={{ width: '100%' }}>
                 <Typography variant={"body2"} style={{ marginTop: "10px", color: "#FFB601", height: '6px' }} className="paddingle">
                   <Icon className='msgIcon'>assessment</Icon>
                   <Grid className='msgIconText'>
@@ -686,9 +681,29 @@ function Dashboard({
                 </Grid>
 
                 <Grid className="paddingle" item style={{ maxHeight: "40vh", overflow: "auto", paddingBottom: 5 }}>
-                  <Typography variant={"body2"} style={{ marginBottom: "5px" }}>
+                  {/* <Typography variant={"body2"} style={{ marginBottom: "5px" }}>
                     {t.transactionRecord[Config.lang]}
-                  </Typography>
+                  </Typography> */}
+
+                  <Grid className="transactionRecordClass">
+                      <Grid className ="transactionRecordClassLeft">
+                        {t.transactionRecord[Config.lang]}
+                      </Grid>
+
+                      <Grid className ="transactionRecordClassRight">
+                          <Button
+                            variant="outlined"
+                            onClick={detailsButton}
+                            style={{ width: "100px", color: '#C0C0C0', padding:'2px 0px', float:'right'}} >
+                            <Grid className="rechargeClass">
+                              {t.details[Config.lang]}
+                            </Grid>
+                          </Button>
+                      </Grid>
+                  </Grid>
+
+
+
                   <Divider />
                   {accHistory.length === 0 ? (
                     <Typography variant={"body2"} style={{ marginTop: "5px" }}>
@@ -725,7 +740,7 @@ function Dashboard({
                                 } ${entry.absvalue} ${entry.currency}`}
                               secondary={
                                 <React.Fragment>
-                                  <Typography variant={"body2"} style={{maxWidth:"250px",overflowX:"auto"}}>
+                                  <Typography variant={"body2"} className="codeWidth">
                                     {`${decodeURIComponent(entry.counterparty)}`}
                                   </Typography>
                                   <Typography variant={"body2"}>
@@ -748,7 +763,7 @@ function Dashboard({
       </Grid>
 
       <Modal open={buyModalOpen} onBackdropClick={handleBuyModalClose}>
-        <div className={classes.modalPaper + " modalWidth"}>
+        <div className={classes.modalPaper + " modalWidthTwo modelHeight"}>
           <Grid container direction={"column"} style={{ height: '100%' }}>
             <Grid item>
               <div className={classes.toolbarIcon}>
@@ -851,7 +866,7 @@ function Dashboard({
       </Modal>
 
       <Modal open={sendModalOpen} onBackdropClick={handleSendModalClose}>
-        <div className={classes.modalPaper + " modalWidth"}>
+        <div className={classes.modalPaper + " modalWidthTwo modelHeight"}>
           <div className={classes.toolbarIcon}>
             <Typography variant={"h5"} style={{ }}>{`${t.withdrawal[Config.lang]}`}</Typography>
             <IconButton className={classes.close} onClick={handleSendModalClose}>
@@ -863,7 +878,7 @@ function Dashboard({
             alignItems={"flex-start"}
             justify={"space-evenly"}
             spacing={2}
-            style={{ padding: '8px 10px',height: 'calc(100% - 70px)',overflow: 'auto', width: '100%', margin: 0 }}
+            style={{ height: 'calc(100% - 70px)',overflow: 'auto', width: '100%', margin: 0 }}
           >
             <Grid item className={classes.extractRow}>
               <TextField
@@ -882,47 +897,37 @@ function Dashboard({
               />
             </Grid>
             <Grid item className={classes.extractRow}>
-              <div className="upload-btn-wrapper" style={{
-                position: "relative",
-                overflow: "hidden",
-                display: "inline-block",
-              }}>
-                <button className="CommonButtonStyle" style={{
-                  width:'142px',
-                  height:'41px',
-                  borderRadius: "8px",
-                }}>{t.uploadQRCode[Config.lang]}</button>
-                <input type="file" name="myfile" style={{
-                  fontSize: "100px",
-                  position: "absolute",
-                  left: 0,
-                  top: 0,
-                  opacity: 0
-                }} onChange={changefile}/>
+              <div style={{ width: 280, marginLeft: 'calc(50% - 140px)' }}>
+                <div className="upload-btn-wrapper" style={{
+                  position: "relative",
+                  overflow: "hidden",
+                  display: "inline-block",
+                }}>
+                  <button className="CommonButtonStyle" style={{
+                    width:140,
+                    height:'41px',
+                    borderRadius: "8px",
+                  }}>{t.uploadQRCode[Config.lang]}</button>
+                  <input type="file" name="myfile" style={{
+                    fontSize: "100px",
+                    position: "absolute",
+                    left: 0,
+                    top: 0,
+                    opacity: 0
+                  }} onChange={changefile}/>
+                </div>
+                <div className="upload-btn-wrapper" style={{
+                  position: "relative",
+                  overflow: "hidden",
+                  display: "inline-block",
+                }}>
+                  <button className="CommonButtonStyle" style={{
+                    width:140,
+                    height:'41px',
+                    borderRadius: "8px",
+                  }} onClick={handleScanModalOpen}>{t.recognitionQRcode[Config.lang]}</button>
+                </div>
               </div>
-              <div className="upload-btn-wrapper" style={{
-                position: "relative",
-                overflow: "hidden",
-                display: "inline-block",
-              }}>
-                <button className="CommonButtonStyle" style={{
-                  width:'142px',
-                  height:'41px',
-                  borderRadius: "8px",
-                }} onClick={handleScanModalOpen}>{t.recognitionQRcode[Config.lang]}</button>
-
-              </div>
-              {/*<BootstrapInput
-                label={t.to[Config.lang]}
-                style={{ width: "280px" }}
-                value={sendToAddress}
-                onChange={handleSendToAddressChange}
-                endAdornment={
-                  <Icon className="iconBtn">
-                    <Visibility/>
-                  </Icon>
-                }
-              />*/}
             </Grid>
             <Grid item className={classes.extractRow}>
               <FormControl style={{ width: "280px" }}>
@@ -933,8 +938,8 @@ function Dashboard({
                     setSendCurrency(event.target.value);
                   }}
                 >
-                  <MenuItem value="pfa">{t.pfa[Config.lang]}</MenuItem>
                   <MenuItem value="ihad">{t.ihad[Config.lang]}</MenuItem>
+                  <MenuItem value="pfa">{t.pfa[Config.lang]}</MenuItem>
                   <MenuItem value="usdt">{t.usdt[Config.lang]}</MenuItem>
                   <MenuItem value="usdti">{t.usdti[Config.lang]}</MenuItem>
                 </Select>
@@ -1008,7 +1013,7 @@ function Dashboard({
       </Modal>
 
       <Modal open={tradeModalOpen} onBackdropClick={handleTradeModalClose} >
-        <div className={classes.modalPaper + " modalWidth"} style={{top:"calc(50% - 700px / 2)",height:"700px"}}>
+        <div className={classes.modalPaper + " modalWidthTwo modelHeight"}>
           <div className={classes.toolbarIcon}>
             <Typography variant={"h5"} style={{ }}>{t.transactionVC[Config.lang]}</Typography>
             <IconButton className={classes.close} onClick={handleTradeModalClose}>
