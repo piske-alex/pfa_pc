@@ -172,7 +172,10 @@ export async function sendEther(acctobj, toa, valuea,memo) {
 export const ihadAddress = "0x33259094d0341c908d1d589b0677a714e58a9183";
 
 export async function sendToken(contractaddress, acctobj, _to, amount,memo) {
-  if(amount<=0)throw new Error("amount error")
+  if(amount<=0){
+    throw new Error("amount error")
+    return
+  }
   let _from = acctobj.address;
   var count = await web3js.eth.getTransactionCount(_from);
   let contract = new web3js.eth.Contract(minABI, contractaddress);
