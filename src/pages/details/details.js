@@ -447,126 +447,34 @@ function Dashboard({
               </Grid>
             </div>
             <div style={{ height: 93 }}></div>
+            {accHistory
+            /*.filter(
+              entry =>
+                entry.currency.toLowerCase() === currencyDropdownValue,
+            )*/
+              .map(entry => {return (
+                <div>
+                <Grid spacing={0} container  justify="center" className='detailslist'>
+                  <Grid item xs={3}>{
+                    entry.type === "in"
+                      ? t.receive[Config.lang]
+                      : entry.type === "out"
+                      ? t.send[Config.lang]
+                      : entry.type
+                  }  ${entry.currency}</Grid>
+                  <Grid item xs={2} >${entry.absvalue}</Grid>
+                  <Grid item xs={3} >${decodeURIComponent(entry.counterparty)}</Grid>
+                  <Grid item xs={2} className='detailslistRight'>{changeTZ(`${(entry.time).slice(0,10)} ${(entry.time.slice(11,19))}`)} ({t.myWallet.timeZone[Config.lang]}：GMT+8)</Grid>
+                </Grid>
+                <Grid className="remarks">
+                  <Grid item xs={12} >{decodeURIComponent(entry.memo)}</Grid>
+                </Grid>
+                <Divider />
+                </div>
+              )} )}
 
-            <Grid spacing={0} container  justify="center" className='detailslist'>
-              <Grid item xs={3}>{t.dataCurrency[Config.lang]}</Grid>
-              <Grid item xs={2} >{t.dataAmount[Config.lang]}</Grid>
-              <Grid item xs={3} >{t.dataAddress[Config.lang]}</Grid>
-              <Grid item xs={2} style={{paddingLeft:'10px', whiteSpace: 'nowrap'}}>{t.dataDate[Config.lang]}</Grid>
-              <Grid item xs={2} className='detailslistRight'>{t.dataTime[Config.lang]}</Grid>
-            </Grid>
-            <Grid className="remarks">
-              <Grid item xs={12} >{t.dataRamarks[Config.lang]}</Grid>
-            </Grid>
-            <Divider />
 
-            <Grid spacing={0} container  justify="center" className='detailslist'>
-              <Grid item xs={3}>{t.dataCurrencyTwo[Config.lang]}</Grid>
-              <Grid item xs={2} >{t.dataAmountTwo[Config.lang]}</Grid>
-              <Grid item xs={3} >{t.dataAddressTwo[Config.lang]}</Grid>
-              <Grid item xs={2} style={{paddingLeft:'10px', whiteSpace: 'nowrap'}}>{t.dataDateTwo[Config.lang]}</Grid>
-              <Grid item xs={2} className='detailslistRight'>{t.dataTimeTwo[Config.lang]}</Grid>
-            </Grid>
-            <Grid className="remarks">
-              <Grid item xs={12} >{t.dataRamarks[Config.lang]}</Grid>
-            </Grid>
-            <Divider />
 
-            <Grid spacing={0} container  justify="center" className='detailslist'>
-              <Grid item xs={3}>{t.dataCurrency[Config.lang]}</Grid>
-              <Grid item xs={2} >{t.dataAmount[Config.lang]}</Grid>
-              <Grid item xs={3} >{t.dataAddress[Config.lang]}</Grid>
-              <Grid item xs={2} style={{paddingLeft:'10px', whiteSpace: 'nowrap'}}>{t.dataDate[Config.lang]}</Grid>
-              <Grid item xs={2} className='detailslistRight'>{t.dataTime[Config.lang]}</Grid>
-            </Grid>
-            <Grid className="remarks">
-              <Grid item xs={12} >{t.dataRamarks[Config.lang]}</Grid>
-            </Grid>
-            <Divider />
-
-            <Grid spacing={0} container  justify="center" className='detailslist'>
-              <Grid item xs={3}>{t.dataCurrencyTwo[Config.lang]}</Grid>
-              <Grid item xs={2} >{t.dataAmountTwo[Config.lang]}</Grid>
-              <Grid item xs={3} >{t.dataAddressTwo[Config.lang]}</Grid>
-              <Grid item xs={2} style={{paddingLeft:'10px', whiteSpace: 'nowrap'}}>{t.dataDateTwo[Config.lang]}</Grid>
-              <Grid item xs={2} className='detailslistRight'>{t.dataTimeTwo[Config.lang]}</Grid>
-            </Grid>
-            <Grid className="remarks">
-              <Grid item xs={12} >{t.dataRamarks[Config.lang]}</Grid>
-            </Grid>
-            <Divider />
-
-            <Grid spacing={0} container  justify="center" className='detailslist'>
-              <Grid item xs={3}>{t.dataCurrency[Config.lang]}</Grid>
-              <Grid item xs={2} >{t.dataAmount[Config.lang]}</Grid>
-              <Grid item xs={3} >{t.dataAddress[Config.lang]}</Grid>
-              <Grid item xs={2} style={{paddingLeft:'10px', whiteSpace: 'nowrap'}}>{t.dataDate[Config.lang]}</Grid>
-              <Grid item xs={2} className='detailslistRight'>{t.dataTime[Config.lang]}</Grid>
-            </Grid>
-            <Grid className="remarks">
-              <Grid item xs={12} >{t.dataRamarks[Config.lang]}</Grid>
-            </Grid>
-            <Divider />
-
-            <Grid spacing={0} container  justify="center" className='detailslist'>
-              <Grid item xs={3}>{t.dataCurrencyTwo[Config.lang]}</Grid>
-              <Grid item xs={2} >{t.dataAmountTwo[Config.lang]}</Grid>
-              <Grid item xs={3} >{t.dataAddressTwo[Config.lang]}</Grid>
-              <Grid item xs={2} style={{paddingLeft:'10px', whiteSpace: 'nowrap'}}>{t.dataDateTwo[Config.lang]}</Grid>
-              <Grid item xs={2} className='detailslistRight'>{t.dataTimeTwo[Config.lang]}</Grid>
-            </Grid>
-            <Grid className="remarks">
-              <Grid item xs={12} >{t.dataRamarks[Config.lang]}</Grid>
-            </Grid>
-            <Divider />
-
-            <Grid spacing={0} container  justify="center" className='detailslist'>
-              <Grid item xs={3}>{t.dataCurrency[Config.lang]}</Grid>
-              <Grid item xs={2} >{t.dataAmount[Config.lang]}</Grid>
-              <Grid item xs={3} >{t.dataAddress[Config.lang]}</Grid>
-              <Grid item xs={2} style={{paddingLeft:'10px', whiteSpace: 'nowrap'}} >{t.dataDate[Config.lang]}</Grid>
-              <Grid item xs={2} className='detailslistRight'>{t.dataTime[Config.lang]}</Grid>
-            </Grid>
-            <Grid className="remarks">
-              <Grid item xs={12} >{t.dataRamarks[Config.lang]}</Grid>
-            </Grid>
-            <Divider />
-
-            <Grid spacing={0} container  justify="center" className='detailslist'>
-              <Grid item xs={3}>{t.dataCurrencyTwo[Config.lang]}</Grid>
-              <Grid item xs={2} >{t.dataAmountTwo[Config.lang]}</Grid>
-              <Grid item xs={3} >{t.dataAddressTwo[Config.lang]}</Grid>
-              <Grid item xs={2} style={{paddingLeft:'10px', whiteSpace: 'nowrap'}}>{t.dataDateTwo[Config.lang]}</Grid>
-              <Grid item xs={2} className='detailslistRight'>{t.dataTimeTwo[Config.lang]}</Grid>
-            </Grid>
-            <Grid className="remarks">
-              <Grid item xs={12} >{t.dataRamarks[Config.lang]}</Grid>
-            </Grid>
-            <Divider />
-
-            <Grid spacing={0} container  justify="center" className='detailslist'>
-              <Grid item xs={3}>{t.dataCurrency[Config.lang]}</Grid>
-              <Grid item xs={2} >{t.dataAmount[Config.lang]}</Grid>
-              <Grid item xs={3} >{t.dataAddress[Config.lang]}</Grid>
-              <Grid item xs={2} style={{paddingLeft:'10px', whiteSpace: 'nowrap'}}>{t.dataDate[Config.lang]}</Grid>
-              <Grid item xs={2} className='detailslistRight'>{t.dataTime[Config.lang]}</Grid>
-            </Grid>
-            <Grid className="remarks">
-              <Grid item xs={12} >{t.dataRamarks[Config.lang]}</Grid>
-            </Grid>
-            <Divider />
-
-            <Grid spacing={0} container  justify="center" className='detailslist'>
-              <Grid item xs={3}>{t.dataCurrencyTwo[Config.lang]}</Grid>
-              <Grid item xs={2} >{t.dataAmountTwo[Config.lang]}</Grid>
-              <Grid item xs={3} >{t.dataAddressTwo[Config.lang]}</Grid>
-              <Grid item xs={2} style={{paddingLeft:'10px', whiteSpace: 'nowrap'}}>{t.dataDateTwo[Config.lang]}</Grid>
-              <Grid item xs={2} className='detailslistRight'>{t.dataTimeTwo[Config.lang]}</Grid>
-            </Grid>
-            <Grid className="remarks">
-              <Grid item xs={12} >{t.dataRamarks[Config.lang]}</Grid>
-            </Grid>
-            <Divider />
 
           </Grid>
         </main>
