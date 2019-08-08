@@ -1720,6 +1720,13 @@ alphanum-sort@^1.0.0:
   resolved "https://registry.yarnpkg.com/alphanum-sort/-/alphanum-sort-1.0.2.tgz#97a1119649b211ad33691d9f9f486a8ec9fbe0a3"
   integrity sha1-l6ERlkmyEa0zaR2fn0hqjsn74KM=
 
+android-versions@^1.3.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/android-versions/-/android-versions-1.4.0.tgz#807ea2941d7e5780e6dd61c5d9b7b6f3c0706e09"
+  integrity sha512-GnomfYsBq+nZh3c3UH/4r9Jt6FuTxdhUJbeHIdYOH5xBhQ8I0ZzC2/RM5IFFIjrzuNWSHb8JWP1lPK0/a26jrg==
+  dependencies:
+    semver "^5.4.1"
+
 ansi-colors@^3.0.0:
   version "3.2.4"
   resolved "https://registry.yarnpkg.com/ansi-colors/-/ansi-colors-3.2.4.tgz#e3a3da4bfbae6c86a9c285625de124a234026fbf"
@@ -3010,13 +3017,18 @@ copy-descriptor@^0.1.0:
   resolved "https://registry.yarnpkg.com/copy-descriptor/-/copy-descriptor-0.1.1.tgz#676f6eb3c39997c2ee1ac3a924fd6124748f578d"
   integrity sha1-Z29us8OZl8LuGsOpJP1hJHSPV40=
 
-cordova-android@4.1.1:
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/cordova-android/-/cordova-android-4.1.1.tgz#b6dadf0d12b75c4920dbad675f66f8c5d6eae004"
-  integrity sha1-ttrfDRK3XEkg261nX2b4xdbq4AQ=
+cordova-android@8.0.0:
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/cordova-android/-/cordova-android-8.0.0.tgz#1fbe05a914731df619522b9385d4d1b183c36bdb"
+  integrity sha512-Ipv8HbVJpxEyYFSFLTEOaLRp0yxBtJVNbgSuDEB4naa34FzQaRWSNiiMcPJnO+x3hRXNt7pcwa46hARNzhn7+w==
   dependencies:
-    q "^0.9.0"
-    shelljs "^0.2.6"
+    android-versions "^1.3.0"
+    cordova-common "^3.1.0"
+    elementtree "^0.1.7"
+    nopt "^4.0.1"
+    properties-parser "^0.3.1"
+    q "^1.4.1"
+    shelljs "^0.5.3"
 
 cordova-browser@^6.0.0:
   version "6.0.0"
@@ -3889,7 +3901,7 @@ elementtree@0.1.6:
   dependencies:
     sax "0.3.5"
 
-elementtree@0.1.7:
+elementtree@0.1.7, elementtree@^0.1.7:
   version "0.1.7"
   resolved "https://registry.npm.taobao.org/elementtree/download/elementtree-0.1.7.tgz#9ac91be6e52fb6e6244c4e54a4ac3ed8ae8e29c0"
   integrity sha1-mskb5uUvtuYkTE5UpKw+2K6OKcA=
@@ -5194,7 +5206,7 @@ he@1.2.x:
 "helloworld@file:cordova":
   version "1.0.0"
   dependencies:
-    cordova-android "4.1.1"
+    cordova-android "8.0.0"
     cordova-browser "^6.0.0"
     cordova-ios "4.5.5"
     cordova-plugin-whitelist "1"
@@ -8839,6 +8851,13 @@ prop-types@15.x, prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.5.6, pr
     object-assign "^4.1.1"
     react-is "^16.8.1"
 
+properties-parser@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/properties-parser/-/properties-parser-0.3.1.tgz#1316e9539ffbfd93845e369b211022abd478771a"
+  integrity sha1-ExbpU5/7/ZOEXjabIRAiq9R4dxo=
+  dependencies:
+    string.prototype.codepointat "^0.2.0"
+
 property-information@^5.0.0, property-information@^5.0.1:
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/property-information/-/property-information-5.1.0.tgz#e4755eee5319f03f7f6f5a9bc1a6a7fea6609e2c"
@@ -8925,11 +8944,6 @@ q@1.5.1, q@^1.1.2, q@^1.4.1:
   version "1.5.1"
   resolved "https://registry.npm.taobao.org/q/download/q-1.5.1.tgz#7e32f75b41381291d04611f1bf14109ac00651d7"
   integrity sha1-fjL3W0E4EpHQRhHxvxQQmsAGUdc=
-
-q@^0.9.0:
-  version "0.9.7"
-  resolved "https://registry.yarnpkg.com/q/-/q-0.9.7.tgz#4de2e6cb3b29088c9e4cbc03bf9d42fb96ce2f75"
-  integrity sha1-TeLmyzspCIyeTLwDv51C+5bOL3U=
 
 qr.js@0.0.0:
   version "0.0.0"
@@ -9154,10 +9168,17 @@ react-cookie@^4.0.0:
     hoist-non-react-statics "^3.0.0"
     universal-cookie "^4.0.0"
 
-react-copy-button@^0.0.3:
+react-copy-button@0.0.3:
   version "0.0.3"
   resolved "https://registry.yarnpkg.com/react-copy-button/-/react-copy-button-0.0.3.tgz#e543ac5806cb2671ec9ea206c0e6aa7fef136716"
   integrity sha512-U5RRLeuk/67rammGIvuYEvb3Nzw54N0tcrD+qLZo59+UKa4eEgMc/fz3uSOPM9ER+lyj05tuxuAxeH77qKFFlw==
+
+react-copy@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/react-copy/-/react-copy-1.2.1.tgz#9fad92046a45e8e1d8d4740a079f2c39ff538be9"
+  integrity sha512-DOfXUm4kRS/fwVFg06Zg3jf8MvgeeC4X2uBgRyTMUk/M9U+zk1C4SiLECHRC7sDjPi9sbh3YmGC1/Kx2exmOQg==
+  dependencies:
+    prop-types "^15.6.0"
 
 react-dev-utils@^9.0.1:
   version "9.0.1"
@@ -9245,7 +9266,7 @@ react-native-swipeout@^2.2.2:
     prop-types "^15.5.10"
     react-tween-state "^0.1.5"
 
-react-qr-scanner@^0.0.8:
+react-qr-scanner@0.0.8:
   version "0.0.8"
   resolved "https://registry.yarnpkg.com/react-qr-scanner/-/react-qr-scanner-0.0.8.tgz#9136f3365d994dd45e7e229997e82aa8f3544f94"
   integrity sha512-qMMp8M73Tk80mu7v2dGHhFBeC+byWCRd0A62Vr7e/jBKRDb6mM8lILWxRW5bBZzslbMJENRzK9/CEIAZaF3NYQ==
@@ -10624,6 +10645,11 @@ string-width@^3.0.0:
     emoji-regex "^7.0.1"
     is-fullwidth-code-point "^2.0.0"
     strip-ansi "^5.1.0"
+
+string.prototype.codepointat@^0.2.0:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/string.prototype.codepointat/-/string.prototype.codepointat-0.2.1.tgz#004ad44c8afc727527b108cd462b4d971cd469bc"
+  integrity sha512-2cBVCj6I4IOvEnjgO/hWqXjqBGsY+zwPmHl12Srk9IXSZ56Jwwmy+66XO5Iut/oQVR7t5ihYdLB0GMa4alEUcg==
 
 string.prototype.trim@^1.1.2, string.prototype.trim@~1.1.2:
   version "1.1.2"
