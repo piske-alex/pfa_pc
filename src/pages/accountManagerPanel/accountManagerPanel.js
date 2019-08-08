@@ -54,17 +54,6 @@ function AccountManagerPanel({ history }) {
               </Typography>
             </Grid>
 
-            <Grid item>
-              <TextField
-                style={{ width: 300 }}
-                disabled
-                variant={"outlined"}
-                value={exportAccounts()}
-                multiline
-                rowsMax={4}
-                label={trans.copyHere[Config.lang]}
-              />
-            </Grid>
 
             <Grid item>
               <TextField
