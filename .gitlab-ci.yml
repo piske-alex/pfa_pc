@@ -15,26 +15,26 @@ stages:
 lintDebug:                                                         
   stage: build                                                     
   script:
-    - chmod +x /builds/piske-alex/pfa-react/cordova/platforms/android/gradlew
-    - /builds/piske-alex/pfa-react/cordova/platforms/android/gradlew -Pci --console=plain :app:lintDebug -PbuildDir=lint                                         
+    - chmod +x ./cordova/platforms/android/gradlew
+    - ./cordova/platforms/android/gradlew -Pci --console=plain :app:lintDebug -PbuildDir=lint
                                                                    
 assembleDebug:                                                     
   stage: build                                                     
   script:
     - chmod +x /builds/piske-alex/pfa-react/cordova/platforms/android/gradlew
-    - /builds/piske-alex/pfa-react/cordova/platforms/android/gradlew assembleDebug            
+    - ./cordova/platforms/android/gradlew assembleDebug
                                                                    
 assembleRelease:                                                   
   stage: release                                                   
   script:
-    - chmod +x /builds/piske-alex/pfa-react/cordova/platforms/android/gradlew
+    - chmod +x ./cordova/platforms/android/gradlew
     - echo $KEYSTORE_FILE | base64 -d > my.keystore                
-    - /builds/piske-alex/pfa-react/cordova/platforms/android/gradlew assembleRelease          
+    - ./cordova/platforms/android/gradlew assembleRelease
       -Pandroid.injected.signing.store.file=$(pwd)/my.keystore     
       -Pandroid.injected.signing.store.password=$KEYSTORE_PASSWORD 
       -Pandroid.injected.signing.key.alias=$KEY_ALIAS              
       -Pandroid.injected.signing.key.password=$KEY_PASSWORD        
   artifacts:                                                       
     paths:                                                         
-      - /builds/piske-alex/pfa-react/cordova/platforms/android/app/build/outputs/apk/release                              
+      - ./cordova/platforms/android/app/release
       - CHANGELOG                            
