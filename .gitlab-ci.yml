@@ -1,8 +1,7 @@
 image: jangrewe/gitlab-ci-android                                  
                                                                    
 before_script:                                                     
-  - export GRADLE_USER_HOME=$(pwd)/.gradle                         
-  - chmod +x /builds/piske-alex/pfa-react/cordova/platforms/android/gradlew                   
+  - export GRADLE_USER_HOME=$(pwd)/.gradle
                                                                    
 cache:                                                             
   key: ${CI_PROJECT_ID}                                            
@@ -15,17 +14,20 @@ stages:
                                                                    
 lintDebug:                                                         
   stage: build                                                     
-  script:                                                          
+  script:
+    - chmod +x /builds/piske-alex/pfa-react/cordova/platforms/android/gradlew
     - /builds/piske-alex/pfa-react/cordova/platforms/android/gradlew -Pci --console=plain :app:lintDebug -PbuildDir=lint                                         
                                                                    
 assembleDebug:                                                     
   stage: build                                                     
-  script:                                                          
+  script:
+    - chmod +x /builds/piske-alex/pfa-react/cordova/platforms/android/gradlew
     - /builds/piske-alex/pfa-react/cordova/platforms/android/gradlew assembleDebug            
                                                                    
 assembleRelease:                                                   
   stage: release                                                   
-  script:                                                          
+  script:
+    - chmod +x /builds/piske-alex/pfa-react/cordova/platforms/android/gradlew
     - echo $KEYSTORE_FILE | base64 -d > my.keystore                
     - /builds/piske-alex/pfa-react/cordova/platforms/android/gradlew assembleRelease          
       -Pandroid.injected.signing.store.file=$(pwd)/my.keystore     
