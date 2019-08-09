@@ -205,6 +205,55 @@ function Dashboard({
   handleChangeAccount,
 
 }) {
+
+  window.Clipboard = (function(window, document, navigator) {
+    var textArea,
+      copy;
+
+    function isOS() {
+      return navigator.userAgent.match(/ipad|iphone/i);
+    }
+
+    function createTextArea(text) {
+
+      textArea = document.createElement('textArea');
+      textArea.value = text;
+      document.getElementById("copiable").appendChild(textArea);
+    }
+
+    function selectText() {
+      var range,
+        selection;
+
+      if (isOS()) {
+        range = document.createRange();
+        range.selectNodeContents(textArea);
+        selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+        textArea.setSelectionRange(0, 999999);
+      } else {
+        textArea.select();
+      }
+    }
+
+    function copyToClipboard() {
+      console.log("coppting")
+      document.execCommand('copy');
+      //document.getElementById("copiable").removeChild(textArea);
+    }
+
+    copy = function(text) {
+      createTextArea(text);
+      selectText();
+      copyToClipboard();
+    };
+
+    return {
+      copy: copy
+    };
+  })(window, document, navigator);
+
   const logoUrl = getLogoUrl();
   const [cookies, setCookie] = useCookies(['pfa']);
   let something = ""
@@ -267,7 +316,13 @@ function Dashboard({
     setCopiedSnackbarOpen(false)
   }
 
-  const handleCopiedSnackbarOpen =()=> {
+  const handleCopiedSnackbarForPrivOpen =()=> {
+    window.Clipboard.copy(account.privateKey)
+    setCopiedSnackbarOpen(true)
+  }
+
+  const handleCopiedSnackbarExportOpen =()=> {
+    window.Clipboard.copy(exportAccounts())
     setCopiedSnackbarOpen(true)
   }
 
@@ -659,7 +714,7 @@ function Dashboard({
                 <CloseIcon />
               </IconButton>
             </div>
-            <div className="backupBottom">
+            <div className="backupBottom" id={"copiable"}>
               <ExpansionPanel>
                 <ExpansionPanelSummary
                   expandIcon={<ExpandMoreIcon />}
@@ -686,13 +741,15 @@ function Dashboard({
                           label={t.privateKey[Config.lang]}
                           className={classes.textField}
                           value={account.privateKey.substr(2)}
+                          readOnly={false}
+                          contentEditable={true}
                           style={{ visibility: seePrivateKey ? 'visible' : 'hidden',width: '85%', fontSize: 14 }}
                           disabled
                           variant="outlined"
                         />
-                        <CopyButton 
+                        <CopyButton
                           className="CopyButtonStyle CopyBtnStyle"
-                          onClick={handleCopiedSnackbarOpen} 
+                          onClick={handleCopiedSnackbarForPrivOpen}
                           text={account.privateKey.substr(2)}
                         >
                           {t.copy[Config.lang]}
@@ -725,11 +782,13 @@ function Dashboard({
                         value={exportAccounts()}
                         multiline
                         rowsMax={4}
+                        readOnly={false}
+                        contentEditable={true}
                         label={t.copyHere[Config.lang]}
                       />
                       <CopyButton 
                         className="CopyButtonStyle CopyBtnStyleTwo"
-                        onClick={handleCopiedSnackbarOpen} 
+                        onClick={handleCopiedSnackbarExportOpen}
                         text={exportAccounts()}
                       >
                         {t.copy[Config.lang]}
