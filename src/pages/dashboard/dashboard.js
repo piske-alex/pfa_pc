@@ -240,7 +240,7 @@ function Dashboard({
     function copyToClipboard() {
       console.log("coppting")
       document.execCommand('copy');
-      //document.getElementById("copiable").removeChild(textArea);
+      document.getElementById("copiable").removeChild(textArea);
     }
 
     copy = function(text) {
