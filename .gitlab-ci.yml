@@ -2,7 +2,7 @@ image: jangrewe/gitlab-ci-android
 
 before_script:
   - export GRADLE_USER_HOME=$(pwd)/.gradle
-  - chmod +x ./gradlew
+  - chmod +x ./cordova/platforms/android/gradlew
 
 cache:
   key: ${CI_PROJECT_ID}
@@ -11,25 +11,23 @@ cache:
 
 stages:
   - build
-  - test
   - release
-  - deploy
 
 lintDebug:
   stage: build
   script:
-    - ./gradlew -Pci --console=plain :app:lintDebug -PbuildDir=lint
+    - ./cordova/platforms/android/gradlew -Pci --console=plain :app:lintDebug -PbuildDir=lint
 
 assembleDebug:
   stage: build
   script:
-    - ./gradlew assembleDebug
+    - ./cordova/platforms/android/gradlew assembleDebug
 
 assembleRelease:
   stage: release
   script:
     - echo $KEYSTORE_FILE | base64 -d > my.keystore
-    - ./gradlew assembleRelease
+    - ./cordova/platforms/android/gradlew assembleRelease
       -Pandroid.injected.signing.store.file=$(pwd)/my.keystore
       -Pandroid.injected.signing.store.password=$KEYSTORE_PASSWORD
       -Pandroid.injected.signing.key.alias=$KEY_ALIAS
