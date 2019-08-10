@@ -110,9 +110,7 @@ export default {
   receive: {
     ch: "接收",en: "Accept"
   },
-  details: {
-    ch: "詳細資料",
-  },
+
   privateKey: {
     ch: "密鑰",
   },
@@ -241,9 +239,7 @@ export default {
   currency:{
     ch: "幣種",en:"Token"
   },
-  amount:{
-    ch: "量",en:"Vol."
-  },
+
   address:{
     ch: "地址",en:"Address"
   },
@@ -441,7 +437,7 @@ export default {
     ch: "已複製", en: "Copied",
   },
   footNavigation: {
-    ch: ["首頁", "錢包", "交易", "幣訊", "我的"], en: ["HOME", "WALLET", "EXCHANGE", "NEWS", "MY WALLET"],
+    ch: ["首頁", "錢包", "兌換", "幣訊", "我的"], en: ["HOME", "WALLET", "EXCHANGE", "NEWS", "MY WALLET"],
   },
   purchaseAddress: {
     ch: "請把外部購買的 USDT 傳入以下地址：",en: "Please send USDT from Ethereum network(ERC20) to this ETH network address:",
@@ -500,9 +496,7 @@ export default {
   remark:{
     ch: "備註",en: "Remark"
   },
-  time:{
-    ch: "時間",en: "Time"
-  },
+
   myWallet:{
     timeZone:{
       ch: "時區",en: "Timezone"

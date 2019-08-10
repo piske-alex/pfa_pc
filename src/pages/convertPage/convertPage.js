@@ -324,6 +324,7 @@ function ConvertPage({
           if(tempBase<=USDTBalance){
             await USDTToIHAD(account,tempBase,)
           }else{
+            console.log("err0")
             setTransactionFailedSnackbarOpen(true);
           }
 
@@ -331,6 +332,7 @@ function ConvertPage({
           if(tempBase<=ihadBalance){
             await IHADToUSDT(account,tempBase)
           }else{
+            console.log("err1")
             setTransactionFailedSnackbarOpen(true);
           }
 
