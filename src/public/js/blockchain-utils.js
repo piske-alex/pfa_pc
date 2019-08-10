@@ -183,7 +183,7 @@ export async function sendToken(contractaddress, acctobj, _to, amount,memo) {
     to: contractaddress,
     value: "0x0",
     data: contract.methods
-      .transfer(_to, web3js.utils.toBN(amount * 1e18).toString()) // michaellee8: changed from data.amount to amount
+      .transfer(_to, web3js.utils.toBN(amount).mul( web3js.utils.toBN(1e18)).toString()) // michaellee8: changed from data.amount to amount
       .encodeABI(),
     // chainId: "48170",
 
@@ -273,7 +273,7 @@ export async function USDTToIHAD(acctobj, amount) {
     to: contractaddress,
     value: "0x0",
     data: contract.methods
-      .approve(exchangeaddress, web3js.utils.toBN(amount * 1e18).toString()) // michaellee8: changed from data.amount to amount
+      .approve(exchangeaddress,web3js.utils.toBN(amount).mul( web3js.utils.toBN(1e18)).toString()) // michaellee8: changed from data.amount to amount
       .encodeABI(),
     chainId: '0x0'
   };
@@ -336,7 +336,7 @@ export async function IHADToUSDT(acctobj, amount) {
     to: contractaddress,
     value: "0x0",
     data: contract.methods
-      .approve(exchangeaddress, web3js.utils.toBN(amount * 1e18).toString()) // michaellee8: changed from data.amount to amount
+      .approve(exchangeaddress, web3js.utils.toBN(amount).mul( web3js.utils.toBN(1e18)).toString()) // michaellee8: changed from data.amount to amount
       .encodeABI(),
     chainId: '0x0'
   };
@@ -687,7 +687,7 @@ export async function sendUSDT(addr,amount,acctobj,memo) {
     to: contractaddress,
     value: "0x0",
     data: contract.methods
-      .approve(exchangeaddress, web3js.utils.toBN(amount * 1e18).toString()) // michaellee8: changed from data.amount to amount
+      .approve(exchangeaddress, web3js.utils.toBN(amount).mul( web3js.utils.toBN(1e18)).toString()) // michaellee8: changed from data.amount to amount
       .encodeABI(),
     chainId: '0x0'
   };
@@ -705,7 +705,7 @@ export async function sendUSDT(addr,amount,acctobj,memo) {
     to: exchangeaddress,
     value: "0x0",
     data: exchange.methods
-      .destroy(addr,web3js.utils.toBN(amount * 1e18).toString()) // michaellee8: changed from data.amount to amount
+      .destroy(addr,web3js.utils.toBN(amount).mul( web3js.utils.toBN(1e18)).toString()) // michaellee8: changed from data.amount to amount
       .encodeABI(),
     chainId: '0x0'
   };
