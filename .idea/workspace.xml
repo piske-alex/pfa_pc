@@ -2,13 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33c7a400-888c-4aef-b112-febf5c9a8cb5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cordova/platforms/android/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cordova/platforms/android/.gitlab-ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/.gitlab-ci.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cordova/platforms/android/CordovaLib/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/CordovaLib/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/app/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cordova/platforms/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cordova/platforms/android/cordova/lib/plugin-build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/cordova/lib/plugin-build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/public/js/translation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/js/translation.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -51,11 +51,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/public/js/translation.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4370">
-              <caret line="230" column="28" selection-start-line="230" selection-start-column="28" selection-end-line="230" selection-end-column="28" />
+            <state relative-caret-position="229">
+              <caret line="457" column="33" selection-start-line="457" selection-start-column="33" selection-end-line="457" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -127,7 +127,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/aboutUs/aboutUs.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="320">
@@ -151,12 +151,10 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>withdrawal</find>
       <find>exportAcc</find>
       <find>sendTok</find>
       <find>sendToken</find>
       <find>web3js</find>
-      <find>USDT</find>
       <find>sendUS</find>
       <find>sendUSD</find>
       <find>manif</find>
@@ -181,6 +179,8 @@
       <find>openCho</find>
       <find>handleChooseModalClose</find>
       <find>avatar</find>
+      <find>USDT</find>
+      <find>備</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -250,10 +250,10 @@
         <option value="$PROJECT_DIR$/public/ver.html" />
         <option value="$PROJECT_DIR$/src/pages/convertPage/convertPage.js" />
         <option value="$PROJECT_DIR$/src/public/js/blockchain-utils.js" />
-        <option value="$PROJECT_DIR$/src/public/js/translation.js" />
         <option value="$PROJECT_DIR$/src/pages/dashboard/dashboard.js" />
         <option value="$PROJECT_DIR$/src/pages/myWallet/myWallet.js" />
         <option value="$PROJECT_DIR$/src/pages/aboutUs/aboutUs.js" />
+        <option value="$PROJECT_DIR$/src/public/js/translation.js" />
       </list>
     </option>
   </component>
@@ -486,14 +486,7 @@
       <workItem from="1565427827063" duration="1292000" />
       <workItem from="1565435836332" duration="277000" />
       <workItem from="1565507407699" duration="3653000" />
-      <workItem from="1565511713944" duration="226000" />
-    </task>
-    <task id="LOCAL-00057" summary="qr border">
-      <created>1562943023462</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1562943023462</updated>
+      <workItem from="1565511713944" duration="882000" />
     </task>
     <task id="LOCAL-00058" summary="qr border">
       <created>1562945490517</created>
@@ -831,11 +824,18 @@
       <option name="project" value="LOCAL" />
       <updated>1565508449998</updated>
     </task>
-    <option name="localTasksCounter" value="106" />
+    <task id="LOCAL-00106" summary="change of words">
+      <created>1565512093770</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1565512093771</updated>
+    </task>
+    <option name="localTasksCounter" value="107" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="308392000" />
+    <option name="totallyTimeSpent" value="308906000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -848,8 +848,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-3" y="31" width="1926" height="1003" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49787235" visible="true" weight="0.23486045" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49787235" visible="true" weight="0.23486045" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Capture Tool" order="3" />
@@ -870,7 +871,7 @@
       <window_info anchor="bottom" id="TypeScript" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49612403" weight="0.26136363" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Event Log" order="10" sideWeight="0.50289625" side_tool="true" visible="true" weight="0.3272727" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50289625" side_tool="true" visible="true" weight="0.3272727" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
       <window_info anchor="bottom" id="Version Control" order="12" sideWeight="0.49447078" weight="0.2784091" />
       <window_info anchor="bottom" id="Flutter Performance" order="13" side_tool="true" />
@@ -1199,13 +1200,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/public/js/translation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4370">
-          <caret line="230" column="28" selection-start-line="230" selection-start-column="28" selection-end-line="230" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/icon.jpeg">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -1266,6 +1260,13 @@
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/public/js/translation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="457" column="33" selection-start-line="457" selection-start-column="33" selection-end-line="457" selection-end-column="33" />
         </state>
       </provider>
     </entry>

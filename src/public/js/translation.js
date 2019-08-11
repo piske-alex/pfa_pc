@@ -455,7 +455,7 @@ export default {
     ch: "備註",en: "Note"
   },
   fillInFormat:{
-    ch: "如內部轉帳HAD，請輸入對方及自己名字，方便記帳",en: "Note can be either Chinese/English, 30 words most"
+    ch: "如內部轉帳HAD，請輸入對方及自己名字 (例如.陳大文轉李小明)，方便記帳",en: "Note can be either Chinese/English, 30 words most"
   },
   pfa:{
     ch: "PFA",en: "PFA"
