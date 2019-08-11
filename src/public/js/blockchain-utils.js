@@ -273,7 +273,7 @@ export async function USDTToIHAD(acctobj, amount) {
     to: contractaddress,
     value: "0x0",
     data: contract.methods
-      .approve(exchangeaddress,web3js.utils.toWei(amount).toString()) // michaellee8: changed from data.amount to amount
+      .approve(exchangeaddress,web3js.utils.toWei(amount)) // michaellee8: changed from data.amount to amount
       .encodeABI(),
     chainId: '0x0'
   };
