@@ -36,7 +36,7 @@ import Icon from '@material-ui/core/Icon';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { CopyButton } from "react-copy-button";
 import Moment from "react-moment";
-
+import DialogTitle from '@material-ui/core/DialogTitle';
 import {
   etherBalance,
   getHistory,
@@ -62,6 +62,7 @@ import  jsQR  from "jsqr";
 import QrReader from 'react-qr-scanner'
 import moment from "moment";
 import config from "../../public/js/config";
+import Dialog from "@material-ui/core/Dialog";
 
 
 const accountInfoRefreshTime = 20;
@@ -354,6 +355,11 @@ function Dashboard({
   const handleBuyModalClose = () => {
     setBuyModalOpen(false);
   };
+  const [openChooser, setOpenChooser] = React.useState(false);
+  const handleChooseModalClose = ()=>{
+    setOpenChooser(false)
+  }
+
   const [tosModalOpen, settosModalOpen] = React.useState(false);
   const handletosModalOpen = (x, y) => {
     setLongText(x);
@@ -653,7 +659,7 @@ function Dashboard({
             </Grid>
           </Grid>
           <Grid className='link' spacing={0} container justify="center">
-            {icons.map(item => 
+            {icons.map(item =>
               <Grid item xs={2} onClick={() => {
                 switch(item.icon){
                   case "photo_library":
@@ -663,7 +669,7 @@ function Dashboard({
                     handletosModalOpen(t.usemethodfull[config.lang], t.usemethod[config.lang]);
                     break;
                   case "add_circle" :
-                    handleBuyModalOpen();
+                    setOpenChooser(true);
                     break;
                   case "monetization_on":
                     handleSendModalOpen();
@@ -786,7 +792,7 @@ function Dashboard({
                         contentEditable={true}
                         label={t.copyHere[Config.lang]}
                       />
-                      <CopyButton 
+                      <CopyButton
                         className="CopyButtonStyle CopyBtnStyleTwo"
                         onClick={handleCopiedSnackbarExportOpen}
                         text={exportAccounts()}
@@ -942,7 +948,7 @@ function Dashboard({
                 <Typography variant={"p"} style={{ }}>{`${t.completeRecharge[Config.lang]}`}</Typography>
                 <List >
                   {usdtProvider.map(p => (
-                    Config.lang == "ch" && p.ch == "true" ? 
+                    Config.lang == "ch" && p.ch == "true" ?
                       <ListItem
                         component={MaterialLink}
                         key={p.url}
@@ -976,7 +982,7 @@ function Dashboard({
                           secondary={p.description[Config.lang]}
                         />
                       </ListItem>
-                    : Config.lang == "en" && p.en == "true" ? 
+                    : Config.lang == "en" && p.en == "true" ?
                         <ListItem
                           component={MaterialLink}
                           key={p.url}
@@ -1106,6 +1112,28 @@ function Dashboard({
         onClose={handleCopiedSnackbarClose}
         message={t.copied[Config.lang]}
       />
+
+      <Dialog onClose={handleChooseModalClose} aria-labelledby="simple-dialog-title" open={openChooser}>
+        <DialogTitle id="simple-dialog-title">請選擇</DialogTitle>
+        <List>
+
+
+          <ListItem button onClick={() => history.push("/aboutUs")}>
+            <ListItemAvatar>
+              <Avatar src='https://i.loli.net/2019/06/26/5d12cd78a53e047314.png' />
+            </ListItemAvatar>
+            <ListItemText primary="HAD 或內部 USDT" />
+          </ListItem>
+
+          <ListItem button onClick={handleBuyModalOpen}>
+            <ListItemAvatar>
+              <Avatar src='https://i.loli.net/2019/06/26/5d12bffaf379385695.png' />
+            </ListItemAvatar>
+            <ListItemText primary="外部 USDT" />
+          </ListItem>
+        </List>
+      </Dialog>
+
     </React.Fragment>
   );
 }

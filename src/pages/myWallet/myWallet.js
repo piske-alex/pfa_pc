@@ -69,6 +69,8 @@ import "moment-timezone";
 import trans from "../../public/js/translation";
 import Config from "../../public/js/config";
 import "./myWallet.css";
+import DialogTitle from "@material-ui/core/DialogTitle";
+import Dialog from "@material-ui/core/Dialog";
 
 const accountInfoRefreshTime = 20;
 
@@ -306,7 +308,10 @@ function Dashboard({
   const handleModalClose = () => {
     setModalOpen(false);
   };
-
+  const [openChooser, setOpenChooser] = React.useState(false);
+  const handleChooseModalClose = ()=>{
+    setOpenChooser(false)
+  }
   const [sendModalOpen, setSendModalOpen] = React.useState(false);
   const handleSendModalOpen = () => {
     setSendModalOpen(true);
@@ -595,7 +600,9 @@ function Dashboard({
                 <div className = "myWalletTwoBtn">
                   <Button
                     variant="outlined"
-                    onClick={handleBuyModalOpen}
+                    onClick={()=>{
+                      setOpenChooser(true)
+                    }}
                     style={{ width: "130px", color: '#C0C0C0', padding:'5px 0px', marginRight: 1 }}
                   >
                     <img src={'https://minio.koin-exchange.com/avatar/after.png'} className="donateClass" />
@@ -1074,6 +1081,27 @@ function Dashboard({
         onClose={handlenoinfoSnackbarClose}
         message={t.noInformation[Config.lang]}
       />
+
+      <Dialog onClose={handleChooseModalClose} aria-labelledby="simple-dialog-title" open={openChooser}>
+        <DialogTitle id="simple-dialog-title">請選擇</DialogTitle>
+        <List>
+
+
+          <ListItem button onClick={() => history.push("/aboutUs")}>
+            <ListItemAvatar>
+              <Avatar src='https://i.loli.net/2019/06/26/5d12cd78a53e047314.png' />
+            </ListItemAvatar>
+            <ListItemText primary="HAD 或內部 USDT" />
+          </ListItem>
+
+          <ListItem button onClick={handleBuyModalOpen}>
+            <ListItemAvatar>
+              <Avatar src='https://i.loli.net/2019/06/26/5d12bffaf379385695.png' />
+            </ListItemAvatar>
+            <ListItemText primary="外部 USDT" />
+          </ListItem>
+        </List>
+      </Dialog>
     </React.Fragment>
   );
 }

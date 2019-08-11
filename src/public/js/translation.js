@@ -219,7 +219,7 @@ export default {
     ch: "充值", en: "Charge"
   },
   withdrawal:{
-    ch: "提取",en: "Withdraw"
+    ch: "發送",en: "Withdraw"
   },
   assets:{
     ch: "顯示所有資產",en: "Show all asset"

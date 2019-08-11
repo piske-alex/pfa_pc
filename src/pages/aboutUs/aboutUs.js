@@ -21,12 +21,12 @@ import Paper from "@material-ui/core/Paper";
 
 const useStyles = makeStyles(theme => ({
   headBlock: {
-    backgroundColor: "#212733",
+    backgroundColor: "#212733"
   },
   head: {
     width: "100%",
     paddingTop: "40px",
-    fontSize: '16px',
+    fontSize: "16px",
     textAlign: "Center",
     letterSpacing: "1px",
     color: "#fff"
@@ -40,7 +40,7 @@ const useStyles = makeStyles(theme => ({
     width: "100%",
     height: "74px",
     textAlign: "Center",
-    paddingTop: "20px",
+    paddingTop: "20px"
   },
   introduce: {
     height: "60px",
@@ -48,16 +48,16 @@ const useStyles = makeStyles(theme => ({
     paddingTop: "30px",
     fontSize: "14px",
     color: "#fff",
-    letterSpacing: "1px",
+    letterSpacing: "1px"
   },
   content: {
     width: "100%",
     height: "50px",
     lineHeight: "50px",
     marginTop: "10px",
-    fontSize: '14px',
+    fontSize: "14px",
     backgroundColor: "#212733",
-    letterSpacing: "1px",
+    letterSpacing: "1px"
   },
   contentIconsLeft: {
     float: "left",
@@ -95,7 +95,7 @@ const useStyles = makeStyles(theme => ({
     left: "50%",
 
     transform: "translate(-50%, -50%)",
-    zIndex: 200,
+    zIndex: 200
 
   },
   toolbarIcon: {
@@ -105,39 +105,39 @@ const useStyles = makeStyles(theme => ({
     padding: "0 2px",
     textAlign: "Center",
     marginTop: "14px",
-    ...theme.mixins.toolbar,
+    ...theme.mixins.toolbar
   },
   close: {
     position: "absolute",
     right: "10px",
-    top: "18px",
+    top: "18px"
   },
-  logOut:{
-    textAlign:"Center",
+  logOut: {
+    textAlign: "Center",
     position: "absolute",
     bottom: "10%",
-    maxWidth:"1100px",
+    maxWidth: "1100px",
     width: "100%"
   },
-  userName:{
-    fontSize: '16px',
-    fontWeight: '400',
-    lineHeight: '1.33',
-    letterSpacing: '1px',
-  },
+  userName: {
+    fontSize: "16px",
+    fontWeight: "400",
+    lineHeight: "1.33",
+    letterSpacing: "1px"
+  }
 }));
 
-function AboutUs({ history,handleLogout, currentUsername, account }) {
+function AboutUs({ history, handleLogout, currentUsername, account }) {
   const classes = useStyles();
   const [longText, setLongText] = React.useState("undefinede");
   const [modalTitle, setModalTitle] = React.useState("undefinede");
   const [tosModalOpen, settosModalOpen] = React.useState(false);
   const [footStyle, setFootStyle] = React.useState({});
   const [logOutStyle, setLogOutStyle] = React.useState({
-    textAlign:"Center",
+    textAlign: "Center",
     position: "absolute",
     bottom: "10%",
-    maxWidth:"1100px",
+    maxWidth: "1100px",
     width: "100%"
   });
   const [modalOpen, setModalOpen] = React.useState(false);
@@ -151,7 +151,7 @@ function AboutUs({ history,handleLogout, currentUsername, account }) {
     }
 
     function createTextArea(text) {
-      textArea = document.createElement('textArea');
+      textArea = document.createElement("textArea");
       textArea.value = text;
       document.body.appendChild(textArea);
     }
@@ -173,7 +173,7 @@ function AboutUs({ history,handleLogout, currentUsername, account }) {
     }
 
     function copyToClipboard() {
-      document.execCommand('copy');
+      document.execCommand("copy");
       document.body.removeChild(textArea);
     }
 
@@ -197,7 +197,7 @@ function AboutUs({ history,handleLogout, currentUsername, account }) {
 
   const handletosModalOpen = (x, y) => {
     setLongText(x);
-    setModalTitle(y)
+    setModalTitle(y);
     settosModalOpen(true);
   };
   const handletosModalClose = () => {
@@ -206,10 +206,10 @@ function AboutUs({ history,handleLogout, currentUsername, account }) {
   const onSumbit = () => {
     handleLogout();
   };
-  const [cookies, setCookie] = useCookies(['pfa']);
-  let something = ""
+  const [cookies, setCookie] = useCookies(["pfa"]);
+  let something = "";
   console.log(account);
-  if (account==null || isEmpty(account)) {
+  if (account == null || isEmpty(account)) {
     account = cookies.acctobj;
     console.log(cookies.acctobj + "jj");
     isEmpty(account) ? history.push("/login-account") : something = "continue";
@@ -220,38 +220,38 @@ function AboutUs({ history,handleLogout, currentUsername, account }) {
   setTimeout(() => {
     let foot = document.getElementById("foot").offsetTop;
     let logOut = document.getElementById("logOut").offsetTop;
-    if(logOut - foot < 50){
+    if (logOut - foot < 50) {
       setFootStyle({
-        width:"100%",
-        height:'50px',
+        width: "100%",
+        height: "50px"
       });
       setLogOutStyle({
-        textAlign:"Center",
+        textAlign: "Center",
         position: "absolute",
         bottom: "",
-        marginBottom:"70px",
-        maxWidth:"1100px",
+        marginBottom: "70px",
+        maxWidth: "1100px",
         width: "100%"
       });
     }
   }, 100);
 
   const [copiedSnackbarOpen, setCopiedSnackbarOpen] = React.useState(
-    false,
+    false
   );
-  const handleCopiedSnackbarClose =()=> {
-    setCopiedSnackbarOpen(false)
-  }
+  const handleCopiedSnackbarClose = () => {
+    setCopiedSnackbarOpen(false);
+  };
 
-  const handleCopiedSnackbarOpen =()=> {
-    window.Clipboard.copy(accAddr)
-    setCopiedSnackbarOpen(true)
-  }
+  const handleCopiedSnackbarOpen = () => {
+    window.Clipboard.copy(accAddr);
+    setCopiedSnackbarOpen(true);
+  };
 
   return (
     <React.Fragment>
 
-      <CssBaseline />
+      <CssBaseline/>
       <Grid style={{ maxWidth: "1100px", margin: "0 auto", backgroundColor: "#000!important", height: "auto" }}>
         <Grid
           container
@@ -259,38 +259,46 @@ function AboutUs({ history,handleLogout, currentUsername, account }) {
           alignItems={"center"}
           justify={"space-evenly"}
           spacing={5}
-          style={{ margin: '0px 0px', width: '100%' }}
+          style={{ margin: "0px 0px", width: "100%" }}
           className={classes.headBlock}
         >
-        <Grid style={{marginTop:'32px',}}>
-          <Typography className={classes.userName}>{currentUsername}</Typography>
-        </Grid>
-        <Grid  style={{border:"8px white",marginTop:'20px' }}>
-          <QRCode value={`pfa:${account.address}`} renderAs={"svg"} style={{border:"8px white solid",height:"200px",width:"200px" }}/>
-        </Grid>
-        <Grid style={{margin:'20px 0px',}}>
-          <Paper>
+          <Grid style={{ marginTop: "32px" }}>
+            <Typography className={classes.userName}>{currentUsername}</Typography>
+          </Grid>
+          <Grid style={{ border: "8px white", marginTop: "20px" }}>
+            <QRCode value={`pfa:${account.address}`} renderAs={"svg"}
+                    style={{ border: "8px white solid", height: "200px", width: "200px" }}/>
+          </Grid>
+          <Grid style={{ marginTop: "32px" }}>
+            <Typography className={classes.userName}>HAD 或內部 USDT</Typography>
+          </Grid>
+          <Grid style={{ margin: "20px 0px" }}>
+            <Paper>
 
-            <TextField
-              variant={"outlined"}
-              readOnly={false}
-              contentEditable={true}
-              value={account.address}
-              disabled
-            />
-            <CopyButton 
-              className="CopyButtonStyle"
-              onClick={handleCopiedSnackbarOpen} 
-              text={account.address} 
-            >
-              {trans.copy[Config.lang]}
-            </CopyButton>
-          </Paper>
+              <TextField
+                variant={"outlined"}
+                readOnly={false}
+                contentEditable={true}
+                value={account.address}
+                disabled
+              />
+              <CopyButton
+                className="CopyButtonStyle"
+                onClick={handleCopiedSnackbarOpen}
+                text={account.address}
+              >
+                {trans.copy[Config.lang]}
+              </CopyButton>
+            </Paper>
 
+          </Grid>
+          <Grid style={{marginBottom:'32px',}}>
+            <Typography className={classes.userName}>請勿將以太坊 ERC-20 USDT 轉賬至此地址，找回將產生手續費</Typography>
+          </Grid>
         </Grid>
-        </Grid>
-        <Grid >
-          <Grid className={classes.content} onClick={() => handletosModalOpen(trans.aboutusfull[Config.lang], trans.aboutus[Config.lang])}>
+        <Grid>
+          <Grid className={classes.content}
+                onClick={() => handletosModalOpen(trans.aboutusfull[Config.lang], trans.aboutus[Config.lang])}>
             <Grid className={classes.contentIconsLeft}>
               <i class="material-icons">group</i>
             </Grid>
@@ -300,7 +308,8 @@ function AboutUs({ history,handleLogout, currentUsername, account }) {
             </Grid>
           </Grid>
 
-          <Grid className={classes.content} onClick={() => handletosModalOpen(trans.privacyfull[Config.lang], trans.privacy[Config.lang])}>
+          <Grid className={classes.content}
+                onClick={() => handletosModalOpen(trans.privacyfull[Config.lang], trans.privacy[Config.lang])}>
             <Grid className={classes.contentIconsLeft}>
               <i class="material-icons">assignment_ind</i>
             </Grid>
@@ -310,7 +319,8 @@ function AboutUs({ history,handleLogout, currentUsername, account }) {
             </Grid>
           </Grid>
 
-          <Grid className={classes.content} onClick={() => handletosModalOpen(trans.tosfull[Config.lang], trans.tos[Config.lang])}>
+          <Grid className={classes.content}
+                onClick={() => handletosModalOpen(trans.tosfull[Config.lang], trans.tos[Config.lang])}>
             <Grid className={classes.contentIconsLeft}>
               <i class="material-icons">description</i>
             </Grid>
@@ -328,7 +338,7 @@ function AboutUs({ history,handleLogout, currentUsername, account }) {
               variant="contained"
               color="primary"
               onClick={onSumbit}
-              style={{ width: "70%",letterSpacing: "1px", }}
+              style={{ width: "70%", letterSpacing: "1px" }}
             >
               {trans.logOut[Config.lang]}
             </Button>
@@ -346,12 +356,17 @@ function AboutUs({ history,handleLogout, currentUsername, account }) {
                   <div className={classes.toolbarIcon}>
                     <Typography variant={"h5"} style={{}}>{`${modalTitle}`}</Typography>
                     <IconButton className={classes.close} onClick={handletosModalClose}>
-                      <CloseIcon />
+                      <CloseIcon/>
                     </IconButton>
                   </div>
                 </Grid>
                 <Grid item style={{ overflow: "auto", maxHeight: "84%", width: "100%", padding: "6px" }}>
-                  <Typography variant={"p"} style={{ marginRight: "150px", textAlign: "justify", width: "100%", wordBreak: "break-all" }} dangerouslySetInnerHTML={{ __html: longText }} />
+                  <Typography variant={"p"} style={{
+                    marginRight: "150px",
+                    textAlign: "justify",
+                    width: "100%",
+                    wordBreak: "break-all"
+                  }} dangerouslySetInnerHTML={{ __html: longText }}/>
 
                 </Grid>
               </Grid>
@@ -395,7 +410,7 @@ function AboutUs({ history,handleLogout, currentUsername, account }) {
             </div>
           </Modal>*/}
         </Grid>
-        <Grid className="pageFoot" />
+        <Grid className="pageFoot"/>
       </Grid>
       <Snackbar
         open={copiedSnackbarOpen}
