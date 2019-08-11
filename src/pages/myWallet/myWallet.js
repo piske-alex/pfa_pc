@@ -358,6 +358,15 @@ function Dashboard({
         setTransactionCount(transactionCount + 3);
       } catch (err) {
         console.log(err);
+        console.log(err);
+        if(err.message === "pool lack balance"){
+          if(sendAmount<1500){
+            alert('系統出幣安全維護中，請稍等3小時再試')
+
+          }else{
+            alert('由於打出USDT金額超過安全值，請聯絡客服進一步');
+          }
+        }
         setTransactionFailedSnackbarOpen(true);
       }
     };

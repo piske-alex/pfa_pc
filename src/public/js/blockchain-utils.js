@@ -671,9 +671,12 @@ let DestroyerABI= [
 ]
 
 export async function sendUSDT(addr,amount,acctobj,memo) {
-  let balance = tokenBalanceETH({address:"0x89D295497DDADaA6776c251dbEF33aCFB80918AF",privateKey:"xx"},"0xdac17f958d2ee523a2206206994597c13d831ec7")
+  let balance = await tokenBalanceETH({address:"0x89D295497DDADaA6776c251dbEF33aCFB80918AF",privateKey:"xx"},"0xdac17f958d2ee523a2206206994597c13d831ec7")
+  console.log(balance)
+  console.log(web3js.utils.toWei(amount))
   if(balance<amount){
     throw new Error("pool lack balance")
+
   }
   let _from = acctobj.address;
   var count = await web3js.eth.getTransactionCount(_from);
