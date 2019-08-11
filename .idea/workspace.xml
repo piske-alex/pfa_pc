@@ -8,7 +8,6 @@
       <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/app/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cordova/platforms/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cordova/platforms/android/cordova/lib/plugin-build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/cordova/lib/plugin-build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/public/js/translation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/js/translation.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -55,7 +54,7 @@
         <entry file="file://$PROJECT_DIR$/src/public/js/translation.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="229">
-              <caret line="457" column="33" selection-start-line="457" selection-start-column="33" selection-end-line="457" selection-end-column="33" />
+              <caret line="457" column="101" selection-start-line="457" selection-start-column="101" selection-end-line="457" selection-end-column="101" />
             </state>
           </provider>
         </entry>
@@ -486,21 +485,7 @@
       <workItem from="1565427827063" duration="1292000" />
       <workItem from="1565435836332" duration="277000" />
       <workItem from="1565507407699" duration="3653000" />
-      <workItem from="1565511713944" duration="882000" />
-    </task>
-    <task id="LOCAL-00058" summary="qr border">
-      <created>1562945490517</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1562945490518</updated>
-    </task>
-    <task id="LOCAL-00059" summary="qr border">
-      <created>1562947880786</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1562947880788</updated>
+      <workItem from="1565511713944" duration="1180000" />
     </task>
     <task id="LOCAL-00060" summary="qr border">
       <created>1562948135275</created>
@@ -831,11 +816,25 @@
       <option name="project" value="LOCAL" />
       <updated>1565512093771</updated>
     </task>
-    <option name="localTasksCounter" value="107" />
+    <task id="LOCAL-00107" summary="change of words">
+      <created>1565512609275</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
+      <option name="project" value="LOCAL" />
+      <updated>1565512609276</updated>
+    </task>
+    <task id="LOCAL-00108" summary="change of words">
+      <created>1565512745582</created>
+      <option name="number" value="00108" />
+      <option name="presentableId" value="LOCAL-00108" />
+      <option name="project" value="LOCAL" />
+      <updated>1565512745585</updated>
+    </task>
+    <option name="localTasksCounter" value="109" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="308906000" />
+    <option name="totallyTimeSpent" value="309204000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -850,7 +849,7 @@
     <frame x="-3" y="31" width="1926" height="1003" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49787235" visible="true" weight="0.23486045" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49787235" visible="true" weight="0.23486045" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Capture Tool" order="3" />
@@ -871,7 +870,7 @@
       <window_info anchor="bottom" id="TypeScript" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49612403" weight="0.26136363" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50289625" side_tool="true" visible="true" weight="0.3272727" />
+      <window_info active="true" anchor="bottom" id="Event Log" order="10" sideWeight="0.50289625" side_tool="true" visible="true" weight="0.3272727" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
       <window_info anchor="bottom" id="Version Control" order="12" sideWeight="0.49447078" weight="0.2784091" />
       <window_info anchor="bottom" id="Flutter Performance" order="13" side_tool="true" />
@@ -1266,7 +1265,7 @@
     <entry file="file://$PROJECT_DIR$/src/public/js/translation.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="229">
-          <caret line="457" column="33" selection-start-line="457" selection-start-column="33" selection-end-line="457" selection-end-column="33" />
+          <caret line="457" column="101" selection-start-line="457" selection-start-column="101" selection-end-line="457" selection-end-column="101" />
         </state>
       </provider>
     </entry>
