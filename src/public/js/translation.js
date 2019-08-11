@@ -102,7 +102,7 @@ export default {
     ch: "未能登入，請檢查帳號及密碼是否輸入錯誤。", en: "Cannot login, please verify your password",
   },
   buy: {
-    ch: "購買",en: "Purchase",
+    ch: "充值",en: "Purchase",
   },
   send: {
     ch: "傳送",en: "Transfer",
