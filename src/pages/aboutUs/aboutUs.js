@@ -61,13 +61,15 @@ const useStyles = makeStyles(theme => ({
   },
   contentIconsLeft: {
     float: "left",
-    marginTop: "7px",
-    marginLeft: "16px"
+    paddingTop: "7px",
+    marginLeft: "16px",
+    height: "50px"
   },
   contentIconsRight: {
     float: "right",
-    marginTop: "7px",
-    marginRight: "10px"
+    paddingTop: "7px",
+    marginRight: "10px",
+    height: "50px"
   },
   title: {
     float: "left",
