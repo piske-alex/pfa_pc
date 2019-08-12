@@ -20,16 +20,10 @@
       <change beforePath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/java/com/pfa/mobileapp/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/app/src/main/java/com/pfa/mobileapp/MainActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cordova/platforms/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cordova/platforms/android/cordova/lib/plugin-build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/platforms/android/cordova/lib/plugin-build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/www/asset-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/www/asset-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/www/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/www/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/www/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/www/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/www/precache-manifest.3766c37d2c1542cebd84dd586746380f.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/www/service-worker.js" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/www/service-worker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/www/static/js/2.b4805ee6.chunk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/www/static/js/2.b4805ee6.chunk.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/www/static/js/main.ea0f1061.chunk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/www/static/js/main.ea0f1061.chunk.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cordova/www/ver.html" beforeDir="false" afterPath="$PROJECT_DIR$/cordova/www/ver.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/aboutUs/aboutUs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/aboutUs/aboutUs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/dashboard/dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/dashboard/dashboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/details/details.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/details/details.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/myWallet/myWallet.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/myWallet/myWallet.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -63,7 +57,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/public/js/translation.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="229">
+            <state relative-caret-position="8683">
               <caret line="457" column="101" selection-start-line="457" selection-start-column="101" selection-end-line="457" selection-end-column="101" />
             </state>
           </provider>
@@ -73,12 +67,12 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="171">
-              <caret line="9" column="58" lean-forward="true" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="88" />
+              <caret line="9" column="58" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="88" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cordova/www/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state>
@@ -88,8 +82,12 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/logo.jpg">
-          <provider selected="true" editor-type-id="images" />
+        <entry file="file://$PROJECT_DIR$/public/ver.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="1" selection-start-column="1" selection-end-column="1" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -101,11 +99,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pages/details/details.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7391">
-              <caret line="459" column="18" selection-start-line="459" selection-start-column="18" selection-end-line="459" selection-end-column="18" />
+            <state relative-caret-position="341">
+              <caret line="464" column="48" selection-start-line="464" selection-start-column="48" selection-end-line="464" selection-end-column="48" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -116,8 +114,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/dashboard/dashboard.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5624">
-              <caret line="360" column="3" selection-start-line="357" selection-start-column="2" selection-end-line="360" selection-end-column="3" />
+            <state relative-caret-position="66">
+              <caret line="926" column="77" lean-forward="true" selection-start-line="926" selection-start-column="77" selection-end-line="926" selection-end-column="77" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -140,8 +138,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/myWallet/myWallet.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19399">
-              <caret line="1093" column="47" selection-start-line="1093" selection-start-column="35" selection-end-line="1093" selection-end-column="47" />
+            <state relative-caret-position="1226">
+              <caret line="802" column="39" selection-start-line="802" selection-start-column="39" selection-end-line="802" selection-end-column="39" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -152,8 +150,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/aboutUs/aboutUs.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="287" column="35" selection-start-line="287" selection-start-column="35" selection-end-line="287" selection-end-column="35" />
+            <state relative-caret-position="415">
+              <caret line="295" column="87" lean-forward="true" selection-start-line="295" selection-start-column="53" selection-end-line="295" selection-end-column="87" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -262,20 +260,20 @@
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/cordova/package.json" />
         <option value="$PROJECT_DIR$/src/pages/createAccountPage/createAccountPage.js" />
-        <option value="$PROJECT_DIR$/src/pages/details/details.js" />
         <option value="$PROJECT_DIR$/src/pages/accountManagerPanel/accountManagerPanel.js" />
         <option value="$PROJECT_DIR$/.gitlab-ci.yml" />
         <option value="$PROJECT_DIR$/cordova/platforms/android/.gitlab-ci.yml" />
         <option value="$PROJECT_DIR$/public/manifest.json" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/public/ver.html" />
         <option value="$PROJECT_DIR$/src/pages/convertPage/convertPage.js" />
         <option value="$PROJECT_DIR$/src/public/js/blockchain-utils.js" />
-        <option value="$PROJECT_DIR$/src/pages/dashboard/dashboard.js" />
-        <option value="$PROJECT_DIR$/src/pages/myWallet/myWallet.js" />
-        <option value="$PROJECT_DIR$/src/pages/aboutUs/aboutUs.js" />
         <option value="$PROJECT_DIR$/src/public/js/translation.js" />
         <option value="$PROJECT_DIR$/cordova/www/index.html" />
+        <option value="$PROJECT_DIR$/public/ver.html" />
+        <option value="$PROJECT_DIR$/src/pages/aboutUs/aboutUs.js" />
+        <option value="$PROJECT_DIR$/src/pages/dashboard/dashboard.js" />
+        <option value="$PROJECT_DIR$/src/pages/myWallet/myWallet.js" />
+        <option value="$PROJECT_DIR$/src/pages/details/details.js" />
       </list>
     </option>
   </component>
@@ -338,6 +336,13 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
               <item name="aboutUs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pfa_pc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pfa_pc" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="details" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="pfa_pc" type="b2602c69:ProjectViewProjectNode" />
@@ -519,7 +524,8 @@
       <workItem from="1565427827063" duration="1292000" />
       <workItem from="1565435836332" duration="277000" />
       <workItem from="1565507407699" duration="3653000" />
-      <workItem from="1565511713944" duration="1489000" />
+      <workItem from="1565511713944" duration="1705000" />
+      <workItem from="1565580489818" duration="1499000" />
     </task>
     <task id="LOCAL-00060" summary="qr border">
       <created>1562948135275</created>
@@ -868,7 +874,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="309513000" />
+    <option name="totallyTimeSpent" value="311228000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -881,6 +887,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-3" y="31" width="1926" height="1003" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49787235" visible="true" weight="0.23486045" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -1183,13 +1190,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/ver.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="3" selection-start-column="3" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pfa-react.iml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1216,66 +1216,9 @@
     <entry file="file://$PROJECT_DIR$/public/logo.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/cordova/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="14" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/details/details.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7391">
-          <caret line="459" column="18" selection-start-line="459" selection-start-column="18" selection-end-line="459" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/dashboard/dashboard.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5624">
-          <caret line="360" column="3" selection-start-line="357" selection-start-column="2" selection-end-line="360" selection-end-column="3" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3629">
-          <caret line="209" column="14" selection-start-line="209" selection-start-column="14" selection-end-line="209" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/myWallet/myWallet.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19399">
-          <caret line="1093" column="47" selection-start-line="1093" selection-start-column="35" selection-end-line="1093" selection-end-column="47" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/aboutUs/aboutUs.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="287" column="35" selection-start-line="287" selection-start-column="35" selection-end-line="287" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/public/js/translation.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
+        <state relative-caret-position="8683">
           <caret line="457" column="101" selection-start-line="457" selection-start-column="101" selection-end-line="457" selection-end-column="101" />
         </state>
       </provider>
@@ -1291,7 +1234,7 @@
       </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
-          <caret line="9" column="58" lean-forward="true" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="88" />
+          <caret line="9" column="58" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="88" />
         </state>
       </provider>
     </entry>
@@ -1299,6 +1242,70 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="2868" selection-start-column="2868" selection-end-column="2868" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cordova/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" column="14" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3629">
+          <caret line="209" column="14" selection-start-line="209" selection-start-column="14" selection-end-line="209" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/ver.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="1" selection-start-column="1" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/aboutUs/aboutUs.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="415">
+          <caret line="295" column="87" lean-forward="true" selection-start-line="295" selection-start-column="53" selection-end-line="295" selection-end-column="87" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/dashboard/dashboard.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="926" column="77" lean-forward="true" selection-start-line="926" selection-start-column="77" selection-end-line="926" selection-end-column="77" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/myWallet/myWallet.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1226">
+          <caret line="802" column="39" selection-start-line="802" selection-start-column="39" selection-end-line="802" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/details/details.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="464" column="48" selection-start-line="464" selection-start-column="48" selection-end-line="464" selection-end-column="48" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

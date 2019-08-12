@@ -798,6 +798,10 @@ function Dashboard({
               <Typography variant={"p"}>
                 {`${t.purchaseAddress[Config.lang]}`}
               </Typography>
+              <br></br>
+              <Typography variant={"p"}>
+                此為以太坊 ERC-20 USDT 地址，請勿將 PFA 資產轉賬至此地址
+              </Typography>
               <Paper style={{border:"8px solid white",height:"106px",width:"106px"}}>
                 <QRCode value={`pfa:${account.USDTWallet}`} style={{ height: "90px", width: "90px" }} renderAs={"svg"} />
               </Paper><br />
@@ -1098,7 +1102,7 @@ function Dashboard({
             <ListItemAvatar>
               <Avatar src='https://i.loli.net/2019/06/26/5d12bffaf379385695.png' />
             </ListItemAvatar>
-            <ListItemText primary="外部 USDT" />
+            <ListItemText primary="外部 ERC-20 USDT" />
           </ListItem>
         </List>
       </Dialog>

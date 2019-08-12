@@ -462,7 +462,7 @@ function Dashboard({
                       ? t.send[Config.lang]
                       : entry.type
                   }  {entry.currency}</Grid>
-                  <Grid item xs={2} >{entry.absvalue}</Grid>
+                  <Grid item xs={2} >{entry.absvalue.toFixed(3)}</Grid>
                   <Grid item xs={3} >{decodeURIComponent(entry.counterparty).slice(0,6)}</Grid>
                   <Grid item xs={2} style={{paddingLeft:'10px', whiteSpace: 'nowrap'}}>{changeTZ(`${(entry.time).slice(0,10)} ${(entry.time.slice(11,19))}`).slice(5,10)}</Grid>
                   <Grid item xs={2} className='detailslistRight'>{changeTZ(`${(entry.time).slice(0,10)} ${(entry.time.slice(11,19))}`).slice(11,16)} </Grid>

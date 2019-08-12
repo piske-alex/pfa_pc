@@ -270,7 +270,7 @@ function AboutUs({ history, handleLogout, currentUsername, account }) {
                     style={{ border: "8px white solid", height: "200px", width: "200px" }}/>
           </Grid>
           <Grid style={{ marginTop: "32px" }}>
-            <Typography className={classes.userName}>HAD 或內部 USDT</Typography>
+            <Typography className={classes.userName}>HAD 充值地址</Typography>
           </Grid>
           <Grid style={{ margin: "20px 0px" }}>
             <Paper>
@@ -292,7 +292,7 @@ function AboutUs({ history, handleLogout, currentUsername, account }) {
             </Paper>
 
           </Grid>
-          <Grid style={{marginBottom:'32px',}}>
+          <Grid style={{marginBottom:'32px',marginLeft:'5px',marginRight:'5px'}}>
             <Typography className={classes.userName}>請勿將以太坊 ERC-20 USDT 轉賬至此地址，找回將產生手續費</Typography>
           </Grid>
         </Grid>
