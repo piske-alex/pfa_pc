@@ -26,16 +26,15 @@ export function convertToPureAccountObject({address,privateKey,USDTaddress}) {
   return { address,privateKey,USDTaddress };
 }
 
-export async function newAccount(accountName, paraphrase, privateKey) {
+// New Account
+export async function newAccount(regionCode, mobile, accessCode, privateKey) {
+  const accountName = regionCode + mobile;
   if (localStorage.getItem(accountName)) {
     // Registered, throw error
     throw new Error("ValueError: account name is already used.");
   }
-  //string,string(length<16)
-  //let acctobj =
-  //typeof privateKey === "string" && privateKey !== ""
-  //? web3js.eth.accounts.privateKeyToAccount(privateKey)
-  //: web3js.eth.accounts.create();
+  
+  // TODO : Verify Phone Number & Access Code here
 
   let acctobj;
   if (typeof privateKey === "string" && privateKey !== "") {
@@ -59,7 +58,7 @@ export async function newAccount(accountName, paraphrase, privateKey) {
   acctobj.USDTaddress = USDTwallet;
 
   //padding
-  let key = ("000000000000000000000000" + paraphrase).slice(-24);
+  let key = ("000000000000000000000000" + accessCode).slice(-24);
   localStorage.setItem(
     `user-${accountName}`,
     encrypt(JSON.stringify({address:acctobj.address,privateKey:acctobj.privateKey, USDTWallet:USDTwallet.address}), key),

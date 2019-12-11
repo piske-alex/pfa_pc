@@ -61,15 +61,23 @@ export default {
 
   //公共
   fta: { ch: "普惠資產" },
+  accessToken: { ch: "信息存取碼", en: "SMS Token" },
+  getCode: { ch: "獲取信息存取碼", en: "Get SMS Token" }, 
   password: { ch: "密碼", en: "Password" },
-  username: { ch: "帳戶名稱", en: "User name" },
+  mobile: { ch: "電話號碼", en: "Mobile Number" },
   passwordAgain: { ch: "重新輸入密碼", en: "Type in your password again", },
   accountCreationWarning1: {
-    ch: "注意，請緊記密碼。", en: "Important: please remember your password",
+    ch: "注意，請緊記信息存取碼。", en: "Important: please remember your access token",
   },
   accountCreationWarning2: {
-    ch: "基於安全考慮，一旦遺失密碼，將永久丟失用戶存取權。", 
-    en: "Base on security consideration, if you forgot your private key or password, you will forever lost your wallet.",
+    ch: "基於安全考慮，一旦遺失信息存取碼，將永久丟失用戶存取權。", 
+    en: "Base on security consideration, if you forgot your private key or access token, you will forever lost your wallet.",
+  },
+  mobileWarning: {
+    ch: "未能獲取信息存取碼，請檢查電話號碼是否輸入錯誤。", en: "Cannot get SMS token, please verify your mobile number",
+  },
+  accessTokenLengthWarning: {
+    ch: "信息存取碼必須有四位", en: "SMS Token requires 4 characters",
   },
   passwordLengthWarning: {
     ch: "密碼必須有八位以上", en: "Password requires 8 characters",

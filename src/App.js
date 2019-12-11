@@ -62,6 +62,10 @@ function App(props) {
     setWrongPrivateKeyFormat,
 
   ] = React.useState(false);
+  const [
+    wrongMobileWarning,
+    setWrongMobileWarningSnackbarOpen,
+  ] = React.useState(false);
 
   const [cannotLoginSnackbarOpen, setCannotLoginSnackbarOpen] = React.useState(
     false,
@@ -86,6 +90,13 @@ function App(props) {
     setAccountCreatedSnackbarOpen(false);
   };
 
+  const handleWrongMobileWarningClose = () => {
+    setWrongMobileWarningSnackbarOpen(false);
+  }
+  const popMobileWarning = () => {
+    setWrongMobileWarningSnackbarOpen(true);
+  };
+
 
   const handleAccountNotCreatedSnackbarClose = () => {
     setAccountNotCreatedSnackbarOpen(false);
@@ -94,22 +105,22 @@ function App(props) {
     setCannotLoginSnackbarOpen(false);
   };
 
-  const onAccountCreate = async (username, password, pvKey) => {
+  const onAccountCreate = async (regionCode, mobile, accessCode, pvKey) => {
     try {
-      await newAccount(username, password, pvKey);
+      await newAccount(regionCode, mobile, accessCode, pvKey);
       setAccountCreatedSnackbarOpen(true);
 
       props.history.push("/login-account");
     } catch (err) {
       console.log(err);
       err.toString().includes("Wrong Private Key Format") ? setWrongPrivateKeyFormat(true) : setAccountNotCreatedSnackbarOpen(true);
-
     }
   };
 
   const [cookies, setCookie] = useCookies(['pfa']);
 
 
+  // ray.li.bot : username = region + mobile, password = access code
   const onAccountLogin = (username, password) => {
     try {
       let accountObj = readAccount(username, password);
@@ -131,7 +142,7 @@ function App(props) {
           <Route
             path={"/create-account"}
             render={() => (
-              <CreateAccountPage onAccountCreate={onAccountCreate} />
+              <CreateAccountPage onAccountCreate={onAccountCreate} popMobileWarning={popMobileWarning} />
             )}
           />
           <Route
@@ -235,6 +246,12 @@ function App(props) {
           autoHideDuration={6000}
           onClose={handleCannotLoginSnackbarClose}
           message={trans.cannotLoginWarning[Config.lang]}
+        />
+        <Snackbar
+          open={wrongMobileWarning}
+          autoHideDuration={6000}
+          onClose={handleWrongMobileWarningClose}
+          message={trans.mobileWarning[Config.lang]}
         />
       </React.Fragment>
     </ThemeProvider>
