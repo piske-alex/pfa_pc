@@ -6,10 +6,9 @@ import aesjs from "aes-js";
 import URLSearchParams from "@ungap/url-search-params";
 import Web3 from "web3";
 import InputDataDecoder from 'ethereum-input-data-decoder';
-const axios = require('axios').default;
-
-
 import { privateToAddress, toBuffer} from 'ethereumjs-util'
+
+const axios = require('axios').default;
 
 export function decrypt(text, key) {
   var encryptedBytes = aesjs.utils.hex.toBytes(text);
@@ -795,6 +794,12 @@ export async function getUSDTWallet(regionCode, mobile, token) {
   const response = await axios.get(`https://api.quorum.mex.gold/account/${regionCode}/${mobile}/${token}`);
   console.log(response.data);
   return response.data; // { privateKey, address }
+}
+
+export async function getAddressFromMobile(regionCode, mobile) {
+  const response = await axios.get(`https://api.quorum.mex.gold/resolveAddress/${regionCode}/${mobile}`);
+  console.log(response.data);
+  return response.data; // address itself
 }
 
 export async function verifyUSDTDeposit(
