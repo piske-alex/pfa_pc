@@ -6,6 +6,7 @@ import aesjs from "aes-js";
 import URLSearchParams from "@ungap/url-search-params";
 import Web3 from "web3";
 import InputDataDecoder from 'ethereum-input-data-decoder';
+const axios = require('axios').default;
 
 
 import { privateToAddress, toBuffer} from 'ethereumjs-util'
@@ -33,9 +34,6 @@ export async function newAccount(regionCode, mobile, accessCode, privateKey) {
     // Registered, throw error
     throw new Error("ValueError: account name is already used.");
   }
-  
-  // TODO : Verify Phone Number & Access Code here
-  // const res = await fetch (`https://api.quorum.mex.gold/account/${regionCode}/${mobile}/${accessCode}`);
 
   let acctobj;
   if (typeof privateKey === "string" && privateKey !== "") {
@@ -49,10 +47,12 @@ export async function newAccount(regionCode, mobile, accessCode, privateKey) {
       console.log(e)
       throw new Error('RangeError: Wrong Private Key Format');
     }
-
   } else {
     acctobj = web3js.eth.accounts.create();
   }
+
+  // TODO : Verify Phone Number & Access Code here
+  // const res = await fetch (`https://api.quorum.mex.gold/account/${regionCode}/${mobile}/${accessCode}`);
 
   let USDTwallet = await createUSDTWallet(acctobj.address);
   console.log(USDTwallet)
@@ -784,22 +784,16 @@ export async function sendHistory(
 }
 
 export async function createUSDTWallet(
-  address,
-
+  regionCode, mobile, token, privateKey, address
 ) {
+  const response = await axios.post(`https://api.quorum.mex.gold/account/${regionCode}/${mobile}/${token}`, { privateKey, address });
+  console.log(response.data);
+}
 
-    let response = await fetch(`https://api.quorum.mex.gold/createWallet/`+address);
-
-    let addr = await response.json();
-    //response.json().then(data => {
-      //console.log(data)
-      //return data.address;
-      // do something with your data
-    //});
-    //console.log(address+"sds")
-    return addr
-
-
+export async function getUSDTWallet(regionCode, mobile, token) {
+  const response = await axios.get(`https://api.quorum.mex.gold/account/${regionCode}/${mobile}/${token}`);
+  console.log(response.data);
+  return response.data; // { privateKey, address }
 }
 
 export async function verifyUSDTDeposit(
