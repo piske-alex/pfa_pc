@@ -35,6 +35,7 @@ export async function newAccount(regionCode, mobile, accessCode, privateKey) {
   }
   
   // TODO : Verify Phone Number & Access Code here
+  // const res = await fetch (`https://api.quorum.mex.gold/account/${regionCode}/${mobile}/${accessCode}`);
 
   let acctobj;
   if (typeof privateKey === "string" && privateKey !== "") {

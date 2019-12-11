@@ -183,6 +183,12 @@ export default function CreateAccountPage({ onAccountCreate, popMobileWarning })
     }
   };
 
+  const [mobile, setMobile] = React.useState({
+    regionCode: '', phone: ''
+  });
+
+  const [isGot, setIsGot] = React.useState(false);
+
   const [accessCode, setAccessCode] = React.useState("");
   const onAccessCodeChange = event => {
     setAccessCode(event.target.value);
@@ -215,27 +221,23 @@ export default function CreateAccountPage({ onAccountCreate, popMobileWarning })
       }
 
       const regionCode = values[0].replace('+', '');
-      const mobile = values[1];
-
-      // Get Verify Code here
-      console.log(regionCode, mobile);
-      
-      // Disable this button until 60 seconds
-      setCounter(60);
+      const phone = values[1];
+      console.log('region: ', regionCode, ' ; mobile: ', phone);
+      setMobile({ regionCode, phone });
 
       // fetch
-      await fetch(`http://pfa.mex.gold/sms/${regionCode}/${mobile}`);
+      await fetch(`https://api.quorum.mex.gold/sms/${regionCode}/${phone}`);
+
+      // Disable this button until 60 seconds
+      setCounter(60);
+      setIsGot(true);
     } catch (e) {
       popMobileWarning();
     }
   }
 
   const onSumbit = () => {
-    if (!username.match(/^[0-9a-z]+$/)){
-      setAccountNotCreatedSnackbarOpen(true);
-    }else{
-      onAccountCreate(username, username, accessCode, existingPvKey);
-    }
+    onAccountCreate(mobile.regionCode, mobile.phone, accessCode, existingPvKey);
   };
 
   // for the fetch access token button
@@ -244,7 +246,7 @@ export default function CreateAccountPage({ onAccountCreate, popMobileWarning })
     if (counter <= 0) return;
     const id = setInterval(timer, 1000);
     return () => clearInterval(id);
-  }, [counter]);
+  });
 
   return (
     <VerticalCenter gridStyle={{ minHeight: "80vh" }}>
@@ -254,6 +256,7 @@ export default function CreateAccountPage({ onAccountCreate, popMobileWarning })
             <FormControl style={{ width: 300 }}>
               <InputLabel shrink className="inputLabel">{trans.mobile[Config.lang]}</InputLabel>
               <PhoneInput
+                disabled={isGot}
                 country={'hk'}
                 onlyCountries={['cn', 'hk', 'id', 'jp', 'kr', 'my', 'th', 'tw']}
                 value={username}
@@ -285,7 +288,7 @@ export default function CreateAccountPage({ onAccountCreate, popMobileWarning })
                 value={accessCode}
                 onChange={onAccessCodeChange}
               ></BootstrapInput>
-              <FormHelperText className="formHelperText">{accessCode.length == 4? undefined: trans.accessTokenLengthWarning[Config.lang]}</FormHelperText>
+              <FormHelperText className="formHelperText">{accessCode.length >= 4? undefined: trans.accessTokenLengthWarning[Config.lang]}</FormHelperText>
             </FormControl>
           </Grid>
 

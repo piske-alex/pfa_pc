@@ -77,7 +77,7 @@ export default {
     ch: "未能獲取信息存取碼，請檢查電話號碼是否輸入錯誤。", en: "Cannot get SMS token, please verify your mobile number",
   },
   accessTokenLengthWarning: {
-    ch: "信息存取碼必須有四位", en: "SMS Token requires 4 characters",
+    ch: "信息存取碼必須有四位以上", en: "SMS Token requires 4 or more characters",
   },
   passwordLengthWarning: {
     ch: "密碼必須有八位以上", en: "Password requires 8 characters",
