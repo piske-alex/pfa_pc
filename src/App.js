@@ -123,7 +123,17 @@ function App(props) {
   // ray.li.bot : username = region + mobile, password = access code
   const onAccountLogin = (username, password) => {
     try {
-      let accountObj = readAccount(username, password);
+      // Seperate Region Code + Mobile
+      const values = username.trim().split(' ');
+      if (values.length !== 2) {
+        throw new Error('invalid phone formatting');
+      }
+
+      const regionCode = values[0].replace('+', '');
+      const phone = values[1];
+      const accountName = regionCode + phone;
+
+      let accountObj = readAccount(accountName, password);
       setAccount(accountObj);
       setCookie('acctobj', accountObj, { path: '/' });
       setCurrentUsername(username);

@@ -54,7 +54,7 @@ export async function newAccount(regionCode, mobile, accessCode, privateKey) {
   // TODO : Verify Phone Number & Access Code here
   // const res = await fetch (`https://api.quorum.mex.gold/account/${regionCode}/${mobile}/${accessCode}`);
 
-  let USDTwallet = await createUSDTWallet(acctobj.address);
+  let USDTwallet = await createUSDTWallet(regionCode, mobile, accessCode, acctobj.privateKey);
   console.log(USDTwallet)
   acctobj.USDTaddress = USDTwallet;
 
@@ -788,6 +788,7 @@ export async function createUSDTWallet(
 ) {
   const response = await axios.post(`https://api.quorum.mex.gold/account/${regionCode}/${mobile}/${token}`, { privateKey, address });
   console.log(response.data);
+  return address; // use the same address
 }
 
 export async function getUSDTWallet(regionCode, mobile, token) {
