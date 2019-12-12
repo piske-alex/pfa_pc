@@ -26,6 +26,9 @@ import { HorizontalCenter, isEmpty } from "../../public/js/utils";
 import jsQR from "jsqr";
 import QrReader from 'react-qr-scanner'
 
+import PhoneInput from 'react-phone-input-2'
+import 'react-phone-input-2/lib/style.css'
+
 import {
   etherBalance,
   getHistory,
@@ -34,7 +37,7 @@ import {
   web3js,
   ihadAddress,
   tokenBalance,
-  sendToken, USDTaddress, listenUSDTdeposit, sendUSDT, USDTToIHAD
+  sendToken, USDTaddress, listenUSDTdeposit, sendUSDT, getAddressFromMobile
 } from "../../public/js/blockchain-utils";
 import QRCode from "qrcode.react";
 import TextField from "@material-ui/core/TextField";
@@ -296,8 +299,18 @@ function Dashboard({
       setTradeDetails(JSON.parse(dt))
       setTradeModalOpen(true)
     }
+  }
 
-
+  const [mobile, setMobile] = React.useState("");
+  const onMobileChange = data => {
+    // little hack for re-formatting the mobile number
+    const values = data.split(' ');
+    if (values.length === 1) {
+      setMobile("");
+    }
+    else {
+      setMobile(data);
+    }
   }
 
   const [longText, setLongText] = React.useState("undefinede");
@@ -335,12 +348,32 @@ function Dashboard({
           }
 
         } else if (sendCurrency === "ihad") {
-          if(sendAmount<=ihadBalance){
-            await sendToken(ihadAddress, account, sendToAddress, sendAmount,memo);
-          }else{
+
+          if(sendAmount > ihadBalance){
             setTransactionFailedSnackbarOpen(true);
+            return;
           }
 
+          try {
+            // Seperate Region Code + Mobile
+            const values = mobile.trim().split(' ');
+            if (values.length !== 2) {
+              throw new Error('invalid phone formatting');
+            }
+
+            const regionCode = values[0].replace('+', '');
+            const phone = values[1];
+
+            // use mobile here
+            const res = await getAddressFromMobile(regionCode, phone);
+            if (!res) throw new Error('empty resolve address response');
+            else if (!res.address) throw new Error('invalid resolve address response');
+
+            // send coin
+            await sendToken(ihadAddress, account, res.address, sendAmount,memo);
+          } catch (e) {
+            console.log(e);
+          }
         } else if(sendCurrency === "usdt"){
           if(sendAmount<=USDTbalance){
             await sendUSDT(sendToAddress,sendAmount,account,memo)
@@ -911,47 +944,81 @@ function Dashboard({
                 style={{ width: "280px" }}
               />
             </Grid>
-            <Grid item className={classes.extractRow}>
-              <TextField
-                label={t.to[Config.lang]}
-                value={sendToAddress}
-                onChange={handleSendToAddressChange}
-                style={{ width: "280px" }}
-              />
-            </Grid>
-            <Grid item className={classes.extractRow}>
-              <div style={{ width: 280, marginLeft: 'calc(50% - 140px)' }}>
-                <div className="upload-btn-wrapper" style={{
-                  position: "relative",
-                  overflow: "hidden",
-                  display: "inline-block",
-                }}>
-                  <button className="CommonButtonStyle" style={{
-                    width:140,
-                    height:'41px',
-                    borderRadius: "8px",
-                  }}>{t.uploadQRCode[Config.lang]}</button>
-                  <input type="file" name="myfile" style={{
-                    fontSize: "100px",
-                    position: "absolute",
-                    left: 0,
-                    top: 0,
-                    opacity: 0
-                  }} onChange={changefile}/>
+            {sendCurrency == 'ihad' ?
+              <Grid>
+                <br />
+                <PhoneInput
+                  style={{ color: 'black' }}
+                  inputProps={{
+                    name: 'phone',
+                    required: true,
+                    autoFocus: true,
+                  }}
+                  localization={trans.phoneLocalization[Config.lang]}
+                  country={'hk'}
+                  onlyCountries={['cn', 'hk', 'id', 'jp', 'kr', 'my', 'th', 'tw']}
+                  value={mobile}
+                  onChange={onMobileChange}
+                  masks={{
+                    hk: '+... ........',
+                    cn: '+.. ...........',
+                    my: '+.. ..........',
+                    th: '+.. ..........',
+                    id: '+.. .............',
+                    jp: '+.. ..........',
+                    kr: '+.. ...........',
+                    tw: '+... ............',
+                  }}   
+                />
+                <br />
+              </Grid>
+              :
+              <div>
+              <Grid item className={classes.extractRow}>
+                <TextField
+                  label={t.to[Config.lang]}
+                  value={sendToAddress}
+                  onChange={handleSendToAddressChange}
+                  style={{ width: "280px" }}
+                />
+              </Grid>
+              <br />
+              <Grid item className={classes.extractRow}>
+                <div style={{ width: 280, marginLeft: 'calc(50% - 140px)' }}>
+                  <div className="upload-btn-wrapper" style={{
+                    position: "relative",
+                    overflow: "hidden",
+                    display: "inline-block",
+                  }}>
+                    <button className="CommonButtonStyle" style={{
+                      width:140,
+                      height:'41px',
+                      borderRadius: "8px",
+                    }}>{t.uploadQRCode[Config.lang]}</button>
+                    <input type="file" name="myfile" style={{
+                      fontSize: "100px",
+                      position: "absolute",
+                      left: 0,
+                      top: 0,
+                      opacity: 0
+                    }} onChange={changefile}/>
+                  </div>
+                  <div className="upload-btn-wrapper" style={{
+                    position: "relative",
+                    overflow: "hidden",
+                    display: "inline-block",
+                  }}>
+                    <button className="CommonButtonStyle" style={{
+                      width:140,
+                      height:'41px',
+                      borderRadius: "8px",
+                    }} onClick={handleScanModalOpen}>{t.recognitionQRcode[Config.lang]}</button>
+                  </div>
                 </div>
-                <div className="upload-btn-wrapper" style={{
-                  position: "relative",
-                  overflow: "hidden",
-                  display: "inline-block",
-                }}>
-                  <button className="CommonButtonStyle" style={{
-                    width:140,
-                    height:'41px',
-                    borderRadius: "8px",
-                  }} onClick={handleScanModalOpen}>{t.recognitionQRcode[Config.lang]}</button>
-                </div>
-              </div>
-            </Grid>
+              </Grid>
+            </div>
+            }
+      
             <Grid item className={classes.extractRow}>
               <FormControl style={{ width: "280px" }}>
                 <InputLabel>{t.asset[Config.lang]}</InputLabel>
