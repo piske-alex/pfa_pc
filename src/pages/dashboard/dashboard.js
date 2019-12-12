@@ -588,8 +588,6 @@ function Dashboard({
     {icon:'photo_library',text: t.dashboards.backUp[config.lang]},
     {icon:'email',text: t.dashboards.message[config.lang]},
     {icon:'import_contacts',text: t.dashboards.manual[config.lang]},
-    {icon:'add_circle',text: t.Recharge[config.lang]},
-    {icon:'monetization_on',text: t.withdrawal[config.lang]},
   ];
   return (
 
