@@ -180,12 +180,24 @@ export default function CreateAccountPage({ onAccountCreate, popMobileWarning })
     }
     else {
       setUsername(data);
+      onMobileChange(data);
     }
   };
 
-  const [mobile, setMobile] = React.useState({
-    regionCode: '', phone: ''
-  });
+  const [mobile, setMobile] = React.useState({regionCode: '', phone: ''});
+  const onMobileChange = data => {
+    const values = data.trim().split(' ');
+    if (values.length === 2) {
+      const regionCode = values[0].replace('+', '');
+      const phone = values[1];
+      console.log('region: ', regionCode, ' ; mobile: ', phone);
+      setMobile({ regionCode, phone });
+      console.log(mobile);
+    } else {
+      setMobile({regionCode: '', phone: ''});
+    }
+  };
+
 
   const [isGot, setIsGot] = React.useState(false);
 
@@ -195,6 +207,12 @@ export default function CreateAccountPage({ onAccountCreate, popMobileWarning })
   };
 
   const [counter, setCounter] = React.useState(0);
+  const timer = () => setCounter(counter - 1);
+  React.useEffect(() => {
+    if (counter <= 0) return;
+    const id = setInterval(timer, 1000);
+    return () => clearInterval(id);
+  });
 
   const [seePrivateKey, setSeePrivateKey] = React.useState(false);
 
@@ -215,18 +233,14 @@ export default function CreateAccountPage({ onAccountCreate, popMobileWarning })
 
   const handleGetCode = async () => {
     try {
-      const values = username.trim().split(' ');
-      if (values.length !== 2) {
-        throw new Error('invalid phone formatting');
+      
+      onMobileChange(username);
+      if (mobile.regionCode === '' || mobile.phone === '') {
+        throw new Error('invalid phone number');
       }
 
-      const regionCode = values[0].replace('+', '');
-      const phone = values[1];
-      console.log('region: ', regionCode, ' ; mobile: ', phone);
-      setMobile({ regionCode, phone });
-
       // fetch
-      await fetch(`https://api.quorum.mex.gold/sms/${regionCode}/${phone}`);
+      await fetch(`https://api.quorum.mex.gold/sms/${mobile.regionCode}/${mobile.phone}`);
 
       // Disable this button until 60 seconds
       setCounter(60);
@@ -237,16 +251,18 @@ export default function CreateAccountPage({ onAccountCreate, popMobileWarning })
   }
 
   const onSumbit = () => {
-    onAccountCreate(mobile.regionCode, mobile.phone, accessCode, existingPvKey);
+    try {
+      onMobileChange(username);
+      if (mobile.regionCode === '' || mobile.phone === '') {
+        throw new Error('invalid phone number');
+      }
+      console.log(mobile);
+      onAccountCreate(mobile.regionCode, mobile.phone, accessCode, existingPvKey);
+    } catch (e) {
+      console.error(e);
+      setAccountNotCreatedSnackbarOpen(true);
+    }
   };
-
-  // for the fetch access token button
-  const timer = () => setCounter(counter - 1);
-  React.useEffect(() => {
-    if (counter <= 0) return;
-    const id = setInterval(timer, 1000);
-    return () => clearInterval(id);
-  });
 
   return (
     <VerticalCenter gridStyle={{ minHeight: "80vh" }}>
@@ -337,7 +353,7 @@ export default function CreateAccountPage({ onAccountCreate, popMobileWarning })
               </div>
             </Grid>
             <Grid item style={{ overflow: "auto", maxHeight: "84%", width: "100%", padding: "6px" }}>
-              <Typography variant={"h7"} style={{ marginRight: "150px", textAlign: "justify", width: "100%", wordBreak: "break-all",color:"white" }} dangerouslySetInnerHTML={{ __html: trans.createAccountPage.rememberfull[Config.lang] }} />
+              <Typography style={{ marginRight: "150px", textAlign: "justify", width: "100%", wordBreak: "break-all",color:"white" }} dangerouslySetInnerHTML={{ __html: trans.createAccountPage.rememberfull[Config.lang] }} />
 
             </Grid>
           </Grid>

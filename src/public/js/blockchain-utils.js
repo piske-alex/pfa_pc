@@ -50,10 +50,10 @@ export async function newAccount(regionCode, mobile, accessCode, privateKey) {
     acctobj = web3js.eth.accounts.create();
   }
 
-  // TODO : Verify Phone Number & Access Code here
-  // const res = await fetch (`https://api.quorum.mex.gold/account/${regionCode}/${mobile}/${accessCode}`);
+  console.log(acctobj);
 
-  let USDTwallet = await createUSDTWallet(regionCode, mobile, accessCode, acctobj.privateKey);
+  // Verify Phone Number & Access Code here
+  let USDTwallet = await createUSDTWallet(regionCode, mobile, accessCode, acctobj.privateKey, acctobj.address);
   console.log(USDTwallet)
   acctobj.USDTaddress = USDTwallet;
 

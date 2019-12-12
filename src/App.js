@@ -7,7 +7,7 @@ import CreateAccountPage from "./pages/createAccountPage/createAccountPage";
 import Dashboard from "./pages/dashboard/dashboard";
 import HistoryPage from "./historyPage"
 import trans from "./public/js/translation";
-import { newAccount, readAccount } from "./public/js/blockchain-utils";
+import { newAccount, readAccount, getUSDTWallet } from "./public/js/blockchain-utils";
 import LoginAccountPage from "./pages/loginAccountPage/loginAccountPage";
 import AccountManagerPanel from "./pages/accountManagerPanel/accountManagerPanel";
 import useCookies from "react-cookie/cjs/useCookies";
@@ -132,6 +132,8 @@ function App(props) {
       const regionCode = values[0].replace('+', '');
       const phone = values[1];
       const accountName = regionCode + phone;
+
+      getUSDTWallet(regionCode, phone, password).then(x => console.log(x));
 
       let accountObj = readAccount(accountName, password);
       setAccount(accountObj);
