@@ -134,12 +134,16 @@ function App(props) {
 
       let accountObj = await getUSDTWallet(regionCode, phone, password);
       accountObj.USDTaddress = accountObj.address;
+      if (accountObj.error) {
+        throw new Error('account not found');
+      }
       setAccount(accountObj);
       setCookie('acctobj', accountObj, { path: '/' });
       console.log(cookies.acctobj);
       setCurrentUsername(username);
       setCookie('username', username, { path: '/' });
       props.history.push("/app");
+     
     } catch (err) {
       console.log(err);
       setCannotLoginSnackbarOpen(true);

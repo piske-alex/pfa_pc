@@ -1,5 +1,7 @@
-/**
- * 国际化配置文件
+import es from 'react-phone-input-2/lang/es.json'
+import cn from 'react-phone-input-2/lang/cn.json'
+
+/* 国际化配置文件
  * ch:中文
  * en:英文
  */
@@ -58,6 +60,8 @@ export default {
     onlyEn: { ch: "只支援英數字元", en: "Only support English account name" },
     onlyAz: { ch: "只支援拉丁字元（A-Z）", en: "Only support A-Z" },
   },
+
+  phoneLocalization: { ch: cn, en: undefined },
 
   //公共
   fta: { ch: "普惠資產" },
@@ -472,7 +476,7 @@ export default {
     ch: "HAD",en: "HAD"
   },
   usdt:{
-    ch: "USDT（轉外部以太網絡 每筆需付1USDT）",en: "USDT(Send to ETH Network need 1USDT)"
+    ch: "USDT（每筆需付1USDT）",en: "USDT(need 1USDT fee)"
   },
   usdti:{
     ch: "USDT（PFA內部互轉 免網絡費）",en: "USDT(PFA internal network transfer)"

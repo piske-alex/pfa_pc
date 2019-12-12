@@ -962,9 +962,7 @@ function Dashboard({
                   }}
                 >
                   <MenuItem value="ihad">{t.ihad[Config.lang]}</MenuItem>
-                  <MenuItem value="pfa">{t.pfa[Config.lang]}</MenuItem>
                   <MenuItem value="usdt">{t.usdt[Config.lang]}</MenuItem>
-                  <MenuItem value="usdti">{t.usdti[Config.lang]}</MenuItem>
                 </Select>
               </FormControl>
             </Grid>

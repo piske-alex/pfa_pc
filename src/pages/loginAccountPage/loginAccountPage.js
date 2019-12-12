@@ -126,6 +126,7 @@ export default function LoginAccountPage({ onAccountLogin }) {
                   required: true,
                   autoFocus: true,
                 }}
+                localization={trans.phoneLocalization[Config.lang]}
                 country={'hk'}
                 onlyCountries={['cn', 'hk', 'id', 'jp', 'kr', 'my', 'th', 'tw']}
                 value={username}

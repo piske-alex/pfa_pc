@@ -181,6 +181,15 @@ export async function sendToken(contractaddress, acctobj, _to, amount,memo) {
   var count = await web3js.eth.getTransactionCount(_from);
   let contract = new web3js.eth.Contract(minABI, contractaddress);
 
+  const acct = web3js.eth.accounts.privateKeyToAccount(acctobj.privateKey.toString());
+  
+  web3js.eth.accounts.wallet.add(acct.privateKey);
+  web3js.eth.defaultAccount = acct.address;
+  const gas = await contract.methods.transfer(_to, web3js.utils.toWei(amount)).estimateGas({ from: acct.address });
+  const signedTransaction = await contract.methods.transfer(_to, web3js.utils.toWei(amount)).send({ from: acct.address, gas: gas });
+
+  console.log(signedTransaction);
+  /*
   var rawTransaction = {
     from: _from,
     nonce: "0x" + count.toString(16),
@@ -202,6 +211,7 @@ export async function sendToken(contractaddress, acctobj, _to, amount,memo) {
   //if(contractaddress==="0xfbd0f2a657633c15637c6c21d45d1d5f78860e27"){
     //verifyUSDTWithdrawal(signedTransaction.transactionHash)
   //}
+  */
 
   let symbol ;
   switch (contractaddress) {
@@ -682,7 +692,6 @@ export async function sendUSDT(addr,amount,acctobj,memo) {
   console.log(web3js.utils.toWei(amount))
   if(balance<amount){
     throw new Error("pool lack balance")
-
   }
   console.log('sending from : ' + acctobj.address);
   let _from = acctobj.address;
@@ -690,8 +699,19 @@ export async function sendUSDT(addr,amount,acctobj,memo) {
   let contractaddress = USDTaddress;
   let contract = new web3js.eth.Contract(minABI, contractaddress);
   var exchangeaddress = "0x1851faec1214a4f46cabc208216541bca4400738";
+
+  if (!acctobj.privateKey.startWith('0x')) acctobj.privateKey = '0x' + acctobj.privateKey;
+  const acct = web3js.eth.accounts.privateKeyToAccount(acctobj.privateKey.toString());
+  
+  web3js.eth.accounts.wallet.add(acct.privateKey);
+  web3js.eth.defaultAccount = acct.address;
+
+  console.log('sending: ' + JSON.stringify(acct));
+  await contract.methods.approve(exchangeaddress, web3js.utils.toWei(amount)).send({ from: acct.address });
+
+ /*
   var rawTX = {
-    from: _from,
+    from: acct.address,
     nonce: "0x" + count.toString(16),
     gasPrice: "0x0",
     gas: "0x30D40",
@@ -700,13 +720,14 @@ export async function sendUSDT(addr,amount,acctobj,memo) {
     data: contract.methods
       .approve(exchangeaddress, web3js.utils.toWei(amount)) // michaellee8: changed from data.amount to amount
       .encodeABI(),
-    chainId: '0x0'
+    chainId: '48170'
   };
-  const st1 = await web3js.eth.accounts.signTransaction(rawTX, acctobj.privateKey)
+  const st1 = await web3js.eth.accounts.signTransaction(rawTX, acct.privateKey)
+  
   //something for UI
 
   await sendTransaction(st1)
-
+  */
   let exchange = new web3js.eth.Contract(DestroyerABI, contractaddress);
   var rawTX2 = {
     from: _from,
