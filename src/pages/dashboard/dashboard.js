@@ -261,7 +261,7 @@ function Dashboard({
   console.log(account);
   if (account == null || isEmpty(account)) {
     account = cookies.acctobj;
-    console.log(cookies.acctobj + "jj");
+    console.log(cookies.acctobj);
     isEmpty(account) ? history.push("/login-account") : something = "continue";
   }
   let accName = currentUsername;
@@ -825,7 +825,7 @@ function Dashboard({
               <Grid item className={classes.extractRow}>
                 <TextField
                   label={t.from[Config.lang]}
-                  value={`${currentUsername} ${account.address}`}
+                  value={`${account.address}`}
                   disabled
                   style={{ width: "280px" }}
                 />

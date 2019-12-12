@@ -7,7 +7,7 @@ import CreateAccountPage from "./pages/createAccountPage/createAccountPage";
 import Dashboard from "./pages/dashboard/dashboard";
 import HistoryPage from "./historyPage"
 import trans from "./public/js/translation";
-import { newAccount, readAccount, getUSDTWallet } from "./public/js/blockchain-utils";
+import { newAccount, getUSDTWallet } from "./public/js/blockchain-utils";
 import LoginAccountPage from "./pages/loginAccountPage/loginAccountPage";
 import AccountManagerPanel from "./pages/accountManagerPanel/accountManagerPanel";
 import useCookies from "react-cookie/cjs/useCookies";
@@ -121,7 +121,7 @@ function App(props) {
 
 
   // ray.li.bot : username = region + mobile, password = access code
-  const onAccountLogin = (username, password) => {
+  const onAccountLogin = async (username, password) => {
     try {
       // Seperate Region Code + Mobile
       const values = username.trim().split(' ');
@@ -131,13 +131,12 @@ function App(props) {
 
       const regionCode = values[0].replace('+', '');
       const phone = values[1];
-      const accountName = regionCode + phone;
 
-      getUSDTWallet(regionCode, phone, password).then(x => console.log(x));
-
-      let accountObj = readAccount(accountName, password);
+      let accountObj = await getUSDTWallet(regionCode, phone, password);
+      accountObj.USDTaddress = accountObj.address;
       setAccount(accountObj);
       setCookie('acctobj', accountObj, { path: '/' });
+      console.log(cookies.acctobj);
       setCurrentUsername(username);
       setCookie('username', username, { path: '/' });
       props.history.push("/app");

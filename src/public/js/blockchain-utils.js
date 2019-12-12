@@ -58,21 +58,28 @@ export async function newAccount(regionCode, mobile, accessCode, privateKey) {
   acctobj.USDTaddress = USDTwallet;
 
   //padding
-  let key = ("000000000000000000000000" + accessCode).slice(-24);
+  // let key = ("000000000000000000000000" + accessCode).slice(-24);
   localStorage.setItem(
     `user-${accountName}`,
-    encrypt(JSON.stringify({address:acctobj.address,privateKey:acctobj.privateKey, USDTWallet:USDTwallet.address}), key),
+    JSON.stringify({address:acctobj.address,privateKey:acctobj.privateKey, USDTWallet:USDTwallet.address}),
   );
   return acctobj;
 }
 
-export function readAccount(accountName, paraphrase) {
-  let encryptedacctstring = localStorage.getItem(`user-${accountName}`);
-  let key = ("000000000000000000000000" + paraphrase).slice(-24);
-  let dec = decrypt(encryptedacctstring, key);
+/*
+export function readAccount(regionCode, mobile, accessToken) {
+  let wallet = getUSDTWallet(regionCode, mobile, accessToken); // { address, privateKey }
+  wallet.USDTaddress = wallet.address;
+  return wallet;
+  // let encryptedacctstring = localStorage.getItem(`user-${accountName}`);
+  // let dec = localStorage.getItem(`user-${accountName}`);
+
+  // let key = ("000000000000000000000000" + paraphrase).slice(-24);
+  // let dec = decrypt(encryptedacctstring, key);
   //return convertToPureAccountObjefct(web3js.eth.accounts.privateKeyToAccount(JSON.parse(dec).privateKey));
-  return JSON.parse(dec)
+  // return JSON.parse(dec)
 }
+*/
 
 export function listenUSDTdeposit(USDTaddr,acctobj,callback){
   /*const decoder = new InputDataDecoder(minABI);
@@ -677,6 +684,7 @@ export async function sendUSDT(addr,amount,acctobj,memo) {
     throw new Error("pool lack balance")
 
   }
+  console.log('sending from : ' + acctobj.address);
   let _from = acctobj.address;
   var count = await web3js.eth.getTransactionCount(_from);
   let contractaddress = USDTaddress;

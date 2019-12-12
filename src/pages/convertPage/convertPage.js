@@ -912,7 +912,7 @@ function ConvertPage({
             <Grid item>
               <TextField
                 label={t.from[Config.lang]}
-                value={`${currentUsername} ${account.address}`}
+                value={`${account.address}`}
                 disabled
                 style={{ width: "280px" }}
               />
