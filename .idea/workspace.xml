@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33c7a400-888c-4aef-b112-febf5c9a8cb5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/aboutUs/aboutUs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/aboutUs/aboutUs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/myWallet/myWallet.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/myWallet/myWallet.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,51 +37,6 @@
         <option value="HTML File" />
       </list>
     </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>web3js</find>
-      <find>sendUS</find>
-      <find>sendUSD</find>
-      <find>manif</find>
-      <find>app-re</find>
-      <find>utils.toB</find>
-      <find>amount</find>
-      <find>details</find>
-      <find>time</find>
-      <find>exchange</find>
-      <find>withdraw</find>
-      <find>IHADTo</find>
-      <find>sdfs</find>
-      <find>sdf</find>
-      <find>handleSendAsset</find>
-      <find>setTransactionFailedSnackbarOpen</find>
-      <find>0x0ff</find>
-      <find>web3js.utils.toBN(amount).mul( web3js.utils.toBN(1e18))</find>
-      <find>toWei</find>
-      <find>提</find>
-      <find>handleBuyM</find>
-      <find>setOpenCho</find>
-      <find>openCho</find>
-      <find>handleChooseModalClose</find>
-      <find>avatar</find>
-      <find>USDT</find>
-      <find>備</find>
-      <find>contents</find>
-      <find>contentIco</find>
-      <find>logout</find>
-    </findStrings>
-    <replaceStrings>
-      <replace />
-      <replace>inRight: &quot;150px&quot; }}&gt;{`${modalTitle}`}&lt;/Typograph</replace>
-      <replace>Fitch</replace>
-      <replace>tosModal</replace>
-      <replace>500px</replace>
-      <replace>web3js.utils.toWei(amount)</replace>
-    </replaceStrings>
-    <dirStrings>
-      <dir>$PROJECT_DIR$/</dir>
-    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
@@ -267,14 +220,7 @@
       <workItem from="1565598400135" duration="1437000" />
       <workItem from="1565669918005" duration="877000" />
       <workItem from="1565678928675" duration="1289000" />
-      <workItem from="1576215408181" duration="2422000" />
-    </task>
-    <task id="LOCAL-00065" summary="trade">
-      <created>1563104535824</created>
-      <option name="number" value="00065" />
-      <option name="presentableId" value="LOCAL-00065" />
-      <option name="project" value="LOCAL" />
-      <updated>1563104535824</updated>
+      <workItem from="1576215408181" duration="3465000" />
     </task>
     <task id="LOCAL-00066" summary="trade">
       <created>1563105509251</created>
@@ -612,7 +558,14 @@
       <option name="project" value="LOCAL" />
       <updated>1565680023593</updated>
     </task>
-    <option name="localTasksCounter" value="114" />
+    <task id="LOCAL-00114" summary="change HAD stuff">
+      <created>1576222362890</created>
+      <option name="number" value="00114" />
+      <option name="presentableId" value="LOCAL-00114" />
+      <option name="project" value="LOCAL" />
+      <updated>1576222362890</updated>
+    </task>
+    <option name="localTasksCounter" value="115" />
     <servers />
   </component>
   <component name="TodoView">
@@ -661,7 +614,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="warning" />
     <MESSAGE value="wrong conversion rate" />
     <MESSAGE value="new modal" />
     <MESSAGE value="change words" />
@@ -686,7 +638,8 @@
     <MESSAGE value="towei remove string" />
     <MESSAGE value="change of words" />
     <MESSAGE value="details parsefloat" />
-    <option name="LAST_COMMIT_MESSAGE" value="details parsefloat" />
+    <MESSAGE value="change HAD stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="change HAD stuff" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
