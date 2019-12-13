@@ -633,9 +633,7 @@ function Dashboard({
                 <div className = "myWalletTwoBtn">
                   <Button
                     variant="outlined"
-                    onClick={()=>{
-                      setOpenChooser(true)
-                    }}
+                    onClick={() => history.push("/aboutUs")}
                     style={{ width: "130px", color: '#C0C0C0', padding:'5px 0px', marginRight: 1 }}
                   >
                     <img src={'https://minio.koin-exchange.com/avatar/after.png'} className="donateClass" />
