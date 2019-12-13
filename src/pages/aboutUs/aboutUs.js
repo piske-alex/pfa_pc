@@ -295,7 +295,10 @@ function AboutUs({ history, handleLogout, currentUsername, account }) {
 
           </Grid>
           <Grid style={{marginBottom:'32px',marginLeft:'5px',marginRight:'5px'}}>
-            <!--Typography className={classes.userName}>請勿將以太坊 ERC-20 USDT 轉賬至此地址，找回將產生手續費</Typography-->
+            {
+            //<Typography className={classes.userName}>請勿將以太坊 ERC-20 USDT 轉賬至此地址，找回將產生手續費</Typography>
+          }
+
           </Grid>
         </Grid>
         <Grid>
