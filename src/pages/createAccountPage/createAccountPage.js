@@ -18,6 +18,9 @@ import Config from "../../public/js/config";
 import { CopyButton } from "react-copy-button";
 import Switch from "@material-ui/core/Switch";
 
+import PhoneInput from 'react-phone-input-2'
+import 'react-phone-input-2/lib/style.css'
+
 const BootstrapInput = withStyles(theme => ({
   root: {
     'label + &': {
@@ -156,7 +159,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function CreateAccountPage({ onAccountCreate }) {
+export default function CreateAccountPage({ onAccountCreate, popMobileWarning }) {
   const classes = useStyles();
   const [
     accountNotCreatedSnackbarOpen,
@@ -169,17 +172,48 @@ export default function CreateAccountPage({ onAccountCreate }) {
   };
 
   const [username, setUsername] = React.useState("");
-  const onUsernameChange = event => {
-    setUsername(event.target.value);
+  const onUsernameChange = data => {
+    // little hack for re-formatting the mobile number
+    const values = data.split(' ');
+    if (values.length === 1) {
+      setUsername("");
+    }
+    else {
+      setUsername(data);
+      onMobileChange(data);
+    }
   };
-  const [password, setPassword] = React.useState("");
-  const onPasswordChange = event => {
-    setPassword(event.target.value);
+
+  const [mobile, setMobile] = React.useState({regionCode: '', phone: ''});
+  const onMobileChange = data => {
+    const values = data.trim().split(' ');
+    if (values.length === 2) {
+      const regionCode = values[0].replace('+', '');
+      const phone = values[1];
+      console.log('region: ', regionCode, ' ; mobile: ', phone);
+      setMobile({ regionCode, phone });
+      console.log(mobile);
+    } else {
+      setMobile({regionCode: '', phone: ''});
+    }
   };
-  const [passwordAgain, setPasswordAgain] = React.useState("");
-  const onPasswordAgainChange = event => {
-    setPasswordAgain(event.target.value);
+
+
+  const [isGot, setIsGot] = React.useState(false);
+
+  const [accessCode, setAccessCode] = React.useState("");
+  const onAccessCodeChange = event => {
+    setAccessCode(event.target.value);
   };
+
+  const [counter, setCounter] = React.useState(0);
+  const timer = () => setCounter(counter - 1);
+  React.useEffect(() => {
+    if (counter <= 0) return;
+    const id = setInterval(timer, 1000);
+    return () => clearInterval(id);
+  });
+
   const [seePrivateKey, setSeePrivateKey] = React.useState(false);
 
   //const [sendAmount, setSendAmount] = React.useState("");
@@ -190,7 +224,6 @@ export default function CreateAccountPage({ onAccountCreate }) {
 
   const [tosModalOpen, settosModalOpen] = React.useState(false);
   const handletosModalOpen = () => {
-
     settosModalOpen(true);
   };
   const handletosModalClose = () => {
@@ -198,14 +231,37 @@ export default function CreateAccountPage({ onAccountCreate }) {
     settosModalOpen(false);
   };
 
-  const onSumbit = () => {
-    if (!username.match(/^[0-9a-z]+$/)){
-      setAccountNotCreatedSnackbarOpen(true);
-    }else{
-      onAccountCreate(username, password, existingPvKey);
+  const handleGetCode = async () => {
+    try {
+      
+      onMobileChange(username);
+      if (mobile.regionCode === '' || mobile.phone === '') {
+        throw new Error('invalid phone number');
+      }
+
+      // fetch
+      await fetch(`https://api.quorum.mex.gold/sms/${mobile.regionCode}/${mobile.phone}`);
+
+      // Disable this button until 60 seconds
+      setCounter(60);
+      setIsGot(true);
+    } catch (e) {
+      popMobileWarning();
     }
+  }
 
-
+  const onSumbit = () => {
+    try {
+      onMobileChange(username);
+      if (mobile.regionCode === '' || mobile.phone === '') {
+        throw new Error('invalid phone number');
+      }
+      console.log(mobile);
+      onAccountCreate(mobile.regionCode, mobile.phone, accessCode, existingPvKey);
+    } catch (e) {
+      console.error(e);
+      setAccountNotCreatedSnackbarOpen(true);
+    }
   };
 
   return (
@@ -214,27 +270,44 @@ export default function CreateAccountPage({ onAccountCreate }) {
         <Grid container alignItems={"center"} direction={"column"} spacing={2}>
           <Grid item>
             <FormControl style={{ width: 300 }}>
-              <InputLabel shrink className="inputLabel" pattern={"[A-Za-z]"} title={trans.createAccountPage.onlyAz[Config.lang]}>{trans.username[Config.lang]}</InputLabel>
-              <BootstrapInput value={username} onChange={onUsernameChange} />
-              <FormHelperText className="formHelperText">{username.length > 0? undefined: trans.usernameEmptyWarning[Config.lang]}</FormHelperText>
+              <InputLabel shrink className="inputLabel">{trans.mobile[Config.lang]}</InputLabel>
+              <PhoneInput
+                disabled={isGot}
+                country={'hk'}
+                onlyCountries={['cn', 'hk', 'id', 'jp', 'kr', 'my', 'th', 'tw']}
+                value={username}
+                onChange={onUsernameChange}
+                masks={{
+                  hk: '+... ........',
+                  cn: '+.. ...........',
+                  my: '+.. ..........',
+                  th: '+.. ..........',
+                  id: '+.. .............',
+                  jp: '+.. ..........',
+                  kr: '+.. ...........',
+                  tw: '+... ............',
+                }}
+              />
             </FormControl>
-
           </Grid>
+
+          <Grid item>
+            <Button className="CommonButtonStyle" disabled={counter > 0} style={{ width: 300 }} variant="contained" color="primary" onClick={handleGetCode}>
+              {trans.getCode[Config.lang]}{counter > 0 ? ' (' + counter + ')' : ''}
+            </Button>
+          </Grid>
+
           <Grid item>
             <FormControl style={{ width: 300 }}>
-              <InputLabel shrink className="inputLabel">{trans.password[Config.lang]}</InputLabel>
-              <BootstrapInput value={password} onChange={onPasswordChange} type='password'/>
-              <FormHelperText className="formHelperText">{password.length >= 8? undefined: trans.passwordLengthWarning[Config.lang]}</FormHelperText>
+              <InputLabel shrink className="inputLabel">{trans.accessToken[Config.lang]}</InputLabel>
+              <BootstrapInput
+                value={accessCode}
+                onChange={onAccessCodeChange}
+              ></BootstrapInput>
+              <FormHelperText className="formHelperText">{accessCode.length >= 4? undefined: trans.accessTokenLengthWarning[Config.lang]}</FormHelperText>
             </FormControl>
+          </Grid>
 
-          </Grid>
-          <Grid item>
-            <FormControl style={{ width: 300 }}>
-              <InputLabel shrink className="inputLabel">{trans.passwordAgain[Config.lang]}</InputLabel>
-              <BootstrapInput value={passwordAgain} onChange={onPasswordAgainChange} type='password'/>
-              <FormHelperText className="formHelperText">{password === passwordAgain? undefined: trans.passwordAgainNotMatchWarning[Config.lang]}</FormHelperText>
-            </FormControl>
-          </Grid>
           <Grid item>
             <FormControlLabel
               control={
@@ -280,7 +353,7 @@ export default function CreateAccountPage({ onAccountCreate }) {
               </div>
             </Grid>
             <Grid item style={{ overflow: "auto", maxHeight: "84%", width: "100%", padding: "6px" }}>
-              <Typography variant={"h7"} style={{ marginRight: "150px", textAlign: "justify", width: "100%", wordBreak: "break-all",color:"white" }} dangerouslySetInnerHTML={{ __html: trans.createAccountPage.rememberfull[Config.lang] }} />
+              <Typography style={{ marginRight: "150px", textAlign: "justify", width: "100%", wordBreak: "break-all",color:"white" }} dangerouslySetInnerHTML={{ __html: trans.createAccountPage.rememberfull[Config.lang] }} />
 
             </Grid>
           </Grid>

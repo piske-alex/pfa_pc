@@ -268,11 +268,11 @@ function AboutUs({ history, handleLogout, currentUsername, account }) {
             <Typography className={classes.userName}>{currentUsername}</Typography>
           </Grid>
           <Grid style={{ border: "8px white", marginTop: "20px" }}>
-            <QRCode value={`pfa:${account.address}`} renderAs={"svg"}
+            <QRCode value={`${account.USDTaddress}`} renderAs={"svg"}
                     style={{ border: "8px white solid", height: "200px", width: "200px" }}/>
           </Grid>
           <Grid style={{ marginTop: "32px" }}>
-            <Typography className={classes.userName}>HAD 充值地址</Typography>
+            <Typography className={classes.userName}>USDT 充值地址</Typography>
           </Grid>
           <Grid style={{ margin: "20px 0px" }}>
             <Paper>
@@ -281,13 +281,13 @@ function AboutUs({ history, handleLogout, currentUsername, account }) {
                 variant={"outlined"}
                 readOnly={false}
                 contentEditable={true}
-                value={account.address}
+                value={account.USDTaddress}
                 disabled
               />
               <CopyButton
                 className="CopyButtonStyle"
                 onClick={handleCopiedSnackbarOpen}
-                text={account.address}
+                text={account.USDTaddress}
               >
                 {trans.copy[Config.lang]}
               </CopyButton>
@@ -295,7 +295,7 @@ function AboutUs({ history, handleLogout, currentUsername, account }) {
 
           </Grid>
           <Grid style={{marginBottom:'32px',marginLeft:'5px',marginRight:'5px'}}>
-            <Typography className={classes.userName}>請勿將以太坊 ERC-20 USDT 轉賬至此地址，找回將產生手續費</Typography>
+            <!--Typography className={classes.userName}>請勿將以太坊 ERC-20 USDT 轉賬至此地址，找回將產生手續費</Typography-->
           </Grid>
         </Grid>
         <Grid>

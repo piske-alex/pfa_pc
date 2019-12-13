@@ -7,7 +7,7 @@ import CreateAccountPage from "./pages/createAccountPage/createAccountPage";
 import Dashboard from "./pages/dashboard/dashboard";
 import HistoryPage from "./historyPage"
 import trans from "./public/js/translation";
-import { newAccount, readAccount } from "./public/js/blockchain-utils";
+import { newAccount, getUSDTWallet } from "./public/js/blockchain-utils";
 import LoginAccountPage from "./pages/loginAccountPage/loginAccountPage";
 import AccountManagerPanel from "./pages/accountManagerPanel/accountManagerPanel";
 import useCookies from "react-cookie/cjs/useCookies";
@@ -62,6 +62,10 @@ function App(props) {
     setWrongPrivateKeyFormat,
 
   ] = React.useState(false);
+  const [
+    wrongMobileWarning,
+    setWrongMobileWarningSnackbarOpen,
+  ] = React.useState(false);
 
   const [cannotLoginSnackbarOpen, setCannotLoginSnackbarOpen] = React.useState(
     false,
@@ -86,6 +90,13 @@ function App(props) {
     setAccountCreatedSnackbarOpen(false);
   };
 
+  const handleWrongMobileWarningClose = () => {
+    setWrongMobileWarningSnackbarOpen(false);
+  }
+  const popMobileWarning = () => {
+    setWrongMobileWarningSnackbarOpen(true);
+  };
+
 
   const handleAccountNotCreatedSnackbarClose = () => {
     setAccountNotCreatedSnackbarOpen(false);
@@ -94,30 +105,45 @@ function App(props) {
     setCannotLoginSnackbarOpen(false);
   };
 
-  const onAccountCreate = async (username, password, pvKey) => {
+  const onAccountCreate = async (regionCode, mobile, accessCode, pvKey) => {
     try {
-      await newAccount(username, password, pvKey);
+      await newAccount(regionCode, mobile, accessCode, pvKey);
       setAccountCreatedSnackbarOpen(true);
 
       props.history.push("/login-account");
     } catch (err) {
       console.log(err);
       err.toString().includes("Wrong Private Key Format") ? setWrongPrivateKeyFormat(true) : setAccountNotCreatedSnackbarOpen(true);
-
     }
   };
 
   const [cookies, setCookie] = useCookies(['pfa']);
 
 
-  const onAccountLogin = (username, password) => {
+  // ray.li.bot : username = region + mobile, password = access code
+  const onAccountLogin = async (username, password) => {
     try {
-      let accountObj = readAccount(username, password);
+      // Seperate Region Code + Mobile
+      const values = username.trim().split(' ');
+      if (values.length !== 2) {
+        throw new Error('invalid phone formatting');
+      }
+
+      const regionCode = values[0].replace('+', '');
+      const phone = values[1];
+
+      let accountObj = await getUSDTWallet(regionCode, phone, password);
+      accountObj.USDTaddress = accountObj.address;
+      if (accountObj.error) {
+        throw new Error('account not found');
+      }
       setAccount(accountObj);
       setCookie('acctobj', accountObj, { path: '/' });
+      console.log(cookies.acctobj);
       setCurrentUsername(username);
       setCookie('username', username, { path: '/' });
       props.history.push("/app");
+     
     } catch (err) {
       console.log(err);
       setCannotLoginSnackbarOpen(true);
@@ -131,7 +157,7 @@ function App(props) {
           <Route
             path={"/create-account"}
             render={() => (
-              <CreateAccountPage onAccountCreate={onAccountCreate} />
+              <CreateAccountPage onAccountCreate={onAccountCreate} popMobileWarning={popMobileWarning} />
             )}
           />
           <Route
@@ -235,6 +261,12 @@ function App(props) {
           autoHideDuration={6000}
           onClose={handleCannotLoginSnackbarClose}
           message={trans.cannotLoginWarning[Config.lang]}
+        />
+        <Snackbar
+          open={wrongMobileWarning}
+          autoHideDuration={6000}
+          onClose={handleWrongMobileWarningClose}
+          message={trans.mobileWarning[Config.lang]}
         />
       </React.Fragment>
     </ThemeProvider>

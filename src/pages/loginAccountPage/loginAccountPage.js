@@ -21,6 +21,9 @@ import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import Typography from "@material-ui/core/Typography";
 import Config from "../../public/js/config";
 
+import PhoneInput from 'react-phone-input-2'
+import 'react-phone-input-2/lib/style.css'
+
 const BootstrapInput = withStyles(theme => ({
   root: {
     'label + &': {
@@ -53,22 +56,28 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function LoginAccountPage({ onAccountLogin, prefillUsername }) {
+export default function LoginAccountPage({ onAccountLogin }) {
   const logoUrl = getLogoUrl();
 
-  const [username, setUsername] = React.useState(
-    prefillUsername ? prefillUsername : "",
-  );
-  const onUsernameChange = event => {
-    setUsername(event.target.value);
+  const [username, setUsername] = React.useState("");
+  const onUsernameChange = data => {
+    // little hack for re-formatting the mobile number
+    const values = data.split(' ');
+    if (values.length === 1) {
+      setUsername("");
+    }
+    else {
+      setUsername(data);
+    }
   };
-  const [password, setPassword] = React.useState("");
-  const onPasswordChange = event => {
-    setPassword(event.target.value);
+
+  const [accessCode, setAccessCode] = React.useState("");
+  const onAccessCodeChange = event => {
+    setAccessCode(event.target.value);
   };
 
   const onSumbit = () => {
-    onAccountLogin(username, password);
+    onAccountLogin(username, accessCode);
   };
 
   const [accountNames, setAccountNames] = React.useState([]);
@@ -110,28 +119,45 @@ export default function LoginAccountPage({ onAccountLogin, prefillUsername }) {
           </Grid>
           <Grid item>
             <FormControl style={{ width: 300 }}>
-              <InputLabel shrink className="inputLabel">{trans.username[Config.lang]}</InputLabel>
-              <Select value={username} onChange={onUsernameChange}>
-                {accountNames.map(name => (
-                  <MenuItem value={name.slice(5)}>{name.slice(5)}</MenuItem>
-                ))}
-              </Select>
+              <InputLabel shrink className="inputLabel">{trans.mobile[Config.lang]}</InputLabel>
+              <PhoneInput
+                inputProps={{
+                  name: 'phone',
+                  required: true,
+                  autoFocus: true,
+                }}
+                localization={trans.phoneLocalization[Config.lang]}
+                country={'hk'}
+                onlyCountries={['cn', 'hk', 'id', 'jp', 'kr', 'my', 'th', 'tw']}
+                value={username}
+                onChange={onUsernameChange}
+                masks={{
+                  hk: '+... ........',
+                  cn: '+.. ...........',
+                  my: '+.. ..........',
+                  th: '+.. ..........',
+                  id: '+.. .............',
+                  jp: '+.. ..........',
+                  kr: '+.. ...........',
+                  tw: '+... ............',
+                }}
+              />
             </FormControl>
           </Grid>
           <Grid item>
             <FormControl style={{ width: 300 }}>
-              <InputLabel shrink className="inputLabel">{trans.password[Config.lang]}</InputLabel>
+              <InputLabel shrink className="inputLabel">{trans.accessToken[Config.lang]}</InputLabel>
               <BootstrapInput
                 type={values.showPassword ? 'text' : 'password'}
-                value={password}
-                onChange={onPasswordChange}
+                value={accessCode}
+                onChange={onAccessCodeChange}
                 endAdornment={
                   <Icon onClick={handleClickShowPassword} className="iconBtn">
                     {values.showPassword ? <Visibility /> : <VisibilityOff />}
                   </Icon>
                 }
               ></BootstrapInput>
-              <FormHelperText className="formHelperText">{password.length >= 8? undefined: trans.passwordLengthWarning[Config.lang]}</FormHelperText>
+              <FormHelperText className="formHelperText">{accessCode.length >= 4? undefined: trans.accessTokenLengthWarning[Config.lang]}</FormHelperText>
             </FormControl>
           </Grid>
 
@@ -167,7 +193,7 @@ export default function LoginAccountPage({ onAccountLogin, prefillUsername }) {
             {Config.lang == "en" ? 
               <Typography variant={"body2"} className="textImport" component={Link} to={"/account-manager"}>
                 {trans.importExport[Config.lang]}&nbsp;
-              </Typography>  
+              </Typography>
             : null}
             <Typography variant={"body2"} className="textWallet">
               {trans.walletImportExport[Config.lang]}

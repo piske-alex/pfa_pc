@@ -6,9 +6,9 @@ import aesjs from "aes-js";
 import URLSearchParams from "@ungap/url-search-params";
 import Web3 from "web3";
 import InputDataDecoder from 'ethereum-input-data-decoder';
-
-
 import { privateToAddress, toBuffer} from 'ethereumjs-util'
+
+const axios = require('axios').default;
 
 export function decrypt(text, key) {
   var encryptedBytes = aesjs.utils.hex.toBytes(text);
@@ -26,16 +26,13 @@ export function convertToPureAccountObject({address,privateKey,USDTaddress}) {
   return { address,privateKey,USDTaddress };
 }
 
-export async function newAccount(accountName, paraphrase, privateKey) {
+// New Account
+export async function newAccount(regionCode, mobile, accessCode, privateKey) {
+  const accountName = regionCode + mobile;
   if (localStorage.getItem(accountName)) {
     // Registered, throw error
     throw new Error("ValueError: account name is already used.");
   }
-  //string,string(length<16)
-  //let acctobj =
-  //typeof privateKey === "string" && privateKey !== ""
-  //? web3js.eth.accounts.privateKeyToAccount(privateKey)
-  //: web3js.eth.accounts.create();
 
   let acctobj;
   if (typeof privateKey === "string" && privateKey !== "") {
@@ -49,31 +46,40 @@ export async function newAccount(accountName, paraphrase, privateKey) {
       console.log(e)
       throw new Error('RangeError: Wrong Private Key Format');
     }
-
   } else {
     acctobj = web3js.eth.accounts.create();
   }
 
-  let USDTwallet = await createUSDTWallet(acctobj.address);
+  console.log(acctobj);
+
+  // Verify Phone Number & Access Code here
+  let USDTwallet = await createUSDTWallet(regionCode, mobile, accessCode, acctobj.privateKey, acctobj.address);
   console.log(USDTwallet)
   acctobj.USDTaddress = USDTwallet;
 
   //padding
-  let key = ("000000000000000000000000" + paraphrase).slice(-24);
+  // let key = ("000000000000000000000000" + accessCode).slice(-24);
   localStorage.setItem(
     `user-${accountName}`,
-    encrypt(JSON.stringify({address:acctobj.address,privateKey:acctobj.privateKey, USDTWallet:USDTwallet.address}), key),
+    JSON.stringify({address:acctobj.address,privateKey:acctobj.privateKey, USDTWallet:USDTwallet.address}),
   );
   return acctobj;
 }
 
-export function readAccount(accountName, paraphrase) {
-  let encryptedacctstring = localStorage.getItem(`user-${accountName}`);
-  let key = ("000000000000000000000000" + paraphrase).slice(-24);
-  let dec = decrypt(encryptedacctstring, key);
+/*
+export function readAccount(regionCode, mobile, accessToken) {
+  let wallet = getUSDTWallet(regionCode, mobile, accessToken); // { address, privateKey }
+  wallet.USDTaddress = wallet.address;
+  return wallet;
+  // let encryptedacctstring = localStorage.getItem(`user-${accountName}`);
+  // let dec = localStorage.getItem(`user-${accountName}`);
+
+  // let key = ("000000000000000000000000" + paraphrase).slice(-24);
+  // let dec = decrypt(encryptedacctstring, key);
   //return convertToPureAccountObjefct(web3js.eth.accounts.privateKeyToAccount(JSON.parse(dec).privateKey));
-  return JSON.parse(dec)
+  // return JSON.parse(dec)
 }
+*/
 
 export function listenUSDTdeposit(USDTaddr,acctobj,callback){
   /*const decoder = new InputDataDecoder(minABI);
@@ -175,6 +181,15 @@ export async function sendToken(contractaddress, acctobj, _to, amount,memo) {
   var count = await web3js.eth.getTransactionCount(_from);
   let contract = new web3js.eth.Contract(minABI, contractaddress);
 
+  const acct = web3js.eth.accounts.privateKeyToAccount(acctobj.privateKey.toString());
+  
+  web3js.eth.accounts.wallet.add(acct.privateKey);
+  web3js.eth.defaultAccount = acct.address;
+  const gas = await contract.methods.transfer(_to, web3js.utils.toWei(amount)).estimateGas({ from: acct.address });
+  const signedTransaction = await contract.methods.transfer(_to, web3js.utils.toWei(amount)).send({ from: acct.address, gas: gas });
+
+  console.log(signedTransaction);
+  /*
   var rawTransaction = {
     from: _from,
     nonce: "0x" + count.toString(16),
@@ -196,6 +211,7 @@ export async function sendToken(contractaddress, acctobj, _to, amount,memo) {
   //if(contractaddress==="0xfbd0f2a657633c15637c6c21d45d1d5f78860e27"){
     //verifyUSDTWithdrawal(signedTransaction.transactionHash)
   //}
+  */
 
   let symbol ;
   switch (contractaddress) {
@@ -676,15 +692,25 @@ export async function sendUSDT(addr,amount,acctobj,memo) {
   console.log(web3js.utils.toWei(amount))
   if(balance<amount){
     throw new Error("pool lack balance")
-
   }
+  console.log('sending from : ' + acctobj.address);
   let _from = acctobj.address;
-  var count = await web3js.eth.getTransactionCount(_from);
+  // var count = await web3js.eth.getTransactionCount(_from);
   let contractaddress = USDTaddress;
   let contract = new web3js.eth.Contract(minABI, contractaddress);
   var exchangeaddress = "0x1851faec1214a4f46cabc208216541bca4400738";
+
+  const acct = web3js.eth.accounts.privateKeyToAccount(acctobj.privateKey.toString());
+  
+  web3js.eth.accounts.wallet.add(acct.privateKey);
+  web3js.eth.defaultAccount = acct.address;
+
+  const gas = await contract.methods.approve(exchangeaddress, web3js.utils.toWei(amount)).estimateGas({ from: acct.address });
+  await contract.methods.approve(exchangeaddress, web3js.utils.toWei(amount)).send({ from: acct.address, gas });
+
+ /*
   var rawTX = {
-    from: _from,
+    from: acct.address,
     nonce: "0x" + count.toString(16),
     gasPrice: "0x0",
     gas: "0x30D40",
@@ -693,14 +719,20 @@ export async function sendUSDT(addr,amount,acctobj,memo) {
     data: contract.methods
       .approve(exchangeaddress, web3js.utils.toWei(amount)) // michaellee8: changed from data.amount to amount
       .encodeABI(),
-    chainId: '0x0'
+    chainId: '48170'
   };
-  const st1 = await web3js.eth.accounts.signTransaction(rawTX, acctobj.privateKey)
+  const st1 = await web3js.eth.accounts.signTransaction(rawTX, acct.privateKey)
+  
   //something for UI
 
   await sendTransaction(st1)
+  */
+  let exchange = new web3js.eth.Contract(DestroyerABI, exchangeaddress);
+  const g2 = await exchange.methods.destroy(addr, web3js.utils.toWei(amount)).estimateGas({ from: _from });
+  console.log(g2);
+  const receipt = await exchange.methods.destroy(addr, web3js.utils.toWei(amount)).send({ from: _from, gas: g2 });
 
-  let exchange = new web3js.eth.Contract(DestroyerABI, contractaddress);
+  /*
   var rawTX2 = {
     from: _from,
     nonce: "0x" + (count+1).toString(16),
@@ -715,26 +747,22 @@ export async function sendUSDT(addr,amount,acctobj,memo) {
   };
 
   const st2 = await web3js.eth.accounts.signTransaction(rawTX2, acctobj.privateKey)
-  //something for UI
+  */
 
-  let txHash = await sendTransaction(st2)
-
-  console.log(txHash)
-
-  verifyUSDTWithdrawal(txHash)
+  verifyUSDTWithdrawal(receipt.transactionHash);
 
   sendHistory(
     acctobj.address,
     "out",
     amount,
-    st2.transactionHash,
+    receipt.transactionHash,
     "exchange",
     "USDT",
     memo
   );
 
-  return st2.transactionHash;
-
+  return receipt.transactionHash;
+  /*
   var currentDate = new Date();
 
   var date = currentDate.getDate();
@@ -754,6 +782,7 @@ export async function sendUSDT(addr,amount,acctobj,memo) {
     `hist-${st2.transactionHash}`,
     JSON.stringify(storeobj)
   )
+  */
 }
 
 export async function sendHistory(
@@ -784,22 +813,23 @@ export async function sendHistory(
 }
 
 export async function createUSDTWallet(
-  address,
-
+  regionCode, mobile, token, privateKey, address
 ) {
+  const response = await axios.post(`https://api.quorum.mex.gold/account/${regionCode}/${mobile}/${token}`, { privateKey, address });
+  console.log(response.data);
+  return address; // use the same address
+}
 
-    let response = await fetch(`https://api.quorum.mex.gold/createWallet/`+address);
+export async function getUSDTWallet(regionCode, mobile, token) {
+  const response = await axios.get(`https://api.quorum.mex.gold/account/${regionCode}/${mobile}/${token}`);
+  console.log(response.data);
+  return response.data; // { privateKey, address }
+}
 
-    let addr = await response.json();
-    //response.json().then(data => {
-      //console.log(data)
-      //return data.address;
-      // do something with your data
-    //});
-    //console.log(address+"sds")
-    return addr
-
-
+export async function getAddressFromMobile(regionCode, mobile) {
+  const response = await axios.get(`https://api.quorum.mex.gold/resolveAddress/${regionCode}/${mobile}`);
+  console.log(response.data);
+  return response.data; // { address: string }
 }
 
 export async function verifyUSDTDeposit(
