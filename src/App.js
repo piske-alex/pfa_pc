@@ -17,6 +17,7 @@ import AboutUs from "./pages/aboutUs/aboutUs";
 import MyWallet from "./pages/myWallet/myWallet";
 import Config from "./public/js/config";
 import Details from "./pages/details/details";
+import { isEmpty } from "./public/js/utils";
 
 const theme = createMuiTheme({
   palette: {
@@ -78,6 +79,7 @@ function App(props) {
 
   const handleLogout = () => {
     setAccount({});
+    setCookie('acctobj', undefined, { path: '/' });
     props.history.push("/login-account");
   };
 
@@ -139,7 +141,7 @@ function App(props) {
       }
       setAccount(accountObj);
       setCookie('acctobj', accountObj, { path: '/' });
-      console.log(cookies.acctobj);
+      // console.log(cookies.acctobj);
       setCurrentUsername(username);
       setCookie('username', username, { path: '/' });
       props.history.push("/app");
@@ -229,10 +231,21 @@ function App(props) {
           <Route path={"/account-manager"} component={AccountManagerPanel} />
           <Route
             render={() => (
-              <LoginAccountPage
-                onAccountLogin={onAccountLogin}
-                prefillUsername={prefillUsername}
-              />
+              isEmpty(cookies.acctobj) || cookies.acctobj === 'undefined' ?
+                <LoginAccountPage
+                  onAccountLogin={onAccountLogin}
+                  prefillUsername={prefillUsername}
+                />
+                :
+                <div>
+                  <Dashboard
+                    account={account}
+                    currentUsername={currentUsername}
+                    handleLogout={handleLogout}
+                    handleChangeAccount={handleChangeAccount}
+                  />
+                  <FootNavigation {...props}/>
+                </div>
             )}
           />
 

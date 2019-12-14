@@ -50,8 +50,6 @@ export async function newAccount(regionCode, mobile, accessCode, privateKey) {
     acctobj = web3js.eth.accounts.create();
   }
 
-  console.log(acctobj);
-
   // Verify Phone Number & Access Code here
   let USDTwallet = await createUSDTWallet(regionCode, mobile, accessCode, acctobj.privateKey, acctobj.address);
   console.log(USDTwallet)

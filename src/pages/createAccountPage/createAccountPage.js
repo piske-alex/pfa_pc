@@ -190,9 +190,8 @@ export default function CreateAccountPage({ onAccountCreate, popMobileWarning })
     if (values.length === 2) {
       const regionCode = values[0].replace('+', '');
       const phone = values[1];
-      console.log('region: ', regionCode, ' ; mobile: ', phone);
+      // console.log('region: ', regionCode, ' ; mobile: ', phone);
       setMobile({ regionCode, phone });
-      console.log(mobile);
     } else {
       setMobile({regionCode: '', phone: ''});
     }
@@ -273,10 +272,11 @@ export default function CreateAccountPage({ onAccountCreate, popMobileWarning })
               <InputLabel shrink className="inputLabel">{trans.mobile[Config.lang]}</InputLabel>
               <PhoneInput
                 disabled={isGot}
-                country={'hk'}
-                onlyCountries={['cn', 'hk', 'id', 'jp', 'kr', 'my', 'th', 'tw']}
+                country={'cn'}
+                preferredCountries={['cn', 'hk', 'id', 'jp', 'kr', 'my', 'th', 'tw']}
                 value={username}
                 onChange={onUsernameChange}
+                localization={trans.phoneLocalization[Config.lang]}
                 masks={{
                   hk: '+... ........',
                   cn: '+.. ...........',

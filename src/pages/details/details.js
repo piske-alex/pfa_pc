@@ -233,10 +233,9 @@ function Dashboard({
   // const img = getImg();
   const [cookies, setCookie] = useCookies(['pfa']);
   let something = ""
-  console.log(account);
+
    if (account == null || isEmpty(account)) {
      account = cookies.acctobj;
-     console.log(cookies.acctobj + "jj");
      isEmpty(account) ? history.push("/login-account") : something = "continue";
    }
   let accName = currentUsername;

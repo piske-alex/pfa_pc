@@ -257,12 +257,12 @@ function Dashboard({
 
   const logoUrl = getLogoUrl();
   const [cookies, setCookie] = useCookies(['pfa']);
-  let something = ""
-  console.log(account);
+
   if (account == null || isEmpty(account)) {
     account = cookies.acctobj;
-    console.log(cookies.acctobj);
-    isEmpty(account) ? history.push("/login-account") : something = "continue";
+    if (account === "undefined" || isEmpty(account)) {
+      history.push("/login-account");
+    }
   }
   let accName = currentUsername;
   isEmpty(accName) ? accName = cookies.username : accName = "error";
@@ -744,7 +744,7 @@ function Dashboard({
                         <TextField
                           label={t.privateKey[Config.lang]}
                           className={classes.textField}
-                          value={account.privateKey.substr(2)}
+                          value={typeof account === "object" ? account.privateKey.substr(2) : 'error'}
                           readOnly={false}
                           contentEditable={true}
                           style={{ visibility: seePrivateKey ? 'visible' : 'hidden',width: '85%', fontSize: 14 }}
@@ -754,7 +754,7 @@ function Dashboard({
                         <CopyButton
                           className="CopyButtonStyle CopyBtnStyle"
                           onClick={handleCopiedSnackbarForPrivOpen}
-                          text={account.privateKey.substr(2)}
+                          text={typeof account === "object" ? account.privateKey.substr(2) : 'error'}
                         >
                           {t.copy[Config.lang]}
                         </CopyButton>

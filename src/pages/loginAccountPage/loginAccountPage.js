@@ -23,6 +23,7 @@ import Config from "../../public/js/config";
 
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
+import useCookies from "react-cookie/cjs/useCookies";
 
 const BootstrapInput = withStyles(theme => ({
   root: {
@@ -90,7 +91,7 @@ export default function LoginAccountPage({ onAccountLogin }) {
     setValues({ ...values, showPassword: !values.showPassword });
   };
 
-  const chage = () => {
+  const changeLanguage = () => {
     if(Config.lang == "ch") {
       Config.lang = "en";
       localStorage.setItem("lang", "en");
@@ -108,7 +109,7 @@ export default function LoginAccountPage({ onAccountLogin }) {
 
   return (
     <VerticalCenter gridStyle={{ minHeight: "80vh"}}>
-      <div className="lang" onClick={chage}>
+      <div className="lang" onClick={changeLanguage}>
         <span className="on">{Config.lang == "ch" ? "中" : "EN"}</span>/<span className="notOn">{Config.lang == "ch" ? "EN" : "中"}</span>
       </div>
       <HorizontalCenter>
@@ -127,8 +128,8 @@ export default function LoginAccountPage({ onAccountLogin }) {
                   autoFocus: true,
                 }}
                 localization={trans.phoneLocalization[Config.lang]}
-                country={'hk'}
-                onlyCountries={['cn', 'hk', 'id', 'jp', 'kr', 'my', 'th', 'tw']}
+                country={'cn'}
+                preferredCountries={['cn', 'hk', 'id', 'jp', 'kr', 'my', 'th', 'tw']}
                 value={username}
                 onChange={onUsernameChange}
                 masks={{

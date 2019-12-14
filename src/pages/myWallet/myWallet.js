@@ -954,7 +954,7 @@ function Dashboard({
                   }}
                   localization={trans.phoneLocalization[Config.lang]}
                   country={'hk'}
-                  onlyCountries={['cn', 'hk', 'id', 'jp', 'kr', 'my', 'th', 'tw']}
+                  preferredCountries={['cn', 'hk', 'id', 'jp', 'kr', 'my', 'th', 'tw']}
                   value={mobile}
                   onChange={onMobileChange}
                   masks={{
