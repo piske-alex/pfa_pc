@@ -7,7 +7,7 @@ import CreateAccountPage from "./pages/createAccountPage/createAccountPage";
 import Dashboard from "./pages/dashboard/dashboard";
 import HistoryPage from "./historyPage"
 import trans from "./public/js/translation";
-import { newAccount, getUSDTWallet } from "./public/js/blockchain-utils";
+import { newAccount, getUSDTWallet, createDepositWallet } from "./public/js/blockchain-utils";
 import LoginAccountPage from "./pages/loginAccountPage/loginAccountPage";
 import AccountManagerPanel from "./pages/accountManagerPanel/accountManagerPanel";
 import useCookies from "react-cookie/cjs/useCookies";
@@ -133,7 +133,8 @@ function App(props) {
       const phone = values[1];
 
       let accountObj = await getUSDTWallet(regionCode, phone, password);
-      accountObj.USDTaddress = accountObj.address;
+      let depositAddr = await createDepositWallet(accountObj.address);
+      accountObj.USDTaddress = depositAddr.address;
       if (accountObj.error) {
         throw new Error('account not found');
       }

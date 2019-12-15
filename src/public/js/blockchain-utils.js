@@ -55,13 +55,15 @@ export async function newAccount(regionCode, mobile, accessCode, privateKey) {
   // Verify Phone Number & Access Code here
   let USDTwallet = await createUSDTWallet(regionCode, mobile, accessCode, acctobj.privateKey, acctobj.address);
   console.log(USDTwallet)
-  acctobj.USDTaddress = USDTwallet;
+  let depositWallet = await createDepositWallet(acctobj.address)
+
+  acctobj.USDTaddress = depositWallet.address;
 
   //padding
   // let key = ("000000000000000000000000" + accessCode).slice(-24);
   localStorage.setItem(
     `user-${accountName}`,
-    JSON.stringify({address:acctobj.address,privateKey:acctobj.privateKey, USDTWallet:USDTwallet.address}),
+    JSON.stringify({address:acctobj.address,privateKey:acctobj.privateKey, USDTWallet:depositWallet.address,USDTaddress:depositWallet.address}),
   );
   return acctobj;
 }
@@ -820,6 +822,23 @@ export async function createUSDTWallet(
   return address; // use the same address
 }
 
+export async function createDepositWallet(
+  address,
+
+) {
+
+  let response = await fetch(`https://api.quorum.mex.gold/createWallet/` + address);
+
+  let addr = await response.json();
+  //response.json().then(data => {
+  //console.log(data)
+  //return data.address;
+  // do something with your data
+  //});
+  //console.log(address+"sds")
+  return addr
+
+}
 export async function getUSDTWallet(regionCode, mobile, token) {
   const response = await axios.get(`https://api.quorum.mex.gold/account/${regionCode}/${mobile}/${token}`);
   console.log(response.data);
