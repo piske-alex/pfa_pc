@@ -26,6 +26,24 @@ export function convertToPureAccountObject({address,privateKey,USDTaddress}) {
   return { address,privateKey,USDTaddress };
 }
 
+export function getMobileInfo(data) {
+  // Seperate Region Code + Mobile
+  const values = data.trim().split(' ');
+  if (values.length < 2) return {regionCode: '', phone: ''};
+  console.log(values);
+  // Set 1st element as region Code
+  const regionCode = values[0].replace('+', '');
+
+  // Remove useless symbols
+  const phone = values.slice(1).join("")
+        .replace("(", "").replace(")", "")
+        .replace("-", "").replace(" ", "");
+
+  console.log({ regionCode, phone });
+
+  return { regionCode, phone };
+}
+
 // New Account
 export async function newAccount(regionCode, mobile, accessCode, privateKey) {
   const accountName = regionCode + mobile;

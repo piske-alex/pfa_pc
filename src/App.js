@@ -7,7 +7,7 @@ import CreateAccountPage from "./pages/createAccountPage/createAccountPage";
 import Dashboard from "./pages/dashboard/dashboard";
 import HistoryPage from "./historyPage"
 import trans from "./public/js/translation";
-import { newAccount, getUSDTWallet } from "./public/js/blockchain-utils";
+import { newAccount, getUSDTWallet, getMobileInfo } from "./public/js/blockchain-utils";
 import LoginAccountPage from "./pages/loginAccountPage/loginAccountPage";
 import AccountManagerPanel from "./pages/accountManagerPanel/accountManagerPanel";
 import useCookies from "react-cookie/cjs/useCookies";
@@ -126,13 +126,10 @@ function App(props) {
   const onAccountLogin = async (username, password) => {
     try {
       // Seperate Region Code + Mobile
-      const values = username.trim().split(' ');
-      if (values.length !== 2) {
-        throw new Error('invalid phone formatting');
+      const { regionCode, phone } = getMobileInfo(username);
+      if (regionCode == '' || phone == '') {
+        throw new Error('Invalid Mobile Number');
       }
-
-      const regionCode = values[0].replace('+', '');
-      const phone = values[1];
 
       let accountObj = await getUSDTWallet(regionCode, phone, password);
       accountObj.USDTaddress = accountObj.address;

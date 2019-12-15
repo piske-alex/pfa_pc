@@ -20,6 +20,7 @@ import Switch from "@material-ui/core/Switch";
 
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
+import { getMobileInfo } from "../../public/js/blockchain-utils";
 
 const BootstrapInput = withStyles(theme => ({
   root: {
@@ -186,15 +187,8 @@ export default function CreateAccountPage({ onAccountCreate, popMobileWarning })
 
   const [mobile, setMobile] = React.useState({regionCode: '', phone: ''});
   const onMobileChange = data => {
-    const values = data.trim().split(' ');
-    if (values.length === 2) {
-      const regionCode = values[0].replace('+', '');
-      const phone = values[1];
-      // console.log('region: ', regionCode, ' ; mobile: ', phone);
-      setMobile({ regionCode, phone });
-    } else {
-      setMobile({regionCode: '', phone: ''});
-    }
+    const info = getMobileInfo(data);
+    setMobile(info);
   };
 
 
@@ -277,16 +271,6 @@ export default function CreateAccountPage({ onAccountCreate, popMobileWarning })
                 value={username}
                 onChange={onUsernameChange}
                 localization={trans.phoneLocalization[Config.lang]}
-                masks={{
-                  hk: '+... ........',
-                  cn: '+.. ...........',
-                  my: '+.. ..........',
-                  th: '+.. ..........',
-                  id: '+.. .............',
-                  jp: '+.. ..........',
-                  kr: '+.. ...........',
-                  tw: '+... ............',
-                }}
               />
             </FormControl>
           </Grid>

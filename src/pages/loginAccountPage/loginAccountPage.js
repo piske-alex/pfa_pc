@@ -132,16 +132,6 @@ export default function LoginAccountPage({ onAccountLogin }) {
                 preferredCountries={['cn', 'hk', 'id', 'jp', 'kr', 'my', 'th', 'tw']}
                 value={username}
                 onChange={onUsernameChange}
-                masks={{
-                  hk: '+... ........',
-                  cn: '+.. ...........',
-                  my: '+.. ..........',
-                  th: '+.. ..........',
-                  id: '+.. .............',
-                  jp: '+.. ..........',
-                  kr: '+.. ...........',
-                  tw: '+... ............',
-                }}
               />
             </FormControl>
           </Grid>

@@ -37,6 +37,7 @@ import {
   web3js,
   ihadAddress,
   tokenBalance,
+  getMobileInfo,
   sendToken, USDTaddress, listenUSDTdeposit, sendUSDT, getAddressFromMobile
 } from "../../public/js/blockchain-utils";
 import QRCode from "qrcode.react";
@@ -356,13 +357,10 @@ function Dashboard({
 
           try {
             // Seperate Region Code + Mobile
-            const values = mobile.trim().split(' ');
-            if (values.length !== 2) {
+            const { regionCode, phone } = getMobileInfo(mobile);
+            if (regionCode == '' || phone == '') {
               throw new Error('invalid phone formatting');
             }
-
-            const regionCode = values[0].replace('+', '');
-            const phone = values[1];
 
             // use mobile here
             const res = await getAddressFromMobile(regionCode, phone);
@@ -956,17 +954,7 @@ function Dashboard({
                   country={'hk'}
                   preferredCountries={['cn', 'hk', 'id', 'jp', 'kr', 'my', 'th', 'tw']}
                   value={mobile}
-                  onChange={onMobileChange}
-                  masks={{
-                    hk: '+... ........',
-                    cn: '+.. ...........',
-                    my: '+.. ..........',
-                    th: '+.. ..........',
-                    id: '+.. .............',
-                    jp: '+.. ..........',
-                    kr: '+.. ...........',
-                    tw: '+... ............',
-                  }}   
+                  onChange={onMobileChange} 
                 />
                 <br />
               </Grid>
