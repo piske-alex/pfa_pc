@@ -424,7 +424,7 @@ function Dashboard({
     { key: "HAD", price: 1.500, qty: (Math.random()*800+6000).toFixed(2), color: 'green' },
     { key: "BTC", price: 0, qty: 0, color: 'red' },
     { key: "XRP", price: 0, qty: 0, color: 'green' },
-    { key: "ETH", price: 0, qty: 0, color: 'red' },])
+    { key: "ETH", price: 0, qty: 0, color: 'red' }])
 
   const [accHistory, setAccHistory] = React.useState([]);
 

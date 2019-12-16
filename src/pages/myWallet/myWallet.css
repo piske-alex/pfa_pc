@@ -17,6 +17,7 @@
  
 }
 .binance{
+    position: relative;
     height: 20px;
     line-height: 20px;
     float: left;
@@ -43,6 +44,23 @@
     margin-top: 5px;
     text-align: right;
 }
+.binance .new-badge {
+    position: absolute;
+    z-index: 1;
+    top: -10px;
+    left: -20px;
+    width: 17px;
+    height: 17px;
+    background-color: #d5af1c;
+    border-radius: 50%;
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 0 0 0 10%;
+}
+
+
+
 .donateClass{
     width: 25px;
     height: 20px;

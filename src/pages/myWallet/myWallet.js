@@ -29,6 +29,8 @@ import QrReader from 'react-qr-scanner'
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
 
+import topUpIcon from './top-up-icon.png';
+
 import {
   etherBalance,
   getHistory,
@@ -634,7 +636,8 @@ function Dashboard({
                     onClick={() => history.push("/aboutUs")}
                     style={{ width: "130px", color: '#C0C0C0', padding:'5px 0px', marginRight: 1 }}
                   >
-                    <img src={'https://minio.koin-exchange.com/avatar/after.png'} className="donateClass" />
+                    <img style={{objectFit: "contain"}} src={topUpIcon} className="donateClass" />
+                    {/* <img src={'https://minio.koin-exchange.com/avatar/after.png'} className="donateClass" /> */}
                     <Grid className="rechargeClass">
                       {t.Recharge[Config.lang]}
                     </Grid>
@@ -714,6 +717,7 @@ function Dashboard({
                         <Avatar src='https://i.loli.net/2019/06/27/5d1422b33e7ff68920.png' />
                       </Grid>
                       <Grid className="binance">
+                        <span className="new-badge">新</span>
                         {`HAD`}
                       </Grid>
                       <Grid className="binanceCoin">
