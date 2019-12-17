@@ -744,7 +744,7 @@ function Dashboard({
                         {`YHAD`}
                       </Grid>
                       <Grid className="binanceCoin">
-                        {'(Y Health Aqua Digital)'}
+                        {'(Yuan Health Aqua Digital)'}
                       </Grid>
                       <Grid className="binanceCoinNumber">
                         { yhadBalance }
