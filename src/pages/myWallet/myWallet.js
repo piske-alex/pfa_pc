@@ -530,6 +530,8 @@ function Dashboard({
 
   const [ihadBalance, setIhadBalance] = React.useState("");
 
+  const [yhadBalance, setYhadBalance] = React.useState("");
+
   const [USDTbalance, setUSDTBalance] = React.useState("");
 
   const [accHistory, setAccHistory] = React.useState([]);
@@ -550,6 +552,7 @@ function Dashboard({
         const USDTBal = await tokenBalance(account, USDTaddress);
         console.log(tkBal + "sdfs")
         setIhadBalance(tkBal != null ? tkBal: 0);
+        setYhadBalance(tkBal != null ? tkBal: 0);
         setUSDTBalance(USDTBal != null ? USDTBal : 0);
       } catch (err) {
         console.log(err);
@@ -717,7 +720,7 @@ function Dashboard({
                         <Avatar src='https://i.loli.net/2019/06/27/5d1422b33e7ff68920.png' />
                       </Grid>
                       <Grid className="binance">
-                        <span className="new-badge">新</span>
+                        {/* <span className="new-badge">新</span> */}
                         {`HAD`}
                       </Grid>
                       <Grid className="binanceCoin">
@@ -726,6 +729,25 @@ function Dashboard({
                       <Grid className="binanceCoinNumber">
                         {//parseFloat(ihadBalance).toFixed(2)
                           ihadBalance }
+                      </Grid>
+                      {/* </Grid> */}
+                    </ListItem>
+
+                    <Divider className='myWalletline' />
+
+                    <ListItem alignItems="flex-start">
+                      {/* <Grid className="myWalletTab"> */}
+                      <Grid className="usdt">
+                        <Avatar src='https://i.loli.net/2019/06/27/5d1422b33e7ff68920.png' />
+                      </Grid>
+                      <Grid className="binance">
+                        {`YHAD`}
+                      </Grid>
+                      <Grid className="binanceCoin">
+                        {'(Y Health Aqua Digital)'}
+                      </Grid>
+                      <Grid className="binanceCoinNumber">
+                        { yhadBalance }
                       </Grid>
                       {/* </Grid> */}
                     </ListItem>
