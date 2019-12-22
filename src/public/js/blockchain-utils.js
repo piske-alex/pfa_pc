@@ -9,6 +9,9 @@ import InputDataDecoder from 'ethereum-input-data-decoder';
 import { privateToAddress, toBuffer} from 'ethereumjs-util'
 
 const axios = require('axios').default;
+export const yhadAddress = "0x36A5d358395f7C75394f39EBc77155566C8B6673"
+export const pfa20Address = "0x573Ec6DB92DAcD5779CCda6235185C244Fe132cf"
+export const pfaDestroyerAddr = "0xb6141149545f82b4C9a1ccab1972a0d66e8B316b"
 
 export function decrypt(text, key) {
   var encryptedBytes = aesjs.utils.hex.toBytes(text);
@@ -184,7 +187,7 @@ export async function sendToken(contractaddress, acctobj, _to, amount,memo) {
   let contract = new web3js.eth.Contract(minABI, contractaddress);
 
   const acct = web3js.eth.accounts.privateKeyToAccount(acctobj.privateKey.toString());
-  
+
   web3js.eth.accounts.wallet.add(acct.privateKey);
   web3js.eth.defaultAccount = acct.address;
   const gas = await contract.methods.transfer(_to, web3js.utils.toWei(amount)).estimateGas({ from: acct.address });
@@ -703,7 +706,7 @@ export async function sendUSDT(addr,amount,acctobj,memo) {
   var exchangeaddress = "0x1851faec1214a4f46cabc208216541bca4400738";
 
   const acct = web3js.eth.accounts.privateKeyToAccount(acctobj.privateKey.toString());
-  
+
   web3js.eth.accounts.wallet.add(acct.privateKey);
   web3js.eth.defaultAccount = acct.address;
 
@@ -724,7 +727,7 @@ export async function sendUSDT(addr,amount,acctobj,memo) {
     chainId: '48170'
   };
   const st1 = await web3js.eth.accounts.signTransaction(rawTX, acct.privateKey)
-  
+
   //something for UI
 
   await sendTransaction(st1)

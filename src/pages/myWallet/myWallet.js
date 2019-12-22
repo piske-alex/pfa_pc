@@ -36,6 +36,8 @@ import {
   sendEther,
   web3js,
   ihadAddress,
+  yhadAddress,
+  pfa20Address,
   tokenBalance,
   sendToken, USDTaddress, listenUSDTdeposit, sendUSDT, getAddressFromMobile
 } from "../../public/js/blockchain-utils";
@@ -528,6 +530,8 @@ function Dashboard({
 
   const [pfaBalance, setPfaBalance] = React.useState("");
 
+  const [yhadBalance, setYhadBalance] = React.useState("");
+
   const [ihadBalance, setIhadBalance] = React.useState("");
 
   const [USDTbalance, setUSDTBalance] = React.useState("");
@@ -545,11 +549,14 @@ function Dashboard({
   React.useEffect(() => {
     const fetchBalance = async () => {
       try {
-        setPfaBalance(await etherBalance(account));
+        const pfa20Bal = await tokenBalance(account, pfa20Address)
+        setPfaBalance(pfa20Bal!=null?pfa20Bal:0);
         const tkBal = await tokenBalance(account, ihadAddress);
+        const yhadBal = await tokenBalance(account, yhadAddress);
         const USDTBal = await tokenBalance(account, USDTaddress);
         console.log(tkBal + "sdfs")
         setIhadBalance(tkBal != null ? tkBal: 0);
+        setYhadBalance(yhadBal!=null?yhadBal:0)
         setUSDTBalance(USDTBal != null ? USDTBal : 0);
       } catch (err) {
         console.log(err);
@@ -724,6 +731,24 @@ function Dashboard({
                       <Grid className="binanceCoinNumber">
                         {//parseFloat(ihadBalance).toFixed(2)
                           ihadBalance }
+                      </Grid>
+                      {/* </Grid> */}
+                    </ListItem>
+
+                    <ListItem alignItems="flex-start">
+                      {/* <Grid className="myWalletTab"> */}
+                      <Grid className="usdt">
+                        <Avatar src='https://i.loli.net/2019/06/27/5d1422b33e7ff68920.png' />
+                      </Grid>
+                      <Grid className="binance">
+                        {`YHAD`}
+                      </Grid>
+                      <Grid className="binanceCoin">
+                        {'(Yuan HAD)'}
+                      </Grid>
+                      <Grid className="binanceCoinNumber">
+                        {//parseFloat(ihadBalance).toFixed(2)
+                        yhadBalance}
                       </Grid>
                       {/* </Grid> */}
                     </ListItem>
