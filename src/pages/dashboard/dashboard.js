@@ -456,22 +456,52 @@ function Dashboard({
     ]);
 
   React.useEffect(() => {
-    const fetchPrice = async () => {
-      try {
-        const h = await fetch("https://rtprice.rubbity.io/");
-        let price = await h.json();
-        console.log(price)
-        setPrices(price);
+    // const fetchPrice = async () => {
+    //   try {
+    //     const h = await fetch("https://rtprice.rubbity.io/");
+    //     let price = await h.json();
+    //     console.log(price)
+    //     setPrices(price);
+    //     setList([{ key: "PFA", price: 1.000005, qty: (Math.random()*800+8000).toFixed(2), color: 'green' },
+    //       { key: "HAD", price: 1.000031, qty: (Math.random()*800+6000).toFixed(2), color: 'green' },
+    //       { key: "BTC", price: (price.data.BTC.quote.USD.price).toFixed(3), qty: (price.data.BTC.quote.USD.volume_24h).toFixed(2), color: price.data.BTC.quote.USD.percent_change_24h>0?"green":"red" },
+    //       { key: "XRP", price: (price.data.XRP.quote.USD.price).toFixed(3), qty: (price.data.XRP.quote.USD.volume_24h).toFixed(2), color: price.data.XRP.quote.USD.percent_change_24h>0?"green":"red" },
+    //       { key: "ETH", price: (price.data.ETH.quote.USD.price).toFixed(3), qty: (price.data.ETH.quote.USD.volume_24h).toFixed(2), color: price.data.ETH.quote.USD.percent_change_24h>0?"green":"red" },]);
+    //   } catch (err) {
+    //     console.log(err);
+    //   }
+    // };
+    // fetchPrice();
+    const burl = 'https://api.binance.com';
+    const query = '/api/v3/ticker/24hr';
+    const url = burl + query;
+    const coincap = fetch(url, { method: 'GET', mode: 'cors', cache: 'default' });
+    let BTC = 0;
+    let XRP = 0;
+    let ETH = 0;
+    coincap
+      .then(res => res.json())
+      .then(data => {
+        const prices = data.data.filter(x => x.symbol === 'BTCUSDT' || x.symbol === 'XRPUSDT' || x.symbol === 'ETHUSDT');
+        for(var i = 0; i < prices.length; i++){
+          switch(prices[i].symbol){
+            case 'ETH':
+              ETH = prices[i];
+              break;
+            case 'BTC':
+              BTC = prices[i];
+              break;
+            case 'XRP':
+              XRP = prices[i];
+              break;
+          }
+        }
         setList([{ key: "PFA", price: 1.000005, qty: (Math.random()*800+8000).toFixed(2), color: 'green' },
-          { key: "HAD", price: 1.500031, qty: (Math.random()*800+6000).toFixed(2), color: 'green' },
-          { key: "BTC", price: (price.data.BTC.quote.USD.price).toFixed(3), qty: (price.data.BTC.quote.USD.volume_24h).toFixed(2), color: price.data.BTC.quote.USD.percent_change_24h>0?"green":"red" },
-          { key: "XRP", price: (price.data.XRP.quote.USD.price).toFixed(3), qty: (price.data.XRP.quote.USD.volume_24h).toFixed(2), color: price.data.XRP.quote.USD.percent_change_24h>0?"green":"red" },
-          { key: "ETH", price: (price.data.ETH.quote.USD.price).toFixed(3), qty: (price.data.ETH.quote.USD.volume_24h).toFixed(2), color: price.data.ETH.quote.USD.percent_change_24h>0?"green":"red" },]);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    fetchPrice();
+          { key: "HAD", price: 1.000000, qty: (Math.random()*800+6000).toFixed(2), color: 'green' },
+          { key: "BTC", price: Number(BTC.price).toFixed(3), qty: BTC.volume, color: BTC.priceChange > 0 ? "green":"red" },
+          { key: "XRP", price: Number(XRP.price).toFixed(3), qty: XRP.volume, color: XRP.priceChange > 0 ? "green":"red" },
+          { key: "ETH", price: Number(ETH.price).toFixed(3), qty: ETH.volume, color: ETH.priceChange > 0 ? "green":"red" }]);
+      }).catch(e => console.log('error:', e));
   }, [
       transactionCount,
       Math.floor(new Date().getTime() / (accountInfoRefreshTime * 1000)),
