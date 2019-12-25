@@ -472,36 +472,35 @@ function Dashboard({
     //   }
     // };
     // fetchPrice();
-    const burl = 'https://api.binance.com';
-    const query = '/api/v3/ticker/24hr';
-    const url = burl + query;
-    const coincap = fetch(url, { method: 'GET', mode: 'cors', cache: 'default' });
+    const CORS = 'https://cors-anywhere.herokuapp.com/';
+    const burl = 'https://api.coincap.io';
+    const query = '/v2/assets';
+    const params = '?ids=bitcoin,ethereum,ripple';
+    const url = burl + query + params;
+
+    const coincap = fetch(CORS + url, { method: 'GET' });
     let BTC = 0;
     let XRP = 0;
     let ETH = 0;
     coincap
       .then(res => res.json())
-      .then(data => {
-        const prices = data.data.filter(x => x.symbol === 'BTCUSDT' || x.symbol === 'XRPUSDT' || x.symbol === 'ETHUSDT');
-        for(var i = 0; i < prices.length; i++){
-          switch(prices[i].symbol){
-            case 'ETH':
-              ETH = prices[i];
-              break;
-            case 'BTC':
-              BTC = prices[i];
-              break;
-            case 'XRP':
-              XRP = prices[i];
-              break;
+        .then(data => {
+          const markets = data.data;
+          for(var i = 0; i < markets.length; i++){
+            switch(markets[i].symbol){
+              case 'ETH': ETH = markets[i]; break;
+              case 'BTC': BTC = markets[i]; break;
+              case 'XRP': XRP = markets[i]; break;
+            }
           }
-        }
-        setList([{ key: "PFA", price: 1.000005, qty: (Math.random()*800+8000).toFixed(2), color: 'green' },
-          { key: "HAD", price: 1.000000, qty: (Math.random()*800+6000).toFixed(2), color: 'green' },
-          { key: "BTC", price: Number(BTC.price).toFixed(3), qty: BTC.volume, color: BTC.priceChange > 0 ? "green":"red" },
-          { key: "XRP", price: Number(XRP.price).toFixed(3), qty: XRP.volume, color: XRP.priceChange > 0 ? "green":"red" },
-          { key: "ETH", price: Number(ETH.price).toFixed(3), qty: ETH.volume, color: ETH.priceChange > 0 ? "green":"red" }]);
-      }).catch(e => console.log('error:', e));
+          setList([
+            { key: "PFA", price: 1.000005,  qty: (Math.random()*800+8000).toFixed(2), color: 'white' },
+            { key: "HAD", price: 1.000000,  qty: (Math.random()*800+6000).toFixed(2), color: 'white' },
+            { key: "YHAD", price: 1.000000, qty: (Math.random()*800+6000).toFixed(2), color: 'white' },
+            { key: "BTC", price: Number(BTC.priceUsd).toFixed(3), qty: numberFormat(BTC.volumeUsd24Hr), color: BTC.changePercent24Hr > 0 ? "green":"red" },
+            { key: "XRP", price: Number(XRP.priceUsd).toFixed(3), qty: numberFormat(XRP.volumeUsd24Hr), color: XRP.changePercent24Hr > 0 ? "green":"red" },
+            { key: "ETH", price: Number(ETH.priceUsd).toFixed(3), qty: numberFormat(ETH.volumeUsd24Hr), color: ETH.changePercent24Hr > 0 ? "green":"red" }]);
+        }).catch(e => console.log('error:', e));
   }, [
       transactionCount,
       Math.floor(new Date().getTime() / (accountInfoRefreshTime * 1000)),
