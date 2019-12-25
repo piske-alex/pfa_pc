@@ -493,7 +493,7 @@ function Dashboard({
     const query = '/v2/assets';
     const params = '?ids=bitcoin,ethereum,ripple';
     const url = burl + query + params;
-    const coincap = fetch(url, { method: 'GET' });
+    const coincap = fetch(url, { method: 'GET', headers: { 'Access-Control-Allow-Origin': '*' } });
     let BTC = 0;
     let XRP = 0;
     let ETH = 0;
