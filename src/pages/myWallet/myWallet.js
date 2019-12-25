@@ -738,7 +738,7 @@ function Dashboard({
                     <ListItem alignItems="flex-start">
                       {/* <Grid className="myWalletTab"> */}
                       <Grid className="usdt">
-                        <Avatar src='https://i.loli.net/2019/06/27/5d1422b33e7ff68920.png' />
+                        <Avatar src='https://i.loli.net/2019/12/25/TjarbWdt8QZmRev.png' />
                       </Grid>
                       <Grid className="binance">
                         {`YHAD`}

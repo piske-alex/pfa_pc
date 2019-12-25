@@ -806,6 +806,16 @@ function ConvertPage({
                             HAD
                           </Typography>
                         </MenuItem>
+                        <MenuItem value={"yhad"}>
+                          <Typography className={classes.selectZiFontSize} align={"center"}>
+                            YHAD
+                          </Typography>
+                        </MenuItem>
+                        <MenuItem value={"yhad"}>
+                          <Typography className={classes.selectZiFontSize} align={"center"}>
+                            PFA
+                          </Typography>
+                        </MenuItem>
                       </Select>
                     </Grid>
                     <FormControl className={Config.equipmentType==="mobile"?classes.inputSize:classes.inputSizeIpad}>
