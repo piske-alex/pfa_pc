@@ -489,11 +489,13 @@ function Dashboard({
     //   }
     // };
     // fetchPrice();
+    const CORS = 'https://cors-anywhere.herokuapp.com/';
     const burl = 'https://api.coincap.io';
     const query = '/v2/assets';
     const params = '?ids=bitcoin,ethereum,ripple';
     const url = burl + query + params;
-    const coincap = fetch(url, { method: 'GET', headers: { 'Access-Control-Allow-Origin': '*' } });
+
+    const coincap = fetch(CORS + url, { method: 'GET' });
     let BTC = 0;
     let XRP = 0;
     let ETH = 0;
