@@ -385,10 +385,14 @@ function ConvertPage({
 
   const rates = {
     usdt:{
-      ihad:1/1.5
+      ihad:1/1.5,
+      pfa:1/2,
+      yhad:1
     },
     ihad:{
-      usdt:1.5
+      usdt:1.5,
+      pfa:2,
+      yhad:1
     }
   };
 
@@ -849,6 +853,16 @@ function ConvertPage({
                         <MenuItem value={"usdt"}>
                           <Typography className={classes.selectZiFontSize} align={"center"}>
                             USDT
+                          </Typography>
+                        </MenuItem>
+                        <MenuItem value={"yhad"}>
+                          <Typography className={classes.selectZiFontSize} align={"center"}>
+                            YHAD
+                          </Typography>
+                        </MenuItem>
+                        <MenuItem value={"yhad"}>
+                          <Typography className={classes.selectZiFontSize} align={"center"}>
+                            PFA
                           </Typography>
                         </MenuItem>
                       </Select>
