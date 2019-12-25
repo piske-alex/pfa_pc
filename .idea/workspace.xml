@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="33c7a400-888c-4aef-b112-febf5c9a8cb5" name="Default Changelist" comment="change HAD stuff">
+    <list default="true" id="33c7a400-888c-4aef-b112-febf5c9a8cb5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/convertPage/convertPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/convertPage/convertPage.js" afterDir="false" />
     </list>
@@ -228,14 +228,7 @@
       <workItem from="1565678928675" duration="1289000" />
       <workItem from="1576215408181" duration="3465000" />
       <workItem from="1577025978012" duration="4411000" />
-      <workItem from="1577165870912" duration="4189000" />
-    </task>
-    <task id="LOCAL-00071" summary="trade">
-      <created>1563167468546</created>
-      <option name="number" value="00071" />
-      <option name="presentableId" value="LOCAL-00071" />
-      <option name="project" value="LOCAL" />
-      <updated>1563167468546</updated>
+      <workItem from="1577165870912" duration="4869000" />
     </task>
     <task id="LOCAL-00072" summary="trade">
       <created>1563170004909</created>
@@ -573,7 +566,14 @@
       <option name="project" value="LOCAL" />
       <updated>1577233087563</updated>
     </task>
-    <option name="localTasksCounter" value="120" />
+    <task id="LOCAL-00120" summary="ui touchup 2">
+      <created>1577233741368</created>
+      <option name="number" value="00120" />
+      <option name="presentableId" value="LOCAL-00120" />
+      <option name="project" value="LOCAL" />
+      <updated>1577233741368</updated>
+    </task>
+    <option name="localTasksCounter" value="121" />
     <servers />
   </component>
   <component name="TodoView">
@@ -622,7 +622,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="internal external USDT" />
     <MESSAGE value="internal external USDT #2" />
     <MESSAGE value="internal external USDT #3" />
     <MESSAGE value="versioning" />
@@ -647,13 +646,14 @@
     <MESSAGE value="merge commit 05322 by joe" />
     <MESSAGE value="UI touchup" />
     <MESSAGE value="convert add defunct pairs" />
-    <option name="LAST_COMMIT_MESSAGE" value="convert add defunct pairs" />
+    <MESSAGE value="ui touchup 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="ui touchup 2" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="252" y="0" key="CommitChangelistDialog2" timestamp="1577233086916">
+    <state x="252" y="0" key="CommitChangelistDialog2" timestamp="1577233740766">
       <screen x="0" y="0" width="1280" height="760" />
     </state>
-    <state x="252" y="0" key="CommitChangelistDialog2/0.0.1280.760@0.0.1280.760" timestamp="1577233086916" />
+    <state x="252" y="0" key="CommitChangelistDialog2/0.0.1280.760@0.0.1280.760" timestamp="1577233740766" />
     <state x="421" y="135" key="FileChooserDialogImpl" timestamp="1577166006261">
       <screen x="0" y="0" width="1280" height="760" />
     </state>
@@ -678,10 +678,10 @@
       <screen x="0" y="0" width="1280" height="760" />
     </state>
     <state x="93" y="93" width="1093" height="573" key="VCS.FileHistoryDialog/0.0.1280.760@0.0.1280.760" timestamp="1576379196869" />
-    <state x="233" y="113" key="Vcs.Push.Dialog.v2" timestamp="1577233089001">
+    <state x="233" y="113" key="Vcs.Push.Dialog.v2" timestamp="1577233742506">
       <screen x="0" y="0" width="1280" height="760" />
     </state>
-    <state x="233" y="113" key="Vcs.Push.Dialog.v2/0.0.1280.760@0.0.1280.760" timestamp="1577233089001" />
+    <state x="233" y="113" key="Vcs.Push.Dialog.v2/0.0.1280.760@0.0.1280.760" timestamp="1577233742506" />
     <state x="357" y="171" key="git4idea.merge.GitPullDialog" timestamp="1576378199895">
       <screen x="0" y="0" width="1280" height="760" />
     </state>

@@ -801,7 +801,7 @@ function ConvertPage({
                   <Grid item className={Config.equipmentType==="mobile"?classes.itemHeight:classes.itemHeightIpad}>
                     
                     <img className ={classes.linkImgLeft} alt="USDT" src = {"https://i.loli.net/" 
-                      + (leftcurrencyDropdownValue == "usdt" ? "2019/06/26/5d12bffaf379385695.png" : (leftcurrencyDropdownValue == "ihad" ? "2019/06/27/5d1422b33e7ff68920.png" : ""))}/>
+                      + (leftcurrencyDropdownValue == "usdt" ? "2019/06/26/5d12bffaf379385695.png" : (leftcurrencyDropdownValue == "ihad" ? "2019/06/27/5d1422b33e7ff68920.png" : (leftcurrencyDropdownValue == 'pfa'? "2019/06/26/5d12cd78a53e047314.png": (leftcurrencyDropdownValue=='yhad'?'2019/12/25/TjarbWdt8QZmRev.png':'') ) ))}/>
                     <Grid className ={classes.fLeft} >
                       <Grid className={classes.notesFontSize}>{t.convertPage.pay[Config.lang]}</Grid>
                       <Select
@@ -825,7 +825,7 @@ function ConvertPage({
                             YHAD
                           </Typography>
                         </MenuItem>
-                        <MenuItem value={"yhad"}>
+                        <MenuItem value={"pfa"}>
                           <Typography className={classes.selectZiFontSize} align={"center"}>
                             PFA
                           </Typography>
@@ -870,7 +870,7 @@ function ConvertPage({
                             YHAD
                           </Typography>
                         </MenuItem>
-                        <MenuItem value={"yhad"}>
+                        <MenuItem value={"pfa"}>
                           <Typography className={classes.selectZiFontSize} align={"center"}>
                             PFA
                           </Typography>
