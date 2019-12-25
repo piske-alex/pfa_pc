@@ -846,7 +846,7 @@ function ConvertPage({
 
                   <Grid item className={Config.equipmentType==="mobile"||"PC"?classes.itemHeight:classes.itemHeightIpad}>
                     <img className ={classes.linkImgLeft} src = {"https://i.loli.net/" 
-                      + (rightcurrencyDropdownValue == "ihad" ? "2019/06/27/5d1422b33e7ff68920.png" : (rightcurrencyDropdownValue == "usdt" ? "2019/06/26/5d12bffaf379385695.png" : ""))}/>
+                      + (rightcurrencyDropdownValue == "ihad" ? "2019/06/27/5d1422b33e7ff68920.png" : (rightcurrencyDropdownValue == "usdt" ? "2019/06/26/5d12bffaf379385695.png" :  (rightcurrencyDropdownValue == 'pfa'? "2019/06/26/5d12cd78a53e047314.png": (rightcurrencyDropdownValue=='yhad'?'2019/12/25/TjarbWdt8QZmRev.png':'') )))}/>
                     <Grid className ={classes.fLeft}  >
                       <Grid className={classes.notesFontSize}>{t.convertPage.receive[Config.lang]}</Grid>
                       <Select
