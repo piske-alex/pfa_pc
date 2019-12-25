@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="33c7a400-888c-4aef-b112-febf5c9a8cb5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/pages/aboutUs/aboutUs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/aboutUs/aboutUs.js" afterDir="false" />
+    <list default="true" id="33c7a400-888c-4aef-b112-febf5c9a8cb5" name="Default Changelist" comment="change HAD stuff">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/convertPage/convertPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/convertPage/convertPage.js" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -61,9 +61,15 @@
     <servers />
   </component>
   <component name="ProjectId" id="1UunYsxdy3HU4gibWID4SIdnnNQ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="GO_FMT" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="add_unversioned_files" value="true" />
@@ -71,7 +77,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="go.gopath.indexing.explicitly.defined" value="true" />
     <property name="go.import.settings.migrated" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../cross-swap" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -106,18 +112,6 @@
       <recent name="$PROJECT_DIR$/cordova" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
   <component name="RunManager" selected="JavaScript Debug.Debug Application">
     <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <module name="pfa-react" />
@@ -151,6 +145,18 @@
       <envs />
       <method v="2" />
     </configuration>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -221,41 +227,8 @@
       <workItem from="1565669918005" duration="877000" />
       <workItem from="1565678928675" duration="1289000" />
       <workItem from="1576215408181" duration="3465000" />
-    </task>
-    <task id="LOCAL-00066" summary="trade">
-      <created>1563105509251</created>
-      <option name="number" value="00066" />
-      <option name="presentableId" value="LOCAL-00066" />
-      <option name="project" value="LOCAL" />
-      <updated>1563105509251</updated>
-    </task>
-    <task id="LOCAL-00067" summary="trade">
-      <created>1563105549006</created>
-      <option name="number" value="00067" />
-      <option name="presentableId" value="LOCAL-00067" />
-      <option name="project" value="LOCAL" />
-      <updated>1563105549006</updated>
-    </task>
-    <task id="LOCAL-00068" summary="trade">
-      <created>1563106279827</created>
-      <option name="number" value="00068" />
-      <option name="presentableId" value="LOCAL-00068" />
-      <option name="project" value="LOCAL" />
-      <updated>1563106279827</updated>
-    </task>
-    <task id="LOCAL-00069" summary="trade">
-      <created>1563115434732</created>
-      <option name="number" value="00069" />
-      <option name="presentableId" value="LOCAL-00069" />
-      <option name="project" value="LOCAL" />
-      <updated>1563115434733</updated>
-    </task>
-    <task id="LOCAL-00070" summary="trade">
-      <created>1563167441709</created>
-      <option name="number" value="00070" />
-      <option name="presentableId" value="LOCAL-00070" />
-      <option name="project" value="LOCAL" />
-      <updated>1563167441709</updated>
+      <workItem from="1577025978012" duration="4411000" />
+      <workItem from="1577165870912" duration="4189000" />
     </task>
     <task id="LOCAL-00071" summary="trade">
       <created>1563167468546</created>
@@ -565,7 +538,42 @@
       <option name="project" value="LOCAL" />
       <updated>1576222362890</updated>
     </task>
-    <option name="localTasksCounter" value="115" />
+    <task id="LOCAL-00115" summary="change HAD stuff">
+      <created>1576379505580</created>
+      <option name="number" value="00115" />
+      <option name="presentableId" value="LOCAL-00115" />
+      <option name="project" value="LOCAL" />
+      <updated>1576379505581</updated>
+    </task>
+    <task id="LOCAL-00116" summary="change HAD stuff">
+      <created>1577028060412</created>
+      <option name="number" value="00116" />
+      <option name="presentableId" value="LOCAL-00116" />
+      <option name="project" value="LOCAL" />
+      <updated>1577028060413</updated>
+    </task>
+    <task id="LOCAL-00117" summary="merge commit 05322 by joe">
+      <created>1577030475253</created>
+      <option name="number" value="00117" />
+      <option name="presentableId" value="LOCAL-00117" />
+      <option name="project" value="LOCAL" />
+      <updated>1577030475253</updated>
+    </task>
+    <task id="LOCAL-00118" summary="UI touchup">
+      <created>1577232226688</created>
+      <option name="number" value="00118" />
+      <option name="presentableId" value="LOCAL-00118" />
+      <option name="project" value="LOCAL" />
+      <updated>1577232226689</updated>
+    </task>
+    <task id="LOCAL-00119" summary="convert add defunct pairs">
+      <created>1577233087563</created>
+      <option name="number" value="00119" />
+      <option name="presentableId" value="LOCAL-00119" />
+      <option name="project" value="LOCAL" />
+      <updated>1577233087563</updated>
+    </task>
+    <option name="localTasksCounter" value="120" />
     <servers />
   </component>
   <component name="TodoView">
@@ -614,9 +622,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="wrong conversion rate" />
-    <MESSAGE value="new modal" />
-    <MESSAGE value="change words" />
     <MESSAGE value="internal external USDT" />
     <MESSAGE value="internal external USDT #2" />
     <MESSAGE value="internal external USDT #3" />
@@ -639,7 +644,52 @@
     <MESSAGE value="change of words" />
     <MESSAGE value="details parsefloat" />
     <MESSAGE value="change HAD stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="change HAD stuff" />
+    <MESSAGE value="merge commit 05322 by joe" />
+    <MESSAGE value="UI touchup" />
+    <MESSAGE value="convert add defunct pairs" />
+    <option name="LAST_COMMIT_MESSAGE" value="convert add defunct pairs" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="252" y="0" key="CommitChangelistDialog2" timestamp="1577233086916">
+      <screen x="0" y="0" width="1280" height="760" />
+    </state>
+    <state x="252" y="0" key="CommitChangelistDialog2/0.0.1280.760@0.0.1280.760" timestamp="1577233086916" />
+    <state x="421" y="135" key="FileChooserDialogImpl" timestamp="1577166006261">
+      <screen x="0" y="0" width="1280" height="760" />
+    </state>
+    <state x="421" y="135" key="FileChooserDialogImpl/0.0.1280.760@0.0.1280.760" timestamp="1577166006261" />
+    <state width="1260" height="190" key="GridCell.Tab.0.bottom" timestamp="1577231888808">
+      <screen x="0" y="0" width="1280" height="760" />
+    </state>
+    <state width="1260" height="190" key="GridCell.Tab.0.bottom/0.0.1280.760@0.0.1280.760" timestamp="1577231888808" />
+    <state width="1260" height="190" key="GridCell.Tab.0.center" timestamp="1577231888808">
+      <screen x="0" y="0" width="1280" height="760" />
+    </state>
+    <state width="1260" height="190" key="GridCell.Tab.0.center/0.0.1280.760@0.0.1280.760" timestamp="1577231888808" />
+    <state width="1260" height="190" key="GridCell.Tab.0.left" timestamp="1577231888807">
+      <screen x="0" y="0" width="1280" height="760" />
+    </state>
+    <state width="1260" height="190" key="GridCell.Tab.0.left/0.0.1280.760@0.0.1280.760" timestamp="1577231888807" />
+    <state width="1260" height="190" key="GridCell.Tab.0.right" timestamp="1577231888808">
+      <screen x="0" y="0" width="1280" height="760" />
+    </state>
+    <state width="1260" height="190" key="GridCell.Tab.0.right/0.0.1280.760@0.0.1280.760" timestamp="1577231888808" />
+    <state x="93" y="93" width="1093" height="573" key="VCS.FileHistoryDialog" timestamp="1576379196869">
+      <screen x="0" y="0" width="1280" height="760" />
+    </state>
+    <state x="93" y="93" width="1093" height="573" key="VCS.FileHistoryDialog/0.0.1280.760@0.0.1280.760" timestamp="1576379196869" />
+    <state x="233" y="113" key="Vcs.Push.Dialog.v2" timestamp="1577233089001">
+      <screen x="0" y="0" width="1280" height="760" />
+    </state>
+    <state x="233" y="113" key="Vcs.Push.Dialog.v2/0.0.1280.760@0.0.1280.760" timestamp="1577233089001" />
+    <state x="357" y="171" key="git4idea.merge.GitPullDialog" timestamp="1576378199895">
+      <screen x="0" y="0" width="1280" height="760" />
+    </state>
+    <state x="357" y="171" key="git4idea.merge.GitPullDialog/0.0.1280.760@0.0.1280.760" timestamp="1576378199895" />
+    <state x="492" y="280" key="git4idea.ui.GitStashDialog" timestamp="1576378190884">
+      <screen x="0" y="0" width="1280" height="760" />
+    </state>
+    <state x="492" y="280" key="git4idea.ui.GitStashDialog/0.0.1280.760@0.0.1280.760" timestamp="1576378190884" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />

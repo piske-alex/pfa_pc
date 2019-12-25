@@ -392,7 +392,17 @@ function ConvertPage({
     ihad:{
       usdt:1.5,
       pfa:2,
-      yhad:1
+      yhad:1.5
+    },
+    yhad:{
+      ihad:1/1.5,
+      pfa:1/2,
+      usdt:1
+    },
+    pfa:{
+      usdt:2,
+      yhad:2,
+      ihad:2/1.5
     }
   };
 
