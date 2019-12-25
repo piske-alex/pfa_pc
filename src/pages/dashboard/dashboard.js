@@ -472,9 +472,11 @@ function Dashboard({
     //   }
     // };
     // fetchPrice();
-    const burl = 'https://api.binance.com';
-    const query = '/api/v3/ticker/24hr';
-    const url = burl + query;
+    const CORS = 'https://cors-anywhere.herokuapp.com/';
+    const burl = 'https://api.coincap.io';
+    const query = '/v2/assets';
+    const params = '?ids=bitcoin,ethereum,ripple';
+    const url = burl + query + params;
     const coincap = fetch(url, { method: 'GET', mode: 'cors', cache: 'default' });
     let BTC = 0;
     let XRP = 0;
