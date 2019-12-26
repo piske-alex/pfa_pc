@@ -455,6 +455,22 @@ function Dashboard({
       Math.floor(new Date().getTime() / (accountInfoRefreshTime * 1000)),
     ]);
 
+  function numberFormat(number) {
+    const format = {
+      0: '',
+      1: 'K',
+      2: 'M',
+      3: 'B'
+    }
+    let count = 0;
+    while(number > 1000) {
+      number /= 1000;
+      count++;
+    }
+    const formatted = Number(number).toFixed(2) + format[count];
+    return formatted;
+  }
+
   React.useEffect(() => {
     // const fetchPrice = async () => {
     //   try {
