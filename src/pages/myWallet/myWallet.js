@@ -640,7 +640,7 @@ function Dashboard({
                 <div className = "myWalletTwoBtn">
                   <Button
                     variant="outlined"
-                    onClick={() => history.push("/aboutUs")}
+                    onClick={setBuyModalOpen}
                     style={{ width: "130px", color: '#C0C0C0', padding:'5px 0px', marginRight: 1 }}
                   >
                     <img src={'https://minio.koin-exchange.com/avatar/after.png'} className="donateClass" />
@@ -1039,6 +1039,13 @@ function Dashboard({
                   </div>
                 </div>
               </Grid>
+                <Grid item className={classes.extractRow}>
+                  <button className="CommonButtonStyle" style={{
+                    width:'100%',
+                    height:'41px',
+                    borderRadius: "8px",
+                  }} onClick={handleScanModalOpen}>{`查看出售渠道`}</button>
+                </Grid>
             </div>
             }
       
