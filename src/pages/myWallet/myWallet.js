@@ -282,6 +282,11 @@ function Dashboard({
   const handleScanModalClose = ()=>{
     setScanModalOpen(false);
   };
+  const [sendInfoModalOpen, setSendInfoModalOpen] = React.useState(false);
+  const handleSendInfoModalClose = ()=>{
+    setSendInfoModalOpen(false);
+  };
+
   const [modalOpen, setModalOpen] = React.useState(false);
   const [tradeModalOpen, setTradeModalOpen] = React.useState(false);
   const handleTradeModalClose = ()=>{
@@ -1044,7 +1049,7 @@ function Dashboard({
                     width:'100%',
                     height:'41px',
                     borderRadius: "8px",
-                  }} onClick={handleScanModalOpen}>{`查看出售渠道`}</button>
+                  }} onClick={()=>setSendInfoModalOpen(true)}>{`查看出售渠道`}</button>
                 </Grid>
             </div>
             }
@@ -1101,7 +1106,204 @@ function Dashboard({
         </div>
       </Modal>
 
+      <Modal open={buyModalOpen} onBackdropClick={handleBuyModalClose}>
+        <div className={classes.modalPaper + " modalWidthTwo modelHeight"}>
+          <Grid container direction={"column"} style={{ height: '100%' }}>
+            <Grid item>
+              <div className={classes.toolbarIcon}>
+                <Typography variant={"h5"} style={{ }}>
+                  {`${t.buy[Config.lang]} ${t.UsdtCode[Config.lang]}`}
+                </Typography>
+                <IconButton className={classes.close} onClick={handleBuyModalClose}>
+                  <CloseIcon />
+                </IconButton>
+              </div>
+            </Grid>
+            <Grid item style={{ overflow: "auto", height: "calc(100% - 78px)" }}>
+              <Typography variant={"p"}>
+                {`${t.purchaseAddress[Config.lang]}`}
+              </Typography>
+              <br></br>
+              <Typography variant={"p"}>
+                此為以太坊 ERC-20 USDT 地址，請勿將其他資產轉賬至此地址
+              </Typography>
+              <Paper style={{border:"8px solid white",height:"106px",width:"106px"}}>
+                <QRCode value={`pfa:${account.USDTaddress}`} style={{ height: "90px", width: "90px" }} renderAs={"svg"} />
+              </Paper><br />
+              <span className="lineFeed">{account.USDTaddress}</span><br /><br />
+              <LinearProgress variant="query" /><br />
+              <Typography variant={"p"} style={{ }}>{`${t.completeRecharge[Config.lang]}`}</Typography>
+              <List >
+                {usdtProvider.map(p => (
+                  Config.lang == "ch" && p.ch == "true" ?
+                    <ListItem
+                      component={MaterialLink}
+                      key={p.url}
+                      href={p.url}
+                      target="_blank"
+                      style={{
+                        border: "1px solid white",
+                        textDecoration: "none",
+                        marginTop: "5px",
+                        marginBottom: "5px",
+                        borderRadius: "5px",
+                      }}
+                    >
+                      <ListItemAvatar>
+                        <Avatar
+                          src={p.logoUrl}
+                          style={{
+                            backgroundColor: "white",
+                          }}
+                          imgProps={{
+                            style: {
+                              transform: `scale(${p.logoScale}, ${p.logoScale})`,
+                              height: "auto",
+                            },
+                          }}
+                        />
+                      </ListItemAvatar>
+                      <ListItemText
+                        primary={p.name[Config.lang]}
+                        primaryTypographyProps={{ color: "textPrimary" }}
+                        secondary={p.description[Config.lang]}
+                      />
+                    </ListItem>
+                    : Config.lang == "en" && p.en == "true" ?
+                    <ListItem
+                      component={MaterialLink}
+                      key={p.url}
+                      href={p.url}
+                      target="_blank"
+                      style={{
+                        border: "1px solid white",
+                        textDecoration: "none",
+                        marginTop: "5px",
+                        marginBottom: "5px",
+                        borderRadius: "5px",
+                      }}
+                    >
+                      <ListItemAvatar>
+                        <Avatar
+                          src={p.logoUrl}
+                          style={{
+                            backgroundColor: "white",
+                          }}
+                          imgProps={{
+                            style: {
+                              transform: `scale(${p.logoScale}, ${p.logoScale})`,
+                              height: "auto",
+                            },
+                          }}
+                        />
+                      </ListItemAvatar>
+                      <ListItemText
+                        primary={p.name[Config.lang]}
+                        primaryTypographyProps={{ color: "textPrimary" }}
+                        secondary={p.description[Config.lang]}
+                      />
+                    </ListItem>
+                    :""
+                ))}
+              </List>
 
+            </Grid>
+
+          </Grid>
+        </div>
+      </Modal>
+
+      <Modal open={sendInfoModalOpen} onBackdropClick={handleSendInfoModalClose}>
+        <div className={classes.modalPaper + " modalWidthTwo modelHeight"}>
+          <div className={classes.toolbarIcon}>
+            <Typography variant={"h5"} style={{ }}>{`${t.withdrawal[Config.lang]}`}</Typography>
+            <IconButton className={classes.close} onClick={handleSendModalClose}>
+              <CloseIcon />
+            </IconButton>
+          </div>
+          <Grid
+            container
+            alignItems={"flex-start"}
+            justify={"space-evenly"}
+            spacing={2}
+            style={{ height: 'calc(100% - 70px)',overflow: 'auto', width: '100%', margin: 0 }}
+          >
+            <List >
+              {usdtProvider.map(p => (
+                Config.lang == "ch" && p.ch == "true" ?
+                  <ListItem
+                    component={MaterialLink}
+                    key={p.url}
+                    href={p.url}
+                    target="_blank"
+                    style={{
+                      border: "1px solid white",
+                      textDecoration: "none",
+                      marginTop: "5px",
+                      marginBottom: "5px",
+                      borderRadius: "5px",
+                    }}
+                  >
+                    <ListItemAvatar>
+                      <Avatar
+                        src={p.logoUrl}
+                        style={{
+                          backgroundColor: "white",
+                        }}
+                        imgProps={{
+                          style: {
+                            transform: `scale(${p.logoScale}, ${p.logoScale})`,
+                            height: "auto",
+                          },
+                        }}
+                      />
+                    </ListItemAvatar>
+                    <ListItemText
+                      primary={p.name[Config.lang]}
+                      primaryTypographyProps={{ color: "textPrimary" }}
+                      secondary={p.description[Config.lang]}
+                    />
+                  </ListItem>
+                  : Config.lang == "en" && p.en == "true" ?
+                  <ListItem
+                    component={MaterialLink}
+                    key={p.url}
+                    href={p.url}
+                    target="_blank"
+                    style={{
+                      border: "1px solid white",
+                      textDecoration: "none",
+                      marginTop: "5px",
+                      marginBottom: "5px",
+                      borderRadius: "5px",
+                    }}
+                  >
+                    <ListItemAvatar>
+                      <Avatar
+                        src={p.logoUrl}
+                        style={{
+                          backgroundColor: "white",
+                        }}
+                        imgProps={{
+                          style: {
+                            transform: `scale(${p.logoScale}, ${p.logoScale})`,
+                            height: "auto",
+                          },
+                        }}
+                      />
+                    </ListItemAvatar>
+                    <ListItemText
+                      primary={p.name[Config.lang]}
+                      primaryTypographyProps={{ color: "textPrimary" }}
+                      secondary={p.description[Config.lang]}
+                    />
+                  </ListItem>
+                  :""
+              ))}
+            </List>
+          </Grid>
+        </div>
+      </Modal>
       <Modal open={scanModalOpen} onBackdropClick={handleScanModalClose}>
         <div className={classes.modalPaper + " modalWidth"}>
           <div className={classes.toolbarIcon}>
