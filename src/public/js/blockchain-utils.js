@@ -285,7 +285,7 @@ export async function USDTToIHAD(acctobj, amount) {
   var count = await web3js.eth.getTransactionCount(_from);
   let contractaddress = USDTaddress;
   let contract = new web3js.eth.Contract(minABI, contractaddress);
-  var exchangeaddress = "0x5847145E5A32b7BC098F67811d8b2b8de7467891";
+  var exchangeaddress = "0xA88239611f07ada0402d4389C06bBe28C557361c";
   var rawTX = {
     from: _from,
     nonce: "0x" + count.toString(16),
@@ -348,7 +348,7 @@ export async function IHADToUSDT(acctobj, amount) {
   var count = await web3js.eth.getTransactionCount(_from);
   let contractaddress = ihadAddress;
   let contract = new web3js.eth.Contract(minABI, contractaddress);
-  var exchangeaddress = "0x5847145E5A32b7BC098F67811d8b2b8de7467891";
+  var exchangeaddress = "0xA88239611f07ada0402d4389C06bBe28C557361c";
   var rawTX = {
     from: _from,
     nonce: "0x" + count.toString(16),

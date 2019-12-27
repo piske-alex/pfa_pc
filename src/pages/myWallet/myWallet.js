@@ -1217,7 +1217,7 @@ function Dashboard({
         <div className={classes.modalPaper + " modalWidthTwo modelHeight"}>
           <div className={classes.toolbarIcon}>
             <Typography variant={"h5"} style={{ }}>{`${t.withdrawal[Config.lang]}`}</Typography>
-            <IconButton className={classes.close} onClick={handleSendModalClose}>
+            <IconButton className={classes.close} onClick={handleSendInfoModalClose}>
               <CloseIcon />
             </IconButton>
           </div>
