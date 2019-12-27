@@ -158,6 +158,7 @@ export default function LoginAccountPage({ onAccountLogin }) {
                 }
               ></BootstrapInput>
               <FormHelperText className="formHelperText">{accessCode.length >= 4? undefined: trans.accessTokenLengthWarning[Config.lang]}</FormHelperText>
+              <FormHelperText className="formHelperText">{accessCode.length >= 4? undefined: trans.accessTokenLost[Config.lang]}</FormHelperText>
             </FormControl>
           </Grid>
 

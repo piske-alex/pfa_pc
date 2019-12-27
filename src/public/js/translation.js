@@ -66,6 +66,7 @@ export default {
   //公共
   fta: { ch: "普惠資產" },
   accessToken: { ch: "信息存取碼", en: "SMS Token" },
+  accessTokenLost: { ch: "如果遺失信息存取碼，可以在註冊頁面重新獲取", en: "If you lost the access token, you can regenerate one at the registration page." },
   getCode: { ch: "獲取信息存取碼", en: "Get SMS Token" }, 
   password: { ch: "密碼", en: "Password" },
   mobile: { ch: "電話號碼", en: "Mobile Number" },
@@ -74,8 +75,8 @@ export default {
     ch: "注意，請緊記信息存取碼。", en: "Important: please remember your access token",
   },
   accountCreationWarning2: {
-    ch: "基於安全考慮，一旦遺失信息存取碼，將永久丟失用戶存取權。", 
-    en: "Base on security consideration, if you forgot your private key or access token, you will forever lost your wallet.",
+    ch: "基於安全考慮，一旦遺失電話號碼存取權，將永久丟失用戶存取權。",
+    en: "Base on security consideration, if you forgot your private key or lost your mobile phone access, you will forever lost your wallet.",
   },
   mobileWarning: {
     ch: "未能獲取信息存取碼，請檢查電話號碼是否輸入錯誤。", en: "Cannot get SMS token, please verify your mobile number",
