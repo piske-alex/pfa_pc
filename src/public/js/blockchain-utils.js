@@ -186,15 +186,15 @@ export async function sendToken(contractaddress, acctobj, _to, amount,memo) {
   var count = await web3js.eth.getTransactionCount(_from);
   let contract = new web3js.eth.Contract(minABI, contractaddress);
 
-  const acct = web3js.eth.accounts.privateKeyToAccount(acctobj.privateKey.toString());
+  /*const acct = web3js.eth.accounts.privateKeyToAccount(acctobj.privateKey.toString());
 
   web3js.eth.accounts.wallet.add(acct.privateKey);
   web3js.eth.defaultAccount = acct.address;
   const gas = await contract.methods.transfer(_to, web3js.utils.toWei(amount)).estimateGas({ from: acct.address });
   const signedTransaction = await contract.methods.transfer(_to, web3js.utils.toWei(amount)).send({ from: acct.address, gas: gas });
 
-  console.log(signedTransaction);
-  /*
+  console.log(signedTransaction);*/
+
   var rawTransaction = {
     from: _from,
     nonce: "0x" + count.toString(16),
@@ -216,7 +216,7 @@ export async function sendToken(contractaddress, acctobj, _to, amount,memo) {
   //if(contractaddress==="0xfbd0f2a657633c15637c6c21d45d1d5f78860e27"){
     //verifyUSDTWithdrawal(signedTransaction.transactionHash)
   //}
-  */
+
 
   let symbol ;
   switch (contractaddress) {
