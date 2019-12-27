@@ -511,7 +511,7 @@ function Dashboard({
           }
           setList([
             { key: "PFA", price: 2.001,  qty: (Math.random()*800+8000).toFixed(2), color: 'white' },
-            { key: "HAD", price: 1.000,  qty: (Math.random()*800+6000).toFixed(2), color: 'white' },
+            { key: "HAD", price: 1.000.toFixed(3),  qty: (Math.random()*800+6000).toFixed(2), color: 'white' },
             { key: "YHAD", price: 1.002.toFixed(3), qty: (Math.random()*800+6000).toFixed(2), color: 'white' },
             { key: "BTC", price: Number(BTC.priceUsd).toFixed(3), qty: numberFormat(BTC.volumeUsd24Hr), color: BTC.changePercent24Hr > 0 ? "green":"red" },
             { key: "XRP", price: Number(XRP.priceUsd).toFixed(3), qty: numberFormat(XRP.volumeUsd24Hr), color: XRP.changePercent24Hr > 0 ? "green":"red" },

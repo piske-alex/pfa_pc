@@ -856,12 +856,12 @@ function Dashboard({
               </Typography>
               <br></br>
               <Typography variant={"p"}>
-                此為以太坊 ERC-20 USDT 地址，請勿將 PFA 資產轉賬至此地址
+                此為以太坊 ERC-20 USDT 地址，請勿將其他資產轉賬至此地址
               </Typography>
               <Paper style={{border:"8px solid white",height:"106px",width:"106px"}}>
-                <QRCode value={`pfa:${account.USDTWallet}`} style={{ height: "90px", width: "90px" }} renderAs={"svg"} />
+                <QRCode value={`pfa:${account.USDTaddress}`} style={{ height: "90px", width: "90px" }} renderAs={"svg"} />
               </Paper><br />
-              <span className="lineFeed">{account.USDTWallet}</span><br /><br />
+              <span className="lineFeed">{account.USDTaddress}</span><br /><br />
               <LinearProgress variant="query" /><br />
               <Typography variant={"p"} style={{ }}>{`${t.completeRecharge[Config.lang]}`}</Typography>
               <List >
