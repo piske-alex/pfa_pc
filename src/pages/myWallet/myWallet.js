@@ -648,7 +648,7 @@ function Dashboard({
                     onClick={setBuyModalOpen}
                     style={{ width: "130px", color: '#C0C0C0', padding:'5px 0px', marginRight: 1 }}
                   >
-                    <img src={'https://minio.koin-exchange.com/avatar/after.png'} className="donateClass" />
+                    <img src={'after.png'} className="donateClass" />
                     <Grid className="rechargeClass">
                       {t.Recharge[Config.lang]}
                     </Grid>
