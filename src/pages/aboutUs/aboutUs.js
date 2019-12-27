@@ -246,7 +246,7 @@ function AboutUs({ history, handleLogout, currentUsername, account }) {
   };
 
   const handleCopiedSnackbarOpen = () => {
-    window.Clipboard.copy(accAddr);
+    window.Clipboard.copy(account.USDTaddress);
     setCopiedSnackbarOpen(true);
   };
 
