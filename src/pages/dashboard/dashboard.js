@@ -702,8 +702,8 @@ function Dashboard({
               </Grid>
               <Grid item xs={4}>
                 <Grid className='title'>BTC/USDT</Grid>
-                <Grid className={'sum '+prices.data.BTC.quote.USD.percent_change_24h>0?"green":"red"}>{(prices.data.BTC.quote.USD.price).toFixed(3)}</Grid>
-                <Grid className={`gain `+prices.data.BTC.quote.USD.percent_change_24h>0?"green":"red"}>{(prices.data.BTC.quote.USD.percent_change_24h).toFixed(2)}%</Grid>
+                <Grid className={'sum '+prices.data.BTC.quote.USD.percent_change_24h>0?"green":"red"}>{Number(prices.data.BTC.quote.USD.price).toFixed(3)}</Grid>
+                <Grid className={`gain `+prices.data.BTC.quote.USD.percent_change_24h>0?"green":"red"}>{Number(prices.data.BTC.quote.USD.percent_change_24h).toFixed(2)}%</Grid>
               </Grid>
             </Grid>
             <Divider component="li" className='line' />
