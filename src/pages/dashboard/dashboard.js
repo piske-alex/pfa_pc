@@ -510,13 +510,24 @@ function Dashboard({
             }
           }
           setList([
-            { key: "PFA", price: 2.001,  qty: (Math.random()*800+8000).toFixed(2), color: 'white' },
+            { key: "PFA", price: 1.000.toFixed(3),  qty: (Math.random()*800+8000).toFixed(2), color: 'white' },
             { key: "HAD", price: 1.000.toFixed(3),  qty: (Math.random()*800+6000).toFixed(2), color: 'white' },
-            { key: "YHAD", price: 1.002.toFixed(3), qty: (Math.random()*800+6000).toFixed(2), color: 'white' },
+            { key: "YHAD", price: 1.000.toFixed(3), qty: (Math.random()*800+6000).toFixed(2), color: 'white' },
             { key: "BTC", price: Number(BTC.priceUsd).toFixed(3), qty: numberFormat(BTC.volumeUsd24Hr), color: BTC.changePercent24Hr > 0 ? "green":"red" },
             { key: "XRP", price: Number(XRP.priceUsd).toFixed(3), qty: numberFormat(XRP.volumeUsd24Hr), color: XRP.changePercent24Hr > 0 ? "green":"red" },
             { key: "ETH", price: Number(ETH.priceUsd).toFixed(3), qty: numberFormat(ETH.volumeUsd24Hr), color: ETH.changePercent24Hr > 0 ? "green":"red" }]);
+          setPrices({data:{
+              BTC:{
+                quote:{
+                  USD:{
+                    price:BTC.priceUsd,
+                    percent_change_24h:BTC.changePercent24Hr
+                  }
+                }
+              }
+            }})
         }).catch(e => console.log('error:', e));
+
   }, [
       transactionCount,
       Math.floor(new Date().getTime() / (accountInfoRefreshTime * 1000)),
@@ -686,7 +697,7 @@ function Dashboard({
               </Grid>
               <Grid item xs={4} className='center'>
                 <Grid className='title'>HAD/USDT</Grid>
-                <Grid className='sum'>1.500</Grid>
+                <Grid className='sum'>1.100</Grid>
                 <Grid className='gain green'>+0.001%</Grid>
               </Grid>
               <Grid item xs={4}>
