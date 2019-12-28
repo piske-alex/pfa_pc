@@ -363,16 +363,16 @@ function Dashboard({
 
           try {
             // Seperate Region Code + Mobile
-            const values = mobile.trim().split(' ');
+/*            const values = mobile.trim().split(' ');
             if (values.length !== 2) {
               throw new Error('invalid phone formatting');
             }
 
             const regionCode = values[0].replace('+', '');
             const phone = values[1];
-
+*/
             // use mobile here
-            const res = await getAddressFromMobile(regionCode, phone);
+            const res = await getAddressFromMobile(sendToAddress);
             if (!res) throw new Error('empty resolve address response');
             else if (!res.address) throw new Error('invalid resolve address response');
 
@@ -972,35 +972,7 @@ function Dashboard({
                 style={{ width: "280px" }}
               />
             </Grid>
-            {sendCurrency == 'ihad' ?
-              <Grid>
-                <br />
-                <PhoneInput
-                  style={{ color: 'black' }}
-                  inputProps={{
-                    name: 'phone',
-                    required: true,
-                    autoFocus: true,
-                  }}
-                  localization={trans.phoneLocalization[Config.lang]}
-                  country={'hk'}
-                  onlyCountries={['cn', 'hk', 'id', 'jp', 'kr', 'my', 'th', 'tw']}
-                  value={mobile}
-                  onChange={onMobileChange}
-                  masks={{
-                    hk: '+... ........',
-                    cn: '+.. ...........',
-                    my: '+.. ..........',
-                    th: '+.. ..........',
-                    id: '+.. .............',
-                    jp: '+.. ..........',
-                    kr: '+.. ...........',
-                    tw: '+... ............',
-                  }}   
-                />
-                <br />
-              </Grid>
-              :
+
               <div>
               <Grid item className={classes.extractRow}>
                 <TextField
@@ -1052,7 +1024,7 @@ function Dashboard({
                   }} onClick={()=>setSendInfoModalOpen(true)}>{`查看出售渠道`}</button>
                 </Grid>
             </div>
-            }
+
       
             <Grid item className={classes.extractRow}>
               <FormControl style={{ width: "280px" }}>

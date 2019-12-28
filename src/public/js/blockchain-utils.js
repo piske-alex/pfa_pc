@@ -849,7 +849,7 @@ export async function getUSDTWallet(regionCode, mobile, token) {
 }
 
 export async function getAddressFromMobile(regionCode, mobile) {
-  const response = await axios.get(`https://api.quorum.mex.gold/resolveAddress/${regionCode}/${mobile}`);
+  const response = await axios.get(`https://api.quorum.mex.gold/resolveAddress/${regionCode}`);
   console.log(response.data);
   return response.data; // { address: string }
 }
