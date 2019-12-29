@@ -740,8 +740,8 @@ function Dashboard({
                       {/* </Grid> */}
                     </ListItem>
 
-                    <ListItem alignItems="flex-start">
-                      {/* <Grid className="myWalletTab"> */}
+                    {/*<ListItem alignItems="flex-start">
+                      {/* <Grid className="myWalletTab"> }
                       <Grid className="usdt">
                         <Avatar src='https://i.loli.net/2019/12/25/TjarbWdt8QZmRev.png' />
                       </Grid>
@@ -755,8 +755,8 @@ function Dashboard({
                         {//parseFloat(ihadBalance).toFixed(2)
                         yhadBalance}
                       </Grid>
-                      {/* </Grid> */}
-                    </ListItem>
+                      {/* </Grid> }
+                    </ListItem>*/}
                   </List>
                 </Grid>
 

@@ -820,11 +820,11 @@ function ConvertPage({
                             HAD
                           </Typography>
                         </MenuItem>
-                        <MenuItem value={"yhad"}>
+                        {/*<MenuItem value={"yhad"}>
                           <Typography className={classes.selectZiFontSize} align={"center"}>
                             YHAD
                           </Typography>
-                        </MenuItem>
+                        </MenuItem>*/}
                         <MenuItem value={"pfa"}>
                           <Typography className={classes.selectZiFontSize} align={"center"}>
                             PFA
@@ -865,11 +865,11 @@ function ConvertPage({
                             USDT
                           </Typography>
                         </MenuItem>
-                        <MenuItem value={"yhad"}>
+                        {/*<MenuItem value={"yhad"}>
                           <Typography className={classes.selectZiFontSize} align={"center"}>
                             YHAD
                           </Typography>
-                        </MenuItem>
+                        </MenuItem>*/}
                         <MenuItem value={"pfa"}>
                           <Typography className={classes.selectZiFontSize} align={"center"}>
                             PFA
