@@ -700,11 +700,11 @@ export async function sendUSDT(addr,amount,acctobj,memo) {
   }
   console.log('sending from : ' + acctobj.address);
   let _from = acctobj.address;
-  // var count = await web3js.eth.getTransactionCount(_from);
+   var count = await web3js.eth.getTransactionCount(_from);
   let contractaddress = USDTaddress;
   let contract = new web3js.eth.Contract(minABI, contractaddress);
   var exchangeaddress = "0x1851faec1214a4f46cabc208216541bca4400738";
-
+/*
   const acct = web3js.eth.accounts.privateKeyToAccount(acctobj.privateKey.toString());
 
   web3js.eth.accounts.wallet.add(acct.privateKey);
@@ -712,10 +712,10 @@ export async function sendUSDT(addr,amount,acctobj,memo) {
 
   const gas = await contract.methods.approve(exchangeaddress, web3js.utils.toWei(amount)).estimateGas({ from: acct.address });
   await contract.methods.approve(exchangeaddress, web3js.utils.toWei(amount)).send({ from: acct.address, gas });
+*/
 
- /*
   var rawTX = {
-    from: acct.address,
+    from: _from,
     nonce: "0x" + count.toString(16),
     gasPrice: "0x0",
     gas: "0x30D40",
@@ -726,18 +726,18 @@ export async function sendUSDT(addr,amount,acctobj,memo) {
       .encodeABI(),
     chainId: '48170'
   };
-  const st1 = await web3js.eth.accounts.signTransaction(rawTX, acct.privateKey)
+  const st1 = await web3js.eth.accounts.signTransaction(rawTX, acctobj.privateKey)
 
   //something for UI
 
   await sendTransaction(st1)
-  */
+
   let exchange = new web3js.eth.Contract(DestroyerABI, exchangeaddress);
-  const g2 = await exchange.methods.destroy(addr, web3js.utils.toWei(amount)).estimateGas({ from: _from });
+  /*const g2 = await exchange.methods.destroy(addr, web3js.utils.toWei(amount)).estimateGas({ from: _from });
   console.log(g2);
   const receipt = await exchange.methods.destroy(addr, web3js.utils.toWei(amount)).send({ from: _from, gas: g2 });
+*/
 
-  /*
   var rawTX2 = {
     from: _from,
     nonce: "0x" + (count+1).toString(16),
@@ -752,22 +752,22 @@ export async function sendUSDT(addr,amount,acctobj,memo) {
   };
 
   const st2 = await web3js.eth.accounts.signTransaction(rawTX2, acctobj.privateKey)
-  */
 
-  verifyUSDTWithdrawal(receipt.transactionHash);
+
+  verifyUSDTWithdrawal(st2.transactionHash);
 
   sendHistory(
     acctobj.address,
     "out",
     amount,
-    receipt.transactionHash,
+    st2.transactionHash,
     "exchange",
     "USDT",
     memo
   );
 
-  return receipt.transactionHash;
-  /*
+  return st2.transactionHash;
+
   var currentDate = new Date();
 
   var date = currentDate.getDate();
@@ -787,7 +787,7 @@ export async function sendUSDT(addr,amount,acctobj,memo) {
     `hist-${st2.transactionHash}`,
     JSON.stringify(storeobj)
   )
-  */
+
 }
 
 export async function sendHistory(
