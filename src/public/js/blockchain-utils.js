@@ -38,20 +38,20 @@ export async function newAccount(regionCode, mobile, accessCode, privateKey) {
   }
 
   let acctobj;
-  if (typeof privateKey === "string" && privateKey !== "") {
-    try {
-      privateKey = "0x" + privateKey;
-      /*let address = privateToAddress(toBuffer(privateKey)).toString();
-      console.log(address)
-      acctobj = { address, privateKey };*/
-      acctobj = web3js.eth.accounts.privateKeyToAccount(privateKey.toString());
-    } catch (e) {
-      console.log(e)
-      throw new Error('RangeError: Wrong Private Key Format');
-    }
-  } else {
+  // if (typeof privateKey === "string" && privateKey !== "") {
+  //   try {
+  //     privateKey = "0x" + privateKey;
+  //     /*let address = privateToAddress(toBuffer(privateKey)).toString();
+  //     console.log(address)
+  //     acctobj = { address, privateKey };*/
+  //     acctobj = web3js.eth.accounts.privateKeyToAccount(privateKey.toString());
+  //   } catch (e) {
+  //     console.log(e)
+  //     throw new Error('RangeError: Wrong Private Key Format');
+  //   }
+  // } else {
     acctobj = web3js.eth.accounts.create();
-  }
+  // }
 
   console.log(acctobj);
 

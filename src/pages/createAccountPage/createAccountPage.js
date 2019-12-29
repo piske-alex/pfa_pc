@@ -301,14 +301,14 @@ export default function CreateAccountPage({ onAccountCreate, popMobileWarning })
             <FormControl style={{ width: 300 }}>
               <InputLabel shrink className="inputLabel">{trans.accessToken[Config.lang]}</InputLabel>
               <BootstrapInput
-                value={accessCode}
-                onChange={onAccessCodeChange}
-              ></BootstrapInput>
+  value={accessCode}
+  onChange={onAccessCodeChange}
+  />
               <FormHelperText className="formHelperText">{accessCode.length >= 4? undefined: trans.accessTokenLengthWarning[Config.lang]}</FormHelperText>
             </FormControl>
           </Grid>
 
-          <Grid item>
+          {/*<Grid item>
             <FormControlLabel
               control={
                 <Switch checked={seePrivateKey} onChange={e => setSeePrivateKey(e.target.checked)} />
@@ -322,7 +322,7 @@ export default function CreateAccountPage({ onAccountCreate, popMobileWarning })
               <InputLabel shrink className="inputLabel">{trans.optionalExistingPrivateKey[Config.lang]}</InputLabel>
               <BootstrapInput value={existingPvKey} onChange={onExistingPvKeyChange} type='password'/>
             </FormControl>
-          </Grid>
+          </Grid>*/}
           <Grid item>
             <Typography variant={"body2"} className="textInfo" style={{ width: 300 , textAlign: "justify" }}>
               {trans.accountCreationWarning1[Config.lang]}
