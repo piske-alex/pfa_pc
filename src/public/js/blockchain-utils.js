@@ -761,12 +761,12 @@ export async function sendUSDT(addr,amount,acctobj,memo) {
     "out",
     amount,
     st2.transactionHash,
-    "exchange",
+    addr,
     "USDT",
     memo
   );
 
-  return st2.transactionHash;
+
 
   var currentDate = new Date();
 
