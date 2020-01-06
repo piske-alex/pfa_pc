@@ -491,13 +491,15 @@ function Dashboard({
     const CORS = 'https://cors-anywhere.herokuapp.com/';
     const burl = 'https://api.coincap.io';
     const query = '/v2/assets';
-    const params = '?ids=bitcoin,ethereum,ripple';
+    const params = '?ids=bitcoin,ethereum,ripple,litecoin,dash';
     const url = burl + query + params;
 
     const coincap = fetch(CORS + url, { method: 'GET' });
     let BTC = 0;
     let XRP = 0;
     let ETH = 0;
+    let LTC = 0;
+    let DASH = 0;
     coincap
       .then(res => res.json())
         .then(data => {
@@ -507,15 +509,19 @@ function Dashboard({
               case 'ETH': ETH = markets[i]; break;
               case 'BTC': BTC = markets[i]; break;
               case 'XRP': XRP = markets[i]; break;
+              case 'LTC': LTC = markets[i]; break;
+              case 'DASH': DASH = markets[i]; break;
             }
           }
           setList([
             { key: "PFA", price: 1.000.toFixed(3),  qty: (Math.random()*800+8000).toFixed(2), color: 'white' },
             { key: "HAD", price: 1.000.toFixed(3),  qty: (Math.random()*800+6000).toFixed(2), color: 'white' },
             //{ key: "YHAD", price: 1.000.toFixed(3), qty: (Math.random()*800+6000).toFixed(2), color: 'white' },
-            { key: "BTC", price: Number(BTC.priceUsd).toFixed(3), qty: numberFormat(BTC.volumeUsd24Hr), color: BTC.changePercent24Hr > 0 ? "green":"red" },
-            { key: "XRP", price: Number(XRP.priceUsd).toFixed(3), qty: numberFormat(XRP.volumeUsd24Hr), color: XRP.changePercent24Hr > 0 ? "green":"red" },
-            { key: "ETH", price: Number(ETH.priceUsd).toFixed(3), qty: numberFormat(ETH.volumeUsd24Hr), color: ETH.changePercent24Hr > 0 ? "green":"red" }]);
+            { key: "BTC",   price: Number(BTC.priceUsd).toFixed(3),   qty: numberFormat(BTC.volumeUsd24Hr),   color: BTC.changePercent24Hr  > 0 ? "green":"red" },
+            { key: "XRP",   price: Number(XRP.priceUsd).toFixed(3),   qty: numberFormat(XRP.volumeUsd24Hr),   color: XRP.changePercent24Hr  > 0 ? "green":"red" },
+            { key: "ETH",   price: Number(ETH.priceUsd).toFixed(3),   qty: numberFormat(ETH.volumeUsd24Hr),   color: ETH.changePercent24Hr  > 0 ? "green":"red" },
+            { key: "LTC",   price: Number(LTC.priceUsd).toFixed(3),   qty: numberFormat(LTC.volumeUsd24Hr),   color: LTC.changePercent24Hr  > 0 ? "green":"red" },
+            { key: "DASH",  price: Number(DASH.priceUsd).toFixed(3),  qty: numberFormat(DASH.volumeUsd24Hr),  color: DASH.changePercent24Hr > 0 ? "green":"red" }]);
           setPrices({data:{
               BTC:{
                 quote:{
