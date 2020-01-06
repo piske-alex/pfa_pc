@@ -297,13 +297,13 @@ function Dashboard({
     setnoinfoSnackbarOpen(false);
   }
   const [tradeDetails,setTradeDetails] = React.useState({});
-  const handleTradeModalOpen = (hash)=>{
-    let dt = localStorage.getItem('hist-'+hash)
-    console.log(dt)
-    if(dt==null){
+  const handleTradeModalOpen = (entry)=>{
+    // let dt = localStorage.getItem('hist-'+hash)
+    // console.log(dt)
+    if(entry == null){
       setnoinfoSnackbarOpen(true);
     }else{
-      setTradeDetails(JSON.parse(dt))
+      setTradeDetails(entry)
       setTradeModalOpen(true)
     }
   }
@@ -374,7 +374,10 @@ function Dashboard({
             // use mobile here
             const res = await getAddressFromMobile(sendToAddress);
             if (!res) throw new Error('empty resolve address response');
-            else if (!res.address) throw new Error('invalid resolve address response');
+            else if (!res.address) {
+              setTransactionFailedSnackbarOpen(true);
+              throw new Error('invalid resolve address response');
+            }
 
             // send coin
             await sendToken(ihadAddress, account, res.address, sendAmount,memo);
@@ -798,7 +801,9 @@ function Dashboard({
                       )*/
                         .map(entry => (
                           <ListItem alignItems="flex-start" style={{paddingTop:"0px",paddingBottom:"0px"}} onClick={()=>{
-                            handleTradeModalOpen(entry.hash)
+                            console.log("fmkesomfkoseaf");
+                            console.log(entry);
+                            handleTradeModalOpen(entry)
                           }}>
                             {entry.type === "in" ? (
                               <ListItemIcon>
@@ -1320,10 +1325,10 @@ function Dashboard({
             spacing={2}
             style={{ marginLeft: "10px", marginRight: "10px" }}
           >
-            <p>{t.sendAddress[Config.lang]}: {tradeDetails.from}</p>
-            <p>{t.designationAddress[Config.lang]}:	{tradeDetails.to}</p>
-            <p>{t.type[Config.lang]}: {tradeDetails.type}</p>
-            <p>{t.quantity[Config.lang]}: {tradeDetails.amt}</p>
+            <p>{t.sendAddress[Config.lang]}: {tradeDetails.type === 'in' ? tradeDetails.counterparty : account.USDTaddress}</p>
+            <p>{t.designationAddress[Config.lang]}:	{tradeDetails.type === 'in' ? account.USDTaddress : tradeDetails.counterparty}</p>
+            <p>{t.type[Config.lang]}: {tradeDetails.type === '' ? t.in[Config.lang] : t.out[Config.lang]}</p>
+            <p>{t.quantity[Config.lang]}: {tradeDetails.absvalue}</p>
             <p>{t.remark[Config.lang]}: {tradeDetails.memo}</p>
             <p>{t.time[Config.lang]}: {tradeDetails.time}</p>
           </Grid>

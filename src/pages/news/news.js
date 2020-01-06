@@ -49,7 +49,7 @@ export default class News extends React.Component {
             color: '#555'
         }
         const items = this.state.news.map((item, key) =>
-            (item.name === 'item') ? 
+            (item.name === 'item') ?
                 <li key={item.children[4].value} style={listStyle}>
                     <a href={item.children[1].value} target={"_blank"} style={fontStyle}>{item.children[0].value}</a>
                     <span style={dateStyle}>{item.children[3].value}</span>

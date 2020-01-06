@@ -159,6 +159,12 @@ export default {
   pasteHere: {
     ch: "這裡貼上", en: "Paste Here",
   },
+  in: {
+    ch: "接收", en: "Import"
+  },
+  out: {
+    ch: "傳送", en: "Export"
+  },
   import: {
     ch: "匯入", en: "Import Key",
   },
