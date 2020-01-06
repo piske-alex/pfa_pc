@@ -386,23 +386,23 @@ function ConvertPage({
   const rates = {
     usdt:{
       ihad:1,
-      pfa:1/2,
+      pfa:1/1.5,
       yhad:1
     },
     ihad:{
       usdt:1,
-      pfa:2,
+      pfa:1/1.5,
       yhad:1
     },
     yhad:{
       ihad:1,
-      pfa:1/2,
+      pfa:1/1.5,
       usdt:1
     },
     pfa:{
-      usdt:2,
-      yhad:2,
-      ihad:2
+      usdt:1.5,
+      yhad:1.5,
+      ihad:1.5
     }
   };
 
