@@ -1329,7 +1329,7 @@ function Dashboard({
             <p>{t.designationAddress[Config.lang]}:	{tradeDetails.type === 'in' ? account.USDTaddress : tradeDetails.counterparty}</p>
             <p>{t.type[Config.lang]}: {tradeDetails.type === '' ? t.in[Config.lang] : t.out[Config.lang]}</p>
             <p>{t.quantity[Config.lang]}: {tradeDetails.absvalue}</p>
-            <p>{t.remark[Config.lang]}: {tradeDetails.memo}</p>
+            <p dangerouslySetInnerHTML={{ __html: (t.remark[Config.lang] + ' : ' + decodeURIComponent(tradeDetails.memo))}}></p>
             <p>{t.time[Config.lang]}: {tradeDetails.time}</p>
           </Grid>
         </div>
