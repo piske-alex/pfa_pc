@@ -420,8 +420,8 @@ function Dashboard({
       }
     }
     }})
-  const [list,setList] = React.useState([{ key: "PFA", price: 1.000, qty: (Math.random()*800+8000).toFixed(2), color: '' },
-    { key: "HAD", price: 1.500, qty: (Math.random()*800+6000).toFixed(2), color: 'green' },
+  const [list,setList] = React.useState([{ key: "PFA", price: 1.500, qty: (Math.random()*800+8000).toFixed(2), color: '' },
+    { key: "HAD", price: 1.000, qty: (Math.random()*800+6000).toFixed(2), color: 'green' },
     { key: "BTC", price: 0, qty: 0, color: 'red' },
     { key: "XRP", price: 0, qty: 0, color: 'green' },
     { key: "ETH", price: 0, qty: 0, color: 'red' },])
@@ -514,7 +514,7 @@ function Dashboard({
             }
           }
           setList([
-            { key: "PFA", price: 1.000.toFixed(3),  qty: (Math.random()*800+8000).toFixed(2), color: 'white' },
+            { key: "PFA", price: 1.500.toFixed(3),  qty: (Math.random()*800+8000).toFixed(2), color: 'white' },
             { key: "HAD", price: 1.000.toFixed(3),  qty: (Math.random()*800+6000).toFixed(2), color: 'white' },
             //{ key: "YHAD", price: 1.000.toFixed(3), qty: (Math.random()*800+6000).toFixed(2), color: 'white' },
             { key: "BTC",   price: Number(BTC.priceUsd).toFixed(3),   qty: numberFormat(BTC.volumeUsd24Hr),   color: BTC.changePercent24Hr  > 0 ? "green":"red" },
@@ -698,12 +698,12 @@ function Dashboard({
             <Grid className='top' spacing={0} container justify="center">
               <Grid item xs={4}>
                 <Grid className='title'>PFA/USDT</Grid>
-                <Grid className='sum'>1.000</Grid>
+                <Grid className='sum'>1.500</Grid>
                 <Grid className='gain red'>+0.001%</Grid>
               </Grid>
               <Grid item xs={4} className='center'>
                 <Grid className='title'>HAD/USDT</Grid>
-                <Grid className='sum'>1.100</Grid>
+                <Grid className='sum'>1.000</Grid>
                 <Grid className='gain green'>+0.001%</Grid>
               </Grid>
               <Grid item xs={4}>
