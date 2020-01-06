@@ -15,6 +15,7 @@ import ConvertPage from "./pages/convertPage/convertPage";
 import FootNavigation from "./pages/foot/footNavigation";
 import AboutUs from "./pages/aboutUs/aboutUs";
 import MyWallet from "./pages/myWallet/myWallet";
+import News from "./pages/news/news";
 import Config from "./public/js/config";
 import Details from "./pages/details/details";
 
@@ -227,6 +228,15 @@ function App(props) {
               </div>
             )}
           />
+          <Route
+          path={"/news"}
+          render={() => (
+            <div>
+              <News props={props} />
+              <FootNavigation {...props} />
+            </div>
+          )}
+        />
           <Route path={"/account-manager"} component={AccountManagerPanel} />
           <Route
             render={() => (

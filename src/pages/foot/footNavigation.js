@@ -16,7 +16,7 @@ export default class FootNavigation extends Component {
         { title: t.footNavigation[Config.lang][0], icon: 'home', toPage: '/app' },
         { title: t.footNavigation[Config.lang][1], icon: 'account_balance_wallet', toPage: '/myWallet' },
         { title: t.footNavigation[Config.lang][2], icon: 'swap_horizontal_circle', toPage: '/convert-page' },
-        { title: t.footNavigation[Config.lang][3], icon: 'language', toPage: '/app' },
+        { title: t.footNavigation[Config.lang][3], icon: 'language', toPage: '/news' },
         { title: t.footNavigation[Config.lang][4], icon: 'group', toPage: '/aboutUs' },
       ],
     };
@@ -33,10 +33,10 @@ export default class FootNavigation extends Component {
   };
 
   onPress(model, index) {
-    if (index === 3) {
-      Toast.info(t.footNavigations.message[Config.lang], 3, null, false);
-      return;
-    }
+    // if (index === 3) {
+    //   Toast.info(t.footNavigations.message[Config.lang], 3, null, false);
+    //   return;
+    // }
     if (this.state.selectedTab !== index) {
       this.props.history.push(model.toPage);//跳转页面
       this.setState({ selectedTab: index });
