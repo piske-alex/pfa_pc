@@ -11,8 +11,8 @@ const BootstrapInput = withStyles(theme => ({
         border: '1px solid #222834',
         transition: theme.transitions.create(['border-color', 'box-shadow']),
         '&:focus-within': {
-        boxShadow: `${fade(theme.palette.primary.main, 0.25)} 0 0 0 0.2rem`,
-        borderColor: '#BEB689',
+            boxShadow: `${fade(theme.palette.primary.main, 0.25)} 0 0 0 0.2rem`,
+            borderColor: '#BEB689',
         },
     },
     input: {
@@ -20,6 +20,18 @@ const BootstrapInput = withStyles(theme => ({
         padding: '5.5px 5.5px',
         fontSize: 16,
         color:'#FFB601',
+        fontFamily: [
+          '-apple-system',
+          'BlinkMacSystemFont',
+          '"Segoe UI"',
+          'Roboto',
+          '"Helvetica Neue"',
+          'Arial',
+          'sans-serif',
+          '"Apple Color Emoji"',
+          '"Segoe UI Emoji"',
+          '"Segoe UI Symbol"',
+        ].join(',')
     },
 }))(InputBase);
 

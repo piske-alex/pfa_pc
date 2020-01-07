@@ -1,23 +1,23 @@
 import React from "react";
+import useCookies from "react-cookie/cjs/useCookies";
 import { withRouter, Switch, Route} from "react-router-dom";
 import { Snackbar } from "@material-ui/core";
-import createMuiTheme from "@material-ui/core/styles/createMuiTheme";
 import { ThemeProvider } from "@material-ui/styles";
-import CreateAccountPage from "./pages/createAccountPage/createAccountPage";
+import createMuiTheme from "@material-ui/core/styles/createMuiTheme";
 import Dashboard from "./pages/dashboard/dashboard";
-import HistoryPage from "./historyPage"
 import trans from "./public/js/translation";
 import { newAccount, getUSDTWallet, createDepositWallet } from "./public/js/blockchain-utils";
-import LoginPage from "./pages/login/login";
-import AccountManagerPanel from "./pages/accountManagerPanel/accountManagerPanel";
-import useCookies from "react-cookie/cjs/useCookies";
-import ConvertPage from "./pages/convertPage/convertPage";
-import FootNavigation from "./pages/foot/footNavigation";
+import Config from "./public/js/config";
 import AboutUs from "./pages/aboutUs/aboutUs";
+import AccountManagerPanel from "./pages/accountManagerPanel/accountManagerPanel";
+import ConvertPage from "./pages/convertPage/convertPage";
+import Details from "./pages/details/details";
+import FootNavigation from "./pages/foot/footNavigation";
+import HistoryPage from "./historyPage"
+import LoginPage from "./pages/login/login";
 import MyWallet from "./pages/myWallet/myWallet";
 import News from "./pages/news/news";
-import Config from "./public/js/config";
-import Details from "./pages/details/details";
+import RegisterPage from "./pages/register/register";
 
 const theme = createMuiTheme({
   palette: {
@@ -106,7 +106,7 @@ function App(props) {
     setCannotLoginSnackbarOpen(false);
   };
 
-  const onAccountCreate = async (regionCode, mobile, accessCode, pvKey) => {
+  const onRegister = async (regionCode, mobile, accessCode, pvKey) => {
     try {
       await newAccount(regionCode, mobile, accessCode, pvKey);
       setAccountCreatedSnackbarOpen(true);
@@ -159,7 +159,7 @@ function App(props) {
           <Route
             path={"/create-account"}
             render={() => (
-              <CreateAccountPage onAccountCreate={onAccountCreate} popMobileWarning={popMobileWarning} />
+              <RegisterPage onRegister={onRegister} popMobileWarning={popMobileWarning} />
             )}
           />
           <Route
