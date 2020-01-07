@@ -8,7 +8,7 @@ import Dashboard from "./pages/dashboard/dashboard";
 import HistoryPage from "./historyPage"
 import trans from "./public/js/translation";
 import { newAccount, getUSDTWallet, createDepositWallet } from "./public/js/blockchain-utils";
-import LoginAccountPage from "./pages/loginAccountPage/loginAccountPage";
+import LoginPage from "./pages/login/login";
 import AccountManagerPanel from "./pages/accountManagerPanel/accountManagerPanel";
 import useCookies from "react-cookie/cjs/useCookies";
 import ConvertPage from "./pages/convertPage/convertPage";
@@ -122,7 +122,7 @@ function App(props) {
 
 
   // ray.li.bot : username = region + mobile, password = access code
-  const onAccountLogin = async (username, password) => {
+  const onLogin = async (username, password) => {
     try {
       // Seperate Region Code + Mobile
       const values = username.trim().split(' ');
@@ -240,8 +240,8 @@ function App(props) {
           <Route path={"/account-manager"} component={AccountManagerPanel} />
           <Route
             render={() => (
-              <LoginAccountPage
-                onAccountLogin={onAccountLogin}
+              <LoginPage
+                onLogin={onLogin}
                 prefillUsername={prefillUsername}
               />
             )}
