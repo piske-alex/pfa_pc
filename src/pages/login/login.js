@@ -12,7 +12,7 @@ import 'react-phone-input-2/lib/style.css';
 import BootstrapInput from '../../components/bootstrap-input';
 import MobileInput from '../../components/mobile-input';
 
-export default function LoginPage({ onLogin }) {
+function LoginPage({ onLogin }) {
   const logoUrl = getLogoUrl();
 
   const [username, setUsername] = useState('');                                               // username state
@@ -22,9 +22,9 @@ export default function LoginPage({ onLogin }) {
 
   const usernameChange  = (data) => setUsername((data.split(' ').length === 1) ? '' : data);  // little hack for re-formatting the mobile number
   const showPwdToggle   = () => setShowPwd(showPwd => !showPwd);                              // toggle the show password feature
-  const acCodeChange    = (event) => setAcCode(event.target.value);                           // method when access code input
+  const acCodeChange    = (event) => setAcCode(event.target.value);                           // method when access code changed
   const swipeLang       = () => {                                                             // swipe language when lang button clicked
-    config.lang = (config.lang == 'ch') ? 'en' : 'ch';
+    config.lang = (config.lang === 'ch') ? 'en' : 'ch';
     localStorage.setItem('lang', config.lang);
     setConfig(config.lang);
   };
@@ -33,7 +33,7 @@ export default function LoginPage({ onLogin }) {
   return (
     <VerticalCenter gridStyle={{ minHeight: '80vh'}}>
       <div className='lang' onClick={swipeLang}>
-        <span className='on'>{config.lang == 'ch' ? '中' : 'EN'}</span>/<span className='notOn'>{config.lang == 'ch' ? 'EN' : '中'}</span>
+        <span className='on'>{config.lang === 'ch' ? '中' : 'EN'}</span>/<span className='notOn'>{config.lang === 'ch' ? 'EN' : '中'}</span>
       </div>
       <HorizontalCenter>
         <Grid container alignItems={'center'} direction={'column'} spacing={2}>
@@ -99,7 +99,7 @@ export default function LoginPage({ onLogin }) {
           </Grid>
 
           <Grid item >
-            {config.lang == 'en' ?
+            {config.lang === 'en' ?
               <Typography variant={'body2'} className='textImport' component={Link} to={'/account-manager'}>
                 {trans.importExport[config.lang]}&nbsp;
               </Typography>
@@ -107,7 +107,7 @@ export default function LoginPage({ onLogin }) {
             <Typography variant={'body2'} className='textWallet'>
               {trans.walletImportExport[config.lang]}
             </Typography>
-            {config.lang == 'ch' ? 
+            {config.lang === 'ch' ? 
               <Typography variant={'body2'} className='textImport' component={Link} to={'/account-manager'}>
                 {trans.importExport[config.lang]}
               </Typography>
@@ -118,3 +118,5 @@ export default function LoginPage({ onLogin }) {
     </VerticalCenter>
   );
 }
+
+export default LoginPage;

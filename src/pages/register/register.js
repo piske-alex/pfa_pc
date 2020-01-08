@@ -14,7 +14,7 @@ import registerStyles from './style.js';
 
 const smsUrl = 'https://api.quorum.mex.gold/sms/';
 
-export default function RegisterPage({ onRegister, popMobileWarning }) {
+function RegisterPage({ onRegister, popMobileWarning }) {
   const classes = registerStyles();
   const [failedSB, setFailedSB]           = useState(false);                                        // snackbar for failed message account not created state
   const [username, setUsername]           = useState('');                                           // username state
@@ -91,13 +91,11 @@ export default function RegisterPage({ onRegister, popMobileWarning }) {
               ></MobileInput>
             </FormControl>
           </Grid>
-
           <Grid item>
             <Button className='CommonButtonStyle' disabled={counter > 0} style={{ width: 300 }} variant='contained' color='primary' onClick={sendCode}>
               {trans.getCode[config.lang]}{ (counter > 0) ? ' (' + counter + ')' : '' }
             </Button>
           </Grid>
-
           <Grid item>
             <FormControl style={{ width: 300 }}>
               <InputLabel shrink className='inputLabel'>{trans.accessToken[config.lang]}</InputLabel>
@@ -108,21 +106,6 @@ export default function RegisterPage({ onRegister, popMobileWarning }) {
               <FormHelperText className='formHelperText'>{acCode.length >= 4? undefined: trans.accessTokenLengthWarning[config.lang]}</FormHelperText>
             </FormControl>
           </Grid>
-          {/*<Grid item>
-            <FormControlLabel
-              control={
-                <Switch checked={seePrivateKey} onChange={e => setSeePrivateKey(e.target.checked)} />
-              }
-              style={{color:'#fff'}}
-              label={trans.createAccountPage.ERC20[config.lang]}
-            />
-          </Grid>
-          <Grid item>
-            <FormControl style={{ visibility: seePrivateKey ? 'visible' : 'hidden' ,width: 300 }}>
-              <InputLabel shrink className='inputLabel'>{trans.optionalExistingPrivateKey[config.lang]}</InputLabel>
-              <BootstrapInput value={existPK} onChange={existPKChange} type='password'/>
-            </FormControl>
-          </Grid>*/}
           <Grid item>
             <Typography variant={'body2'} className='textInfo' style={{ width: 300 , textAlign: 'justify' }}>
               {trans.accountCreationWarning1[config.lang]}
@@ -139,7 +122,6 @@ export default function RegisterPage({ onRegister, popMobileWarning }) {
             </Button>
           </Grid>
         </Grid>
-
       </HorizontalCenter>
 
       <Modal open={tosModalOpen} style={{ height: '100%' }} onBackdropClick={handleTosModalClose}>
@@ -170,3 +152,5 @@ export default function RegisterPage({ onRegister, popMobileWarning }) {
 
   );
 }
+
+export default RegisterPage;
