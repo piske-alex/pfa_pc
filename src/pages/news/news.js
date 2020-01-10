@@ -1,7 +1,6 @@
 import React from "react";
 var XMLParser = require('react-xml-parser');
 
-
 export default class News extends React.Component {
     
     constructor(props) {
@@ -19,10 +18,10 @@ export default class News extends React.Component {
         
         feeds.then((res)=>{
                 res.text().then((xml) => {
-                    console.log(xml);
+                    // console.log(xml);
                     var xml_json = new XMLParser().parseFromString(xml);    // Assume xmlText contains the example XML
                     if(xml_json) xml_json = xml_json.children[0].children;
-                    console.log(xml_json);
+                    // console.log(xml_json);
                     this.setState({
                         news: xml_json
                     });
@@ -30,6 +29,7 @@ export default class News extends React.Component {
             }).catch(() => console.error('Error in fetching the feeds'));
     }
 
+    // convert the date format
     getParsedDate(strDate){
         var date = new Date(strDate);
         var dd = date.getDate();

@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-const aboutUsStyles = makeStyles(theme => ({
+const aboutStyles = makeStyles(theme => ({
     headBlock: {
       backgroundColor: "#212733"
     },
@@ -97,4 +97,4 @@ const aboutUsStyles = makeStyles(theme => ({
     }
 }));
 
-export default aboutUsStyles;
+export default aboutStyles;

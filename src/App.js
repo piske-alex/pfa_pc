@@ -8,9 +8,9 @@ import Dashboard from "./pages/dashboard/dashboard";
 import trans from "./public/js/translation";
 import { newAccount, getUSDTWallet, createDepositWallet } from "./public/js/blockchain-utils";
 import Config from "./public/js/config";
-import AboutUs from "./pages/aboutUs/aboutUs";
+import About from "./pages/about/about";
 import AccountManagerPanel from "./pages/accountManagerPanel/accountManagerPanel";
-import ConvertPage from "./pages/convertPage/convertPage";
+import Exchange from "./pages/exchange/exchange";
 import Details from "./pages/details/details";
 import FootNavigation from "./pages/foot/footNavigation";
 import HistoryPage from "./historyPage"
@@ -177,10 +177,10 @@ function App(props) {
             )}
           />
           <Route
-            path={"/aboutus"}
+            path={"/about"}
             render={() => (
               <div>
-                <AboutUs props={props} account={account}
+                <About props={props} account={account}
                          currentUsername={currentUsername} handleLogout={handleLogout}/>
                 <FootNavigation {...props} />
               </div>
@@ -218,7 +218,7 @@ function App(props) {
           <Route path={"/convert-page"}
             render={() => (
               <div>
-                <ConvertPage
+                <Exchange
                   account={account}
                   currentUsername={currentUsername}
                   handleLogout={handleLogout}

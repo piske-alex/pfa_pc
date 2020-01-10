@@ -4,11 +4,12 @@ import { fade, withStyles } from '@material-ui/core/styles';
 const BootstrapInput = withStyles(theme => ({
     root: {
         'label + &': {
-        marginTop: theme.spacing(2.5),
+            marginTop: theme.spacing(2.5),
         },
         width:'100%',
         backgroundColor: '#222834',
         border: '1px solid #222834',
+        borderRadius: 5,
         transition: theme.transitions.create(['border-color', 'box-shadow']),
         '&:focus-within': {
             boxShadow: `${fade(theme.palette.primary.main, 0.25)} 0 0 0 0.2rem`,

@@ -26,7 +26,7 @@ export default {
   footNavigations: {
     message: { ch: "暫未提供，升級後開放市場新聞功能", en: "Will be updated shortly"}
   },
-  convertPage: {
+  exchange: {
     pay: { ch: "支 付", en: "Pay" },
     receive: { ch: "收 取", en: "Receive" },
   },

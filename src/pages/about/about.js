@@ -8,20 +8,19 @@ import trans from "../../public/js/translation";
 import config from "../../public/js/config";
 import { isEmpty } from "../../public/js/utils";
 
-import aboutUsStyles from './style.js';
+import aboutStyles from './style.js';
 import InfoModal from '../../components/information-modal';
 
 function AboutUs({ history, handleLogout, currentUsername, account }) {
-  const classes = aboutUsStyles();
-  const [longText, setLongText]         = useState("undefinede");
+  const classes = aboutStyles();
+  const [cookies]                       = useCookies(["pfa"]);
+  const [modalContent, setModalContent] = useState("undefinede");
   const [modalTitle, setModalTitle]     = useState("undefinede");
   const [tosModalOpen, setTosModalOpen] = useState(false);
-  const [cookies, setCookie]            = useCookies(["pfa"]);
   const [copiedSB, setCopiedSB]         = useState(false);
 
   window.Clipboard = (function(window, document, navigator) {
-    var textArea,
-      copy;
+    var textArea, copy;
 
     function isOS() {
       return navigator.userAgent.match(/ipad|iphone/i);
@@ -34,8 +33,7 @@ function AboutUs({ history, handleLogout, currentUsername, account }) {
     }
 
     function selectText() {
-      var range,
-        selection;
+      var range, selection;
 
       if (isOS()) {
         range = document.createRange();
@@ -66,7 +64,7 @@ function AboutUs({ history, handleLogout, currentUsername, account }) {
   })(window, document, navigator);
 
   const handleTosModalOpen = (x, y) => {
-    setLongText(x);
+    setModalContent(x);
     setModalTitle(y);
     setTosModalOpen(true);
   };
@@ -178,7 +176,7 @@ function AboutUs({ history, handleLogout, currentUsername, account }) {
             open = {tosModalOpen}
             close = {handleTosModalClose}
             title = {modalTitle}
-            content = {longText}></InfoModal>
+            content = {modalContent}></InfoModal>
         </Grid>
         <Grid className="pageFoot"/>
       </Grid>
