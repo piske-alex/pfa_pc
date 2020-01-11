@@ -280,6 +280,64 @@ export async function sendToken(contractaddress, acctobj, _to, amount,memo) {
 
 }
 export const USDTaddress = "0xfbd0f2a657633c15637c6c21d45d1d5f78860e27";
+export const PFAaddress = "0x573ec6db92dacd5779ccda6235185c244fe132cf"
+export async function USDTToPFA(acctobj, amount) {
+  let _from = acctobj.address;
+  var count = await web3js.eth.getTransactionCount(_from);
+  let contractaddress = USDTaddress;
+  let contract = new web3js.eth.Contract(minABI, contractaddress);
+  var exchangeaddress = "0x573ec6db92dacd5779ccda6235185c244fe132cf";
+  var rawTX = {
+    from: _from,
+    nonce: "0x" + count.toString(16),
+    gasPrice: "0x0",
+    gas: "0x30D40",
+    to: contractaddress,
+    value: "0x0",
+    data: contract.methods
+      .approve(exchangeaddress,web3js.utils.toWei(amount)) // michaellee8: changed from data.amount to amount
+      .encodeABI(),
+    chainId: '0x0'
+  };
+  const st1 = await web3js.eth.accounts.signTransaction(rawTX, acctobj.privateKey)
+  //something for UI
+
+  await sendTransaction(st1)
+
+
+  let contract2 = new web3js.eth.Contract(USDTtoIHADABI, exchangeaddress);
+  var rawTX2 = {
+    from: _from,
+    nonce: "0x" + (count+1).toString(16),
+    gasPrice: "0x0",
+    gas: "0x30D40",
+    to: exchangeaddress,
+    value: "0x0",
+    data: contract2.methods
+      .convertToIHAD() // michaellee8: changed from data.amount to amount
+      .encodeABI(),
+    chainId: '0x0'
+  };
+  var st2 = await web3js.eth.accounts.signTransaction(rawTX2, acctobj.privateKey)
+
+  await sendTransaction(st2)
+  // COMPLETE EXCHSNGE
+  sendHistory(
+    acctobj.address,
+    "out",
+    amount,
+    st2.transactionHash,
+    exchangeaddress,
+    "USDT","交換")
+  sendHistory(
+    acctobj.address,
+    "in",
+    amount ,
+    st2.transactionHash,
+    exchangeaddress,
+    "PFA","交換")
+}
+
 export async function USDTToIHAD(acctobj, amount) {
   let _from = acctobj.address;
   var count = await web3js.eth.getTransactionCount(_from);
@@ -335,12 +393,6 @@ export async function USDTToIHAD(acctobj, amount) {
             st2.transactionHash,
             exchangeaddress,
             "HAD","交換")
-
-
-
-
-
-
 }
 
 export async function IHADToUSDT(acctobj, amount) {
@@ -399,12 +451,64 @@ export async function IHADToUSDT(acctobj, amount) {
     st2.transactionHash,
     exchangeaddress,
     "USDT","交換")
+}
+
+export async function PFAToUSDT(acctobj, amount) {
+  let _from = acctobj.address;
+  var count = await web3js.eth.getTransactionCount(_from);
+  let contractaddress = PFAaddress
+  let contract = new web3js.eth.Contract(minABI, contractaddress);
+  var exchangeaddress = "0xD15267173ec5171d88C5CE20FC6587Ec2C2A2879";
+  var rawTX = {
+    from: _from,
+    nonce: "0x" + count.toString(16),
+    gasPrice: "0x0",
+    gas: "0x30D40",
+    to: contractaddress,
+    value: "0x0",
+    data: contract.methods
+      .approve(exchangeaddress, web3js.utils.toWei(amount)) // michaellee8: changed from data.amount to amount
+      .encodeABI(),
+    chainId: '0x0'
+  };
+  console.log(web3js.utils.toWei(amount))
+  const st1 = await web3js.eth.accounts.signTransaction(rawTX, acctobj.privateKey)
+  //something for UI
+
+  await sendTransaction(st1)
 
 
+  let contract2 = new web3js.eth.Contract(USDTtoIHADABI, exchangeaddress);
+  var rawTX2 = {
+    from: _from,
+    nonce: "0x" + (count+1).toString(16),
+    gasPrice: "0x0",
+    gas: "0x30D40",
+    to: exchangeaddress,
+    value: "0x0",
+    data: contract2.methods
+      .convertToUSDT() // michaellee8: changed from data.amount to amount
+      .encodeABI(),
+    chainId: '0x0'
+  };
+  var st2 = await web3js.eth.accounts.signTransaction(rawTX2, acctobj.privateKey)
 
-
-
-
+  await sendTransaction(st2)
+  // COMPLETE EXCHSNGE
+  sendHistory(
+    acctobj.address,
+    "out",
+    amount,
+    st2.transactionHash,
+    exchangeaddress,
+    "PFA","交換")
+  sendHistory(
+    acctobj.address,
+    "in",
+    amount ,
+    st2.transactionHash,
+    exchangeaddress,
+    "USDT","交換")
 }
 
 export async function etherBalance(acctobj) {

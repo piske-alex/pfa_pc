@@ -32,7 +32,7 @@ import {
   ihadAddress,
   tokenBalance,
   sendToken,
-  USDTToIHAD, IHADToUSDT, USDTaddress
+  USDTToIHAD, IHADToUSDT, USDTaddress, PFAToUSDT, USDTToPFA, pfa20Address
 } from "../../public/js/blockchain-utils";
 import QRCode from "qrcode.react";
 import TextField from "@material-ui/core/TextField";
@@ -336,6 +336,20 @@ function ConvertPage({
             setTransactionFailedSnackbarOpen(true);
           }
 
+        } else if (cdv === "pfaTOusdt") {
+          if(tempBase<=pfaBalance){
+            await PFAToUSDT(account,tempBase,)
+          }else{
+            console.log("err0")
+            setTransactionFailedSnackbarOpen(true);
+          }
+        } else if (cdv === "usdtTOpfa") {
+          if(tempBase<=USDTBalance){
+            await USDTToPFA(account,tempBase,)
+          }else{
+            console.log("err0")
+            setTransactionFailedSnackbarOpen(true);
+          }
         } else {
           throw new Error("ValueError: No currency type selected");
         }
@@ -448,7 +462,8 @@ function ConvertPage({
   React.useEffect(() => {
     const fetchBalance = async () => {
       try {
-        setPfaBalance(await etherBalance(account));
+        const pfaBal = await tokenBalance(account, pfa20Address);
+        setPfaBalance(pfaBal != null ? pfaBal: 0);
         const tkBal = await tokenBalance(account, ihadAddress);
         const USDTBal = await tokenBalance(account, USDTaddress);
         console.log(tkBal + "sdfs")
