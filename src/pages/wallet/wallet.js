@@ -45,7 +45,7 @@ function Wallet({account, history, currentUsername, handleLogout, handleChangeAc
     if(isEmpty(account))
       history.push("/login-account");
   }
-  if(isEmpty(currentUsername)) 
+  if(isEmpty(currentUsername))
     currentUsername = cookies.username;
     
   const tradeModalOpen      = (entry) => {

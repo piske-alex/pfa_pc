@@ -23,7 +23,7 @@ function RegisterPage({ onRegister, popMobileWarning }) {
   const [mobile, setMobile]               = useState({regionCode: '', phone: ''});                  // mobile info state
   const [disabled, setDisabled]           = useState(false);                                        // sms code sent
   const [counter, setCounter]             = useState(0);                                            // 60s sms counter state
-  const [tosModal, setTosModal]   = useState(false);                                        // tos modal state
+  const [tosModal, setTosModal]           = useState(false);                                        // tos modal state
 
   const failedSBClose       = ()      => setFailedSB(false);                                        // close the tos snackbar
   const acCodeChange        = (event) => setAcCode(event.target.value);                             // method when access code on change
