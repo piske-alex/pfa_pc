@@ -385,15 +385,22 @@ function Dashboard({
             console.log(e);
           }
         } else if(sendCurrency === "usdt"){
-          if(sendAmount<=USDTbalance){
-            await sendUSDT(sendToAddress,sendAmount,account,memo)
+          const res = await getAddressFromMobile(sendToAddress);
+          if (!res) throw new Error('empty resolve address response');
+          else if (!res.address) {
+            if(sendAmount<=USDTbalance){
+              await sendUSDT(sendToAddress,sendAmount,account,memo)
+            }else{
+              setTransactionFailedSnackbarOpen(true);
+            }
           }else{
-            setTransactionFailedSnackbarOpen(true);
+            await sendToken(USDTaddress, account, sendToAddress, sendAmount,memo);
           }
+
 
         } else if(sendCurrency === "usdti"){
           if(sendAmount<=USDTbalance){
-            await sendToken(USDTaddress, account, sendToAddress, sendAmount,memo);
+
           }else{
             setTransactionFailedSnackbarOpen(true);
           }
