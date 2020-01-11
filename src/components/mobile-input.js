@@ -5,8 +5,8 @@ class MobileInput extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            trans: props.trans,
-            config: props.config,
+            trans: props.trans, config: props.config,
+            
             disabled: props.disabled,
             value: props.value,
         };

@@ -14,7 +14,7 @@ import "./footNavigation.css";
 
 export default function FootNavigation({props}) {
 
-  const routs = ['/app','/app','/convert-page','/app','/AboutUs'];
+  const routs = ['/app','/app','/convert-page','/app','/About'];
 
   const getIndex = ()=>{
     let location = document.location.toString();

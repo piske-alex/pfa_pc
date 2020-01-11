@@ -15,7 +15,7 @@ import Details from "./pages/details/details";
 import FootNavigation from "./pages/foot/footNavigation";
 import HistoryPage from "./historyPage"
 import LoginPage from "./pages/login/login";
-import MyWallet from "./pages/myWallet/myWallet";
+import Wallet from "./pages/wallet/wallet";
 import News from "./pages/news/news";
 import RegisterPage from "./pages/register/register";
 
@@ -197,10 +197,10 @@ function App(props) {
             )}
           />
             <Route
-            path={"/myWallet"}
+            path={"/wallet"}
             render={() => (
               <div>
-                <MyWallet props={props} />
+                <Wallet props={props} />
                 <FootNavigation {...props} />
               </div>
             )}

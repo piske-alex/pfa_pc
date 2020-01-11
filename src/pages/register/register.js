@@ -23,9 +23,7 @@ function RegisterPage({ onRegister, popMobileWarning }) {
   const [mobile, setMobile]               = useState({regionCode: '', phone: ''});                  // mobile info state
   const [disabled, setDisabled]           = useState(false);                                        // sms code sent
   const [counter, setCounter]             = useState(0);                                            // 60s sms counter state
-  const [tosModalOpen, setTosModalOpen]   = useState(false);                                        // tos modal state
-  // const [seePrivateKey, setSeePrivateKey] = useState(false);
-  // const [sendAmount, setSendAmount]       = useState('');
+  const [tosModal, setTosModal]   = useState(false);                                        // tos modal state
 
   const failedSBClose       = ()      => setFailedSB(false);                                        // close the tos snackbar
   const acCodeChange        = (event) => setAcCode(event.target.value);                             // method when access code on change
@@ -50,8 +48,8 @@ function RegisterPage({ onRegister, popMobileWarning }) {
     return () => clearInterval(id);
   });
 
-  const handleTosModalOpen  = () => setTosModalOpen(true);                                          // open tos modal method
-  const handleTosModalClose = () => { setTosModalOpen(false); submit(); };                          // close tos modal and submit info method
+  const tosModalOpen  = () => setTosModal(true);                                                    // open tos modal method
+  const tosModalClose = () => { setTosModal(false); submit(); };                                    // close tos modal and submit info method
 
   const sendCode = async () => {                                                                    // request to send sms code and start timer
     try {
@@ -117,20 +115,20 @@ function RegisterPage({ onRegister, popMobileWarning }) {
             </Typography>
           </Grid>
           <Grid item>
-            <Button className='CommonButtonStyle' style={{ width: 300 }} variant='contained' color='primary' onClick={handleTosModalOpen}>
+            <Button className='CommonButtonStyle' style={{ width: 300 }} variant='contained' color='primary' onClick={tosModalOpen}>
               {trans.register[config.lang]}
             </Button>
           </Grid>
         </Grid>
       </HorizontalCenter>
 
-      <Modal open={tosModalOpen} style={{ height: '100%' }} onBackdropClick={handleTosModalClose}>
+      <Modal open={tosModal} style={{ height: '100%' }} onBackdropClick={tosModalClose}>
         <div className={classes.modalPaper + ' modalWidth'}>
           <Grid style={{ height: '100%' }} container direction={'column'}>
             <Grid item style={{ maxHeight: '16%', width: '100%' }}>
               <div className={classes.toolbarIcon}>
                 <Typography variant={'h5'} style={{color:'white',width: '87%',margin:'0 auto'}}>{trans.createAccountPage.remember[config.lang]}</Typography>
-                <IconButton className={classes.close} onClick={handleTosModalClose}>
+                <IconButton className={classes.close} onClick={tosModalClose}>
                   <CloseIcon />
                 </IconButton>
               </div>

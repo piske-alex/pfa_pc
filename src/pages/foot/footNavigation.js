@@ -14,10 +14,10 @@ export default class FootNavigation extends Component {
       selectedTab: 0,
       tabs: [
         { title: t.footNavigation[Config.lang][0], icon: 'home', toPage: '/app' },
-        { title: t.footNavigation[Config.lang][1], icon: 'account_balance_wallet', toPage: '/myWallet' },
+        { title: t.footNavigation[Config.lang][1], icon: 'account_balance_wallet', toPage: '/wallet' },
         { title: t.footNavigation[Config.lang][2], icon: 'swap_horizontal_circle', toPage: '/convert-page' },
         { title: t.footNavigation[Config.lang][3], icon: 'language', toPage: '/news' },
-        { title: t.footNavigation[Config.lang][4], icon: 'group', toPage: '/aboutUs' },
+        { title: t.footNavigation[Config.lang][4], icon: 'group', toPage: '/about' },
       ],
     };
     this.init();

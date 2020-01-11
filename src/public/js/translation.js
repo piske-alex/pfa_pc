@@ -234,7 +234,7 @@ export default {
   conversion:{
     ch: "≈￥1123.12",
   },
-  Recharge:{
+  recharge:{
     ch: "充值", en: "Charge"
   },
   withdrawal:{

@@ -11,13 +11,35 @@ import { isEmpty } from "../../public/js/utils";
 import aboutStyles from './style.js';
 import InfoModal from '../../components/information-modal';
 
-function AboutUs({ history, handleLogout, currentUsername, account }) {
+function About({ history, handleLogout, currentUsername, account }) {
   const classes = aboutStyles();
   const [cookies]                       = useCookies(["pfa"]);
   const [modalContent, setModalContent] = useState("undefinede");
   const [modalTitle, setModalTitle]     = useState("undefinede");
-  const [tosModalOpen, setTosModalOpen] = useState(false);
+  const [tosModal, setTosModal]         = useState(false);
   const [copiedSB, setCopiedSB]         = useState(false);
+
+  if (account == null || isEmpty(account)) {
+    console.log(account);
+    account = cookies.acctobj;
+    if(isEmpty(account))
+      history.push("/login-account");
+  }
+  if(isEmpty(currentUsername)) 
+    currentUsername = cookies.username;
+
+  const tosModalOpen = (content, title) => {
+    setModalTitle(title);
+    setModalContent(content);
+    setTosModal(true);
+  };
+  const tosModalClose = () => setTosModal(false);
+  const copiedSBOpen  = () => {
+    window.Clipboard.copy(account.USDTaddress);
+    setCopiedSB(true);
+  };
+  const copiedSBClose = () => setCopiedSB(false);
+  const submit = () => handleLogout();
 
   window.Clipboard = (function(window, document, navigator) {
     var textArea, copy;
@@ -62,28 +84,6 @@ function AboutUs({ history, handleLogout, currentUsername, account }) {
       copy: copy
     };
   })(window, document, navigator);
-
-  const handleTosModalOpen = (x, y) => {
-    setModalContent(x);
-    setModalTitle(y);
-    setTosModalOpen(true);
-  };
-  const handleTosModalClose = () => setTosModalOpen(false);
-  const submit = () => handleLogout();
-
-  if (account == null || isEmpty(account)) {
-    account = cookies.acctobj;
-    if(isEmpty(account)) 
-      history.push("/login-account");
-  }
-  if(isEmpty(currentUsername)) 
-    currentUsername = cookies.username;
-
-  const copiedSBClose = () => setCopiedSB(false);
-  const copiedSBOpen  = () => {
-    window.Clipboard.copy(account.USDTaddress);
-    setCopiedSB(true);
-  };
 
   return (
     <React.Fragment>
@@ -131,7 +131,7 @@ function AboutUs({ history, handleLogout, currentUsername, account }) {
           </Grid>
         </Grid>
         <Grid>
-          <Grid className={classes.content} onClick={() => handleTosModalOpen(trans.aboutusfull[config.lang], trans.aboutus[config.lang])}>
+          <Grid className={classes.content} onClick={() => tosModalOpen(trans.aboutusfull[config.lang], trans.aboutus[config.lang])}>
             <Grid className={classes.contentIconsLeft}>
               <i className={"material-icons"}>group</i>
             </Grid>
@@ -141,7 +141,7 @@ function AboutUs({ history, handleLogout, currentUsername, account }) {
             </Grid>
           </Grid>
 
-          <Grid className={classes.content} onClick={() => handleTosModalOpen(trans.privacyfull[config.lang], trans.privacy[config.lang])}>
+          <Grid className={classes.content} onClick={() => tosModalOpen(trans.privacyfull[config.lang], trans.privacy[config.lang])}>
             <Grid className={classes.contentIconsLeft}>
               <i className={"material-icons"}>assignment_ind</i>
             </Grid>
@@ -151,7 +151,7 @@ function AboutUs({ history, handleLogout, currentUsername, account }) {
             </Grid>
           </Grid>
 
-          <Grid className={classes.content} onClick={() => handleTosModalOpen(trans.tosfull[config.lang], trans.tos[config.lang])}>
+          <Grid className={classes.content} onClick={() => tosModalOpen(trans.tosfull[config.lang], trans.tos[config.lang])}>
             <Grid className={classes.contentIconsLeft}>
               <i className={"material-icons"}>description</i>
             </Grid>
@@ -173,8 +173,8 @@ function AboutUs({ history, handleLogout, currentUsername, account }) {
         </Grid>
         <Grid style={{ margin: "0 auto" }}>
           <InfoModal
-            open = {tosModalOpen}
-            close = {handleTosModalClose}
+            open = {tosModal}
+            close = {tosModalClose}
             title = {modalTitle}
             content = {modalContent}></InfoModal>
         </Grid>
@@ -190,4 +190,4 @@ function AboutUs({ history, handleLogout, currentUsername, account }) {
   );
 }
 
-export default withRouter(AboutUs);
+export default withRouter(About);

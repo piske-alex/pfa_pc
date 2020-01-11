@@ -303,7 +303,7 @@ function Dashboard({
   };
 
   const back = async () => {//ldx
-    props.history.push("/myWallet");//跳转页面
+    props.history.push("/wallet");//跳转页面
   };
 
   const handleBuyModalClose = () => {

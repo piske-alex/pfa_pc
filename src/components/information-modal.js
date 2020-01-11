@@ -6,9 +6,9 @@ class InfoModal extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            open: props.open,
-            close: props.close,
-            title: props.title,
+            open: props.open, close: props.close,
+            
+            title: props.title, 
             content: props.content,
         };
     }

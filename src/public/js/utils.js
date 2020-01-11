@@ -5,7 +5,7 @@ import TextField from "@material-ui/core/TextField";
 import config from "./config";
 
 export function isEmpty(obj) {
-  return Object.keys(obj).length === 0;
+  return JSON.stringify(obj) === '{}';
 }
 
 export function VerticalCenter(props) {

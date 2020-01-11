@@ -36,7 +36,7 @@ function ExchangePage({ account, history, currentUsername, handleLogout, handleC
     pfa: { usdt: 1.5, yhad: 1.5,    ihad:1.5 }
   };
 
-  if (account === null || isEmpty(account)) {
+  if (account === null || account === undefined || isEmpty(account)) {
     account = cookies.acctobj;
     if(isEmpty(account)) 
       history.push("/login-account");
@@ -63,7 +63,7 @@ function ExchangePage({ account, history, currentUsername, handleLogout, handleC
       } else 
           throw new Error("ValueError: No currency type selected");
       setTxSuccSB(true);
-      setTxCount(txCount + 3);
+      setTxCount(txCount + 1);
     } catch (err) {
       console.log(err);
     }
@@ -81,26 +81,18 @@ function ExchangePage({ account, history, currentUsername, handleLogout, handleC
         console.log(err);
       }
     };
-    fetchBalance();
-  }, [
-    txCount,
-    Math.floor(new Date().getTime() / (REFRESH_TIME * 1000)),
-  ]);
 
-  useEffect(() => {
     const fetchAccHistory = async () => {
       try {
         const h = await getHistory(account.address);
-        // console.log(h);
       } catch (err) {
         console.log(err);
       }
     };
+    
+    fetchBalance();
     fetchAccHistory();
-  }, [
-    txCount,
-    Math.floor(new Date().getTime() / (REFRESH_TIME * 1000)),
-  ]);
+  }, [txCount]);
 
   return (
     <React.Fragment>
