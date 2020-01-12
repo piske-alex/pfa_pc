@@ -394,7 +394,7 @@ function Dashboard({
               setTransactionFailedSnackbarOpen(true);
             }
           }else{
-            await sendToken(USDTaddress, account, sendToAddress, sendAmount,memo);
+            await sendToken(USDTaddress, account, res.address, sendAmount,memo);
           }
 
 
