@@ -12,7 +12,7 @@ import '../../public/js/clipboard';
 import aboutStyles from './style.js';
 import InfoModal from '../../components/information-modal';
 
-function About({ account, history, handleLogout, currentUsername }) {
+function About({ account, history, onLogout, currentUsername }) {
   const classes = aboutStyles();
   const [cookies]                       = useCookies(["pfa"]);
   const [modalContent, setModalContent] = useState("undefinede");   // tos modal content state
@@ -44,7 +44,7 @@ function About({ account, history, handleLogout, currentUsername }) {
   const copiedSBClose = () => setCopiedSB(false);
 
   /* logout handle */
-  const logout = () => handleLogout();
+  const logout = () => onLogout();
 
   return (
     <React.Fragment>

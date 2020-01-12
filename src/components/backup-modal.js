@@ -12,27 +12,27 @@ class BackupModal extends Component {
             trans: props.trans, config: props.config,
             open: props.open, close: props.closes,
 
-            account: props.account,
+            account: props.account || {},
             showPk: false,
             copiedSB: false
         };
     }
 
     /* show / hidden private key handling */
-    showPkSwitch = (event) => this.setState({showPk: event.target.checked});
+    showPkSwitch    = (event) => this.setState({showPk: event.target.checked});
 
     /* copied to clipboard snackbar handling */
-    copiedSBOpen = () => this.setState({copiedSB: true});
-    copiedSBClose = () => this.setState({copiedSB: false});
+    copiedSBOpen    = () => this.setState({copiedSB: true});
+    copiedSBClose   = () => this.setState({copiedSB: false});
 
     /* click private key to clipboard handling */
-    copyPkClick = () => {
+    copyPkClick     = () => {
         window.Clipboard.copy(this.state.account.privateKey);
         this.copiedSBOpen();
     }
 
     /* copied private key to clipboard handling */
-    copyExportClick  = () => {
+    copyExportClick = () => {
         window.Clipboard.copy(exportAccounts());
         this.copiedSBOpen();
     }
@@ -92,7 +92,7 @@ class BackupModal extends Component {
                                             <Paper>
                                                 <TextField
                                                     label={this.state.trans.privateKey[this.state.config.lang]}
-                                                    value={this.state.account.privateKey.substr(2)}
+                                                    value={this.state.account.privateKey ? this.state.account.privateKey.substr(2) : ''}
                                                     readOnly={false}
                                                     style={{ visibility: this.state.showPk ? 'visible' : 'hidden',width: '85%', fontSize: 14 }}
                                                     disabled
@@ -101,7 +101,7 @@ class BackupModal extends Component {
                                                 <CopyButton
                                                     className="CopyButtonStyle CopyBtnStyle"
                                                     onClick={this.copyPkClick}
-                                                    text={this.state.account.privateKey.substr(2)}
+                                                    text={this.state.account.privateKey ? this.state.account.privateKey.substr(2) : ''}
                                                 >
                                                     {this.state.trans.copy[this.state.config.lang]}
                                                 </CopyButton>

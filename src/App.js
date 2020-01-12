@@ -9,7 +9,7 @@ import config from "./public/js/config";
 import { newAccount, getUSDTWallet, createDepositWallet } from "./public/js/blockchain-utils";
 import Dashboard from "./pages/dashboard/dashboard";
 import About from "./pages/about/about";
-import AccountManagerPanel from "./pages/accountManagerPanel/accountManagerPanel";
+import Account from "./pages/account/account";
 import Exchange from "./pages/exchange/exchange";
 import Details from "./pages/details/details";
 import FootNavigation from "./pages/foot/footNavigation";
@@ -20,19 +20,14 @@ import RegisterPage from "./pages/register/register";
 
 const theme = createMuiTheme({
   palette: {
-    primary: {
-      main: "#0d47a1",
-    },
-    secondary: {
-      main: "#0288d1",
-    },
+    primary: { main: "#0d47a1"},
+    secondary: {main: "#0288d1"},
     type: "dark",
   },
   overrides: {
     MuiFormLabel: {
       root: {
         "&$focused": {
-          // increase the specificity for the pseudo class
           color: "white",
         },
       },
@@ -41,88 +36,55 @@ const theme = createMuiTheme({
 });
 
 function App(props) {
+  const [cookies, setCookie]                  = useCookies(['pfa']);   // cookies state
+  const [acCreatedSB,setAcCreatedSB]          = React.useState(false); // account Created Snackbar state
+  const [acNCreatedSB,setAcNCreatedSB]        = React.useState(false); // account not Created Snackbar state
+  const [invalidPkSB,setInvalidPkSB]          = React.useState(false); // wrong private key format state
+  const [invalidMobileSB,setInvalidMobileSB]  = React.useState(false); // wrong mobile warning snackbar state
+  const [loginFailedSB, setLoginFailedSB]     = React.useState(false); // login failed snackbar state
+  const [account, setAccount]                 = React.useState({});    // account state
+  const [currentUsername, setCurrentUsername] = React.useState("");    // current username state
+  const [prefillUsername, setPrefillUsername] = React.useState("");    // prefill username state
 
   (() => {
-    if(localStorage.getItem("lang") != null) {
+    if(localStorage.getItem("lang") != null)
       config.lang = localStorage.getItem("lang")
-    }
   })();
 
-  const [
-    accountCreatedSnackbarOpen,
-    setAccountCreatedSnackbarOpen,
-  ] = React.useState(false);
-  const [
-    accountNotCreatedSnackbarOpen,
-    setAccountNotCreatedSnackbarOpen,
+  /* invalid mobile snackbar handle */
+  const invalidMobileSBOpen = () => setInvalidMobileSB(true);
+  const invalidMobileSBClose = () => setInvalidMobileSB(false);
 
-  ] = React.useState(false);
-  const [
-    wrongPrivateKeyFormat,
-    setWrongPrivateKeyFormat,
+  /* account created snackbar handle */
+  const acCreatedSBClose = () => setAcCreatedSB(false);
 
-  ] = React.useState(false);
-  const [
-    wrongMobileWarning,
-    setWrongMobileWarningSnackbarOpen,
-  ] = React.useState(false);
+  /* account not created snackbar handle */
+  const acNCreatedSBClose = () => setAcNCreatedSB(false);
 
-  const [cannotLoginSnackbarOpen, setCannotLoginSnackbarOpen] = React.useState(
-    false,
-  );
-  const [currentUsername, setCurrentUsername] = React.useState("");
+  /* login failed snackbar handle */
+  const loginFailedSBClose = () => setLoginFailedSB(false);
 
-  const [account, setAccount] = React.useState({});
 
-  const [prefillUsername, setPrefillUsername] = React.useState("");
-
-  const handleLogout = () => {
-    setAccount({});
-    setCookie('acctobj', {}, { path: '/' });
-    setCurrentUsername('');
-    setCookie('username', '', { path: '/' });
-    props.history.push("/login-account");
-  };
-
-  const handleChangeAccount = name => {
-    handleLogout();
+  /* on account change handle */
+  const onAccChange = name => {
+    onLogout();
     setPrefillUsername(name);
   };
 
-  const handleAccountCreatedSnackbarClose = () => {
-    setAccountCreatedSnackbarOpen(false);
-  };
-
-  const handleWrongMobileWarningClose = () => {
-    setWrongMobileWarningSnackbarOpen(false);
-  }
-  const popMobileWarning = () => {
-    setWrongMobileWarningSnackbarOpen(true);
-  };
-
-
-  const handleAccountNotCreatedSnackbarClose = () => {
-    setAccountNotCreatedSnackbarOpen(false);
-  };
-  const handleCannotLoginSnackbarClose = () => {
-    setCannotLoginSnackbarOpen(false);
-  };
-
+  /* on register handle */
   const onRegister = async (regionCode, mobile, accessCode, pvKey) => {
     try {
       await newAccount(regionCode, mobile, accessCode, pvKey);
-      setAccountCreatedSnackbarOpen(true);
+      setAcCreatedSB(true);
 
       props.history.push("/login-account");
     } catch (err) {
       console.log(err);
-      err.toString().includes("Wrong Private Key Format") ? setWrongPrivateKeyFormat(true) : setAccountNotCreatedSnackbarOpen(true);
+      err.toString().includes("Wrong Private Key Format") ? setInvalidPkSB(true) : setAcNCreatedSB(true);
     }
   };
 
-  const [cookies, setCookie] = useCookies(['pfa']);
-
-
+  /* on login handle */
   // ray.li.bot : username = region + mobile, password = access code
   const onLogin = async (username, password) => {
     try {
@@ -150,9 +112,19 @@ function App(props) {
      
     } catch (err) {
       console.log(err);
-      setCannotLoginSnackbarOpen(true);
+      setLoginFailedSB(true);
     }
   };
+
+  /* on logout handle */
+  const onLogout = () => {
+    setAccount({});
+    setCookie('acctobj', {}, { path: '/' });
+    setCurrentUsername('');
+    setCookie('username', '', { path: '/' });
+    props.history.push("/login-account");
+  };
+
 
   return (
     <ThemeProvider theme={theme}>
@@ -162,7 +134,7 @@ function App(props) {
             render={() => (
               <RegisterPage 
                 onRegister={onRegister} 
-                popMobileWarning={popMobileWarning} />
+                popMobileWarning={invalidMobileSBOpen} />
             )}
           />
           <Route path={"/app"}
@@ -181,7 +153,7 @@ function App(props) {
               <div>
                 <About
                   props={props} account={account}
-                  currentUsername={currentUsername} handleLogout={handleLogout}/>
+                  currentUsername={currentUsername} onLogout={onLogout}/>
                 <FootNavigation {...props} />
               </div>
             )}
@@ -190,7 +162,7 @@ function App(props) {
             render={() => (
               <div>
                 <Details props={props} account={account}
-                         currentUsername={currentUsername} handleLogout={handleLogout}/>
+                         currentUsername={currentUsername}/>
                 <FootNavigation {...props} />
               </div>
             )}
@@ -209,8 +181,6 @@ function App(props) {
                 <Exchange
                   account={account}
                   currentUsername={currentUsername}
-                  handleLogout={handleLogout}
-                  handleChangeAccount={handleChangeAccount}
                 />
                 <FootNavigation {...props} />
               </div>
@@ -224,46 +194,45 @@ function App(props) {
             </div>
           )}
         />
-          <Route path={"/account-manager"} component={AccountManagerPanel} />
+          <Route path={"/account"} component={Account} />
           <Route
             render={() => (
               <LoginPage
                 onLogin={onLogin}
                 prefillUsername={prefillUsername}
+                onAccChange={onAccChange}
               />
             )}
           />
-
-
         </Switch>
         <Snackbar
-          open={accountCreatedSnackbarOpen}
+          open={acCreatedSB}
           autoHideDuration={6000}
-          onClose={handleAccountCreatedSnackbarClose}
+          onClose={acCreatedSBClose}
           message={trans.accountCreatedInfo[config.lang]}
         />
         <Snackbar
-          open={accountNotCreatedSnackbarOpen}
+          open={acNCreatedSB}
           autoHideDuration={6000}
-          onClose={handleAccountNotCreatedSnackbarClose}
+          onClose={acNCreatedSBClose}
           message={trans.accountNotCreatedInfo[config.lang]}
         />
         <Snackbar
-          open={wrongPrivateKeyFormat}
+          open={invalidPkSB}
           autoHideDuration={6000}
-          onClose={handleAccountNotCreatedSnackbarClose}
+          onClose={acNCreatedSBClose}
           message={trans.wrongPrivateKeyFormat[config.lang]}
         />
         <Snackbar
-          open={cannotLoginSnackbarOpen}
+          open={loginFailedSB}
           autoHideDuration={6000}
-          onClose={handleCannotLoginSnackbarClose}
+          onClose={loginFailedSBClose}
           message={trans.cannotLoginWarning[config.lang]}
         />
         <Snackbar
-          open={wrongMobileWarning}
+          open={invalidMobileSB}
           autoHideDuration={6000}
-          onClose={handleWrongMobileWarningClose}
+          onClose={invalidMobileSBClose}
           message={trans.mobileWarning[config.lang]}
         />
       </React.Fragment>

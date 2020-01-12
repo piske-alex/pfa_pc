@@ -100,7 +100,7 @@ function LoginPage({ onLogin }) {
 
           <Grid item >
             {config.lang === 'en' ?
-              <Typography variant={'body2'} className='textImport' component={Link} to={'/account-manager'}>
+              <Typography variant={'body2'} className='textImport' component={Link} to={'/account'}>
                 {trans.importExport[config.lang]}&nbsp;
               </Typography>
             : null}
@@ -108,7 +108,7 @@ function LoginPage({ onLogin }) {
               {trans.walletImportExport[config.lang]}
             </Typography>
             {config.lang === 'ch' ? 
-              <Typography variant={'body2'} className='textImport' component={Link} to={'/account-manager'}>
+              <Typography variant={'body2'} className='textImport' component={Link} to={'/account'}>
                 {trans.importExport[config.lang]}
               </Typography>
             : null}

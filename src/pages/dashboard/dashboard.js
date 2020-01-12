@@ -28,11 +28,11 @@ function Dashboard({ account, history, currentUsername }) {
       }
     }
     }})
-  const [list,setList]                  = useState([{ key: "PFA", price: 1.500, qty: (Math.random()*800+8000).toFixed(2), color: '' },
-                                                    { key: "HAD", price: 1.000, qty: (Math.random()*800+6000).toFixed(2), color: 'green' },
-                                                    { key: "BTC", price: 0, qty: 0, color: 'red' },
-                                                    { key: "XRP", price: 0, qty: 0, color: 'green' },
-                                                    { key: "ETH", price: 0, qty: 0, color: 'red' },])
+  const [list,setList]  = useState([{ key: "PFA", price: 1.500, qty: (Math.random()*800+8000).toFixed(2), color: '' },
+                          { key: "HAD", price: 1.000, qty: (Math.random()*800+6000).toFixed(2), color: 'green' },
+                          { key: "BTC", price: 0, qty: 0, color: 'red' },
+                          { key: "XRP", price: 0, qty: 0, color: 'green' },
+                          { key: "ETH", price: 0, qty: 0, color: 'red' },])
   const carouselList = trans.rotaryPlantingMap[config.lang];
   const icons = [
     {icon:'photo_library',text: trans.dashboards.backUp[config.lang]},

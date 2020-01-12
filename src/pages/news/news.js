@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Grid } from "@material-ui/core";
 import { withRouter } from "react-router-dom";
 var XMLParser = require('react-xml-parser');
 
@@ -67,7 +68,11 @@ function News() {
     }
 
     return(
-        <div style={listsStyle}>{newsState}</div>
+        <React.Fragment>
+            <Grid style={{ position: 'relative', maxWidth: "1100px", margin: "0 auto", backgroundColor: "#212733!important", height: "100vh" }}>
+                <div style={listsStyle}>{newsState}</div>
+            </Grid>
+        </React.Fragment>
     )
 }
 
