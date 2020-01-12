@@ -642,7 +642,7 @@ function Dashboard({
               <Grid item>
                 <HorizontalCenter>
                   <Grid className="usdtVulesClass">
-                    {pfaBalance*1+ihadBalance +USDTbalance}
+                    {pfaBalance*1.5+ihadBalance +USDTbalance}
                   </Grid>
                   <Grid className="usdtVulesClassCode">
                     {t.UsdtCode[Config.lang]}
@@ -705,8 +705,7 @@ function Dashboard({
                         {'(Price Fitch Asset)'}
                       </Grid>
                       <Grid className="binanceCoinNumber">
-                        {//parseFloat(pfaBalance).toFixed(2)
-                          pfaBalance }
+                        {parseFloat(pfaBalance).toFixed(2)}
                       </Grid>
                     </ListItem>
 
@@ -724,8 +723,8 @@ function Dashboard({
                         {'(TetherUSD)'}
                       </Grid>
                       <Grid className="binanceCoinNumber">
-                        {//parseFloat(USDTbalance).toFixed(2)
-                          USDTbalance }
+                        {parseFloat(USDTbalance).toFixed(2)
+                          }
                       </Grid>
                       {/* </Grid> */}
                     </ListItem>
@@ -744,8 +743,8 @@ function Dashboard({
                         {'(Health Aqua Digital)'}
                       </Grid>
                       <Grid className="binanceCoinNumber">
-                        {//parseFloat(ihadBalance).toFixed(2)
-                          ihadBalance }
+                        {parseFloat(ihadBalance).toFixed(2)
+                          }
                       </Grid>
                       {/* </Grid> */}
                     </ListItem>
