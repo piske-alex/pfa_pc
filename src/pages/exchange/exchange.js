@@ -16,9 +16,7 @@ import './exchange.css';
 import BootstrapInput from '../../components/bootstrap-input';
 import exchangeStyles from './style.js';
 
-const REFRESH_TIME = 20;  //  account info refresh time
-
-function ExchangePage({ account, history, currentUsername, handleLogout, handleChangeAccount, }) {
+function ExchangePage({ account, history, currentUsername }) {
   const classes = exchangeStyles();
   const [cookies]                         = useCookies(['pfa']);  // cookies state
   const [txSuccSB, setTxSuccSB]           = useState(false);      // transaction finished snackbar state
@@ -30,15 +28,15 @@ function ExchangePage({ account, history, currentUsername, handleLogout, handleC
   const [IHADBal, setIHADBal]             = useState("");
   const [USDTBal, setUSDTBal]             = useState("");
   const rates = {
-    usdt:{ ihad: 1,   pfa:  1/1.5,  yhad:1 },
-    ihad:{ usdt: 1,   pfa:  1/1.5,  yhad:1 },
-    yhad:{ ihad: 1,   pfa:  1/1.5,  usdt:1 },
-    pfa: { usdt: 1.5, yhad: 1.5,    ihad:1.5 }
+    usdt:{ ihad: 1,   pfa:  1 / 1.5,  yhad:1 },
+    ihad:{ usdt: 1,   pfa:  1 / 1.5,  yhad:1 },
+    yhad:{ ihad: 1,   pfa:  1 / 1.5,  usdt:1 },
+    pfa: { usdt: 1.5, yhad: 1.5,      ihad:1.5 }
   };
 
-  if (account === null || account === undefined || isEmpty(account)) {
+  if (account == null || isEmpty(account)) {
     account = cookies.acctobj;
-    if(isEmpty(account)) 
+    if(account == null || isEmpty(account)) 
       history.push("/login-account");
   }
   if(isEmpty(currentUsername)) 
@@ -135,7 +133,7 @@ function ExchangePage({ account, history, currentUsername, handleLogout, handleC
                   </Grid>
                   <FormControl className={config.equipmentType==="mobile"?classes.inputSize:classes.inputSizeIpad}>
                     <BootstrapInput id="outlined-name" placeholder="Enter Amount" maxLength={11} 
-                    value={base} onChange={e => setBase(e.target.value)} margin="normal" variant="outlined"/>
+                    value={base} onChange={e => setBase(e.target.value)} variant="outlined"/>
                   </FormControl>
                 </Grid>
 
@@ -168,7 +166,7 @@ function ExchangePage({ account, history, currentUsername, handleLogout, handleC
                     </Select>
                   </Grid>
                   <FormControl className={config.equipmentType==="mobile"?classes.inputSize:classes.inputSizeIpad}>
-                    <BootstrapInput id="outlined-name" placeholder="Enter Amount" maxLength={11} value={base*rates[ccyFromVal][ccyToVal]} margin="normal" variant="outlined"/>
+                    <BootstrapInput id="outlined-name" placeholder="Enter Amount" maxLength={11} value={base*rates[ccyFromVal][ccyToVal]} variant="outlined"/>
                   </FormControl>
                 </Grid>
 

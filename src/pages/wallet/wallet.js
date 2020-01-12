@@ -22,7 +22,7 @@ import XferModal from '../../components/transfer-modal';
 import RechargeModal from '../../components/recharge-modal';
 import TxModal from '../../components/transcation-modal';
 
-function Wallet({account, history, currentUsername, handleLogout, handleChangeAccount, props}) {
+function Wallet({account, history, currentUsername, props}) {
   const classes = walletStyles();
   const [cookies]                         = useCookies(['pfa']);
   const [txModal, setTxModal]             = useState(false);            // transcation modal state
@@ -40,12 +40,12 @@ function Wallet({account, history, currentUsername, handleLogout, handleChangeAc
   const [USDTbal, setUSDTBal]             = useState("");               // USDT Balance state
   const [txHistory, setTxHistory]         = useState([]);               // account transaction history state 
 
-  if (account === null || account === undefined || isEmpty(account)) {
+  if (account == null || isEmpty(account)) {
     account = cookies.acctobj;
-    if(isEmpty(account))
+    if(account == null || isEmpty(account)) 
       history.push("/login-account");
   }
-  if(isEmpty(currentUsername))
+  if(isEmpty(currentUsername)) 
     currentUsername = cookies.username;
     
   const tradeModalOpen      = (entry) => {

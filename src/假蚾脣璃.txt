@@ -1,3 +1,0 @@
-1.antdMobile导包
-    npm install antd-mobile --save
-    官网地址：https://mobile.ant.design/components/carousel-cn/

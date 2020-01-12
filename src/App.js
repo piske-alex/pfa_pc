@@ -4,16 +4,15 @@ import { withRouter, Switch, Route} from "react-router-dom";
 import { Snackbar } from "@material-ui/core";
 import { ThemeProvider } from "@material-ui/styles";
 import createMuiTheme from "@material-ui/core/styles/createMuiTheme";
-import Dashboard from "./pages/dashboard/dashboard";
 import trans from "./public/js/translation";
+import config from "./public/js/config";
 import { newAccount, getUSDTWallet, createDepositWallet } from "./public/js/blockchain-utils";
-import Config from "./public/js/config";
+import Dashboard from "./pages/dashboard/dashboard";
 import About from "./pages/about/about";
 import AccountManagerPanel from "./pages/accountManagerPanel/accountManagerPanel";
 import Exchange from "./pages/exchange/exchange";
 import Details from "./pages/details/details";
 import FootNavigation from "./pages/foot/footNavigation";
-import HistoryPage from "./historyPage"
 import LoginPage from "./pages/login/login";
 import Wallet from "./pages/wallet/wallet";
 import News from "./pages/news/news";
@@ -45,7 +44,7 @@ function App(props) {
 
   (() => {
     if(localStorage.getItem("lang") != null) {
-      Config.lang = localStorage.getItem("lang")
+      config.lang = localStorage.getItem("lang")
     }
   })();
 
@@ -79,6 +78,9 @@ function App(props) {
 
   const handleLogout = () => {
     setAccount({});
+    setCookie('acctobj', {}, { path: '/' });
+    setCurrentUsername('');
+    setCookie('username', '', { path: '/' });
     props.history.push("/login-account");
   };
 
@@ -156,38 +158,35 @@ function App(props) {
     <ThemeProvider theme={theme}>
       <React.Fragment>
         <Switch>
-          <Route
-            path={"/create-account"}
+          <Route path={"/create-account"}
             render={() => (
-              <RegisterPage onRegister={onRegister} popMobileWarning={popMobileWarning} />
+              <RegisterPage 
+                onRegister={onRegister} 
+                popMobileWarning={popMobileWarning} />
             )}
           />
-          <Route
-            path={"/app"}
+          <Route path={"/app"}
             render={() => (
               <div>
                 <Dashboard
                   account={account}
                   currentUsername={currentUsername}
-                  handleLogout={handleLogout}
-                  handleChangeAccount={handleChangeAccount}
                 />
                 <FootNavigation {...props}/>
               </div>
             )}
           />
-          <Route
-            path={"/about"}
+          <Route path={"/about"}
             render={() => (
               <div>
-                <About props={props} account={account}
-                         currentUsername={currentUsername} handleLogout={handleLogout}/>
+                <About
+                  props={props} account={account}
+                  currentUsername={currentUsername} handleLogout={handleLogout}/>
                 <FootNavigation {...props} />
               </div>
             )}
           />
-          <Route
-            path={"/details"}
+          <Route path={"/details"}
             render={() => (
               <div>
                 <Details props={props} account={account}
@@ -196,26 +195,15 @@ function App(props) {
               </div>
             )}
           />
-            <Route
-            path={"/wallet"}
+          <Route path={"/wallet"}
             render={() => (
               <div>
-                <Wallet props={props} />
+                <Wallet account={account} currentUsername={currentUsername} props={props} />
                 <FootNavigation {...props} />
               </div>
             )}
           />
-          <Route path={"/history-page"}
-            render={() => (
-              <HistoryPage
-                account={account}
-                currentUsername={currentUsername}
-                handleLogout={handleLogout}
-                handleChangeAccount={handleChangeAccount}
-              />
-            )}
-          />
-          <Route path={"/convert-page"}
+          <Route path={"/exchange"}
             render={() => (
               <div>
                 <Exchange
@@ -228,8 +216,7 @@ function App(props) {
               </div>
             )}
           />
-          <Route
-          path={"/news"}
+          <Route path={"/news"}
           render={() => (
             <div>
               <News props={props} />
@@ -253,31 +240,31 @@ function App(props) {
           open={accountCreatedSnackbarOpen}
           autoHideDuration={6000}
           onClose={handleAccountCreatedSnackbarClose}
-          message={trans.accountCreatedInfo[Config.lang]}
+          message={trans.accountCreatedInfo[config.lang]}
         />
         <Snackbar
           open={accountNotCreatedSnackbarOpen}
           autoHideDuration={6000}
           onClose={handleAccountNotCreatedSnackbarClose}
-          message={trans.accountNotCreatedInfo[Config.lang]}
+          message={trans.accountNotCreatedInfo[config.lang]}
         />
         <Snackbar
           open={wrongPrivateKeyFormat}
           autoHideDuration={6000}
           onClose={handleAccountNotCreatedSnackbarClose}
-          message={trans.wrongPrivateKeyFormat[Config.lang]}
+          message={trans.wrongPrivateKeyFormat[config.lang]}
         />
         <Snackbar
           open={cannotLoginSnackbarOpen}
           autoHideDuration={6000}
           onClose={handleCannotLoginSnackbarClose}
-          message={trans.cannotLoginWarning[Config.lang]}
+          message={trans.cannotLoginWarning[config.lang]}
         />
         <Snackbar
           open={wrongMobileWarning}
           autoHideDuration={6000}
           onClose={handleWrongMobileWarningClose}
-          message={trans.mobileWarning[Config.lang]}
+          message={trans.mobileWarning[config.lang]}
         />
       </React.Fragment>
     </ThemeProvider>

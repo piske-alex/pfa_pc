@@ -7,83 +7,44 @@ import useCookies from "react-cookie/cjs/useCookies";
 import trans from "../../public/js/translation";
 import config from "../../public/js/config";
 import { isEmpty } from "../../public/js/utils";
+import '../../public/js/clipboard';
 
 import aboutStyles from './style.js';
 import InfoModal from '../../components/information-modal';
 
-function About({ history, handleLogout, currentUsername, account }) {
+function About({ account, history, handleLogout, currentUsername }) {
   const classes = aboutStyles();
   const [cookies]                       = useCookies(["pfa"]);
-  const [modalContent, setModalContent] = useState("undefinede");
-  const [modalTitle, setModalTitle]     = useState("undefinede");
-  const [tosModal, setTosModal]         = useState(false);
-  const [copiedSB, setCopiedSB]         = useState(false);
+  const [modalContent, setModalContent] = useState("undefinede");   // tos modal content state
+  const [modalTitle, setModalTitle]     = useState("undefinede");   // tos modal title state 
+  const [tosModal, setTosModal]         = useState(false);          // tos modal state
+  const [copiedSB, setCopiedSB]         = useState(false);          // copied snackbar state
 
   if (account == null || isEmpty(account)) {
-    console.log(account);
     account = cookies.acctobj;
-    if(isEmpty(account))
+    if(account == null || isEmpty(account)) 
       history.push("/login-account");
   }
   if(isEmpty(currentUsername)) 
     currentUsername = cookies.username;
 
+  /* tos modal handle */
   const tosModalOpen = (content, title) => {
     setModalTitle(title);
     setModalContent(content);
     setTosModal(true);
   };
   const tosModalClose = () => setTosModal(false);
+
+  /* copied snackbar handle */
   const copiedSBOpen  = () => {
     window.Clipboard.copy(account.USDTaddress);
     setCopiedSB(true);
   };
   const copiedSBClose = () => setCopiedSB(false);
-  const submit = () => handleLogout();
 
-  window.Clipboard = (function(window, document, navigator) {
-    var textArea, copy;
-
-    function isOS() {
-      return navigator.userAgent.match(/ipad|iphone/i);
-    }
-
-    function createTextArea(text) {
-      textArea = document.createElement("textArea");
-      textArea.value = text;
-      document.body.appendChild(textArea);
-    }
-
-    function selectText() {
-      var range, selection;
-
-      if (isOS()) {
-        range = document.createRange();
-        range.selectNodeContents(textArea);
-        selection = window.getSelection();
-        selection.removeAllRanges();
-        selection.addRange(range);
-        textArea.setSelectionRange(0, 999999);
-      } else {
-        textArea.select();
-      }
-    }
-
-    function copyToClipboard() {
-      document.execCommand("copy");
-      document.body.removeChild(textArea);
-    }
-
-    copy = function(text) {
-      createTextArea(text);
-      selectText();
-      copyToClipboard();
-    };
-
-    return {
-      copy: copy
-    };
-  })(window, document, navigator);
+  /* logout handle */
+  const logout = () => handleLogout();
 
   return (
     <React.Fragment>
@@ -111,7 +72,6 @@ function About({ history, handleLogout, currentUsername, account }) {
               <TextField
                 variant={"outlined"}
                 readOnly={true}
-                // contentEditable={true}
                 value={account.USDTaddress}
                 disabled
                 InputProps={{
@@ -125,9 +85,6 @@ function About({ history, handleLogout, currentUsername, account }) {
                 text={account.USDTaddress}
               >{trans.copy[config.lang]}
               </CopyButton>
-          </Grid>
-          <Grid style={{marginBottom:'32px',marginLeft:'5px',marginRight:'5px'}}>
-            {/* <Typography className={classes.userName}>請勿將以太坊 ERC-20 USDT 轉賬至此地址，找回將產生手續費</Typography> */}
           </Grid>
         </Grid>
         <Grid>
@@ -165,21 +122,21 @@ function About({ history, handleLogout, currentUsername, account }) {
               className="CommonButtonStyle"
               variant="contained"
               color="primary"
-              onClick={submit}
+              onClick={logout}
               style={{ width: "70%", letterSpacing: "1px" }}
             >{trans.logOut[config.lang]}
             </Button>
           </Grid>
         </Grid>
-        <Grid style={{ margin: "0 auto" }}>
-          <InfoModal
-            open = {tosModal}
-            close = {tosModalClose}
-            title = {modalTitle}
-            content = {modalContent}></InfoModal>
-        </Grid>
         <Grid className="pageFoot"/>
       </Grid>
+      
+      <InfoModal
+        open = {tosModal}
+        close = {tosModalClose}
+        title = {modalTitle}
+        content = {modalContent}></InfoModal>
+
       <Snackbar
         open={copiedSB}
         autoHideDuration={6000}

@@ -2,9 +2,6 @@ import React from 'react';
 import { Toast } from 'antd-mobile';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
-import Snackbar from '@material-ui/core/Snackbar';
-import IconButton from '@material-ui/core/IconButton';
-import CloseIcon from '@material-ui/icons/Close';
 import Icon from '@material-ui/core/Icon';
 import { Grid } from "@material-ui/core";
 
@@ -14,7 +11,7 @@ import "./footNavigation.css";
 
 export default function FootNavigation({props}) {
 
-  const routs = ['/app','/app','/convert-page','/app','/About'];
+  const routs = ['/app','/app','/exchange','/app','/About'];
 
   const getIndex = ()=>{
     let location = document.location.toString();
@@ -26,19 +23,9 @@ export default function FootNavigation({props}) {
   };
   const [value, setValue] = React.useState(getIndex());
 
-  // const [state, setState] = React.useState({
-  //   open: false,
-  // });
-  // function handleClose() {
-  //   setState({ open: false });
-  // }
+
   // 切换底部按钮
   function handleChange(event, newValue) {
-    if(newValue === 3){
-      // setState({ open: true});
-      Toast.info('暫未提供，升級後開放市場新聞功能', 300);
-      return;
-    }
     if(value !== newValue){
       props.history.push(routs[newValue]);//跳转页面
       setValue(newValue);
@@ -56,26 +43,6 @@ export default function FootNavigation({props}) {
           <BottomNavigationAction label={trans.footNavigation[Config.lang][4]} value={4} icon={<Icon>group</Icon>} />
         </BottomNavigation>
       </Grid>
-      {/* <Snackbar
-        anchorOrigin={{ vertical: 'bottom',  horizontal: 'center' }}
-        open={state.open}
-        onClose={handleClose}
-        ContentProps={{
-          'aria-describedby': 'message-id',
-        }}
-        message={<span id="message-id">暫未提供，升級後開放市場新聞功能</span>}
-        action={[
-          <IconButton
-            key="close"
-            aria-label="Close"
-            color="inherit"
-            // className={{padding: theme.spacing(0.5)}}
-            onClick={handleClose}
-          >
-            <CloseIcon />
-          </IconButton>,
-        ]}
-      /> */}
     </Grid>
   );
 }

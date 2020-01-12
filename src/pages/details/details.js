@@ -14,16 +14,16 @@ import config from "../../public/js/config";
 import "./details.css";
 import detailsStyles from './style.js';
 
-function Dashboard({account, history, currentUsername, handleLogout, handleChangeAccount, props}) {
+function Details({account, history, currentUsername, props}) {
   const classes = detailsStyles();
-  const [cookies] = useCookies(['pfa']);
+  const [cookies]                                   = useCookies(['pfa']);
   const [noinfoSnackbarOpen, setnoinfoSnackbarOpen] = useState(false);
-  const [transactionCount, setTransactionCount] = useState(0);
-  const [txHistory, setTxHistory] = useState([]);
+  const [transactionCount, setTransactionCount]     = useState(0);
+  const [txHistory, setTxHistory]                   = useState([]);
 
-  if (account === null || account === undefined || isEmpty(account)) {
+  if (account == null || isEmpty(account)) {
     account = cookies.acctobj;
-    if(isEmpty(account))
+    if(account == null || isEmpty(account)) 
       history.push("/login-account");
   }
   if(isEmpty(currentUsername)) 
@@ -39,18 +39,18 @@ function Dashboard({account, history, currentUsername, handleLogout, handleChang
   useEffect(() => {
     const fetchAccHistory = async () => {
       try {
-        const h = await getHistory(account.address);
-        setTxHistory(h);
-      } catch (err) {
-        console.log(err);
+        const history = await getHistory(account.address);
+        setTxHistory(history);
+      } catch (error) {
+        console.log(error);
       }
     };
 
     fetchAccHistory();
-  }, [transactionCount]);
+  }, [account, transactionCount]);
 
   const back = async () => props.history.push("/wallet");
-  
+
   return (
     <React.Fragment>
       <CssBaseline />
@@ -113,4 +113,4 @@ function Dashboard({account, history, currentUsername, handleLogout, handleChang
   );
 }
 
-export default withRouter(Dashboard);
+export default withRouter(Details);
