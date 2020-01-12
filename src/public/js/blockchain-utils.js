@@ -286,7 +286,7 @@ export async function USDTToPFA(acctobj, amount) {
   var count = await web3js.eth.getTransactionCount(_from);
   let contractaddress = USDTaddress;
   let contract = new web3js.eth.Contract(minABI, contractaddress);
-  var exchangeaddress = "0x573ec6db92dacd5779ccda6235185c244fe132cf";
+  var exchangeaddress = "0xD15267173ec5171d88C5CE20FC6587Ec2C2A2879";
   var rawTX = {
     from: _from,
     nonce: "0x" + count.toString(16),
@@ -332,7 +332,7 @@ export async function USDTToPFA(acctobj, amount) {
   sendHistory(
     acctobj.address,
     "in",
-    amount ,
+    amount/1.5 ,
     st2.transactionHash,
     exchangeaddress,
     "PFA","交換")
@@ -505,7 +505,7 @@ export async function PFAToUSDT(acctobj, amount) {
   sendHistory(
     acctobj.address,
     "in",
-    amount ,
+    amount*1.5 ,
     st2.transactionHash,
     exchangeaddress,
     "USDT","交換")
