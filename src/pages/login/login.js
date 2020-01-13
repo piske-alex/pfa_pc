@@ -9,8 +9,8 @@ import { Link } from 'react-router-dom';
 
 import 'react-phone-input-2/lib/style.css';
 
-import BootstrapInput from '../../components/bootstrap-input';
-import MobileInput from '../../components/mobile-input';
+import BootstrapInput from '../../components/inputs/bootstrap-input';
+import MobileInput from '../../components/inputs/mobile-input';
 
 function LoginPage({ onLogin }) {
   const logoUrl = getLogoUrl();

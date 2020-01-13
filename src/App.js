@@ -20,16 +20,14 @@ import RegisterPage from "./pages/register/register";
 
 const theme = createMuiTheme({
   palette: {
-    primary: { main: "#0d47a1"},
-    secondary: {main: "#0288d1"},
+    primary: { main: "#0d47a1" },
+    secondary: { main: "#0288d1" },
     type: "dark",
   },
   overrides: {
     MuiFormLabel: {
       root: {
-        "&$focused": {
-          color: "white",
-        },
+        "&$focused": { color: "white"}
       },
     },
   },
@@ -37,10 +35,10 @@ const theme = createMuiTheme({
 
 function App(props) {
   const [cookies, setCookie]                  = useCookies(['pfa']);   // cookies state
-  const [acCreatedSB,setAcCreatedSB]          = React.useState(false); // account Created Snackbar state
-  const [acNCreatedSB,setAcNCreatedSB]        = React.useState(false); // account not Created Snackbar state
-  const [invalidPkSB,setInvalidPkSB]          = React.useState(false); // wrong private key format state
-  const [invalidMobileSB,setInvalidMobileSB]  = React.useState(false); // wrong mobile warning snackbar state
+  const [acCreatedSB, setAcCreatedSB]         = React.useState(false); // account Created Snackbar state
+  const [acNCreatedSB, setAcNCreatedSB]       = React.useState(false); // account NOT Created Snackbar state
+  const [invalidPkSB, setInvalidPkSB]         = React.useState(false); // wrong private key format state
+  const [invalidMobileSB, setInvalidMobileSB] = React.useState(false); // wrong mobile warning snackbar state
   const [loginFailedSB, setLoginFailedSB]     = React.useState(false); // login failed snackbar state
   const [account, setAccount]                 = React.useState({});    // account state
   const [currentUsername, setCurrentUsername] = React.useState("");    // current username state
@@ -52,18 +50,17 @@ function App(props) {
   })();
 
   /* invalid mobile snackbar handle */
-  const invalidMobileSBOpen = () => setInvalidMobileSB(true);
-  const invalidMobileSBClose = () => setInvalidMobileSB(false);
+  const invalidMobileSBOpen   = () => setInvalidMobileSB(true);
+  const invalidMobileSBClose  = () => setInvalidMobileSB(false);
 
   /* account created snackbar handle */
-  const acCreatedSBClose = () => setAcCreatedSB(false);
+  const acCreatedSBClose      = () => setAcCreatedSB(false);
 
   /* account not created snackbar handle */
-  const acNCreatedSBClose = () => setAcNCreatedSB(false);
+  const acNCreatedSBClose     = () => setAcNCreatedSB(false);
 
   /* login failed snackbar handle */
-  const loginFailedSBClose = () => setLoginFailedSB(false);
-
+  const loginFailedSBClose    = () => setLoginFailedSB(false);
 
   /* on account change handle */
   const onAccChange = name => {
@@ -205,30 +202,35 @@ function App(props) {
             )}
           />
         </Switch>
+
         <Snackbar
           open={acCreatedSB}
           autoHideDuration={6000}
           onClose={acCreatedSBClose}
           message={trans.accountCreatedInfo[config.lang]}
         />
+
         <Snackbar
           open={acNCreatedSB}
           autoHideDuration={6000}
           onClose={acNCreatedSBClose}
           message={trans.accountNotCreatedInfo[config.lang]}
         />
+
         <Snackbar
           open={invalidPkSB}
           autoHideDuration={6000}
           onClose={acNCreatedSBClose}
           message={trans.wrongPrivateKeyFormat[config.lang]}
         />
+
         <Snackbar
           open={loginFailedSB}
           autoHideDuration={6000}
           onClose={loginFailedSBClose}
           message={trans.cannotLoginWarning[config.lang]}
         />
+
         <Snackbar
           open={invalidMobileSB}
           autoHideDuration={6000}

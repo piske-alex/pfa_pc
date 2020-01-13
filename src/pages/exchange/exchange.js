@@ -13,7 +13,7 @@ import { HorizontalCenter, isEmpty } from "../../public/js/utils";
 import config from "../../public/js/config";
 import './exchange.css';
 
-import BootstrapInput from '../../components/bootstrap-input';
+import BootstrapInput from '../../components/inputs/bootstrap-input';
 import exchangeStyles from './style.js';
 
 function ExchangePage({ account, history, currentUsername }) {

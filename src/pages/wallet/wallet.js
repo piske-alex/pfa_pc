@@ -18,9 +18,9 @@ import config from "../../public/js/config";
 import "./wallet.css";
 
 import walletStyles from './style.js';
-import XferModal from '../../components/transfer-modal';
-import RechargeModal from '../../components/recharge-modal';
-import TxModal from '../../components/transcation-modal';
+import XferModal from '../../components/modals/transfer-modal';
+import RechargeModal from '../../components/modals/recharge-modal';
+import TxModal from '../../components/modals/transcation-modal';
 
 function Wallet({account, history, currentUsername, props}) {
   const classes = walletStyles();

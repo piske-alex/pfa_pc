@@ -10,7 +10,7 @@ import { isEmpty } from "../../public/js/utils";
 import '../../public/js/clipboard';
 
 import aboutStyles from './style.js';
-import InfoModal from '../../components/information-modal';
+import InfoModal from '../../components/modals/information-modal';
 
 function About({ account, history, onLogout, currentUsername }) {
   const classes = aboutStyles();

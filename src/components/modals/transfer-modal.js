@@ -5,9 +5,9 @@ import MaterialLink from "@material-ui/core/Link";
 import CloseIcon from "@material-ui/icons/Close";
 import QrReader from 'react-qr-scanner';
 import jsQR from "jsqr";
-import { usdtProvider } from "../public/js/data";
+import { usdtProvider } from "../../public/js/data";
 import { sendEther, sendUSDT,
-         sendToken, getAddressFromMobile } from "../public/js/blockchain-utils";
+         sendToken, getAddressFromMobile } from "../../public/js/blockchain-utils";
 
 class XferModal extends Component {
     constructor(props) {

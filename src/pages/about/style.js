@@ -4,28 +4,28 @@ const aboutStyles = makeStyles(theme => ({
     headBlock: {
       backgroundColor: "#212733"
     },
-    head: {
-      width: "100%",
-      paddingTop: "40px",
-      fontSize: "16px",
-      textAlign: "Center",
-      letterSpacing: "1px",
-      color: "#fff"
-    },
-    icon: {
-      width: "100%",
-      height: "74px",
-      textAlign: "Center",
-      paddingTop: "20px"
-    },
-    introduce: {
-      height: "60px",
-      textAlign: "Center",
-      paddingTop: "30px",
-      fontSize: "14px",
-      color: "#fff",
-      letterSpacing: "1px"
-    },
+    // head: {
+    //   width: "100%",
+    //   paddingTop: "40px",
+    //   fontSize: "16px",
+    //   textAlign: "Center",
+    //   letterSpacing: "1px",
+    //   color: "#fff"
+    // },
+    // icon: {
+    //   width: "100%",
+    //   height: "74px",
+    //   textAlign: "Center",
+    //   paddingTop: "20px"
+    // },
+    // introduce: {
+    //   height: "60px",
+    //   textAlign: "Center",
+    //   paddingTop: "30px",
+    //   fontSize: "14px",
+    //   color: "#fff",
+    //   letterSpacing: "1px"
+    // },
     content: {
       width: "100%",
       height: "50px",
@@ -78,13 +78,13 @@ const aboutStyles = makeStyles(theme => ({
       right: "10px",
       top: "18px"
     },
-    logOut: {
-      textAlign: "Center",
-      position: "absolute",
-      bottom: "10%",
-      maxWidth: "1100px",
-      width: "100%"
-    },
+    // logOut: {
+    //   textAlign: "Center",
+    //   position: "absolute",
+    //   bottom: "10%",
+    //   maxWidth: "1100px",
+    //   width: "100%"
+    // },
     userName: {
       fontSize: "16px",
       fontWeight: "400",

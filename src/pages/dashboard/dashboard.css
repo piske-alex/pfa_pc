@@ -170,11 +170,13 @@
 }
 .CopyBtnStyle{
     width: 15%!important;
+    height: 56px!important;
     padding: 0px;
 }
 .CopyBtnStyleTwo{
     width: 15%!important;
-    height: 113px!important;
+    height: 56px!important;
+    /* height: 113px!important; */
     padding: 0px;
 }
 .backupBottom .MuiPaper-root{

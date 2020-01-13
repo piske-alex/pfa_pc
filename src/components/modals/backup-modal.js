@@ -3,7 +3,7 @@ import { ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary, FormContr
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { CopyButton } from "react-copy-button";
 import CloseIcon from "@material-ui/icons/Close";
-import { exportAccounts } from "../public/js/blockchain-utils";
+import { exportAccounts } from "../../public/js/blockchain-utils";
 
 class BackupModal extends Component {
     constructor(props) {

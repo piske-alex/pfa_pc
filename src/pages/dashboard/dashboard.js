@@ -9,8 +9,8 @@ import config from "../../public/js/config";
 import '../../public/js/clipboard';
 import './dashboard.css';
 
-import InfoModal from '../../components/information-modal';
-import BackupModal from '../../components/backup-modal';
+import InfoModal from '../../components/modals/information-modal';
+import BackupModal from '../../components/modals/backup-modal';
 
 function Dashboard({ account, history, currentUsername }) {
   const [cookies]                       = useCookies(['pfa']);

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Avatar, Grid, IconButton, List, ListItem, ListItemAvatar, ListItemText, LinearProgress, Modal, Paper, Typography } from "@material-ui/core";
 import MaterialLink from "@material-ui/core/Link";
 import CloseIcon from "@material-ui/icons/Close";
-import { usdtProvider } from "../public/js/data";
+import { usdtProvider } from "../../public/js/data";
 import QRCode from "qrcode.react";
 
 class RechargeModal extends Component {

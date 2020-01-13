@@ -8,8 +8,8 @@ import trans from '../../public/js/translation';
 
 import 'react-phone-input-2/lib/style.css';
 
-import BootstrapInput from '../../components/bootstrap-input';
-import MobileInput from '../../components/mobile-input';
+import BootstrapInput from '../../components/inputs/bootstrap-input';
+import MobileInput from '../../components/inputs/mobile-input';
 import registerStyles from './style.js';
 
 const smsUrl = 'https://api.quorum.mex.gold/sms/';
