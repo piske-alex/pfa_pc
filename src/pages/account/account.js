@@ -3,9 +3,10 @@ import { withRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Button, Grid, Snackbar, TextField, Typography } from "@material-ui/core";
 import { importAccounts, exportAccounts } from "../../public/js/blockchain-utils";
-import { HorizontalCenter, VerticalCenter } from "../../public/js/utils";
 import trans from "../../public/js/translation";
 import config from "../../public/js/config";
+
+import Center from '../../components/containers/center';
 
 function Account({ history, prefillUsername, onAccountChange }) {
   const [importData, setImportData]           = React.useState("");
@@ -33,66 +34,64 @@ function Account({ history, prefillUsername, onAccountChange }) {
 
   return (
     <React.Fragment>
-      <VerticalCenter gridStyle={{ minHeight: "80vh" }}>
-        <HorizontalCenter>
-          <Grid container alignItems={"center"} direction={"column"} spacing={2}>
-            <Grid item>
-              <Typography disabled variant={"body2"} className="textInfo" style={{ width: 300 , textAlign: "justify"}}>
-                {trans.exportInstructionInfo1[config.lang]}
-              </Typography>
-            </Grid>
+      <Center>
+        <Grid container alignItems={"center"} direction={"column"} spacing={2}>
+          <Grid item>
+            <Typography disabled variant={"body2"} className="textInfo" style={{ width: 300 , textAlign: "justify"}}>
+              {trans.exportInstructionInfo1[config.lang]}
+            </Typography>
+          </Grid>
 
-            <Grid item>
-              <Typography disabled variant={"body2"} className="textInfo" style={{ width: 300 , textAlign: "justify"}}>
-                {trans.exportInstructionInfo2[config.lang]}
-              </Typography>
-            </Grid>
+          <Grid item>
+            <Typography disabled variant={"body2"} className="textInfo" style={{ width: 300 , textAlign: "justify"}}>
+              {trans.exportInstructionInfo2[config.lang]}
+            </Typography>
+          </Grid>
 
 
-            <Grid item>
-              <TextField
-                style={{ width: 300 }}
-                variant={"outlined"}
-                value={importData}
-                onChange={event => {
-                  setImportData(event.target.value);
-                }}
-                multiline
-                rowsMax={4}
-                label={trans.pasteHere[config.lang]}
-              />
-            </Grid>
+          <Grid item>
+            <TextField
+              style={{ width: 300 }}
+              variant={"outlined"}
+              value={importData}
+              onChange={event => {
+                setImportData(event.target.value);
+              }}
+              multiline
+              rowsMax={4}
+              label={trans.pasteHere[config.lang]}
+            />
+          </Grid>
 
-            <Grid item>
-              <Grid container alignItems={"center"} direction={"row"} spacing={2}>
-                <Grid item>
-                  <Button
-                    className="CommonButtonStyle"
-                    variant="contained"
-                    color="primary"
-                    onClick={_import}
-                    style={{ width: "142px" }}
-                  >
-                    {trans.import[config.lang]}
-                  </Button>
-                </Grid>
-                <Grid item>
-                  <Button
-                    className="CommonButtonStyle"
-                    variant="contained"
-                    color="primary"
-                    component={Link}
-                    to={"/login-account"}
-                    style={{ width: "142px" }}
-                  >
-                    {trans.back[config.lang]}
-                  </Button>
-                </Grid>
+          <Grid item>
+            <Grid container alignItems={"center"} direction={"row"} spacing={2}>
+              <Grid item>
+                <Button
+                  className="CommonButtonStyle"
+                  variant="contained"
+                  color="primary"
+                  onClick={_import}
+                  style={{ width: "142px" }}
+                >
+                  {trans.import[config.lang]}
+                </Button>
+              </Grid>
+              <Grid item>
+                <Button
+                  className="CommonButtonStyle"
+                  variant="contained"
+                  color="primary"
+                  component={Link}
+                  to={"/login-account"}
+                  style={{ width: "142px" }}
+                >
+                  {trans.back[config.lang]}
+                </Button>
               </Grid>
             </Grid>
           </Grid>
-        </HorizontalCenter>
-      </VerticalCenter>
+        </Grid>
+      </Center>
 
       <Snackbar
         open={importSuccSB}

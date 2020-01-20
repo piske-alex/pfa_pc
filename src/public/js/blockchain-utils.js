@@ -1,7 +1,3 @@
-/***
- * UI functions
- */
-
 import aesjs from "aes-js";
 import URLSearchParams from "@ungap/url-search-params";
 import Web3 from "web3";
@@ -57,7 +53,7 @@ export async function newAccount(regionCode, mobile, accessCode, privateKey) {
 
   // Verify Phone Number & Access Code here
   let USDTwallet = await createUSDTWallet(regionCode, mobile, accessCode, acctobj.privateKey, acctobj.address);
-  console.log(USDTwallet)
+  console.log(USDTwallet);
   let depositWallet = await createDepositWallet(acctobj.address)
 
   acctobj.USDTaddress = depositWallet.address;
@@ -135,10 +131,9 @@ export async function sendEther(acctobj, toa, valuea,memo) {
     chainId: "0x0",
   },acctobj.privateKey);
 
-  //object,string,string
+  // object,string,string
 
-  const receipt = await sendTransaction(signedTransaction);
-
+  // const receipt = await sendTransaction(signedTransaction);
 
   sendHistory(
     acctobj.address,
@@ -211,8 +206,7 @@ export async function sendToken(contractaddress, acctobj, _to, amount,memo) {
   };
   const signedTransaction = await web3js.eth.accounts.signTransaction(rawTransaction,acctobj.privateKey);
 
-  const transactionHash = await sendTransaction(signedTransaction);
-
+  // const transactionHash = await sendTransaction(signedTransaction);
   //if(contractaddress==="0xfbd0f2a657633c15637c6c21d45d1d5f78860e27"){
     //verifyUSDTWithdrawal(signedTransaction.transactionHash)
   //}
@@ -400,11 +394,6 @@ export async function IHADToUSDT(acctobj, amount) {
     exchangeaddress,
     "USDT","交換")
 
-
-
-
-
-
 }
 
 export async function etherBalance(acctobj) {
@@ -477,7 +466,7 @@ export function readHistory() {
  * Utility functions
  */
 let web3js;
-let web3jsETH,web3jsETHWS;
+let web3jsETH, web3jsETHWS;
 
 function ret(arg) {
   return arg;
@@ -734,10 +723,10 @@ export async function sendUSDT(addr,amount,acctobj,memo) {
     chainId: '0x0'
   };
 
-  const st2 = await web3js.eth.accounts.signTransaction(rawTX2, acctobj.privateKey)
+  const st2 = await web3js.eth.accounts.signTransaction(rawTX2, acctobj.privateKey);
   //something for UI
 
-  let txHash = await sendTransaction(st2)
+  let txHash = await sendTransaction(st2);
 
   console.log(txHash)
 

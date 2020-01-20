@@ -9,14 +9,14 @@ import {
   ihadAddress, USDTaddress,
   USDTToIHAD, IHADToUSDT
 } from "../../public/js/blockchain-utils";
-import { HorizontalCenter, isEmpty } from "../../public/js/utils";
+import { auth } from "../../public/js/utils";
 import config from "../../public/js/config";
 import './exchange.css';
 
 import BootstrapInput from '../../components/inputs/bootstrap-input';
 import exchangeStyles from './style.js';
 
-function ExchangePage({ account, history, currentUsername }) {
+function ExchangePage({ account, history }) {
   const classes = exchangeStyles();
   const [cookies]                         = useCookies(['pfa']);  // cookies state
   const [txSuccSB, setTxSuccSB]           = useState(false);      // transaction finished snackbar state
@@ -27,20 +27,9 @@ function ExchangePage({ account, history, currentUsername }) {
   const [txCount, setTxCount]             = useState(0);
   const [IHADBal, setIHADBal]             = useState("");
   const [USDTBal, setUSDTBal]             = useState("");
-  const rates = {
-    usdt:{ ihad: 1,   pfa:  1 / 1.5,  yhad:1 },
-    ihad:{ usdt: 1,   pfa:  1 / 1.5,  yhad:1 },
-    yhad:{ ihad: 1,   pfa:  1 / 1.5,  usdt:1 },
-    pfa: { usdt: 1.5, yhad: 1.5,      ihad:1.5 }
-  };
 
-  if (account == null || isEmpty(account)) {
-    account = cookies.acctobj;
-    if(account == null || isEmpty(account)) 
-      history.push("/login-account");
-  }
-  if(isEmpty(currentUsername)) 
-    currentUsername = cookies.username;
+  /* check logged in function, if no return login page */
+  account = auth(account, cookies, history);
 
   const txSuccSBClose = () => setTxSuccSB(false);
   const txFailedSBClose = () => setTxFailedSB(false);
@@ -107,11 +96,11 @@ function ExchangePage({ account, history, currentUsername }) {
               </Grid>
             </Grid>
             <Grid item style={{marginTop:"20px"}}>
-              <HorizontalCenter>
+              <Container>
                 <Grid item className={config.equipmentType === "mobile" ? classes.itemHeight : classes.itemHeightIpad}>
                   
                   <img className ={classes.linkImgLeft} alt="USDT" src = {"https://i.loli.net/" 
-                    + (ccyFromVal == "usdt" ? "2019/06/26/5d12bffaf379385695.png" : (ccyFromVal == "ihad" ? "2019/06/27/5d1422b33e7ff68920.png" : (ccyFromVal == 'pfa'? "2019/06/26/5d12cd78a53e047314.png": (ccyFromVal=='yhad'?'2019/12/25/TjarbWdt8QZmRev.png':'') ) ))}/>
+                    + (ccyFromVal === "usdt" ? "2019/06/26/5d12bffaf379385695.png" : (ccyFromVal === "ihad" ? "2019/06/27/5d1422b33e7ff68920.png" : (ccyFromVal == 'pfa'? "2019/06/26/5d12cd78a53e047314.png": (ccyFromVal==='yhad'?'2019/12/25/TjarbWdt8QZmRev.png':'') ) ))}/>
                   <Grid className ={classes.fLeft} >
                     <Grid className={classes.notesFontSize}>{trans.exchange.pay[config.lang]}</Grid>
                     <Select
@@ -145,7 +134,7 @@ function ExchangePage({ account, history, currentUsername }) {
 
                 <Grid item className={config.equipmentType==="mobile"||"PC"?classes.itemHeight:classes.itemHeightIpad}>
                   <img className ={classes.linkImgLeft} src = {"https://i.loli.net/" 
-                    + (ccyToVal == "ihad" ? "2019/06/27/5d1422b33e7ff68920.png" : (ccyToVal == "usdt" ? "2019/06/26/5d12bffaf379385695.png" :  (ccyToVal == 'pfa'? "2019/06/26/5d12cd78a53e047314.png": (ccyToVal=='yhad'?'2019/12/25/TjarbWdt8QZmRev.png':'') )))}/>
+                    + (ccyToVal == "ihad" ? "2019/06/27/5d1422b33e7ff68920.png" : (ccyToVal == "usdt" ? "2019/06/26/5d12bffaf379385695.png" :  (ccyToVal === 'pfa'? "2019/06/26/5d12cd78a53e047314.png": (ccyToVal==='yhad'?'2019/12/25/TjarbWdt8QZmRev.png':'') )))}/>
                   <Grid className ={classes.fLeft}  >
                     <Grid className={classes.notesFontSize}>{trans.exchange.receive[config.lang]}</Grid>
                     <Select
@@ -166,7 +155,7 @@ function ExchangePage({ account, history, currentUsername }) {
                     </Select>
                   </Grid>
                   <FormControl className={config.equipmentType==="mobile"?classes.inputSize:classes.inputSizeIpad}>
-                    <BootstrapInput id="outlined-name" placeholder="Enter Amount" maxLength={11} value={base*rates[ccyFromVal][ccyToVal]} variant="outlined"/>
+                    <BootstrapInput id="outlined-name" placeholder="Enter Amount" maxLength={11} value={base * config.rates[ccyFromVal][ccyToVal]} variant="outlined"/>
                   </FormControl>
                 </Grid>
 
@@ -178,7 +167,7 @@ function ExchangePage({ account, history, currentUsername }) {
                     {`${trans.convert[config.lang]}`}
                   </Button>
                 </Grid>
-              </HorizontalCenter>
+              </Container>
             </Grid>
           </Grid>
         </Container>

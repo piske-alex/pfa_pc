@@ -3,7 +3,7 @@ import { Divider, Grid, IconButton, Snackbar } from "@material-ui/core";
 import CloseIcon from "@material-ui/icons/Close";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { withRouter } from "react-router-dom";
-import { isEmpty } from "../../public/js/utils";
+import { auth } from "../../public/js/utils";
 import { getHistory } from "../../public/js/blockchain-utils";
 import useCookies from "react-cookie/cjs/useCookies";
 import moment from "moment";
@@ -14,20 +14,15 @@ import config from "../../public/js/config";
 import "./details.css";
 import detailsStyles from './style.js';
 
-function Details({account, history, currentUsername, props}) {
+function Details({account, history, props}) {
   const classes = detailsStyles();
   const [cookies]                                   = useCookies(['pfa']);
   const [noinfoSnackbarOpen, setnoinfoSnackbarOpen] = useState(false);
   const [transactionCount, setTransactionCount]     = useState(0);
   const [txHistory, setTxHistory]                   = useState([]);
 
-  if (account == null || isEmpty(account)) {
-    account = cookies.acctobj;
-    if(account == null || isEmpty(account)) 
-      history.push("/login-account");
-  }
-  if(isEmpty(currentUsername)) 
-    currentUsername = cookies.username;
+  /* check logged in function, if no return login page */
+  account = auth(account, cookies, history);
 
   const handlenoinfoSnackbarClose = () => setnoinfoSnackbarOpen(false);
 

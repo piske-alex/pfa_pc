@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { TabBar, Toast } from 'antd-mobile';
+import { TabBar } from 'antd-mobile';
 import Icon from '@material-ui/core/Icon';
 import "./footNavigation.css";
-import Config from "../../public/js/config";
-import t from "../../public/js/translation";
+import config from "../../public/js/config";
+import trans from "../../public/js/translation";
 
 export default class FootNavigation extends Component {
 
@@ -13,11 +13,11 @@ export default class FootNavigation extends Component {
       hidden: false,
       selectedTab: 0,
       tabs: [
-        { title: t.footNavigation[Config.lang][0], icon: 'home', toPage: '/app' },
-        { title: t.footNavigation[Config.lang][1], icon: 'account_balance_wallet', toPage: '/wallet' },
-        { title: t.footNavigation[Config.lang][2], icon: 'swap_horizontal_circle', toPage: '/exchange' },
-        { title: t.footNavigation[Config.lang][3], icon: 'language', toPage: '/news' },
-        { title: t.footNavigation[Config.lang][4], icon: 'group', toPage: '/about' },
+        { title: trans.footNavigation[config.lang][0], icon: 'home', toPage: '/app' },
+        { title: trans.footNavigation[config.lang][1], icon: 'account_balance_wallet', toPage: '/wallet' },
+        { title: trans.footNavigation[config.lang][2], icon: 'swap_horizontal_circle', toPage: '/exchange' },
+        { title: trans.footNavigation[config.lang][3], icon: 'language', toPage: '/news' },
+        { title: trans.footNavigation[config.lang][4], icon: 'group', toPage: '/about' },
       ],
     };
     this.init();
@@ -27,18 +27,13 @@ export default class FootNavigation extends Component {
     let location = document.location.toString();
     let uri = location.substr(location.lastIndexOf('/'));
     let index = this.state.tabs.findIndex((item) => item.toPage === uri);
-    if (index !== -1) {
+    if (index !== -1)
       this.state.selectedTab = index;
-    }
   };
 
   onPress(model, index) {
-    // if (index === 3) {
-    //   Toast.info(t.footNavigations.message[Config.lang], 3, null, false);
-    //   return;
-    // }
     if (this.state.selectedTab !== index) {
-      this.props.history.push(model.toPage);//跳转页面
+      this.props.history.push(model.toPage);  // nav to page
       this.setState({ selectedTab: index });
     }
   }

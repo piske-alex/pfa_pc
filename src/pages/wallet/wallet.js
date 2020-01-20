@@ -8,7 +8,7 @@ import 'react-phone-input-2/lib/style.css';
 import { getHistory, tokenBalance,
          ihadAddress, yhadAddress, pfa20Address, USDTaddress,
          listenUSDTdeposit } from "../../public/js/blockchain-utils";
-import { HorizontalCenter, isEmpty } from "../../public/js/utils";
+import { auth } from "../../public/js/utils";
 import useCookies from "react-cookie/cjs/useCookies";
 import moment from "moment";
 import "moment-timezone";
@@ -22,7 +22,7 @@ import XferModal from '../../components/modals/transfer-modal';
 import RechargeModal from '../../components/modals/recharge-modal';
 import TxModal from '../../components/modals/transcation-modal';
 
-function Wallet({account, history, currentUsername, props}) {
+function Wallet({account, history, props}) {
   const classes = walletStyles();
   const [cookies]                         = useCookies(['pfa']);
   const [txModal, setTxModal]             = useState(false);            // transcation modal state
@@ -40,13 +40,8 @@ function Wallet({account, history, currentUsername, props}) {
   const [USDTbal, setUSDTBal]             = useState("");               // USDT Balance state
   const [txHistory, setTxHistory]         = useState([]);               // account transaction history state 
 
-  if (account == null || isEmpty(account)) {
-    account = cookies.acctobj;
-    if(account == null || isEmpty(account)) 
-      history.push("/login-account");
-  }
-  if(isEmpty(currentUsername)) 
-    currentUsername = cookies.username;
+  /* check logged in function, if no return login page */
+  account = auth(account, cookies, history);
     
   const tradeModalOpen      = (entry) => {
     if(entry == null)
@@ -84,15 +79,15 @@ function Wallet({account, history, currentUsername, props}) {
   useEffect(() => {
     const fetchBalance = async () => {
       try {
-        const pfa20Bal = await tokenBalance(account, pfa20Address)
-        setPfaBal(pfa20Bal != null ? pfa20Bal : 0);
-        const tkBal   = await tokenBalance(account, ihadAddress);
-        const yhadBal = await tokenBalance(account, yhadAddress);
-        const USDTBal = await tokenBalance(account, USDTaddress);
+        const pfa20Bal  = await tokenBalance(account, pfa20Address)
+        const tkBal     = await tokenBalance(account, ihadAddress);
+        const yhadBal   = await tokenBalance(account, yhadAddress);
+        const USDTBal   = await tokenBalance(account, USDTaddress);
         // console.log(`Token: ${tkBal} YHAD: ${yhadBal} USDT: ${USDTBal}`);
-        setIhadBal(tkBal    != null ? tkBal   : 0);
-        setYhadBal(yhadBal  != null ? yhadBal : 0);
-        setUSDTBal(USDTBal  != null ? USDTBal : 0);
+        setPfaBal(pfa20Bal  != null ? pfa20Bal : 0);
+        setIhadBal(tkBal    != null ? tkBal    : 0);
+        setYhadBal(yhadBal  != null ? yhadBal  : 0);
+        setUSDTBal(USDTBal  != null ? USDTBal  : 0);
       } catch (err) {
         console.log(err);
       }
@@ -138,15 +133,13 @@ function Wallet({account, history, currentUsername, props}) {
                 </Grid>
               </Grid>
 
-              <Grid item>
-                <HorizontalCenter>
+              <Grid item style={{margin: 'auto'}}>
                   <Grid className="usdtVulesClass">
-                    {pfaBal*1+ihadBal +USDTbal}
+                    {pfaBal * 1 + ihadBal + USDTbal}
                   </Grid>
                   <Grid className="usdtVulesClassCode">
                     {trans.UsdtCode[config.lang]}
                   </Grid>
-                </HorizontalCenter>
               </Grid>
 
               <Grid item style={{ height: "10px" }} />

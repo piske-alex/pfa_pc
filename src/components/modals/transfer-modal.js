@@ -8,6 +8,7 @@ import jsQR from "jsqr";
 import { usdtProvider } from "../../public/js/data";
 import { sendEther, sendUSDT,
          sendToken, getAddressFromMobile } from "../../public/js/blockchain-utils";
+import './modal.css';
 
 class XferModal extends Component {
     constructor(props) {
@@ -191,11 +192,11 @@ class XferModal extends Component {
 
         return (            
             <div>
-                <Modal open={this.state.open} onBackdropClick={this.state.close}>
-                    <div className={"modalWidthTwo modelHeight"} style={modalPaper}>
-                        <div style={toolbarIcon}>
+                <Modal open={this.state.open} onBackdropClick={this.state.close} className={"modal"}>
+                    <div>
+                        <div className={'toolbar'}>
                             <Typography variant={"h5"}>{this.state.trans.withdrawal[this.state.config.lang]}</Typography>
-                            <IconButton style={closeBtn} onClick={this.state.close}>
+                            <IconButton className={'close'} onClick={this.state.close}>
                                 <CloseIcon />
                             </IconButton>
                         </div>

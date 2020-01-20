@@ -1,5 +1,4 @@
 import React from "react";
-import { Grid } from "@material-ui/core";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import TextField from "@material-ui/core/TextField";
 import config from "./config";
@@ -8,33 +7,26 @@ export function isEmpty(obj) {
   return JSON.stringify(obj) === '{}';
 }
 
-export function VerticalCenter(props) {
-  return (
-    <Grid
-      container
-      direction={"column"}
-      alignItems={"center"}
-      justify={"center"}
-      spacing={props.spacing ? props.spacing : 0}
-      style={props.gridStyle ? props.gridStyle : {}}
-    >
-      <Grid item>{props.children}</Grid>
-    </Grid>
-  );
+/* check logged in function, if no return login page */
+export function auth(account, cookies, history) {
+  if (account === null || account === undefined || isEmpty(account)) {
+    account = cookies.acctobj;
+    if(account == null || account === undefined || isEmpty(account)) 
+      history.push("/login-account");
+  }
+  return account;
 }
-export function HorizontalCenter(props) {
-  return (
-    <Grid
-      container
-      direction={"row"}
-      alignItems={"center"}
-      justify={"center"}
-      spacing={props.spacing ? props.spacing : 0}
-      style={props.gridStyle ? props.gridStyle : {}}
-    >
-      <Grid item>{props.children}</Grid>
-    </Grid>
-  );
+
+/* convert the number format to thousand format, e.g. toThousForm(123456) = '12.34k' */
+export var toThousForm = (number) => {
+  number = Number(number);
+  const format = { 0: '', 1: 'K', 2: 'M', 3: 'B' }
+  let count = 0;
+  while(number > 1000) {
+    number /= 1000;
+    count++;
+  }
+  return (Number(number).toFixed(2) + format[count]);
 }
 
 export function getLogoUrl() {
@@ -57,11 +49,11 @@ export function getIcon() {
 
 export function getEquipmentType() {
   if(navigator.userAgent.match(/(pad|iPad)/i)) {
-    config.equipmentType="iPad";
+    config.equipmentType = "iPad";
   } else if (navigator.userAgent.match(/(phone|pod|iPhone|iPod|ios|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)) {
-    config.equipmentType="mobile";
+    config.equipmentType = "mobile";
   }else{
-    config.equipmentType="PC";
+    config.equipmentType = "PC";
   }
 }
 

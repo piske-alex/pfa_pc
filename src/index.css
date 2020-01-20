@@ -8,8 +8,7 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
 .lang{
@@ -36,9 +35,22 @@ code {
   bottom: -1px;
   color: #bebebe;
 }
+.red {
+    color: #be0b5b;
+}
+.green {
+    color: #08b67f;
+}
 
 /* -----------------公共样式区----------------- */
 /* 按钮样式 */
+.rowSep:not(:first-child) {
+  border-left: 1px solid #555;
+}
+.colSep:not(:first-child) {
+  border-bottom: 1px solid #555;
+}
+
 .CommonButtonStyle{
   font-family: "FZZhongDengXian-Z07S"!important;
   background-color: #13161b!important;
@@ -97,7 +109,7 @@ code {
     width: 43%;
   }
   .modelHeight{
-    height: 60%!important;
+    height: 60% !important;
   }
 }
 @media only screen and (min-width: 430px) and (max-width: 1000px) {

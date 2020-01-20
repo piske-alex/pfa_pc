@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Button, FormControl, FormHelperText, Grid, IconButton, InputLabel, Modal, Snackbar, Typography } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 
-import { HorizontalCenter, VerticalCenter } from '../../public/js/utils';
 import config from '../../public/js/config';
 import trans from '../../public/js/translation';
 
@@ -10,9 +9,8 @@ import 'react-phone-input-2/lib/style.css';
 
 import BootstrapInput from '../../components/inputs/bootstrap-input';
 import MobileInput from '../../components/inputs/mobile-input';
+import Center from '../../components/containers/center';
 import registerStyles from './style.js';
-
-const smsUrl = 'https://api.quorum.mex.gold/sms/';
 
 function RegisterPage({ onRegister, popMobileWarning }) {
   const classes = registerStyles();
@@ -56,7 +54,7 @@ function RegisterPage({ onRegister, popMobileWarning }) {
       mobileChange(username);
       if (mobile.regionCode === '' || mobile.phone === '')
         throw new Error('invalid phone number');
-      await fetch(`${smsUrl}${mobile.regionCode}/${mobile.phone}`);
+      await fetch(`${config.smsUrl}${mobile.regionCode}/${mobile.phone}`);
       // Disable this button until 60 seconds
       setCounter(60);
       setDisabled(true);
@@ -77,50 +75,48 @@ function RegisterPage({ onRegister, popMobileWarning }) {
   };
 
   return (
-    <VerticalCenter gridStyle={{ minHeight: '80vh' }}>
-      <HorizontalCenter>
-        <Grid container alignItems={'center'} direction={'column'} spacing={2}>
-          <Grid item>
-            <FormControl style={{ width: 300 }}>
-              <InputLabel shrink className='inputLabel'>{trans.mobile[config.lang]}</InputLabel>
-              <MobileInput trans = {trans} config = {config} disabled = {disabled}
-                value = {username}
-                onChange = {usernameChange}
-              ></MobileInput>
-            </FormControl>
-          </Grid>
-          <Grid item>
-            <Button className='CommonButtonStyle' disabled={counter > 0} style={{ width: 300 }} variant='contained' color='primary' onClick={sendCode}>
-              {trans.getCode[config.lang]}{ (counter > 0) ? ' (' + counter + ')' : '' }
-            </Button>
-          </Grid>
-          <Grid item>
-            <FormControl style={{ width: 300 }}>
-              <InputLabel shrink className='inputLabel'>{trans.accessToken[config.lang]}</InputLabel>
-              <BootstrapInput
-                value={acCode}
-                onChange={acCodeChange}
-                />
-              <FormHelperText className='formHelperText'>{acCode.length >= 4? undefined: trans.accessTokenLengthWarning[config.lang]}</FormHelperText>
-            </FormControl>
-          </Grid>
-          <Grid item>
-            <Typography variant={'body2'} className='textInfo' style={{ width: 300 , textAlign: 'justify' }}>
-              {trans.accountCreationWarning1[config.lang]}
-            </Typography>
-          </Grid>
-          <Grid item>
-            <Typography variant={'body2'} className='textInfo' style={{ width: 300 , textAlign: 'justify'}}>
-              {trans.accountCreationWarning2[config.lang]}
-            </Typography>
-          </Grid>
-          <Grid item>
-            <Button className='CommonButtonStyle' style={{ width: 300 }} variant='contained' color='primary' onClick={tosModalOpen}>
-              {trans.register[config.lang]}
-            </Button>
-          </Grid>
+    <Center>
+      <Grid container alignItems={'center'} direction={'column'} spacing={2}>
+        <Grid item>
+          <FormControl style={{ width: 300 }}>
+            <InputLabel shrink className='inputLabel'>{trans.mobile[config.lang]}</InputLabel>
+            <MobileInput trans = {trans} config = {config} disabled = {disabled}
+              value = {username}
+              onChange = {usernameChange}
+            ></MobileInput>
+          </FormControl>
         </Grid>
-      </HorizontalCenter>
+        <Grid item>
+          <Button className='CommonButtonStyle' disabled={counter > 0} style={{ width: 300 }} variant='contained' color='primary' onClick={sendCode}>
+            {trans.getCode[config.lang]}{ (counter > 0) ? ' (' + counter + ')' : '' }
+          </Button>
+        </Grid>
+        <Grid item>
+          <FormControl style={{ width: 300 }}>
+            <InputLabel shrink className='inputLabel'>{trans.accessToken[config.lang]}</InputLabel>
+            <BootstrapInput
+              value={acCode}
+              onChange={acCodeChange}
+              />
+            <FormHelperText className='formHelperText'>{acCode.length >= 4? undefined: trans.accessTokenLengthWarning[config.lang]}</FormHelperText>
+          </FormControl>
+        </Grid>
+        <Grid item>
+          <Typography variant={'body2'} className='textInfo' style={{ width: 300 , textAlign: 'justify' }}>
+            {trans.accountCreationWarning1[config.lang]}
+          </Typography>
+        </Grid>
+        <Grid item>
+          <Typography variant={'body2'} className='textInfo' style={{ width: 300 , textAlign: 'justify'}}>
+            {trans.accountCreationWarning2[config.lang]}
+          </Typography>
+        </Grid>
+        <Grid item>
+          <Button className='CommonButtonStyle' style={{ width: 300 }} variant='contained' color='primary' onClick={tosModalOpen}>
+            {trans.register[config.lang]}
+          </Button>
+        </Grid>
+      </Grid>
 
       <Modal open={tosModal} style={{ height: '100%' }} onBackdropClick={tosModalClose}>
         <div className={classes.modalPaper + ' modalWidth'}>
@@ -146,7 +142,7 @@ function RegisterPage({ onRegister, popMobileWarning }) {
         onClose={failedSBClose}
         message={trans.createAccountPage.onlyEn[config.lang]}
       />
-    </VerticalCenter>
+    </Center>
 
   );
 }

@@ -6,27 +6,22 @@ import QRCode from "qrcode.react";
 import useCookies from "react-cookie/cjs/useCookies";
 import trans from "../../public/js/translation";
 import config from "../../public/js/config";
-import { isEmpty } from "../../public/js/utils";
+import { auth } from "../../public/js/utils";
 import '../../public/js/clipboard';
 
 import aboutStyles from './style.js';
 import InfoModal from '../../components/modals/information-modal';
 
-function About({ account, history, onLogout, currentUsername }) {
+function About({ account, history, onLogout }) {
   const classes = aboutStyles();
   const [cookies]                       = useCookies(["pfa"]);
-  const [modalContent, setModalContent] = useState("undefinede");   // tos modal content state
-  const [modalTitle, setModalTitle]     = useState("undefinede");   // tos modal title state 
+  const [modalContent, setModalContent] = useState('...');          // tos modal content state
+  const [modalTitle, setModalTitle]     = useState('...');          // tos modal title state 
   const [tosModal, setTosModal]         = useState(false);          // tos modal state
   const [copiedSB, setCopiedSB]         = useState(false);          // copied snackbar state
 
-  if (account == null || isEmpty(account)) {
-    account = cookies.acctobj;
-    if(account == null || isEmpty(account)) 
-      history.push("/login-account");
-  }
-  if(isEmpty(currentUsername)) 
-    currentUsername = cookies.username;
+  /* check logged in function, if no return login page */
+  account = auth(account, cookies, history);
 
   /* tos modal handle */
   const tosModalOpen = (content, title) => {
@@ -60,7 +55,7 @@ function About({ account, history, onLogout, currentUsername }) {
           className={classes.headBlock}
         >
           <Grid style={{ marginTop: "32px" }}>
-            <Typography className={classes.userName}>{currentUsername}</Typography>
+            <Typography className={classes.userName}>{cookies.username}</Typography>
           </Grid>
           <Grid style={{ border: "8px white", marginTop: "20px" }}>
             <QRCode value={`${account.USDTaddress}`} renderAs={"svg"} style={{ border: "8px white solid", height: "200px", width: "200px" }}/>

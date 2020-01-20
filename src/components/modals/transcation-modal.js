@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Grid, IconButton, Modal, TextField, Typography } from "@material-ui/core";
+import { Grid, IconButton, Modal, Typography } from "@material-ui/core";
 import CloseIcon from "@material-ui/icons/Close";
+import './modal.css';
 
 class TxModal extends Component {
     constructor(props) {
@@ -19,34 +20,12 @@ class TxModal extends Component {
     }
     
     render() {
-        const modalPaper = { 
-          backgroundColor: "#212733",
-          padding: "14px",
-          outline: "none",
-          height: "60%",
-          position: "fixed",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          zIndex: 200
-        }
-        const toolbarIcon = {
-          padding: "0 2px",
-          textAlign: "Center",
-          marginTop: "14px"
-        }
-        const closeBtn = {
-          position: "absolute",
-          right: "10px",
-          top: "18px"
-        }
-
         return (            
-            <Modal open={this.state.open} onBackdropClick={this.state.close} >
-                <div className={"modalWidthTwo modelHeight"} style={modalPaper}>
-                    <div style={toolbarIcon}>
+            <Modal open={this.state.open} onBackdropClick={this.state.close} className={"modal"}>
+                <div>
+                    <div className={'toolbar'}>
                         <Typography variant={"h5"}>{this.state.trans.transactionVC[this.state.config.lang]}</Typography>
-                        <IconButton style={closeBtn} onClick={this.state.close}>
+                        <IconButton className={'close'} onClick={this.state.close}>
                             <CloseIcon />
                         </IconButton>
                     </div>

@@ -7,6 +7,7 @@ import createMuiTheme from "@material-ui/core/styles/createMuiTheme";
 import trans from "./public/js/translation";
 import config from "./public/js/config";
 import { newAccount, getUSDTWallet, createDepositWallet } from "./public/js/blockchain-utils";
+/* pages */
 import Dashboard from "./pages/dashboard/dashboard";
 import About from "./pages/about/about";
 import Account from "./pages/account/account";
@@ -122,7 +123,6 @@ function App(props) {
     props.history.push("/login-account");
   };
 
-
   return (
     <ThemeProvider theme={theme}>
       <React.Fragment>
@@ -139,7 +139,6 @@ function App(props) {
               <div>
                 <Dashboard
                   account={account}
-                  currentUsername={currentUsername}
                 />
                 <FootNavigation {...props}/>
               </div>
@@ -149,8 +148,7 @@ function App(props) {
             render={() => (
               <div>
                 <About
-                  props={props} account={account}
-                  currentUsername={currentUsername} onLogout={onLogout}/>
+                  props={props} account={account} onLogout={onLogout}/>
                 <FootNavigation {...props} />
               </div>
             )}
@@ -158,8 +156,7 @@ function App(props) {
           <Route path={"/details"}
             render={() => (
               <div>
-                <Details props={props} account={account}
-                         currentUsername={currentUsername}/>
+                <Details props={props} account={account} />
                 <FootNavigation {...props} />
               </div>
             )}
@@ -167,7 +164,7 @@ function App(props) {
           <Route path={"/wallet"}
             render={() => (
               <div>
-                <Wallet account={account} currentUsername={currentUsername} props={props} />
+                <Wallet props={props} account={account}/>
                 <FootNavigation {...props} />
               </div>
             )}
@@ -177,7 +174,6 @@ function App(props) {
               <div>
                 <Exchange
                   account={account}
-                  currentUsername={currentUsername}
                 />
                 <FootNavigation {...props} />
               </div>

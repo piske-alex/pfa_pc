@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button, FormControl, FormHelperText, Grid, Icon, InputLabel, Typography  } from '@material-ui/core';
 import { Visibility, VisibilityOff } from '@material-ui/icons';
 
-import { getLogoUrl, HorizontalCenter, VerticalCenter } from '../../public/js/utils';
+import { getLogoUrl } from '../../public/js/utils';
 import trans from '../../public/js/translation';
 import config from '../../public/js/config';
 import { Link } from 'react-router-dom';
@@ -11,31 +11,32 @@ import 'react-phone-input-2/lib/style.css';
 
 import BootstrapInput from '../../components/inputs/bootstrap-input';
 import MobileInput from '../../components/inputs/mobile-input';
+import Center from '../../components/containers/center';
 
 function LoginPage({ onLogin }) {
   const logoUrl = getLogoUrl();
 
-  const [username, setUsername] = useState('');                                               // username state
-  const [showPwd, setShowPwd]   = useState(false);                                            // password visibility state
-  const [acCode, setAcCode]     = useState('');                                               // access code state
-  const [lang, setConfig]       = useState({});                                               // language state
+  const [username, setUsername] = useState('');                                                 // username state
+  const [showPwd, setShowPwd]   = useState(false);                                              // password visibility state
+  const [acCode, setAcCode]     = useState('');                                                 // access code state
+  const [lang, setLang]       = useState({});                                                 // language state
 
-  const usernameChange  = (data) => setUsername((data.split(' ').length === 1) ? '' : data);  // little hack for re-formatting the mobile number
-  const showPwdToggle   = () => setShowPwd(showPwd => !showPwd);                              // toggle the show password feature
-  const acCodeChange    = (event) => setAcCode(event.target.value);                           // method when access code changed
-  const swipeLang       = () => {                                                             // swipe language when lang button clicked
+  const usernameChange  = (data)  => setUsername((data.split(' ').length === 1) ? '' : data);   // little hack for re-formatting the mobile number
+  const showPwdToggle   = ()      => setShowPwd(showPwd => !showPwd);                           // toggle the show password feature
+  const acCodeChange    = (event) => setAcCode(event.target.value);                             // method when access code changed
+  const swipeLang       = () => {                                                               // swipe language when lang button clicked
     config.lang = (config.lang === 'ch') ? 'en' : 'ch';
     localStorage.setItem('lang', config.lang);
-    setConfig(config.lang);
+    setLang(config.lang);
   };
-  const submit = () => onLogin(username, acCode);                                             // submit login info
+  const submit          = () => onLogin(username, acCode);                                      // submit login info
 
   return (
-    <VerticalCenter gridStyle={{ minHeight: '80vh'}}>
+    <Center direction={'column'}>
       <div className='lang' onClick={swipeLang}>
         <span className='on'>{config.lang === 'ch' ? '中' : 'EN'}</span>/<span className='notOn'>{config.lang === 'ch' ? 'EN' : '中'}</span>
       </div>
-      <HorizontalCenter>
+      <Center direction={'row'}>
         <Grid container alignItems={'center'} direction={'column'} spacing={2}>
 
           <Grid item>
@@ -56,17 +57,17 @@ function LoginPage({ onLogin }) {
             <FormControl style={{ width: 300 }}>
               <InputLabel shrink className='inputLabel'>{trans.accessToken[config.lang]}</InputLabel>
               <BootstrapInput
-                type={showPwd ? 'text' : 'password'}
-                value={acCode}
-                onChange={acCodeChange}
-                endAdornment={
+                type = {showPwd ? 'text' : 'password'}
+                value = {acCode}
+                onChange = {acCodeChange}
+                endAdornment = {
                   <Icon onClick={showPwdToggle} className='iconBtn'>
                     {showPwd ? <Visibility /> : <VisibilityOff />}
                   </Icon>
                 }
               ></BootstrapInput>
-              <FormHelperText className='formHelperText'>{acCode.length >= 4? undefined: trans.accessTokenLengthWarning[config.lang]}</FormHelperText>
-              <FormHelperText className='formHelperText'>{acCode.length >= 4? undefined: trans.accessTokenLost[config.lang]}</FormHelperText>
+              <FormHelperText className='formHelperText'>{acCode.length >= 4 ? undefined : trans.accessTokenLengthWarning[config.lang]}</FormHelperText>
+              <FormHelperText className='formHelperText'>{acCode.length >= 4 ? undefined : trans.accessTokenLost[config.lang]}</FormHelperText>
             </FormControl>
           </Grid>
 
@@ -98,7 +99,7 @@ function LoginPage({ onLogin }) {
             </Grid>
           </Grid>
 
-          <Grid item >
+          <Grid item>
             {config.lang === 'en' ?
               <Typography variant={'body2'} className='textImport' component={Link} to={'/account'}>
                 {trans.importExport[config.lang]}&nbsp;
@@ -114,8 +115,8 @@ function LoginPage({ onLogin }) {
             : null}
           </Grid>
         </Grid>
-      </HorizontalCenter>
-    </VerticalCenter>
+      </Center>
+    </Center>
   );
 }
 
