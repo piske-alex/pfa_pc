@@ -76,8 +76,20 @@ export default function LoginAccountPage({ onAccountLogin }) {
     setAccessCode(event.target.value);
   };
 
+  const [pw, setPw] = React.useState("");
+  const onPwChange = event => {
+    setPw(event.target.value);
+  };
+
+  const [pwlogin, setPwlogin] = React.useState(true);
+
+
   const onSumbit = () => {
     onAccountLogin(username, accessCode);
+  };
+
+  const onSumbitPw = () => {
+    onAccountLogin(username, pw,"pw");
   };
 
   const [accountNames, setAccountNames] = React.useState([]);
@@ -144,9 +156,31 @@ export default function LoginAccountPage({ onAccountLogin }) {
               />
             </FormControl>
           </Grid>
-          <Grid item>
+          <Grid item style={{display: pwlogin ?  'none' : 'block'}} >
+
             <FormControl style={{ width: 300 }}>
               <InputLabel shrink className="inputLabel">{trans.accessToken[Config.lang]}</InputLabel>
+              <BootstrapInput
+              type={values.showPassword ? 'text' : 'password'}
+              value={accessCode}
+              onChange={onAccessCodeChange}
+              endAdornment={
+                <Icon onClick={handleClickShowPassword} className="iconBtn">
+                  {values.showPassword ? <Visibility /> : <VisibilityOff />}
+                </Icon>
+              }
+            ></BootstrapInput>
+
+              <FormHelperText className="formHelperText">{accessCode.length >= 4? undefined: trans.accessTokenLengthWarning[Config.lang]}</FormHelperText>
+              <FormHelperText className="formHelperText">{accessCode.length >= 4? undefined: trans.accessTokenLost[Config.lang]}</FormHelperText>
+
+
+            </FormControl>
+          </Grid>
+
+          <Grid item style={{display: pwlogin ?  'block' : 'none'}} >
+            <FormControl style={{ width: 300 }}>
+              <InputLabel shrink className="inputLabel">{trans.password[Config.lang]}</InputLabel>
               <BootstrapInput
                 type={values.showPassword ? 'text' : 'password'}
                 value={accessCode}
@@ -157,14 +191,24 @@ export default function LoginAccountPage({ onAccountLogin }) {
                   </Icon>
                 }
               ></BootstrapInput>
-              <FormHelperText className="formHelperText">{accessCode.length >= 4? undefined: trans.accessTokenLengthWarning[Config.lang]}</FormHelperText>
-              <FormHelperText className="formHelperText">{accessCode.length >= 4? undefined: trans.accessTokenLost[Config.lang]}</FormHelperText>
+
+            </FormControl>
+          </Grid>
+
+          <Grid item>
+            <FormControl style={{ width: 300 }}>
+            <div className="radio">
+              <label ><input type="radio" value="pw" name="optradio" checked={pwlogin} onChange={(e)=>{e.target.value==="pw"?setPwlogin(true):setPwlogin(false)}}/><span style={{color:'white'}}>密碼登錄</span></label>
+            </div>
+            <div className="radio">
+              <label ><input type="radio" value="acc" name="optradio" checked={!pwlogin} onChange={(e)=>{e.target.value==="pw"?setPwlogin(true):setPwlogin(false)}}/><span style={{color:'white'}}>信息存取碼登錄</span></label>
+            </div>
             </FormControl>
           </Grid>
 
           <Grid item>
             <Grid container alignItems={"center"} direction={"row"} spacing={2}>
-              <Grid item>
+              <Grid item style={{display: pwlogin ?  'none' : 'block'}}>
                 <Button
                   className="CommonButtonStyle"
                   variant="contained"
@@ -175,6 +219,18 @@ export default function LoginAccountPage({ onAccountLogin }) {
                   {trans.login[Config.lang]}
                 </Button>
               </Grid>
+              <Grid item style={{display: pwlogin ?  'block' : 'none'}}>
+                <Button
+                  className="CommonButtonStyle"
+                  variant="contained"
+                  color="primary"
+                  onClick={onSumbitPw}
+                  style={{ width: "142px" }}
+                >
+                  {trans.login[Config.lang]}
+                </Button>
+              </Grid>
+
               <Grid item>
                 <Button
                   className="CommonButtonStyle"

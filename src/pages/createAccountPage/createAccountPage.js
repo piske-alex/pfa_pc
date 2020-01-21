@@ -206,6 +206,11 @@ export default function CreateAccountPage({ onAccountCreate, popMobileWarning })
     setAccessCode(event.target.value);
   };
 
+  const [pw, setPw] = React.useState("");
+  const onPw = event => {
+    setPw(event.target.value);
+  };
+
   const [counter, setCounter] = React.useState(0);
   const timer = () => setCounter(counter - 1);
   React.useEffect(() => {
@@ -257,7 +262,7 @@ export default function CreateAccountPage({ onAccountCreate, popMobileWarning })
         throw new Error('invalid phone number');
       }
       console.log(mobile);
-      onAccountCreate(mobile.regionCode, mobile.phone, accessCode, existingPvKey);
+      onAccountCreate(mobile.regionCode, mobile.phone, accessCode, existingPvKey, pw);
     } catch (e) {
       console.error(e);
       setAccountNotCreatedSnackbarOpen(true);
@@ -308,6 +313,27 @@ export default function CreateAccountPage({ onAccountCreate, popMobileWarning })
             </FormControl>
           </Grid>
 
+          <Grid item>
+            <FormControl style={{ width: 300 }}>
+              <InputLabel shrink className="inputLabel">{trans.accessToken[Config.lang]}</InputLabel>
+              <BootstrapInput
+                value={accessCode}
+                onChange={onAccessCodeChange}
+              />
+              <FormHelperText className="formHelperText">{accessCode.length >= 4? undefined: trans.accessTokenLengthWarning[Config.lang]}</FormHelperText>
+            </FormControl>
+          </Grid>
+
+          <Grid item>
+            <FormControl style={{ width: 300 }}>
+              <InputLabel shrink className="inputLabel">{trans.password[Config.lang]}</InputLabel>
+              <BootstrapInput
+                value={pw}
+                onChange={setPw}
+              />
+            </FormControl>
+          </Grid>
+
           {/*<Grid item>
             <FormControlLabel
               control={
@@ -323,16 +349,7 @@ export default function CreateAccountPage({ onAccountCreate, popMobileWarning })
               <BootstrapInput value={existingPvKey} onChange={onExistingPvKeyChange} type='password'/>
             </FormControl>
           </Grid>*/}
-          <Grid item>
-            <Typography variant={"body2"} className="textInfo" style={{ width: 300 , textAlign: "justify" }}>
-              {trans.accountCreationWarning1[Config.lang]}
-            </Typography>
-          </Grid>
-          <Grid item>
-            <Typography variant={"body2"} className="textInfo" style={{ width: 300 , textAlign: "justify"}}>
-              {trans.accountCreationWarning2[Config.lang]}
-            </Typography>
-          </Grid>
+
           <Grid item>
             <Button className="CommonButtonStyle" style={{ width: 300 }} variant="contained" color="primary" onClick={handletosModalOpen}>
               {trans.register[Config.lang]}

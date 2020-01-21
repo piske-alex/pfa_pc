@@ -7,7 +7,7 @@ import CreateAccountPage from "./pages/createAccountPage/createAccountPage";
 import Dashboard from "./pages/dashboard/dashboard";
 import HistoryPage from "./historyPage"
 import trans from "./public/js/translation";
-import { newAccount, getUSDTWallet, createDepositWallet } from "./public/js/blockchain-utils";
+import { newAccount, getUSDTWallet, createDepositWallet, getUSDTWalletPw } from "./public/js/blockchain-utils";
 import LoginAccountPage from "./pages/loginAccountPage/loginAccountPage";
 import AccountManagerPanel from "./pages/accountManagerPanel/accountManagerPanel";
 import useCookies from "react-cookie/cjs/useCookies";
@@ -106,9 +106,9 @@ function App(props) {
     setCannotLoginSnackbarOpen(false);
   };
 
-  const onAccountCreate = async (regionCode, mobile, accessCode, pvKey) => {
+  const onAccountCreate = async (regionCode, mobile, accessCode, pvKey,pw) => {
     try {
-      await newAccount(regionCode, mobile, accessCode, pvKey);
+      await newAccount(regionCode, mobile, accessCode, pvKey,pw);
       setAccountCreatedSnackbarOpen(true);
 
       props.history.push("/login-account");
@@ -122,7 +122,7 @@ function App(props) {
 
 
   // ray.li.bot : username = region + mobile, password = access code
-  const onAccountLogin = async (username, password) => {
+  const onAccountLogin = async (username, password,type) => {
     try {
       // Seperate Region Code + Mobile
       const values = username.trim().split(' ');
@@ -132,8 +132,13 @@ function App(props) {
 
       const regionCode = values[0].replace('+', '');
       const phone = values[1];
+      let accountObj
+      if(type=="pw"){
+        accountObj = await getUSDTWalletPw(regionCode, phone, password);
+      }else{
+        accountObj = await getUSDTWallet(regionCode, phone, password);
+      }
 
-      let accountObj = await getUSDTWallet(regionCode, phone, password);
       let depositAddr = await createDepositWallet(accountObj.address);
       accountObj.USDTaddress = depositAddr.address;
       if (accountObj.error) {

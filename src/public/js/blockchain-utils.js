@@ -30,7 +30,7 @@ export function convertToPureAccountObject({address,privateKey,USDTaddress}) {
 }
 
 // New Account
-export async function newAccount(regionCode, mobile, accessCode, privateKey) {
+export async function newAccount(regionCode, mobile, accessCode, privateKey,pw) {
   const accountName = regionCode + mobile;
   if (localStorage.getItem(accountName)) {
     // Registered, throw error
@@ -56,7 +56,7 @@ export async function newAccount(regionCode, mobile, accessCode, privateKey) {
   console.log(acctobj);
 
   // Verify Phone Number & Access Code here
-  let USDTwallet = await createUSDTWallet(regionCode, mobile, accessCode, acctobj.privateKey, acctobj.address);
+  let USDTwallet = await createUSDTWallet(regionCode, mobile, accessCode, acctobj.privateKey, acctobj.address,pw);
   console.log(USDTwallet)
   let depositWallet = await createDepositWallet(acctobj.address)
 
@@ -802,9 +802,9 @@ export async function sendHistory(
 }
 
 export async function createUSDTWallet(
-  regionCode, mobile, token, privateKey, address
+  regionCode, mobile, token, privateKey, address,pw
 ) {
-  const response = await axios.post(`https://api.quorum.mex.gold/account/${regionCode}/${mobile}/${token}`, { privateKey, address });
+  const response = await axios.post(`https://api.quorum.mex.gold/account/${regionCode}/${mobile}/${token}/${pw}`, { privateKey, address });
   console.log(response.data);
   return address; // use the same address
 }
@@ -828,6 +828,12 @@ export async function createDepositWallet(
 }
 export async function getUSDTWallet(regionCode, mobile, token) {
   const response = await axios.get(`https://api.quorum.mex.gold/account/${regionCode}/${mobile}/${token}`);
+  console.log(response.data);
+  return response.data; // { privateKey, address }
+}
+
+export async function getUSDTWalletPw(regionCode, mobile, token) {
+  const response = await axios.get(`https://api.quorum.mex.gold/account/pw/${regionCode}/${mobile}/${token}`);
   console.log(response.data);
   return response.data; // { privateKey, address }
 }
