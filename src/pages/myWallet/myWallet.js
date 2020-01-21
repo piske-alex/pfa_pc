@@ -385,15 +385,22 @@ function Dashboard({
             console.log(e);
           }
         } else if(sendCurrency === "usdt"){
-          if(sendAmount<=USDTbalance){
-            await sendUSDT(sendToAddress,sendAmount,account,memo)
+          const res = await getAddressFromMobile(sendToAddress);
+          if (!res) throw new Error('empty resolve address response');
+          else if (!res.address) {
+            if(sendAmount<=USDTbalance){
+              await sendUSDT(sendToAddress,sendAmount,account,memo)
+            }else{
+              setTransactionFailedSnackbarOpen(true);
+            }
           }else{
-            setTransactionFailedSnackbarOpen(true);
+            await sendToken(USDTaddress, account, res.address, sendAmount,memo);
           }
+
 
         } else if(sendCurrency === "usdti"){
           if(sendAmount<=USDTbalance){
-            await sendToken(USDTaddress, account, sendToAddress, sendAmount,memo);
+
           }else{
             setTransactionFailedSnackbarOpen(true);
           }
@@ -635,7 +642,7 @@ function Dashboard({
               <Grid item>
                 <HorizontalCenter>
                   <Grid className="usdtVulesClass">
-                    {pfaBalance*1+ihadBalance +USDTbalance}
+                    {pfaBalance*1.5+ihadBalance +USDTbalance}
                   </Grid>
                   <Grid className="usdtVulesClassCode">
                     {t.UsdtCode[Config.lang]}
@@ -698,8 +705,7 @@ function Dashboard({
                         {'(Price Fitch Asset)'}
                       </Grid>
                       <Grid className="binanceCoinNumber">
-                        {//parseFloat(pfaBalance).toFixed(2)
-                          pfaBalance }
+                        {parseFloat(pfaBalance).toFixed(2)}
                       </Grid>
                     </ListItem>
 
@@ -717,8 +723,8 @@ function Dashboard({
                         {'(TetherUSD)'}
                       </Grid>
                       <Grid className="binanceCoinNumber">
-                        {//parseFloat(USDTbalance).toFixed(2)
-                          USDTbalance }
+                        {parseFloat(USDTbalance).toFixed(2)
+                          }
                       </Grid>
                       {/* </Grid> */}
                     </ListItem>
@@ -737,8 +743,8 @@ function Dashboard({
                         {'(Health Aqua Digital)'}
                       </Grid>
                       <Grid className="binanceCoinNumber">
-                        {//parseFloat(ihadBalance).toFixed(2)
-                          ihadBalance }
+                        {parseFloat(ihadBalance).toFixed(2)
+                          }
                       </Grid>
                       {/* </Grid> */}
                     </ListItem>
