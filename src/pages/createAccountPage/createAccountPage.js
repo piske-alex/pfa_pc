@@ -313,23 +313,14 @@ export default function CreateAccountPage({ onAccountCreate, popMobileWarning })
             </FormControl>
           </Grid>
 
-          <Grid item>
-            <FormControl style={{ width: 300 }}>
-              <InputLabel shrink className="inputLabel">{trans.accessToken[Config.lang]}</InputLabel>
-              <BootstrapInput
-                value={accessCode}
-                onChange={onAccessCodeChange}
-              />
-              <FormHelperText className="formHelperText">{accessCode.length >= 4? undefined: trans.accessTokenLengthWarning[Config.lang]}</FormHelperText>
-            </FormControl>
-          </Grid>
+
 
           <Grid item>
             <FormControl style={{ width: 300 }}>
               <InputLabel shrink className="inputLabel">{trans.password[Config.lang]}</InputLabel>
               <BootstrapInput
                 value={pw}
-                onChange={setPw}
+                onChange={onPw}
               />
             </FormControl>
           </Grid>

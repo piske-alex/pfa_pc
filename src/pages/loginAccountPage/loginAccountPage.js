@@ -183,8 +183,8 @@ export default function LoginAccountPage({ onAccountLogin }) {
               <InputLabel shrink className="inputLabel">{trans.password[Config.lang]}</InputLabel>
               <BootstrapInput
                 type={values.showPassword ? 'text' : 'password'}
-                value={accessCode}
-                onChange={onAccessCodeChange}
+                value={pw}
+                onChange={onPwChange}
                 endAdornment={
                   <Icon onClick={handleClickShowPassword} className="iconBtn">
                     {values.showPassword ? <Visibility /> : <VisibilityOff />}
