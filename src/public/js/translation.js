@@ -69,6 +69,7 @@ export default {
   accessTokenLost: { ch: "如果遺失信息存取碼，可以在註冊頁面重新獲取", en: "If you lost the access token, you can regenerate one at the registration page." },
   getCode: { ch: "獲取信息存取碼", en: "Get SMS Token" }, 
   password: { ch: "密碼", en: "Password" },
+  confirmpassword: { ch: "確認密碼", en: "Confirm Password" },
   mobile: { ch: "電話號碼", en: "Mobile Number" },
   passwordAgain: { ch: "重新輸入密碼", en: "Type in your password again", },
   accountCreationWarning1: {

@@ -211,6 +211,11 @@ export default function CreateAccountPage({ onAccountCreate, popMobileWarning })
     setPw(event.target.value);
   };
 
+  const [pw2, setPw2] = React.useState("");
+  const onPw2 = event => {
+    setPw2(event.target.value);
+  };
+
   const [counter, setCounter] = React.useState(0);
   const timer = () => setCounter(counter - 1);
   React.useEffect(() => {
@@ -262,6 +267,10 @@ export default function CreateAccountPage({ onAccountCreate, popMobileWarning })
         throw new Error('invalid phone number');
       }
       console.log(mobile);
+      if(pw!=pw2){
+        alert('密碼必須一樣')
+        throw new Error('invalid password check');
+      }
       onAccountCreate(mobile.regionCode, mobile.phone, accessCode, existingPvKey, pw);
     } catch (e) {
       console.error(e);
@@ -321,6 +330,16 @@ export default function CreateAccountPage({ onAccountCreate, popMobileWarning })
               <BootstrapInput
                 value={pw}
                 onChange={onPw}
+              />
+            </FormControl>
+          </Grid>
+
+          <Grid item>
+            <FormControl style={{ width: 300 }}>
+              <InputLabel shrink className="inputLabel">{trans.confirmpassword[Config.lang]}</InputLabel>
+              <BootstrapInput
+                value={pw2}
+                onChange={onPw2}
               />
             </FormControl>
           </Grid>
