@@ -137,6 +137,7 @@ function App(props) {
         accountObj = await getUSDTWalletPw(regionCode, phone, password);
       }else{
         accountObj = await getUSDTWallet(regionCode, phone, password);
+        setCookie('token', password , { path: '/' });
       }
 
       let depositAddr = await createDepositWallet(accountObj.address);
@@ -176,6 +177,7 @@ function App(props) {
                   currentUsername={currentUsername}
                   handleLogout={handleLogout}
                   handleChangeAccount={handleChangeAccount}
+                  onAccountCreate={onAccountCreate}
                 />
                 <FootNavigation {...props}/>
               </div>

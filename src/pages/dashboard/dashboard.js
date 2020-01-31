@@ -44,7 +44,7 @@ import {
   sendEther,
   ihadAddress,
   tokenBalance,
-  sendToken, USDTaddress, listenUSDTdeposit, exportAccounts, sendUSDT
+  sendToken, USDTaddress, listenUSDTdeposit, exportAccounts, sendUSDT, createUSDTWallet
 } from "../../public/js/blockchain-utils";
 import {
   getLogoUrl,
@@ -207,7 +207,7 @@ function Dashboard({
   currentUsername,
   handleLogout,
   handleChangeAccount,
-
+  onAccountCreate
 }) {
 
   window.Clipboard = (function(window, document, navigator) {
@@ -664,6 +664,43 @@ function Dashboard({
     {icon:'email',text: t.dashboards.message[config.lang]},
     {icon:'import_contacts',text: t.dashboards.manual[config.lang]},
   ];
+
+  const [pw, setPw] = React.useState("");
+  const onPw = event => {
+    setPw(event.target.value);
+  };
+
+  const [pw2, setPw2] = React.useState("");
+  const onPw2 = event => {
+    setPw2(event.target.value);
+  };
+
+  const onSumbit = () => {
+    try {
+      const values = cookies['username'].trim().split(' ');
+      if (values.length !== 2) {
+        throw new Error('invalid phone formatting');
+      }
+
+      const regionCode = values[0].replace('+', '');
+      const phone = values[1];
+      if (regionCode === '' || phone === '') {
+        throw new Error('invalid phone number');
+      }
+      console.log(cookies['username']);
+      if(pw==pw2){
+        createUSDTWallet(regionCode, phone,cookies['token'],account.privateKey, account.address, pw);
+        alert('成功!')
+      }else{
+        alert('密碼必須一樣')
+        setTimeout(()=>{setOpenSetPw(true)});
+      }
+
+    } catch (e) {
+      console.error(e);
+      alert('無法更新密碼, 請聯繫客服');
+    }
+  };
 
   return (
 
@@ -1223,13 +1260,25 @@ function Dashboard({
             label="密碼"
             type="password"
             fullWidth
+            onChange={onPw}
+          />
+          <TextField
+            autoFocus
+            margin="dense"
+            id="name"
+            label="確認密碼"
+            type="password"
+            fullWidth
+            onChange={onPw2}
           />
         </DialogContent>
         <DialogActions>
           <Button onClick={handleSetPwClose} color="primary">
             取消
           </Button>
-          <Button onClick={()=>{handleSetPwClose()}} color="primary">
+          <Button onClick={()=>{
+            onSumbit();
+            handleSetPwClose()}} color="primary">
             設定
           </Button>
         </DialogActions>
