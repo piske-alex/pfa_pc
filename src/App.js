@@ -149,8 +149,8 @@ function App(props) {
       console.log(cookies.acctobj);
       setCurrentUsername(username);
       setCookie('username', username, { path: '/' });
+      setCookie('type', type, { path: '/' });
       props.history.push("/app");
-     
     } catch (err) {
       console.log(err);
       setCannotLoginSnackbarOpen(true);

@@ -63,6 +63,9 @@ import QrReader from 'react-qr-scanner'
 import moment from "moment";
 import config from "../../public/js/config";
 import Dialog from "@material-ui/core/Dialog";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogContentText from "@material-ui/core/DialogContentText";
+import DialogActions from "@material-ui/core/DialogActions";
 
 
 const accountInfoRefreshTime = 20;
@@ -256,6 +259,12 @@ function Dashboard({
   })(window, document, navigator);
 
   const logoUrl = getLogoUrl();
+  const [openSetPw, setOpenSetPw] = React.useState(false);
+
+  const handleSetPwClose = () => {
+    setOpenSetPw(false);
+  };
+
   const [cookies, setCookie] = useCookies(['pfa']);
   let something = ""
   console.log(account);
@@ -539,7 +548,11 @@ function Dashboard({
       Math.floor(new Date().getTime() / (accountInfoRefreshTime * 1000)),
     ]);
 
-
+  React.useEffect(() => {
+    if(cookies['type']!="pw"){
+      setOpenSetPw(true);
+    }
+  },[])
 
   React.useEffect(() => {
     const fetchAccHistory = async () => {
@@ -651,6 +664,7 @@ function Dashboard({
     {icon:'email',text: t.dashboards.message[config.lang]},
     {icon:'import_contacts',text: t.dashboards.manual[config.lang]},
   ];
+
   return (
 
     <React.Fragment>
@@ -1180,8 +1194,6 @@ function Dashboard({
       <Dialog onClose={handleChooseModalClose} aria-labelledby="simple-dialog-title" open={openChooser}>
         <DialogTitle id="simple-dialog-title">請選擇</DialogTitle>
         <List>
-
-
           <ListItem button onClick={() => history.push("/aboutUs")}>
             <ListItemAvatar>
               <Avatar src='https://i.loli.net/2019/06/26/5d12cd78a53e047314.png' />
@@ -1198,370 +1210,35 @@ function Dashboard({
         </List>
       </Dialog>
 
+      <Dialog open={openSetPw} onClose={handleSetPwClose} aria-labelledby="form-dialog-title">
+        <DialogTitle id="form-dialog-title">設定密碼</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            設定密碼後, 你可以使用密碼登入
+          </DialogContentText>
+          <TextField
+            autoFocus
+            margin="dense"
+            id="name"
+            label="密碼"
+            type="password"
+            fullWidth
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleSetPwClose} color="primary">
+            取消
+          </Button>
+          <Button onClick={()=>{handleSetPwClose()}} color="primary">
+            設定
+          </Button>
+        </DialogActions>
+      </Dialog>
+
     </React.Fragment>
   );
 }
 
+
+
 export default withRouter(Dashboard);
-
-// {/* <AppBar
-//         position="absolute"
-//         className={clsx(
-//           classes.appBar /*, drawerOpen && classes.appBarShift */,
-//         )}
-//       >
-//         <Toolbar className={classes.toolbar}>
-//           <IconButton
-//             edge="start"
-//             color="inherit"
-//             aria-label="Open drawer"
-//             onClick={handleDrawerOpen}
-//             className={clsx(
-//               classes.menuButton,
-//               drawerOpen && classes.menuButtonHidden,
-//             )}
-//           >
-//             <MenuIcon />
-//           </IconButton>
-//           <Typography
-//             component="h1"
-//             variant="h6"
-//             color="inherit"
-//             noWrap
-//             className={classes.title}
-//           >
-//             {accName}
-//           </Typography>
-//           <IconButton color={"inherit"} onClick={handleLogout} edge={"end"}>
-//             <LogoutIcon />
-//           </IconButton>
-//           {/*<IconButton color="inherit" onClick={handleModalOpen} edge={"end"}>*/}
-//           {/*  <MoreIcon />*/}
-//           {/*</IconButton>*/}
-//         </Toolbar>
-//       </AppBar> */}
-
-//       <Drawer
-//         variant="temporary"
-//         classes={{
-//           paper: clsx(
-//             classes.drawerPaper,
-//             !drawerOpen && classes.drawerPaperClose,
-//           ),
-//         }}
-//         open={drawerOpen}
-//         onBackdropClick={handleDrawerClose}
-//       >
-//         <div className={classes.toolbarIcon}>
-//           <IconButton onClick={handleDrawerClose}>
-//             <ChevronLeftIcon />
-//           </IconButton>
-//         </div>
-//         <Grid container spacing={2} direction="column">
-//           <Grid item>
-//             <Grid
-//               container
-//               spacing={0}
-//               direction="row"
-//               alignItems="center"
-//               justify="center"
-//             >
-//               <Grid item>
-//                 <Avatar style={{ width: 60, height: 60 }} src={logoUrl} />
-//               </Grid>
-//             </Grid>
-//           </Grid>
-//           <Grid item>
-//             <Grid
-//               container
-//               spacing={0}
-//               direction="row"
-//               alignItems="center"
-//               justify="center"
-//             >
-//               <Grid item>
-//                 <Typography variant="h5">{accName}</Typography>
-//               </Grid>
-//             </Grid>
-//           </Grid>
-//           <Grid item>
-//             <Grid
-//               container
-//               spacing={0}
-//               direction="row"
-//               alignItems="center"
-//               justify="center"
-//             >
-//               <Grid item>
-//                 <Button
-//                   variant="contained"
-//                   size="small"
-//                   color="secondary"
-//                   className={classes.margin}
-//                   onClick={handleModalOpen}
-//                   style={{ width: "150px" }}
-//                 >
-//                   {t.details[lang]}
-//                 </Button>
-//               </Grid>
-//             </Grid>
-//           </Grid>
-//           <Grid item>
-//             <List>
-//               {/*{accountNames.map(name => (*/}
-//               {/*  <ListItem*/}
-//               {/*    onClick={() => handleChangeAccount(name.slice(5))}*/}
-//               {/*    button*/}
-//               {/*  >*/}
-//               {/*    <ListItemAvatar>*/}
-//               {/*      <Avatar src={logoUrl} />*/}
-//               {/*    </ListItemAvatar>*/}
-//               {/*    <ListItemText primary={name} />*/}
-//               {/*  </ListItem>*/}
-//               {/*))}*/}
-//               {/*<ListItem>
-//                 <ListItemAvatar>
-//                   <Avatar src={logoUrl} />
-//                 </ListItemAvatar>
-//                 <ListItemText
-//                   primary={<Typography variant={"h5"}>{pfaBalance}</Typography>}
-//                 />
-//               </ListItem>
-//               <ListItem>
-//                 <ListItemAvatar>
-//                   <Avatar src={logoUrl} />
-//                 </ListItemAvatar>
-//                 <ListItemText
-//                   primary={
-//                     <Typography variant={"h5"}>{ihadBalance}</Typography>
-//                   }
-//                 />
-//               </ListItem>*/}
-//               <ListItem>
-//                 {/*<ListItemAvatar>
-//                   <Avatar src={logoUrl} />
-//                 </ListItemAvatar>*/}
-//                 <ListItemText
-//                   primary={
-//                     <Typography variant={"h5"}>{t.dashboard[lang]}</Typography>
-//                   }
-//                 />
-//               </ListItem>
-//               <ListItem
-//                 onClick = {()=> history.push("/convert-page")}
-//                 button>
-//                 {/*<ListItemAvatar>
-//                   <Avatar src={logoUrl} />
-//                 </ListItemAvatar>*/}
-//                 <ListItemText
-//                   primary={
-//                     <Typography variant={"h5"}>{t.convert[lang]}</Typography>
-//                   }
-//                 />
-//               </ListItem>
-//               <ListItem
-//                 onClick = {()=> history.push("/history-page")}
-//               button>
-//                 {/*<ListItemAvatar>
-//                   <Avatar src={logoUrl} />
-//                 </ListItemAvatar>*/}
-//                 <ListItemText
-//                   primary={
-//                     <Typography variant={"h5"}>{t.history[lang]}</Typography>
-//                   }
-//                 />
-//               </ListItem>
-//               <ListItem
-//                 onClick =  {()=> handletosModalOpen(t.aboutusfull[lang],t.aboutus[lang])}
-//                 button>
-//                 {/*<ListItemAvatar>
-//                   <Avatar src={logoUrl} />
-//                 </ListItemAvatar>*/}
-//                 <ListItemText
-//                   primary={
-//                     <Typography variant={"subtitle2"} >{t.aboutus[lang]}</Typography>
-//                   }
-//                 />
-//               </ListItem>
-//               <ListItem
-//                 onClick = {()=> history.push("/history-page")}
-//                 button
-
-//                 >
-//                 {/*<ListItemAvatar>
-//                   <Avatar src={logoUrl} />
-//                 </ListItemAvatar>*/}
-
-//                 <ListItemText
-//                   primary={
-//                     <Typography variant={"subtitle2"} >{t.usemethod[lang]}</Typography>
-//                   }
-//                 />
-//               </ListItem>
-//               <ListItem
-//                 onClick = {()=> handletosModalOpen(t.privacyfull[lang],t.privacy[lang])}
-//                 button
-
-//               >
-//                 {/*<ListItemAvatar>
-//                   <Avatar src={logoUrl} />
-//                 </ListItemAvatar>*/}
-
-//                 <ListItemText
-//                   primary={
-//                     <Typography variant={"subtitle2"} >{t.privacy[lang]}</Typography>
-//                   }
-//                 />
-//               </ListItem>
-//               <ListItem
-//                 onClick = {()=> handletosModalOpen(t.tosfull[lang],t.tos[lang])}
-//                 button
-
-//               >
-//                 {/*<ListItemAvatar>
-//                   <Avatar src={logoUrl} />
-//                 </ListItemAvatar>*/}
-
-//                 <ListItemText
-//                   primary={
-//                     <Typography variant={"subtitle2"} >{t.tos[lang]}</Typography>
-//                   }
-//                 />
-//               </ListItem>
-//             </List>
-//           </Grid>
-//         </Grid>
-//       </Drawer>
-
-//       <main className={classes.content}>
-//         <div className={classes.appBarSpacer} />
-//         <Container maxWidth="lg" className={classes.container}>
-//           <Grid container direction={"column"}>
-//             <Grid item style={{ marginBottom: "10px" }}>
-//               <Grid
-//                 container
-//                 spacing={0}
-//                 direction="row"
-//                 alignItems="center"
-//                 justify="center"
-//               >
-//                 <Grid item>
-//                   <Avatar style={{ width: 60, height: 60 }} src={logoUrl} />
-//                 </Grid>
-//               </Grid>
-//             </Grid>
-//             <Grid item>
-//               <HorizontalCenter>
-//                 <Select
-//                   value={currencyDropdownValue}
-//                   onChange={e => setCurrencyDropdownValue(e.target.value)}
-//                   style={{ width: "300px" }}
-//                   // MenuProps={{ style: { borderStyle: "none" } }}
-//                   disableUnderline={true}
-//                 >
-//                   <MenuItem value={"pfa"}>
-//                     <Typography variant={"h4"} align={"center"}>
-//                       {pfaBalance}
-//                     </Typography>
-//                   </MenuItem>
-//                   <MenuItem value={"ihad"}>
-//                     <Typography variant={"h4"} align={"center"}>
-//                       {ihadBalance}
-//                     </Typography>
-//                   </MenuItem>
-//                   <MenuItem value={"usdt"}>
-//                     <Typography variant={"h4"} align={"center"}>
-//                       {USDTbalance}
-//                     </Typography>
-//                   </MenuItem>
-//                 </Select>
-//               </HorizontalCenter>
-//             </Grid>
-//             <Grid item style={{ height: "10px" }} />
-//             <Grid item>
-//               <Grid
-//                 container
-//                 direction="row"
-//                 alignItems="center"
-//                 justify="center"
-//               >
-//                 <Grid item>
-//                   <Button
-//                     variant="contained"
-//                     color="primary"
-//                     onClick={handleBuyModalOpen}
-//                     style={{ width: "150px" }}
-//                   >
-//                     {`${t.buy[lang]} USDT`}
-//                   </Button>
-//                 </Grid>
-//                 <Grid item xs={1} />
-//                 <Grid item>
-//                   <Button
-//                     variant="contained"
-//                     color="primary"
-//                     onClick={setSendModalOpen}
-//                     style={{ width: "150px" }}
-//                   >
-//                     {t.send[lang]}
-//                   </Button>
-//                 </Grid>
-//               </Grid>
-//             </Grid>
-//             <Grid item style={{ maxHeight: "40vh", overflow: "auto" }}>
-//               <Typography variant={"body2"} style={{ marginBottom: "5px" }}>
-//                 {t.hangqing[lang]}
-//               </Typography>
-//               <Divider />
-
-//                 <List>
-
-//                       <ListItem alignItems="flex-start">
-
-//                           <ListItemIcon>
-//                             <ArrowUpwardSharp />
-//                           </ListItemIcon>
-//                         <ListItemIcon>
-//                           <Avatar  src={logoUrl} />
-//                         </ListItemIcon>
-//                         <ListItemText
-//                           primary={`PFA/USDT 6.02`}
-//                           secondary={
-//                             <React.Fragment>
-//                               <Typography variant={"body2"}>
-//                                 {`較昨日上升 2%`}
-//                               </Typography>
-
-//                             </React.Fragment>
-//                           }
-//                         />
-//                       </ListItem>
-
-//                   <ListItem alignItems="flex-start">
-
-//                     <ListItemIcon>
-//                       <ArrowDownwardSharp />
-//                     </ListItemIcon>
-//                     <ListItemIcon>
-//                       <Avatar  src={'/hadloho.png'} />
-//                     </ListItemIcon>
-
-//                     <ListItemText
-//                       primary={`HAD/USDT 6.1235`}
-//                       secondary={
-//                         <React.Fragment>
-//                           <Typography variant={"body2"}>
-//                             {`較昨日下跌 0.2%`}
-//                           </Typography>
-
-//                         </React.Fragment>
-//                       }
-//                     />
-//                   </ListItem>
-
-//                 </List>
-
-//             </Grid>
-//           </Grid>
-//         </Container>
-//       </main>
