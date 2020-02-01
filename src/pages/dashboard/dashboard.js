@@ -688,12 +688,12 @@ function Dashboard({
         throw new Error('invalid phone number');
       }
       console.log(cookies['username']);
-      if(pw==pw2){
+      if(pw==pw2 && pw.length >= 6){
         createUSDTWallet(regionCode, phone,cookies['token'],account.privateKey, account.address, pw);
         alert('成功! 請使用密碼重新登入')
         handleLogout();
       }else{
-        alert('密碼必須一樣')
+        alert('密碼必須一樣, 及長於6位')
         setTimeout(()=>{setOpenSetPw(true)});
       }
 

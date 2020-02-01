@@ -267,8 +267,8 @@ export default function CreateAccountPage({ onAccountCreate, popMobileWarning })
         throw new Error('invalid phone number');
       }
       console.log(mobile);
-      if(pw!=pw2){
-        alert('密碼必須一樣')
+      if(pw!=pw2 && pw.length<6){
+        alert('密碼必須一樣, 及長於6位')
         throw new Error('invalid password check');
       }
       onAccountCreate(mobile.regionCode, mobile.phone, accessCode, existingPvKey, pw);
