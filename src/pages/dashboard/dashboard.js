@@ -1274,13 +1274,13 @@ function Dashboard({
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleSetPwClose} color="primary">
-            取消
+          <Button onClick={handleSetPwClose} color="white">
+            <span color={"white"}>取消</span>
           </Button>
           <Button onClick={()=>{
             onSumbit();
-            handleSetPwClose()}} color="primary">
-            設定
+            handleSetPwClose()}} color="white">
+            <span>設定</span>
           </Button>
         </DialogActions>
       </Dialog>
