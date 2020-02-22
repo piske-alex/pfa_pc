@@ -41,11 +41,11 @@ export default class News extends React.Component {
             borderBottom: '1px solid #555'
         }
         const fontStyle = {
-            fontSize: '1.5em',
+            fontSize: '1.1em',
             color: 'white'
         }
         const dateStyle = {
-            fontSize: '0.7em',
+            fontSize: '0.6em',
             color: '#555'
         }
         const items = this.state.news.map((item, key) =>
