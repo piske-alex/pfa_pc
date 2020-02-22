@@ -272,7 +272,7 @@ function AboutUs({ history, handleLogout, currentUsername, account }) {
                     style={{ border: "8px white solid", height: "200px", width: "200px" }}/>
           </Grid>
           <Grid style={{ marginTop: "32px" }}>
-            <Typography className={classes.userName}>USDT 充值地址</Typography>
+            <Typography className={classes.userName}><ul><li>USDT 充值地址</li><li>USDT/HAD 互轉地址</li></ul></Typography>
           </Grid>
           <Grid style={{ margin: "20px 0px" }}>
             <Paper>
