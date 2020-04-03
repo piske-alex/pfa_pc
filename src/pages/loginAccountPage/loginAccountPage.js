@@ -5,7 +5,7 @@ import { getLogoUrl, HorizontalCenter, VerticalCenter } from "../../public/js/ut
 import trans from "../../public/js/translation";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-import { Link } from "react-router-dom";
+import { Link,BrowserRouter as Router,useLocation } from "react-router-dom";
 import { readAccountList } from "../../public/js/blockchain-utils";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -55,6 +55,9 @@ const useStyles = makeStyles(theme => ({
     margin: theme.spacing(1),
   },
 }));
+function useQuery() {
+  return new URLSearchParams(useLocation().search);
+}
 
 export default function LoginAccountPage({ onAccountLogin }) {
   const logoUrl = getLogoUrl();
@@ -80,7 +83,7 @@ export default function LoginAccountPage({ onAccountLogin }) {
   const onPwChange = event => {
     setPw(event.target.value);
   };
-
+  const query = useQuery();
   const [pwlogin, setPwlogin] = React.useState(true);
 
 
@@ -161,15 +164,15 @@ export default function LoginAccountPage({ onAccountLogin }) {
             <FormControl style={{ width: 300 }}>
               <InputLabel shrink className="inputLabel">{trans.accessToken[Config.lang]}</InputLabel>
               <BootstrapInput
-              type={values.showPassword ? 'text' : 'password'}
-              value={accessCode}
-              onChange={onAccessCodeChange}
-              endAdornment={
-                <Icon onClick={handleClickShowPassword} className="iconBtn">
-                  {values.showPassword ? <Visibility /> : <VisibilityOff />}
-                </Icon>
-              }
-            ></BootstrapInput>
+                type={values.showPassword ? 'text' : 'password'}
+                value={accessCode}
+                onChange={onAccessCodeChange}
+                endAdornment={
+                  <Icon onClick={handleClickShowPassword} className="iconBtn">
+                    {values.showPassword ? <Visibility /> : <VisibilityOff />}
+                  </Icon>
+                }
+              ></BootstrapInput>
 
               <FormHelperText className="formHelperText">{accessCode.length >= 4? undefined: trans.accessTokenLengthWarning[Config.lang]}</FormHelperText>
               <FormHelperText className="formHelperText">{accessCode.length >= 4? undefined: trans.accessTokenLost[Config.lang]}</FormHelperText>
@@ -197,12 +200,12 @@ export default function LoginAccountPage({ onAccountLogin }) {
 
           <Grid item>
             <FormControl style={{ width: 300 }}>
-            <div className="radio">
-              <label ><input type="radio" value="pw" name="optradio" checked={pwlogin} onChange={(e)=>{e.target.value==="pw"?setPwlogin(true):setPwlogin(false)}}/><span style={{color:'white'}}>密碼登錄</span></label>
-            </div>
-            <div className="radio">
-              <label ><input type="radio" value="acc" name="optradio" checked={!pwlogin} onChange={(e)=>{e.target.value==="pw"?setPwlogin(true):setPwlogin(false)}}/><span style={{color:'white'}}>信息存取碼登錄</span></label>
-            </div>
+              <div className="radio">
+                <label ><input type="radio" value="pw" name="optradio" checked={pwlogin} onChange={(e)=>{e.target.value==="pw"?setPwlogin(true):setPwlogin(false)}}/><span style={{color:'white'}}>密碼登錄</span></label>
+              </div>
+              <div className="radio">
+                <label ><input type="radio" value="acc" name="optradio" checked={!pwlogin} onChange={(e)=>{e.target.value==="pw"?setPwlogin(true):setPwlogin(false)}}/><span style={{color:'white'}}>信息存取碼登錄</span></label>
+              </div>
             </FormControl>
           </Grid>
 
@@ -247,19 +250,27 @@ export default function LoginAccountPage({ onAccountLogin }) {
           </Grid>
 
           <Grid item >
-            {Config.lang == "en" ? 
+            {Config.lang == "en" ?
               <Typography variant={"body2"} className="textImport" component={Link} to={"/account-manager"}>
                 {trans.importExport[Config.lang]}&nbsp;
               </Typography>
-            : null}
+              : null}
             <Typography variant={"body2"} className="textWallet">
               {trans.walletImportExport[Config.lang]}
             </Typography>
-            {Config.lang == "ch" ? 
+            {Config.lang == "ch" ?
               <Typography variant={"body2"} className="textImport" component={Link} to={"/account-manager"}>
                 {trans.importExport[Config.lang]}
               </Typography>
-            : null}
+              : null}
+          </Grid>
+
+          <Grid  style={{
+            display: query.get("pwa")?'none':'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }} item>
+            <img src={"download_android.png"} style={{width:'40%'}}></img>
           </Grid>
         </Grid>
       </HorizontalCenter>
