@@ -270,7 +270,7 @@ export default function LoginAccountPage({ onAccountLogin }) {
             alignItems: 'center',
             justifyContent: 'center',
           }} item>
-            <img src={"download_android.png"} style={{width:'40%'}}></img>
+            <a href={"app-release.apk"}><img src={"download_android.png"} style={{width:'40%'}}></img></a>
           </Grid>
         </Grid>
       </HorizontalCenter>
