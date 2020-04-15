@@ -10,7 +10,7 @@ import { privateToAddress, toBuffer} from 'ethereumjs-util'
 
 const axios = require('axios').default;
 export const yhadAddress = "0x36A5d358395f7C75394f39EBc77155566C8B6673"
-export const pfa20Address = "0x573Ec6DB92DAcD5779CCda6235185C244Fe132cf"
+export const pfa20Address = "0x216a41f6183261f5750857ba451e5682b65cc4d8"
 export const pfaDestroyerAddr = "0xb6141149545f82b4C9a1ccab1972a0d66e8B316b"
 
 export function decrypt(text, key) {
@@ -179,7 +179,7 @@ export async function sendEther(acctobj, toa, valuea,memo) {
   )
 }
 
-export const ihadAddress = "0x33259094d0341c908d1d589b0677a714e58a9183";
+export const ihadAddress = "0xa427d7bc27215f7b6b36fad9884d0fc53a5e810c";
 
 export async function sendToken(contractaddress, acctobj, _to, amount,memo) {
   let _from = acctobj.address;
@@ -213,7 +213,7 @@ export async function sendToken(contractaddress, acctobj, _to, amount,memo) {
 
   const transactionHash = await sendTransaction(signedTransaction);
 
-  //if(contractaddress==="0xfbd0f2a657633c15637c6c21d45d1d5f78860e27"){
+  //if(contractaddress==="0xf786191e6e14278cf111bfa2a59d51892959a636"){
     //verifyUSDTWithdrawal(signedTransaction.transactionHash)
   //}
 
@@ -279,8 +279,8 @@ export async function sendToken(contractaddress, acctobj, _to, amount,memo) {
 
 
 }
-export const USDTaddress = "0xfbd0f2a657633c15637c6c21d45d1d5f78860e27";
-export const PFAaddress = "0x573ec6db92dacd5779ccda6235185c244fe132cf"
+export const USDTaddress = "0xf786191e6e14278cf111bfa2a59d51892959a636";
+export const PFAaddress = "0x216a41f6183261f5750857ba451e5682b65cc4d8"
 export async function USDTToPFA(acctobj, amount) {
   let _from = acctobj.address;
   var count = await web3js.eth.getTransactionCount(_from);
