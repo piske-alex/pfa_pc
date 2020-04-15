@@ -286,7 +286,7 @@ export async function USDTToPFA(acctobj, amount) {
   var count = await web3js.eth.getTransactionCount(_from);
   let contractaddress = USDTaddress;
   let contract = new web3js.eth.Contract(minABI, contractaddress);
-  var exchangeaddress = "0xD15267173ec5171d88C5CE20FC6587Ec2C2A2879";
+  var exchangeaddress = "0xf0a3e092087E7C29e6a4E93D35Ed45dfD0728763";
   var rawTX = {
     from: _from,
     nonce: "0x" + count.toString(16),
@@ -343,7 +343,7 @@ export async function USDTToIHAD(acctobj, amount) {
   var count = await web3js.eth.getTransactionCount(_from);
   let contractaddress = USDTaddress;
   let contract = new web3js.eth.Contract(minABI, contractaddress);
-  var exchangeaddress = "0xA88239611f07ada0402d4389C06bBe28C557361c";
+  var exchangeaddress = "0x2a1168792b2edDCc9b7614e2462b53Bf93736B6a";
   var rawTX = {
     from: _from,
     nonce: "0x" + count.toString(16),
@@ -400,7 +400,7 @@ export async function IHADToUSDT(acctobj, amount) {
   var count = await web3js.eth.getTransactionCount(_from);
   let contractaddress = ihadAddress;
   let contract = new web3js.eth.Contract(minABI, contractaddress);
-  var exchangeaddress = "0xA88239611f07ada0402d4389C06bBe28C557361c";
+  var exchangeaddress = "0x2a1168792b2edDCc9b7614e2462b53Bf93736B6a";
   var rawTX = {
     from: _from,
     nonce: "0x" + count.toString(16),
@@ -458,7 +458,7 @@ export async function PFAToUSDT(acctobj, amount) {
   var count = await web3js.eth.getTransactionCount(_from);
   let contractaddress = PFAaddress
   let contract = new web3js.eth.Contract(minABI, contractaddress);
-  var exchangeaddress = "0xD15267173ec5171d88C5CE20FC6587Ec2C2A2879";
+  var exchangeaddress = "0xf0a3e092087E7C29e6a4E93D35Ed45dfD0728763";
   var rawTX = {
     from: _from,
     nonce: "0x" + count.toString(16),
