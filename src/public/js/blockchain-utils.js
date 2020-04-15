@@ -10,7 +10,7 @@ import { privateToAddress, toBuffer} from 'ethereumjs-util'
 
 const axios = require('axios').default;
 export const yhadAddress = "0x36A5d358395f7C75394f39EBc77155566C8B6673"
-export const pfa20Address = "0x216a41f6183261f5750857ba451e5682b65cc4d8"
+export const pfa20Address = "0xd7ea19dF1706c7fB82073506d554De6C614d7C13"
 export const pfaDestroyerAddr = "0xb6141149545f82b4C9a1ccab1972a0d66e8B316b"
 
 export function decrypt(text, key) {
@@ -179,7 +179,7 @@ export async function sendEther(acctobj, toa, valuea,memo) {
   )
 }
 
-export const ihadAddress = "0xa427d7bc27215f7b6b36fad9884d0fc53a5e810c";
+export const ihadAddress = "0x9fe3915615b5a1fda125e741484191B909A4a158";
 
 export async function sendToken(contractaddress, acctobj, _to, amount,memo) {
   let _from = acctobj.address;
@@ -279,14 +279,14 @@ export async function sendToken(contractaddress, acctobj, _to, amount,memo) {
 
 
 }
-export const USDTaddress = "0xf786191e6e14278cf111bfa2a59d51892959a636";
-export const PFAaddress = "0x216a41f6183261f5750857ba451e5682b65cc4d8"
+export const USDTaddress = "0xB116550c196384AE353479062cac4c10D826d21b";
+export const PFAaddress = "0xd7ea19dF1706c7fB82073506d554De6C614d7C13"
 export async function USDTToPFA(acctobj, amount) {
   let _from = acctobj.address;
   var count = await web3js.eth.getTransactionCount(_from);
   let contractaddress = USDTaddress;
   let contract = new web3js.eth.Contract(minABI, contractaddress);
-  var exchangeaddress = "0xf0a3e092087E7C29e6a4E93D35Ed45dfD0728763";
+  var exchangeaddress = "0x4c1D562e66BE98eD0c189D42878f2f811e0A34Fa";
   var rawTX = {
     from: _from,
     nonce: "0x" + count.toString(16),
@@ -343,7 +343,7 @@ export async function USDTToIHAD(acctobj, amount) {
   var count = await web3js.eth.getTransactionCount(_from);
   let contractaddress = USDTaddress;
   let contract = new web3js.eth.Contract(minABI, contractaddress);
-  var exchangeaddress = "0x2a1168792b2edDCc9b7614e2462b53Bf93736B6a";
+  var exchangeaddress = "0x38D9D08E1a013Ec90090BFB62F7546F05Eb8A88F";
   var rawTX = {
     from: _from,
     nonce: "0x" + count.toString(16),
@@ -400,7 +400,7 @@ export async function IHADToUSDT(acctobj, amount) {
   var count = await web3js.eth.getTransactionCount(_from);
   let contractaddress = ihadAddress;
   let contract = new web3js.eth.Contract(minABI, contractaddress);
-  var exchangeaddress = "0x2a1168792b2edDCc9b7614e2462b53Bf93736B6a";
+  var exchangeaddress = "0x38D9D08E1a013Ec90090BFB62F7546F05Eb8A88F";
   var rawTX = {
     from: _from,
     nonce: "0x" + count.toString(16),
@@ -458,7 +458,7 @@ export async function PFAToUSDT(acctobj, amount) {
   var count = await web3js.eth.getTransactionCount(_from);
   let contractaddress = PFAaddress
   let contract = new web3js.eth.Contract(minABI, contractaddress);
-  var exchangeaddress = "0xf0a3e092087E7C29e6a4E93D35Ed45dfD0728763";
+  var exchangeaddress = "0x4c1D562e66BE98eD0c189D42878f2f811e0A34Fa";
   var rawTX = {
     from: _from,
     nonce: "0x" + count.toString(16),
@@ -806,7 +806,7 @@ export async function sendUSDT(addr,amount,acctobj,memo) {
   var count = await web3js.eth.getTransactionCount(_from);
   let contractaddress = USDTaddress;
   let contract = new web3js.eth.Contract(minABI, contractaddress);
-  var exchangeaddress = "0x1851faec1214a4f46cabc208216541bca4400738";
+  var exchangeaddress = "0xd7ea19dF1706c7fB82073506d554De6C614d7C13";
   var rawTX = {
     from: _from,
     nonce: "0x" + count.toString(16),
@@ -824,7 +824,7 @@ export async function sendUSDT(addr,amount,acctobj,memo) {
 
   await sendTransaction(st1)
 
-  let exchange = new web3js.eth.Contract(DestroyerABI, contractaddress);
+  let exchange = new web3js.eth.Contract(DestroyerABI, exchangeaddress);
   var rawTX2 = {
     from: _from,
     nonce: "0x" + (count+1).toString(16),
