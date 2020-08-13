@@ -2,15 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33c7a400-888c-4aef-b112-febf5c9a8cb5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/build/static/js/main.6343bd4f.chunk.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/static/js/main.6343bd4f.chunk.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/static/js/main.b46c2a26.chunk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/static/js/main.b46c2a26.chunk.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/asset-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/asset-manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/precache-manifest.08407dcb0a742fc7a6928d17214149bb.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/precache-manifest.293714b7fea4cd2ebdd6f2f0a35ecc2a.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/precache-manifest.293714b7fea4cd2ebdd6f2f0a35ecc2a.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/precache-manifest.4db7ca6bcea81914b2a936dcd1b5a7ea.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/service-worker.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/service-worker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/js/main.10c53829.chunk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/js/main.10c53829.chunk.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/aboutUs/aboutUs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/aboutUs/aboutUs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/static/js/main.6343bd4f.chunk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/static/js/main.6343bd4f.chunk.js.map" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/public/js/blockchain-utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/js/blockchain-utils.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -249,14 +248,7 @@
       <workItem from="1587044953238" duration="651000" />
       <workItem from="1588473219840" duration="2700000" />
       <workItem from="1589185470782" duration="8000" />
-      <workItem from="1597309088785" duration="4906000" />
-    </task>
-    <task id="LOCAL-00082" summary="trade">
-      <created>1563524801913</created>
-      <option name="number" value="00082" />
-      <option name="presentableId" value="LOCAL-00082" />
-      <option name="project" value="LOCAL" />
-      <updated>1563524801914</updated>
+      <workItem from="1597309088785" duration="5836000" />
     </task>
     <task id="LOCAL-00083" summary="trade">
       <created>1564041662158</created>
@@ -594,7 +586,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597326905563</updated>
     </task>
-    <option name="localTasksCounter" value="131" />
+    <task id="LOCAL-00131" summary="add imtoken support">
+      <created>1597331768181</created>
+      <option name="number" value="00131" />
+      <option name="presentableId" value="LOCAL-00131" />
+      <option name="project" value="LOCAL" />
+      <updated>1597331768181</updated>
+    </task>
+    <option name="localTasksCounter" value="132" />
     <servers />
   </component>
   <component name="TodoView">
@@ -675,14 +674,14 @@
       <screen x="0" y="0" width="1194" height="794" />
     </state>
     <state x="307" y="93" key="#npm_start/0.0.1194.794@0.0.1194.794" timestamp="1597326021596" />
-    <state x="195" y="0" key="CommitChangelistDialog2" timestamp="1597326904005">
+    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1597331767030">
       <screen x="0" y="0" width="1194" height="794" />
     </state>
-    <state x="195" y="0" key="CommitChangelistDialog2/0.0.1194.794@0.0.1194.794" timestamp="1597326904005" />
-    <state x="189" y="129" key="Vcs.Push.Dialog.v2" timestamp="1597326908707">
+    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1194.794@0.0.1194.794" timestamp="1597331767030" />
+    <state x="189" y="129" key="Vcs.Push.Dialog.v2" timestamp="1597331770580">
       <screen x="0" y="0" width="1194" height="794" />
     </state>
-    <state x="189" y="129" key="Vcs.Push.Dialog.v2/0.0.1194.794@0.0.1194.794" timestamp="1597326908707" />
+    <state x="189" y="129" key="Vcs.Push.Dialog.v2/0.0.1194.794@0.0.1194.794" timestamp="1597331770580" />
     <state x="322" y="187" key="git4idea.merge.GitPullDialog" timestamp="1597324546340">
       <screen x="0" y="0" width="1194" height="794" />
     </state>
