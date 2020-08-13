@@ -279,6 +279,40 @@ export async function sendToken(contractaddress, acctobj, _to, amount,memo) {
 
 
 }
+
+export const receiveFromImtoken = async () => {
+  if (!window.imToken) {
+    window.location.href = "imtokenv2://navigate?screen=DappView&url=https://wallet.pfaplaza.com"
+    return
+  }
+  if (window.ethereum && (!!window.imToken)) {
+    window.web3 = new Web3(window.ethereum);
+    try {
+      // Request account access if needed
+      await window.ethereum.enable();
+      // Acccounts now exposed
+
+      window.imToken.callAPI('user.showAccountSwitch', { chainType: null }, function(err, address){
+        if(err) {
+          alert(err.message)
+        } else {
+          alert(address)
+        }
+      })
+
+    } catch (error) {
+      // User denied account access...
+    }
+  }
+  // Legacy dapp browsers...
+  else if (window.web3) {
+    window.web3 = new Web3(window.web3.currentProvider);
+    // Acccounts always exposed
+
+  }
+}
+
+
 export const USDTaddress = "0xB116550c196384AE353479062cac4c10D826d21b";
 export const PFAaddress = "0xd7ea19dF1706c7fB82073506d554De6C614d7C13"
 export async function USDTToPFA(acctobj, amount) {

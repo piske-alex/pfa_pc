@@ -2,8 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33c7a400-888c-4aef-b112-febf5c9a8cb5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/build/.well-known/assetlinks.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/after.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/app-release.apk" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/asset-manifest.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/download_android.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/icon.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/logo.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/manifest.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/precache-manifest.08407dcb0a742fc7a6928d17214149bb.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/service-worker.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/static/css/2.74a248b7.chunk.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/static/css/2.74a248b7.chunk.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/static/css/main.e958076f.chunk.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/static/css/main.e958076f.chunk.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/static/js/2.b5f1d359.chunk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/static/js/2.b5f1d359.chunk.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/static/js/main.10c53829.chunk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/static/js/main.10c53829.chunk.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/static/js/runtime~main.d653cc00.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/static/js/runtime~main.d653cc00.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/ver.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/convertPage/convertPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/convertPage/convertPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/aboutUs/aboutUs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/aboutUs/aboutUs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/public/js/blockchain-utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/js/blockchain-utils.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +101,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="go.gopath.indexing.explicitly.defined" value="true" />
     <property name="go.import.settings.migrated" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../cross-swap" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../PFABACK" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -97,6 +121,13 @@
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\rubbity\pfa_pc\public" />
+      <recent name="$PROJECT_DIR$/public" />
+      <recent name="$PROJECT_DIR$/src/pages" />
+      <recent name="$PROJECT_DIR$/cordova/www" />
+      <recent name="$PROJECT_DIR$/chrome-extension" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/cordova/platforms/android" />
       <recent name="$PROJECT_DIR$/cordova" />
@@ -104,15 +135,8 @@
       <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/cordova/www/" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/public" />
-      <recent name="$PROJECT_DIR$/src/pages" />
-      <recent name="$PROJECT_DIR$/cordova/www" />
-      <recent name="$PROJECT_DIR$/chrome-extension" />
-      <recent name="$PROJECT_DIR$/cordova" />
-    </key>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.Debug Application">
+  <component name="RunManager" selected="npm.npm start">
     <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <module name="pfa-react" />
       <working_directory value="$PROJECT_DIR$" />
@@ -229,69 +253,19 @@
       <workItem from="1576215408181" duration="3465000" />
       <workItem from="1577025978012" duration="4411000" />
       <workItem from="1577165870912" duration="4869000" />
-    </task>
-    <task id="LOCAL-00072" summary="trade">
-      <created>1563170004909</created>
-      <option name="number" value="00072" />
-      <option name="presentableId" value="LOCAL-00072" />
-      <option name="project" value="LOCAL" />
-      <updated>1563170004909</updated>
-    </task>
-    <task id="LOCAL-00073" summary="trade">
-      <created>1563170486348</created>
-      <option name="number" value="00073" />
-      <option name="presentableId" value="LOCAL-00073" />
-      <option name="project" value="LOCAL" />
-      <updated>1563170486348</updated>
-    </task>
-    <task id="LOCAL-00074" summary="trade">
-      <created>1563170568930</created>
-      <option name="number" value="00074" />
-      <option name="presentableId" value="LOCAL-00074" />
-      <option name="project" value="LOCAL" />
-      <updated>1563170568931</updated>
-    </task>
-    <task id="LOCAL-00075" summary="trade">
-      <created>1563171970241</created>
-      <option name="number" value="00075" />
-      <option name="presentableId" value="LOCAL-00075" />
-      <option name="project" value="LOCAL" />
-      <updated>1563171970241</updated>
-    </task>
-    <task id="LOCAL-00076" summary="trade">
-      <created>1563189293163</created>
-      <option name="number" value="00076" />
-      <option name="presentableId" value="LOCAL-00076" />
-      <option name="project" value="LOCAL" />
-      <updated>1563189293163</updated>
-    </task>
-    <task id="LOCAL-00077" summary="trade">
-      <created>1563189653601</created>
-      <option name="number" value="00077" />
-      <option name="presentableId" value="LOCAL-00077" />
-      <option name="project" value="LOCAL" />
-      <updated>1563189653601</updated>
-    </task>
-    <task id="LOCAL-00078" summary="trade">
-      <created>1563194116831</created>
-      <option name="number" value="00078" />
-      <option name="presentableId" value="LOCAL-00078" />
-      <option name="project" value="LOCAL" />
-      <updated>1563194116840</updated>
-    </task>
-    <task id="LOCAL-00079" summary="trade">
-      <created>1563201786788</created>
-      <option name="number" value="00079" />
-      <option name="presentableId" value="LOCAL-00079" />
-      <option name="project" value="LOCAL" />
-      <updated>1563201786788</updated>
-    </task>
-    <task id="LOCAL-00080" summary="trade">
-      <created>1563202254616</created>
-      <option name="number" value="00080" />
-      <option name="presentableId" value="LOCAL-00080" />
-      <option name="project" value="LOCAL" />
-      <updated>1563202254616</updated>
+      <workItem from="1580446812306" duration="1056000" />
+      <workItem from="1580447935979" duration="3974000" />
+      <workItem from="1580490789391" duration="2803000" />
+      <workItem from="1581646320986" duration="487000" />
+      <workItem from="1583943090456" duration="598000" />
+      <workItem from="1585731690573" duration="608000" />
+      <workItem from="1586538510361" duration="714000" />
+      <workItem from="1586795668484" duration="1493000" />
+      <workItem from="1586951877375" duration="1984000" />
+      <workItem from="1587044953238" duration="651000" />
+      <workItem from="1588473219840" duration="2700000" />
+      <workItem from="1589185470782" duration="8000" />
+      <workItem from="1597309088785" duration="2939000" />
     </task>
     <task id="LOCAL-00081" summary="trade">
       <created>1563509889033</created>
@@ -573,7 +547,70 @@
       <option name="project" value="LOCAL" />
       <updated>1577233741368</updated>
     </task>
-    <option name="localTasksCounter" value="121" />
+    <task id="LOCAL-00121" summary="add setpw dialog">
+      <created>1580450459377</created>
+      <option name="number" value="00121" />
+      <option name="presentableId" value="LOCAL-00121" />
+      <option name="project" value="LOCAL" />
+      <updated>1580450459378</updated>
+    </task>
+    <task id="LOCAL-00122" summary="add pw double check">
+      <created>1580489505786</created>
+      <option name="number" value="00122" />
+      <option name="presentableId" value="LOCAL-00122" />
+      <option name="project" value="LOCAL" />
+      <updated>1580489505786</updated>
+    </task>
+    <task id="LOCAL-00123" summary="add pw double check">
+      <created>1580490565430</created>
+      <option name="number" value="00123" />
+      <option name="presentableId" value="LOCAL-00123" />
+      <option name="project" value="LOCAL" />
+      <updated>1580490565430</updated>
+    </task>
+    <task id="LOCAL-00124" summary="should logout after changing password">
+      <created>1580538927906</created>
+      <option name="number" value="00124" />
+      <option name="presentableId" value="LOCAL-00124" />
+      <option name="project" value="LOCAL" />
+      <updated>1580538927906</updated>
+    </task>
+    <task id="LOCAL-00125" summary="force pw length">
+      <created>1580548315044</created>
+      <option name="number" value="00125" />
+      <option name="presentableId" value="LOCAL-00125" />
+      <option name="project" value="LOCAL" />
+      <updated>1580548315045</updated>
+    </task>
+    <task id="LOCAL-00126" summary="app release webapp">
+      <created>1580554463125</created>
+      <option name="number" value="00126" />
+      <option name="presentableId" value="LOCAL-00126" />
+      <option name="project" value="LOCAL" />
+      <updated>1580554463125</updated>
+    </task>
+    <task id="LOCAL-00127" summary="change exchange addr">
+      <created>1586952376617</created>
+      <option name="number" value="00127" />
+      <option name="presentableId" value="LOCAL-00127" />
+      <option name="project" value="LOCAL" />
+      <updated>1586952376619</updated>
+    </task>
+    <task id="LOCAL-00128" summary="change contract addrs">
+      <created>1586953729163</created>
+      <option name="number" value="00128" />
+      <option name="presentableId" value="LOCAL-00128" />
+      <option name="project" value="LOCAL" />
+      <updated>1586953729163</updated>
+    </task>
+    <task id="LOCAL-00129" summary="change contract addrs">
+      <created>1587044997960</created>
+      <option name="number" value="00129" />
+      <option name="presentableId" value="LOCAL-00129" />
+      <option name="project" value="LOCAL" />
+      <updated>1587044997961</updated>
+    </task>
+    <option name="localTasksCounter" value="130" />
     <servers />
   </component>
   <component name="TodoView">
@@ -622,13 +659,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="internal external USDT #2" />
-    <MESSAGE value="internal external USDT #3" />
-    <MESSAGE value="versioning" />
-    <MESSAGE value="copy button" />
-    <MESSAGE value="copy button#2" />
-    <MESSAGE value="change rate" />
-    <MESSAGE value="upload photo" />
     <MESSAGE value="scan photo" />
     <MESSAGE value="qr border" />
     <MESSAGE value="trade" />
@@ -647,49 +677,24 @@
     <MESSAGE value="UI touchup" />
     <MESSAGE value="convert add defunct pairs" />
     <MESSAGE value="ui touchup 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="ui touchup 2" />
+    <MESSAGE value="add setpw dialog" />
+    <MESSAGE value="add pw double check" />
+    <MESSAGE value="should logout after changing password" />
+    <MESSAGE value="force pw length" />
+    <MESSAGE value="app release webapp" />
+    <MESSAGE value="change exchange addr" />
+    <MESSAGE value="change contract addrs" />
+    <option name="LAST_COMMIT_MESSAGE" value="change contract addrs" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="252" y="0" key="CommitChangelistDialog2" timestamp="1577233740766">
-      <screen x="0" y="0" width="1280" height="760" />
+    <state x="307" y="93" key="#npm_start" timestamp="1597326021596">
+      <screen x="0" y="0" width="1194" height="794" />
     </state>
-    <state x="252" y="0" key="CommitChangelistDialog2/0.0.1280.760@0.0.1280.760" timestamp="1577233740766" />
-    <state x="421" y="135" key="FileChooserDialogImpl" timestamp="1577166006261">
-      <screen x="0" y="0" width="1280" height="760" />
+    <state x="307" y="93" key="#npm_start/0.0.1194.794@0.0.1194.794" timestamp="1597326021596" />
+    <state x="322" y="187" key="git4idea.merge.GitPullDialog" timestamp="1597324546340">
+      <screen x="0" y="0" width="1194" height="794" />
     </state>
-    <state x="421" y="135" key="FileChooserDialogImpl/0.0.1280.760@0.0.1280.760" timestamp="1577166006261" />
-    <state width="1260" height="190" key="GridCell.Tab.0.bottom" timestamp="1577231888808">
-      <screen x="0" y="0" width="1280" height="760" />
-    </state>
-    <state width="1260" height="190" key="GridCell.Tab.0.bottom/0.0.1280.760@0.0.1280.760" timestamp="1577231888808" />
-    <state width="1260" height="190" key="GridCell.Tab.0.center" timestamp="1577231888808">
-      <screen x="0" y="0" width="1280" height="760" />
-    </state>
-    <state width="1260" height="190" key="GridCell.Tab.0.center/0.0.1280.760@0.0.1280.760" timestamp="1577231888808" />
-    <state width="1260" height="190" key="GridCell.Tab.0.left" timestamp="1577231888807">
-      <screen x="0" y="0" width="1280" height="760" />
-    </state>
-    <state width="1260" height="190" key="GridCell.Tab.0.left/0.0.1280.760@0.0.1280.760" timestamp="1577231888807" />
-    <state width="1260" height="190" key="GridCell.Tab.0.right" timestamp="1577231888808">
-      <screen x="0" y="0" width="1280" height="760" />
-    </state>
-    <state width="1260" height="190" key="GridCell.Tab.0.right/0.0.1280.760@0.0.1280.760" timestamp="1577231888808" />
-    <state x="93" y="93" width="1093" height="573" key="VCS.FileHistoryDialog" timestamp="1576379196869">
-      <screen x="0" y="0" width="1280" height="760" />
-    </state>
-    <state x="93" y="93" width="1093" height="573" key="VCS.FileHistoryDialog/0.0.1280.760@0.0.1280.760" timestamp="1576379196869" />
-    <state x="233" y="113" key="Vcs.Push.Dialog.v2" timestamp="1577233742506">
-      <screen x="0" y="0" width="1280" height="760" />
-    </state>
-    <state x="233" y="113" key="Vcs.Push.Dialog.v2/0.0.1280.760@0.0.1280.760" timestamp="1577233742506" />
-    <state x="357" y="171" key="git4idea.merge.GitPullDialog" timestamp="1576378199895">
-      <screen x="0" y="0" width="1280" height="760" />
-    </state>
-    <state x="357" y="171" key="git4idea.merge.GitPullDialog/0.0.1280.760@0.0.1280.760" timestamp="1576378199895" />
-    <state x="492" y="280" key="git4idea.ui.GitStashDialog" timestamp="1576378190884">
-      <screen x="0" y="0" width="1280" height="760" />
-    </state>
-    <state x="492" y="280" key="git4idea.ui.GitStashDialog/0.0.1280.760@0.0.1280.760" timestamp="1576378190884" />
+    <state x="322" y="187" key="git4idea.merge.GitPullDialog/0.0.1194.794@0.0.1194.794" timestamp="1597324546340" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />

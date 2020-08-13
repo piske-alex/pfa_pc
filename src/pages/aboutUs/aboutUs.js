@@ -18,6 +18,7 @@ import Config from "../../public/js/config";
 import { exportAccounts } from "../../public/js/blockchain-utils";
 import { CopyButton } from "react-copy-button";
 import Paper from "@material-ui/core/Paper";
+import {receiveFromImtoken} from '../../public/js/blockchain-utils'
 
 const useStyles = makeStyles(theme => ({
   headBlock: {
@@ -293,6 +294,9 @@ function AboutUs({ history, handleLogout, currentUsername, account }) {
               </CopyButton>
             </Paper>
 
+          </Grid>
+          <Grid style={{ marginTop: "32px" }}>
+            <Button onClick={receiveFromImtoken} style={{backgroundColor: 'grey'}}><img src={'https://token.im/img/imTokenLogo.svg'} style={{maxHeight: '15px'}}/>從imtoken 轉入</Button>
           </Grid>
           <Grid style={{marginBottom:'32px',marginLeft:'5px',marginRight:'5px'}}>
             {
