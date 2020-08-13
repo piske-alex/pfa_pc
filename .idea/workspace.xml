@@ -2,30 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33c7a400-888c-4aef-b112-febf5c9a8cb5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/build/.well-known/assetlinks.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/after.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/app-release.apk" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/asset-manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/download_android.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/icon.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/logo.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/precache-manifest.08407dcb0a742fc7a6928d17214149bb.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/service-worker.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/static/css/2.74a248b7.chunk.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/static/css/2.74a248b7.chunk.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/static/css/main.e958076f.chunk.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/static/css/main.e958076f.chunk.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/static/js/2.b5f1d359.chunk.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/static/js/2.b5f1d359.chunk.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/static/js/main.10c53829.chunk.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/static/js/main.10c53829.chunk.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/static/js/runtime~main.d653cc00.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/static/js/runtime~main.d653cc00.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/ver.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/static/js/main.6343bd4f.chunk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/static/js/main.6343bd4f.chunk.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/asset-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/asset-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/precache-manifest.08407dcb0a742fc7a6928d17214149bb.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/precache-manifest.293714b7fea4cd2ebdd6f2f0a35ecc2a.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/service-worker.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/service-worker.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/static/js/main.10c53829.chunk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/static/js/main.10c53829.chunk.js.map" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/aboutUs/aboutUs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/aboutUs/aboutUs.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/public/js/blockchain-utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/js/blockchain-utils.js" afterDir="false" />
     </list>
@@ -265,14 +249,7 @@
       <workItem from="1587044953238" duration="651000" />
       <workItem from="1588473219840" duration="2700000" />
       <workItem from="1589185470782" duration="8000" />
-      <workItem from="1597309088785" duration="2939000" />
-    </task>
-    <task id="LOCAL-00081" summary="trade">
-      <created>1563509889033</created>
-      <option name="number" value="00081" />
-      <option name="presentableId" value="LOCAL-00081" />
-      <option name="project" value="LOCAL" />
-      <updated>1563509889034</updated>
+      <workItem from="1597309088785" duration="4906000" />
     </task>
     <task id="LOCAL-00082" summary="trade">
       <created>1563524801913</created>
@@ -610,7 +587,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587044997961</updated>
     </task>
-    <option name="localTasksCounter" value="130" />
+    <task id="LOCAL-00130" summary="add imtoken support">
+      <created>1597326905562</created>
+      <option name="number" value="00130" />
+      <option name="presentableId" value="LOCAL-00130" />
+      <option name="project" value="LOCAL" />
+      <updated>1597326905563</updated>
+    </task>
+    <option name="localTasksCounter" value="131" />
     <servers />
   </component>
   <component name="TodoView">
@@ -659,7 +643,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="scan photo" />
     <MESSAGE value="qr border" />
     <MESSAGE value="trade" />
     <MESSAGE value="amount error" />
@@ -684,13 +667,22 @@
     <MESSAGE value="app release webapp" />
     <MESSAGE value="change exchange addr" />
     <MESSAGE value="change contract addrs" />
-    <option name="LAST_COMMIT_MESSAGE" value="change contract addrs" />
+    <MESSAGE value="add imtoken support" />
+    <option name="LAST_COMMIT_MESSAGE" value="add imtoken support" />
   </component>
   <component name="WindowStateProjectService">
     <state x="307" y="93" key="#npm_start" timestamp="1597326021596">
       <screen x="0" y="0" width="1194" height="794" />
     </state>
     <state x="307" y="93" key="#npm_start/0.0.1194.794@0.0.1194.794" timestamp="1597326021596" />
+    <state x="195" y="0" key="CommitChangelistDialog2" timestamp="1597326904005">
+      <screen x="0" y="0" width="1194" height="794" />
+    </state>
+    <state x="195" y="0" key="CommitChangelistDialog2/0.0.1194.794@0.0.1194.794" timestamp="1597326904005" />
+    <state x="189" y="129" key="Vcs.Push.Dialog.v2" timestamp="1597326908707">
+      <screen x="0" y="0" width="1194" height="794" />
+    </state>
+    <state x="189" y="129" key="Vcs.Push.Dialog.v2/0.0.1194.794@0.0.1194.794" timestamp="1597326908707" />
     <state x="322" y="187" key="git4idea.merge.GitPullDialog" timestamp="1597324546340">
       <screen x="0" y="0" width="1194" height="794" />
     </state>

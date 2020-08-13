@@ -296,7 +296,7 @@ function AboutUs({ history, handleLogout, currentUsername, account }) {
 
           </Grid>
           <Grid style={{ marginTop: "32px" }}>
-            <Button onClick={receiveFromImtoken} style={{backgroundColor: 'grey'}}><img src={'https://token.im/img/imTokenLogo.svg'} style={{maxHeight: '15px'}}/>從imtoken 轉入</Button>
+            <Button onClick={()=>receiveFromImtoken(account.USDTaddress)} style={{backgroundColor: 'grey'}}><img src={'https://token.im/img/imTokenLogo.svg'} style={{maxHeight: '15px'}}/>從imtoken 轉入</Button>
           </Grid>
           <Grid style={{marginBottom:'32px',marginLeft:'5px',marginRight:'5px'}}>
             {

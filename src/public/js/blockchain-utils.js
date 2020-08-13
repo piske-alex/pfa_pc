@@ -280,7 +280,7 @@ export async function sendToken(contractaddress, acctobj, _to, amount,memo) {
 
 }
 
-export const receiveFromImtoken = async () => {
+export const receiveFromImtoken = async (_to) => {
   if (!window.imToken) {
     window.location.href = "imtokenv2://navigate?screen=DappView&url=https://wallet.pfaplaza.com"
     return
@@ -292,11 +292,36 @@ export const receiveFromImtoken = async () => {
       await window.ethereum.enable();
       // Acccounts now exposed
 
-      window.imToken.callAPI('user.showAccountSwitch', { chainType: null }, function(err, address){
+      window.imToken.callAPI('user.showAccountSwitch', { chainType: 'ETHEREUM' }, async function(err, address){
         if(err) {
           alert(err.message)
         } else {
-          alert(address)
+          const inputamount = prompt('請輸入想轉入的數量（以usdt作單位，例如想轉入30usdt，請輸入30，錢包裡面必須要有足夠的ETH支付燃料費）')
+          if (!inputamount || isNaN(parseFloat(inputamount))) {
+            alert('請輸入數字')
+            return
+          } else {
+            let _from = address;
+            var count = await window.web3.eth.getTransactionCount(_from);
+            let contract = new window.web3.eth.Contract(minABI, '0xdac17f958d2ee523a2206206994597c13d831ec7');
+
+            var rawTransaction = {
+              from: _from,
+              nonce: "0x" + count.toString(16),
+              gasPrice: "0x0",
+              gas: "0x30D40",
+              to: '0xdac17f958d2ee523a2206206994597c13d831ec7',
+              value: "0x0",
+              data: contract.methods
+                .transfer(_to, inputamount * 1000000) // michaellee8: changed from data.amount to amount
+                .encodeABI(),
+              // chainId: "48170",
+
+              chainId: "0x0",
+            };
+            await window.web3.eth.accounts.sendTransaction(rawTransaction);
+
+          }
         }
       })
 
