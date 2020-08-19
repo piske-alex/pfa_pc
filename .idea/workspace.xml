@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33c7a400-888c-4aef-b112-febf5c9a8cb5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/build/static/js/main.b46c2a26.chunk.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/static/js/main.b46c2a26.chunk.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/asset-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/asset-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/precache-manifest.293714b7fea4cd2ebdd6f2f0a35ecc2a.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/precache-manifest.4db7ca6bcea81914b2a936dcd1b5a7ea.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/service-worker.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/service-worker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/js/main.6343bd4f.chunk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/js/main.6343bd4f.chunk.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/public/js/blockchain-utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/js/blockchain-utils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/loginAccountPage/loginAccountPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/loginAccountPage/loginAccountPage.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,12 +63,12 @@
   <component name="ProjectId" id="1UunYsxdy3HU4gibWID4SIdnnNQ" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="GO_FMT" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -153,18 +146,7 @@
       <method v="2" />
     </configuration>
   </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
-  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -249,6 +231,7 @@
       <workItem from="1588473219840" duration="2700000" />
       <workItem from="1589185470782" duration="8000" />
       <workItem from="1597309088785" duration="5836000" />
+      <workItem from="1597829285356" duration="973000" />
     </task>
     <task id="LOCAL-00083" summary="trade">
       <created>1564041662158</created>
@@ -606,7 +589,7 @@
     </todo-panel>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
     <option name="includedJSSourcePackages">
       <set>
         <option value="web3-eth-accounts" />
@@ -619,9 +602,7 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
@@ -640,6 +621,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="qr border" />
@@ -678,6 +660,22 @@
       <screen x="0" y="0" width="1194" height="794" />
     </state>
     <state x="0" y="0" key="CommitChangelistDialog2/0.0.1194.794@0.0.1194.794" timestamp="1597331767030" />
+    <state width="636" height="267" key="GridCell.Tab.0.bottom" timestamp="1597829662608">
+      <screen x="0" y="23" width="1792" height="1026" />
+    </state>
+    <state width="636" height="267" key="GridCell.Tab.0.bottom/-1116.197.1116.733/0.23.1792.1026@0.23.1792.1026" timestamp="1597829662608" />
+    <state width="636" height="267" key="GridCell.Tab.0.center" timestamp="1597829662607">
+      <screen x="0" y="23" width="1792" height="1026" />
+    </state>
+    <state width="636" height="267" key="GridCell.Tab.0.center/-1116.197.1116.733/0.23.1792.1026@0.23.1792.1026" timestamp="1597829662607" />
+    <state width="636" height="267" key="GridCell.Tab.0.left" timestamp="1597829662607">
+      <screen x="0" y="23" width="1792" height="1026" />
+    </state>
+    <state width="636" height="267" key="GridCell.Tab.0.left/-1116.197.1116.733/0.23.1792.1026@0.23.1792.1026" timestamp="1597829662607" />
+    <state width="636" height="267" key="GridCell.Tab.0.right" timestamp="1597829662608">
+      <screen x="0" y="23" width="1792" height="1026" />
+    </state>
+    <state width="636" height="267" key="GridCell.Tab.0.right/-1116.197.1116.733/0.23.1792.1026@0.23.1792.1026" timestamp="1597829662608" />
     <state x="189" y="129" key="Vcs.Push.Dialog.v2" timestamp="1597331770580">
       <screen x="0" y="0" width="1194" height="794" />
     </state>
