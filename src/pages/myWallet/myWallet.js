@@ -393,11 +393,19 @@ function Dashboard({
               if(!confirm(`你即將發送 ${sendAmount}USDT 到外部地址 ${sendToAddress}，將收取 2USDT 手續費`)) return
               await sendUSDT(sendToAddress,sendAmount,{...account, username: cookies.username},memo)
             }else{
-              alert('最少發送 15USDT')
+              alert('最少發送 15USDT 及發送數量必須大於餘額')
               setTransactionFailedSnackbarOpen(true);
             }
           }else{
-            await sendToken(USDTaddress, account, res.address, sendAmount,memo);
+            if(sendAmount<=USDTbalance && sendAmount>=0){
+              // eslint-disable-next-line no-restricted-globals
+              if(!confirm(`你即將發送 ${sendAmount}USDT 到內部地址 ${res.address}，將不收取手續費`)) return
+              await sendToken(USDTaddress, account, res.address, sendAmount,memo);
+            }else{
+              alert('最少發送 >0USDT 及發送數量必須大於餘額')
+              setTransactionFailedSnackbarOpen(true);
+            }
+
           }
 
 
