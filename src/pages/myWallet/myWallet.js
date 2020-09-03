@@ -388,9 +388,12 @@ function Dashboard({
           const res = await getAddressFromMobile(sendToAddress);
           if (!res) throw new Error('empty resolve address response');
           else if (!res.address) {
-            if(sendAmount<=USDTbalance){
-              await sendUSDT(sendToAddress,sendAmount,account,memo)
+            if(sendAmount<=USDTbalance  && sendAmount>=15){
+              // eslint-disable-next-line no-restricted-globals
+              if(!confirm(`你即將發送 ${sendAmount}USDT 到外部地址 ${sendToAddress}，將收取 2USDT 手續費`)) return
+              await sendUSDT(sendToAddress,sendAmount,{...account, username: cookies.username},memo)
             }else{
+              alert('最少發送 15USDT')
               setTransactionFailedSnackbarOpen(true);
             }
           }else{

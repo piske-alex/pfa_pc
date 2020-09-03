@@ -484,7 +484,7 @@ export default {
     ch: "HAD",en: "HAD"
   },
   usdt:{
-    ch: "USDT（每筆需付1USDT; 如接受方持有PFA錢包則免費）",en: "USDT(need 1USDT fee)"
+    ch: "USDT（每筆需付 2USDT; PFA內部免費轉帳）",en: "USDT(need 1USDT fee)"
   },
   usdti:{
     ch: "USDT（PFA內部互轉 免網絡費）",en: "USDT(PFA internal network transfer)"

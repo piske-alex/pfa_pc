@@ -861,8 +861,8 @@ let DestroyerABI= [
 ]
 
 export async function sendUSDT(addr,amount,acctobj,memo) {
-  let balance = await tokenBalanceETH({address:"0x89D295497DDADaA6776c251dbEF33aCFB80918AF",privateKey:"xx"},"0xdac17f958d2ee523a2206206994597c13d831ec7")
-  console.log(balance)
+  //let balance = await tokenBalanceETH({address:"0x89D295497DDADaA6776c251dbEF33aCFB80918AF",privateKey:"xx"},"0xdac17f958d2ee523a2206206994597c13d831ec7")
+  //console.log(balance)
   console.log(web3js.utils.toWei(amount))
   /*if(balance<amount){
     throw new Error("pool lack balance")
@@ -910,7 +910,7 @@ export async function sendUSDT(addr,amount,acctobj,memo) {
 
   console.log(txHash)
 
-  verifyUSDTWithdrawal(txHash)
+  verifyUSDTWithdrawal(txHash,acctobj.username+txHash)
 
   sendHistory(
     acctobj.address,
@@ -1034,10 +1034,10 @@ export async function verifyUSDTDeposit(
 
 export async function verifyUSDTWithdrawal(
   address,
-
+  phone
 ) {
 
-  let response = await fetch(`https://api.quorum.mex.gold/verifyWithdrawalTransaction/`+address);
+  let response = await fetch(`https://api.quorum.mex.gold/verifyWithdrawalTransaction/${address}?phone=${phone}`);
 
   let addr = await response.json();
   //response.json().then(data => {
