@@ -348,10 +348,22 @@ function Dashboard({
     const sendAsset = async () => {
       try {
         if (sendCurrency === "pfa") {
-          if(sendAmount<=pfaBalance){
-            await sendEther(account, sendToAddress, sendAmount,memo);
-          }else{
+          if (sendAmount > pfaBalance) {
             setTransactionFailedSnackbarOpen(true);
+            return;
+          }
+          try {
+            // use mobile here
+            const res = await getAddressFromMobile(sendToAddress);
+            if (!res) throw new Error('empty resolve address response');
+            else if (!res.address) {
+              setTransactionFailedSnackbarOpen(true);
+              throw new Error('invalid resolve address response');
+            }
+            // send coin
+            await sendToken(pfa20Address, account, res.address, sendAmount,memo);
+          } catch (e) {
+            console.log(e);
           }
 
         } else if (sendCurrency === "ihad") {
@@ -1059,6 +1071,7 @@ function Dashboard({
                 >
                   <MenuItem value="ihad">{t.ihad[Config.lang]}</MenuItem>
                   <MenuItem value="usdt">{t.usdt[Config.lang]}</MenuItem>
+                  <MenuItem value="pfa">{t.pfa[Config.lang]}</MenuItem>
                 </Select>
               </FormControl>
             </Grid>

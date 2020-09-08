@@ -223,6 +223,9 @@ export async function sendToken(contractaddress, acctobj, _to, amount,memo) {
     case ihadAddress:
       symbol="HAD";
       break;
+    case pfa20Address:
+      symbol="PFA";
+      break;
     default:
       symbol="USDT"
       break
