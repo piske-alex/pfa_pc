@@ -437,6 +437,7 @@ function Dashboard({
                   await sendUSDT(sendToAddress,sendAmount,{...account, username: cookies.username},memo)
                   setTransactionFinishedSnackbarOpen(true);
                 } catch(e) {
+                  alert(e)
                   setTransactionFailedSnackbarOpen(true)
                 }
                   setTransactionCount(transactionCount + 3);}, ()=>{}))
@@ -456,6 +457,7 @@ function Dashboard({
                   await sendToken(USDTaddress, account, res.address, sendAmount,memo)
                   setTransactionFinishedSnackbarOpen(true);
                 } catch(e) {
+                  alert(e)
                   setTransactionFailedSnackbarOpen(false)
                 }
 
