@@ -76,8 +76,31 @@ import Config from "../../public/js/config";
 import "./myWallet.css";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import Dialog from "@material-ui/core/Dialog";
-
+import { confirmAlert } from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css';
 const accountInfoRefreshTime = 20;
+
+const alertOptions = (title, message, yes, no) =>( {
+  title: title,
+  message: message,
+  buttons: [
+    {
+      label: '確定',
+      onClick: yes
+    },
+    {
+      label: '取消',
+      onClick: no
+    }
+  ],
+
+  closeOnEscape: true,
+  closeOnClickOutside: true,
+  willUnmount: () => {},
+  afterClose: () => {},
+  onClickOutside: () => {},
+  onKeypressEscape: () => {}
+})
 
 const drawerWidth = 300;
 
@@ -362,6 +385,9 @@ function Dashboard({
             }
             // send coin
             await sendToken(pfa20Address, account, res.address, sendAmount,memo);
+            setTransactionFinishedSnackbarOpen(true);
+            handleSendModalClose();
+            setTransactionCount(transactionCount + 3);
           } catch (e) {
             console.log(e);
           }
@@ -393,6 +419,9 @@ function Dashboard({
 
             // send coin
             await sendToken(ihadAddress, account, res.address, sendAmount,memo);
+            setTransactionFinishedSnackbarOpen(true);
+            handleSendModalClose();
+            setTransactionCount(transactionCount + 3);
           } catch (e) {
             console.log(e);
           }
@@ -400,19 +429,32 @@ function Dashboard({
           const res = await getAddressFromMobile(sendToAddress);
           if (!res) throw new Error('empty resolve address response');
           else if (!res.address) {
-            if(sendAmount<=USDTbalance  && sendAmount>=15){
-              // eslint-disable-next-line no-restricted-globals
-              if(!confirm(`你即將發送 ${sendAmount}USDT 到外部地址 ${sendToAddress}，將收取 2USDT 手續費`)) return
-              await sendUSDT(sendToAddress,sendAmount,{...account, username: cookies.username},memo)
+            if(sendAmount<=USDTbalance  && sendAmount>=15 && pfaBalance>=5){
+              handleSendModalClose();
+              confirmAlert(alertOptions('發送',`你即將發送 ${sendAmount}USDT 到外部地址 ${sendToAddress}，將收取 5PFA 手續費`,
+                ()=>{sendUSDT(sendToAddress,sendAmount,{...account, username: cookies.username},memo)
+                  setTransactionFinishedSnackbarOpen(true);
+
+                  setTransactionCount(transactionCount + 3);}, ()=>{}))
+              // // eslint-disable-next-line no-restricted-globals
+              //
+              // if(!confirm(`你即將發送 ${sendAmount}USDT 到外部地址 ${sendToAddress}，將收取 5PFA 手續費`)) return
+              // await sendUSDT(sendToAddress,sendAmount,{...account, username: cookies.username},memo)
             }else{
-              alert('最少發送 15USDT 及發送數量必須大於餘額')
+              alert('最少發送 15USDT 及發送數量必須大於餘額及 PFA 餘額必須足以支付手續費')
               setTransactionFailedSnackbarOpen(true);
             }
           }else{
             if(sendAmount<=USDTbalance && sendAmount>=0){
-              // eslint-disable-next-line no-restricted-globals
-              if(!confirm(`你即將發送 ${sendAmount}USDT 到內部地址 ${res.address}，將不收取手續費`)) return
-              await sendToken(USDTaddress, account, res.address, sendAmount,memo);
+              handleSendModalClose();
+              confirmAlert(alertOptions('發送',`你即將發送 ${sendAmount}USDT 到內部地址 ${res.address}，將不收取手續費`,
+                ()=>{sendToken(USDTaddress, account, res.address, sendAmount,memo)
+                  setTransactionFinishedSnackbarOpen(true);
+
+                  setTransactionCount(transactionCount + 3);}, ()=>{}))
+              // // eslint-disable-next-line no-restricted-globals
+              // if(!confirm(`你即將發送 ${sendAmount}USDT 到內部地址 ${res.address}，將不收取手續費`)) return
+              // await sendToken(USDTaddress, account, res.address, sendAmount,memo);
             }else{
               alert('最少發送 >0USDT 及發送數量必須大於餘額')
               setTransactionFailedSnackbarOpen(true);
@@ -431,9 +473,7 @@ function Dashboard({
         }else {
           throw new Error("ValueError: No currency type selected");
         }
-        setTransactionFinishedSnackbarOpen(true);
-        handleSendModalClose();
-        setTransactionCount(transactionCount + 3);
+
       } catch (err) {
         console.log(err);
         console.log(err);

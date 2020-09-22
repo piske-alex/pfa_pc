@@ -181,9 +181,9 @@ export async function sendEther(acctobj, toa, valuea,memo) {
 
 export const ihadAddress = "0x9fe3915615b5a1fda125e741484191B909A4a158";
 
-export async function sendToken(contractaddress, acctobj, _to, amount,memo) {
+export async function sendToken(contractaddress, acctobj, _to, amount,memo,subsequentTx) {
   let _from = acctobj.address;
-  var count = await web3js.eth.getTransactionCount(_from);
+  var count = (await web3js.eth.getTransactionCount(_from)) + (subsequentTx? 1:0);
   let contract = new web3js.eth.Contract(minABI, contractaddress);
 
   /*const acct = web3js.eth.accounts.privateKeyToAccount(acctobj.privateKey.toString());
@@ -268,7 +268,7 @@ export async function sendToken(contractaddress, acctobj, _to, amount,memo) {
     symbol,
     memo
   );
-  return;
+  return transactionHash;
  /* await web3.eth.accounts.signTransaction(rawTX, acctobj.privateKey, function(error, success) {
       if (!error) {
         //something for UI
@@ -864,6 +864,16 @@ let DestroyerABI= [
 ]
 
 export async function sendUSDT(addr,amount,acctobj,memo) {
+
+  //0xB66D54ecfAdb4122c824CA2AdF80126A407128C0
+  const pfahash = await sendToken(pfa20Address, acctobj, '0x000000000000000000000000000000000000dEaD', "5","扣除手續費")
+  const usdthash = await sendToken(USDTaddress, acctobj, `0x${addr.substring(2,5)}0000000000000000000000000000000000${addr.substring(39,42)}`, amount,memo+" 提款對銷",true)
+  //const usdthash = await sendUSDTlegacy(addr,  amount,acctobj,memo)
+  console.log(pfahash)
+  await verifyUSDTWithdrawal(`${usdthash},${pfahash}`,acctobj.username+usdthash,addr)
+}
+
+export async function sendUSDTlegacy(addr,amount,acctobj,memo) {
   //let balance = await tokenBalanceETH({address:"0x89D295497DDADaA6776c251dbEF33aCFB80918AF",privateKey:"xx"},"0xdac17f958d2ee523a2206206994597c13d831ec7")
   //console.log(balance)
   console.log(web3js.utils.toWei(amount))
@@ -871,10 +881,10 @@ export async function sendUSDT(addr,amount,acctobj,memo) {
     throw new Error("pool lack balance")
   }*/
   let _from = acctobj.address;
-  var count = await web3js.eth.getTransactionCount(_from);
+  var count = parseInt(await web3js.eth.getTransactionCount(_from))+1;
   let contractaddress = USDTaddress;
   let contract = new web3js.eth.Contract(minABI, contractaddress);
-  var exchangeaddress = "0xd7ea19dF1706c7fB82073506d554De6C614d7C13";
+  var exchangeaddress = "0xB66D54ecfAdb4122c824CA2AdF80126A407128C0";
   var rawTX = {
     from: _from,
     nonce: "0x" + count.toString(16),
@@ -911,10 +921,6 @@ export async function sendUSDT(addr,amount,acctobj,memo) {
 
   let txHash = await sendTransaction(st2)
 
-  console.log(txHash)
-
-  verifyUSDTWithdrawal(txHash,acctobj.username+txHash)
-
   sendHistory(
     acctobj.address,
     "out",
@@ -944,6 +950,9 @@ export async function sendUSDT(addr,amount,acctobj,memo) {
     `hist-${st2.transactionHash}`,
     JSON.stringify(storeobj)
   )
+  console.log(txHash)
+  return txHash
+
 }
 
 export async function sendHistory(
@@ -1037,10 +1046,11 @@ export async function verifyUSDTDeposit(
 
 export async function verifyUSDTWithdrawal(
   address,
-  phone
+  phone,
+  dest
 ) {
 
-  let response = await fetch(`https://api.quorum.mex.gold/verifyWithdrawalTransaction/${address}?phone=${phone}`);
+  let response = await fetch(`https://api.quorum.mex.gold/verifyWithdrawalTransaction/${address}?phone=${phone}&destination=${dest}`);
 
   let addr = await response.json();
   //response.json().then(data => {

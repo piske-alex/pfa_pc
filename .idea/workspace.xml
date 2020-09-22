@@ -42,7 +42,11 @@
   <component name="ChangeListManager">
     <list default="true" id="33c7a400-888c-4aef-b112-febf5c9a8cb5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/myWallet/myWallet.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/myWallet/myWallet.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/public/js/blockchain-utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/js/blockchain-utils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/public/js/translation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/js/translation.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -271,14 +275,10 @@
       <workItem from="1598106499653" duration="2173000" />
       <workItem from="1599083713324" duration="6307000" />
       <workItem from="1599392694926" duration="1255000" />
-      <workItem from="1599406334597" duration="2430000" />
-    </task>
-    <task id="LOCAL-00086" summary="amount error">
-      <created>1565018700701</created>
-      <option name="number" value="00086" />
-      <option name="presentableId" value="LOCAL-00086" />
-      <option name="project" value="LOCAL" />
-      <updated>1565018700701</updated>
+      <workItem from="1599406334597" duration="5228000" />
+      <workItem from="1599985004070" duration="2858000" />
+      <workItem from="1600265750632" duration="504000" />
+      <workItem from="1600567069223" duration="12736000" />
     </task>
     <task id="LOCAL-00087" summary="prepare merge">
       <created>1565246264892</created>
@@ -616,17 +616,15 @@
       <option name="project" value="LOCAL" />
       <updated>1599103191174</updated>
     </task>
-    <option name="localTasksCounter" value="135" />
+    <task id="LOCAL-00135" summary="add pfa transfer option">
+      <created>1599558030868</created>
+      <option name="number" value="00135" />
+      <option name="presentableId" value="LOCAL-00135" />
+      <option name="project" value="LOCAL" />
+      <updated>1599558030869</updated>
+    </task>
+    <option name="localTasksCounter" value="136" />
     <servers />
-  </component>
-  <component name="TodoView">
-    <todo-panel id="selected-file">
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-    <todo-panel id="all">
-      <are-packages-shown value="true" />
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
@@ -664,7 +662,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="prepare merge" />
     <MESSAGE value="prepare merge2" />
     <MESSAGE value="details" />
     <MESSAGE value="gitlabci" />
@@ -689,9 +686,14 @@
     <MESSAGE value="allow multi phone numbers" />
     <MESSAGE value="fix bugs in send" />
     <MESSAGE value="fix bugs in send, check balance" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix bugs in send, check balance" />
+    <MESSAGE value="add pfa transfer option" />
+    <option name="LAST_COMMIT_MESSAGE" value="add pfa transfer option" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="360" y="210" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1600012519169">
+      <screen x="0" y="23" width="1792" height="1051" />
+    </state>
+    <state x="360" y="210" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1792.1051@0.23.1792.1051" timestamp="1600012519169" />
     <state x="307" y="93" key="#npm_start" timestamp="1597326021596">
       <screen x="0" y="0" width="1194" height="794" />
     </state>
@@ -724,12 +726,13 @@
     <state width="636" height="267" key="GridCell.Tab.0.right/-1116.197.1116.733/0.23.1792.1026@0.23.1792.1026" timestamp="1597829662608" />
     <state width="636" height="267" key="GridCell.Tab.0.right/-1116.197.1116.733/0.23.1792.1028@0.23.1792.1028" timestamp="1597831360007" />
     <state width="636" height="267" key="GridCell.Tab.0.right/0.23.1792.1024@0.23.1792.1024" timestamp="1598106399621" />
-    <state x="284" y="193" key="Vcs.Push.Dialog.v2" timestamp="1599103192810">
-      <screen x="0" y="23" width="1792" height="1048" />
+    <state x="284" y="193" key="Vcs.Push.Dialog.v2" timestamp="1599558032705">
+      <screen x="0" y="23" width="1792" height="1049" />
     </state>
     <state x="284" y="201" key="Vcs.Push.Dialog.v2/-1116.197.1116.688/0.23.1792.1097@0.23.1792.1097" timestamp="1597831573916" />
     <state x="189" y="129" key="Vcs.Push.Dialog.v2/0.0.1194.794@0.0.1194.794" timestamp="1597331770580" />
     <state x="284" y="193" key="Vcs.Push.Dialog.v2/0.23.1792.1048@0.23.1792.1048" timestamp="1599103192810" />
+    <state x="284" y="193" key="Vcs.Push.Dialog.v2/0.23.1792.1049@0.23.1792.1049" timestamp="1599558032705" />
     <state x="597" y="301" width="598" height="490" key="find.popup" timestamp="1599095360686">
       <screen x="0" y="23" width="1792" height="1047" />
     </state>
