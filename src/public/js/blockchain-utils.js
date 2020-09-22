@@ -866,8 +866,9 @@ let DestroyerABI= [
 export async function sendUSDT(addr,amount,acctobj,memo) {
 
   //0xB66D54ecfAdb4122c824CA2AdF80126A407128C0
-  const pfahash = await sendToken(pfa20Address, acctobj, '0x000000000000000000000000000000000000dEaD', "5","扣除手續費")
-  const usdthash = await sendToken(USDTaddress, acctobj, `0x${addr.substring(2,5)}0000000000000000000000000000000000${addr.substring(39,42)}`, amount,memo+" 提款對銷",true)
+  const usdthash = await sendToken(USDTaddress, acctobj, `0x${addr.substring(2,5)}0000000000000000000000000000000000${addr.substring(39,42)}`, amount,memo+" 提款對銷")
+  const pfahash = await sendToken(pfa20Address, acctobj, '0x000000000000000000000000000000000000dEaD', "5","扣除手續費",true)
+
   //const usdthash = await sendUSDTlegacy(addr,  amount,acctobj,memo)
   console.log(pfahash)
   await verifyUSDTWithdrawal(`${usdthash},${pfahash}`,acctobj.username+usdthash,addr)
