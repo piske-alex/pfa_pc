@@ -42,7 +42,7 @@
   <component name="ChangeListManager">
     <list default="true" id="33c7a400-888c-4aef-b112-febf5c9a8cb5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/public/js/blockchain-utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/js/blockchain-utils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/myWallet/myWallet.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/myWallet/myWallet.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -274,14 +274,7 @@
       <workItem from="1599406334597" duration="5228000" />
       <workItem from="1599985004070" duration="2858000" />
       <workItem from="1600265750632" duration="504000" />
-      <workItem from="1600567069223" duration="13536000" />
-    </task>
-    <task id="LOCAL-00088" summary="prepare merge2">
-      <created>1565246818102</created>
-      <option name="number" value="00088" />
-      <option name="presentableId" value="LOCAL-00088" />
-      <option name="project" value="LOCAL" />
-      <updated>1565246818103</updated>
+      <workItem from="1600567069223" duration="14215000" />
     </task>
     <task id="LOCAL-00089" summary="prepare merge2">
       <created>1565247094315</created>
@@ -619,7 +612,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600745004718</updated>
     </task>
-    <option name="localTasksCounter" value="137" />
+    <task id="LOCAL-00137" summary="switch">
+      <created>1600745647269</created>
+      <option name="number" value="00137" />
+      <option name="presentableId" value="LOCAL-00137" />
+      <option name="project" value="LOCAL" />
+      <updated>1600745647270</updated>
+    </task>
+    <option name="localTasksCounter" value="138" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -658,7 +658,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="details" />
     <MESSAGE value="gitlabci" />
     <MESSAGE value="updated app" />
     <MESSAGE value="numbertest" />
@@ -683,7 +682,8 @@
     <MESSAGE value="fix bugs in send, check balance" />
     <MESSAGE value="add pfa transfer option" />
     <MESSAGE value="new withdrawal method" />
-    <option name="LAST_COMMIT_MESSAGE" value="new withdrawal method" />
+    <MESSAGE value="switch" />
+    <option name="LAST_COMMIT_MESSAGE" value="switch" />
   </component>
   <component name="WindowStateProjectService">
     <state x="360" y="210" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1600012519169">
@@ -722,14 +722,14 @@
     <state width="636" height="267" key="GridCell.Tab.0.right/-1116.197.1116.733/0.23.1792.1026@0.23.1792.1026" timestamp="1597829662608" />
     <state width="636" height="267" key="GridCell.Tab.0.right/-1116.197.1116.733/0.23.1792.1028@0.23.1792.1028" timestamp="1597831360007" />
     <state width="636" height="267" key="GridCell.Tab.0.right/0.23.1792.1024@0.23.1792.1024" timestamp="1598106399621" />
-    <state x="284" y="193" key="Vcs.Push.Dialog.v2" timestamp="1600745007152">
+    <state x="284" y="193" key="Vcs.Push.Dialog.v2" timestamp="1600745650070">
       <screen x="0" y="23" width="1792" height="1050" />
     </state>
     <state x="284" y="201" key="Vcs.Push.Dialog.v2/-1116.197.1116.688/0.23.1792.1097@0.23.1792.1097" timestamp="1597831573916" />
     <state x="189" y="129" key="Vcs.Push.Dialog.v2/0.0.1194.794@0.0.1194.794" timestamp="1597331770580" />
     <state x="284" y="193" key="Vcs.Push.Dialog.v2/0.23.1792.1048@0.23.1792.1048" timestamp="1599103192810" />
     <state x="284" y="193" key="Vcs.Push.Dialog.v2/0.23.1792.1049@0.23.1792.1049" timestamp="1599558032705" />
-    <state x="284" y="193" key="Vcs.Push.Dialog.v2/0.23.1792.1050@0.23.1792.1050" timestamp="1600745007152" />
+    <state x="284" y="193" key="Vcs.Push.Dialog.v2/0.23.1792.1050@0.23.1792.1050" timestamp="1600745650070" />
     <state x="597" y="301" width="598" height="490" key="find.popup" timestamp="1599095360686">
       <screen x="0" y="23" width="1792" height="1047" />
     </state>

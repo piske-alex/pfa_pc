@@ -432,9 +432,13 @@ function Dashboard({
             if(sendAmount<=USDTbalance  && sendAmount>=15 && pfaBalance>=5){
               handleSendModalClose();
               confirmAlert(alertOptions('發送',`你即將發送 ${sendAmount}USDT 到外部地址 ${sendToAddress}，將收取 5PFA 手續費`,
-                ()=>{sendUSDT(sendToAddress,sendAmount,{...account, username: cookies.username},memo)
+                async ()=>{
+                try{
+                  await sendUSDT(sendToAddress,sendAmount,{...account, username: cookies.username},memo)
                   setTransactionFinishedSnackbarOpen(true);
-
+                } catch(e) {
+                  setTransactionFailedSnackbarOpen(true)
+                }
                   setTransactionCount(transactionCount + 3);}, ()=>{}))
               // // eslint-disable-next-line no-restricted-globals
               //
@@ -448,8 +452,13 @@ function Dashboard({
             if(sendAmount<=USDTbalance && sendAmount>=0){
               handleSendModalClose();
               confirmAlert(alertOptions('發送',`你即將發送 ${sendAmount}USDT 到內部地址 ${res.address}，將不收取手續費`,
-                ()=>{sendToken(USDTaddress, account, res.address, sendAmount,memo)
+                async ()=>{try{
+                  await sendToken(USDTaddress, account, res.address, sendAmount,memo)
                   setTransactionFinishedSnackbarOpen(true);
+                } catch(e) {
+                  setTransactionFailedSnackbarOpen(false)
+                }
+
 
                   setTransactionCount(transactionCount + 3);}, ()=>{}))
               // // eslint-disable-next-line no-restricted-globals
