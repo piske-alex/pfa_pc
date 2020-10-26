@@ -357,6 +357,8 @@ function Dashboard({
   }
   const [sendModalOpen, setSendModalOpen] = React.useState(false);
   const handleSendModalOpen = () => {
+    alert('請使用新版本的錢包！謝謝');
+    return;
     setSendModalOpen(true);
   };
 
@@ -367,6 +369,8 @@ function Dashboard({
   }
 
   const handleSendAsset = () => {
+    alert('請使用新版本的錢包！謝謝');
+    return;
     setTransactionCount(transactionCount + 1);
     const sendAsset = async () => {
       try {
@@ -739,7 +743,8 @@ function Dashboard({
                   </Button>
                   <Button
                     variant="outlined"
-                    onClick={setSendModalOpen}
+                    onClick={()=>{alert('請使用新版本的錢包！謝謝');
+                    return;}}
                     style={{ width: "130px", color: '#C0C0C0', padding:'5px 0px' }}
                   >
                     <img src='https://i.loli.net/2019/06/28/5d15641e8e59187387.png' className="donateClass" />
