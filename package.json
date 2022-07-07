@@ -14,7 +14,7 @@
     "font-awesome": "^4.7.0",
     "helloworld": "file:cordova",
     "jsqr": "^1.2.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "moment-timezone": "^0.5.26",
     "prettier": "^1.17.1",
     "qrcode.react": "^0.9.3",
